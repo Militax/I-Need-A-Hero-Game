@@ -16,7 +16,8 @@ namespace Puzzle
 
         #region Variables
         public doubleSwiches input;
-        public GameObject linkedInput;
+        public SwichGlobal inputswitch;
+        public pressureplatePlayer linkedInput;
         public string direction;
         public float waveDuration;
         public float wavePower;
@@ -35,10 +36,14 @@ namespace Puzzle
 
         void Update()
         {
-            //if (linkedInput.activeSelf)
-            //{
-            //    WaveFire();
-            //}
+            if (linkedInput.IsActive)
+            {
+                WaveFire();
+            }
+            if (inputswitch.IsActive)
+            {
+                WaveFire();
+            }
             if (input.IsActive)
             {
                 WaveFire();
