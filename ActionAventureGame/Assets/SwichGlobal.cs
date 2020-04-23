@@ -11,6 +11,8 @@ public class SwichGlobal : ActivationDevice
     public Vector3 eventPosition;
     public GameObject ActivateEvent;
     public GameObject DeActivateEvent;
+	
+	public bool canSwitch = true;
 
     
 
@@ -52,9 +54,10 @@ public class SwichGlobal : ActivationDevice
         foreach (Combination item in combinations)
         {
             print(item.colliderTag + " vs " + tag);
-            if (item.colliderTag == tag)
+            if (item.colliderTag == tag && canSwitch == true)
             {
                 print("activated");
+				StartCoroutine(wait());
                 current = item;
                 IsActive = !IsActive;
                 if (IsActive && eventObject && instance == null)
@@ -86,4 +89,10 @@ public class SwichGlobal : ActivationDevice
         }
 
     }
+	IEnumerator wait()
+	{
+		canSwitch = false;
+		yield return new WaitForSeconds(1);
+		canSwitch = true;
+	}
 }
