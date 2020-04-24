@@ -51,7 +51,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,6 +95,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f2aa7134a3ce6e4d8b9888b7070c4dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  current:
+    colliderTag: 
+    active: {fileID: 0}
+    inactive: {fileID: 0}
+  combinations:
+  - colliderTag: Player
+    active: {fileID: 0}
+    inactive: {fileID: 0}
+  - colliderTag: Box
+    active: {fileID: 0}
+    inactive: {fileID: 0}
   HasBeenActivated: 0
   IsActive: 0
   stayActive: 0
@@ -103,13 +114,6 @@ MonoBehaviour:
   eventPosition: {x: 1, y: 1, z: 0}
   ActivateEvent: {fileID: 0}
   DeActivateEvent: {fileID: 0}
-  combinations:
-  - colliderTag: Player
-    active: {fileID: 0}
-    inactive: {fileID: 0}
-  - colliderTag: Box
-    active: {fileID: 0}
-    inactive: {fileID: 0}
 --- !u!61 &597949960094387062
 BoxCollider2D:
   m_ObjectHideFlags: 0
