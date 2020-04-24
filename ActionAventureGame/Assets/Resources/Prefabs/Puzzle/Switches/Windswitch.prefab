@@ -45,6 +45,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68cf8998b5648e54ea4349255d3dc529, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  current:
+    colliderTag: 
+    active: {fileID: 0}
+    inactive: {fileID: 0}
+  combinations:
+  - colliderTag: WindWave
+    active: {fileID: 21300000, guid: 4f763dabef2ae684b9dff7d5c1fc12fb, type: 3}
+    inactive: {fileID: 21300000, guid: 7db7bdd0f56219a4ba8159bf29d90d16, type: 3}
   HasBeenActivated: 0
   IsActive: 0
   deSpawnOnLeave: 1
@@ -52,10 +60,6 @@ MonoBehaviour:
   eventPosition: {x: 0, y: 0, z: 0}
   ActivateEvent: {fileID: 0}
   DeActivateEvent: {fileID: 0}
-  combinations:
-  - colliderTag: WindWave
-    active: {fileID: 21300000, guid: 4f763dabef2ae684b9dff7d5c1fc12fb, type: 3}
-    inactive: {fileID: 21300000, guid: 7db7bdd0f56219a4ba8159bf29d90d16, type: 3}
 --- !u!212 &3129667662278477771
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -74,7 +78,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
