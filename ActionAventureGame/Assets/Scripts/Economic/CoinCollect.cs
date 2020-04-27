@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using GameManagement;
+using Economic;
 
 
 
@@ -22,6 +23,8 @@ namespace Economic
 			if (other.transform.tag == "Player")
 			{
 				GameManager.Instance.CoinOwned++;
+				GameObject.FindObjectOfType<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
+				GameObject.FindObjectOfType<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 				Destroy(gameObject);
 			}
 		}

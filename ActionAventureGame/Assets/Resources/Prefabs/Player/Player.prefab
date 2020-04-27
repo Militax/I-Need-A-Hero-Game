@@ -748,9 +748,8 @@ GameObject:
   - component: {fileID: 8883492670370414281}
   - component: {fileID: 8883492670370414285}
   - component: {fileID: 1358456097}
-  - component: {fileID: 1358456096}
-  - component: {fileID: 1358456099}
   - component: {fileID: 1062262859}
+  - component: {fileID: 9214735636060995000}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -813,7 +812,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 15
+  m_SortingOrder: 2101
   m_Sprite: {fileID: 21300000, guid: b93167e1fcdf3344c86aa2faa5adbd8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -838,7 +837,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.42}
+  m_Offset: {x: 0, y: -0.3729435}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -849,7 +848,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.34, y: 0.09}
+  m_Size: {x: 0.34, y: 0.18411297}
   m_EdgeRadius: 0
 --- !u!50 &8883492670370414282
 Rigidbody2D:
@@ -863,7 +862,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -945,46 +944,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1358456096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8883492670370414280}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29590095b7f29794fb4664e92a7e1491, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WindPowerPrefab: {fileID: 0}
-  FrozenPowerPrefab: {fileID: 0}
-  PowerPowerPrefab: {fileID: 0}
-  topPoint: {fileID: 0}
-  downPoint: {fileID: 0}
-  leftPoint: {fileID: 0}
-  rightPoint: {fileID: 0}
-  topLeftPoint: {fileID: 0}
-  topRightPoint: {fileID: 0}
-  downLeftPoint: {fileID: 0}
-  downRightPoint: {fileID: 0}
-  lookingAngle: 
-  animator: {fileID: 1358456097}
---- !u!114 &1358456099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8883492670370414280}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14eaa5b283d6c0547b99ee607a0bd9fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 0}
-  DeathState: {fileID: 0}
-  animator: {fileID: 1358456097}
 --- !u!114 &1062262859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1013,6 +972,22 @@ MonoBehaviour:
   downRightPoint: {fileID: 1516100111}
   lookingAngle: 
   animator: {fileID: 1358456097}
+--- !u!70 &9214735636060995000
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8883492670370414280}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.06197165, y: 0.062045336}
+  m_Size: {x: 0.3057522, y: 0.6621779}
+  m_Direction: 0
 --- !u!1 &8883492670479812898
 GameObject:
   m_ObjectHideFlags: 0

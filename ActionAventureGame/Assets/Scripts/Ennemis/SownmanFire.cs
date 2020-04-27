@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameManagement;
+using Player;
 
 namespace Ennemy
 {
@@ -8,7 +10,7 @@ namespace Ennemy
     {
         Animator animator;
         #region Variables
-        public Transform player;
+        public  PlayerMovement player;
         public GameObject iceBulletPrefab;
 
         public float cooldown;
@@ -24,6 +26,11 @@ namespace Ennemy
         }
         void Update()
         {
+            if (player == null)
+            {
+                player = GameManager.Instance.player;
+            }
+
             if (isInFireZone && canShoot)
             {
                 Shooting();
@@ -50,7 +57,7 @@ namespace Ennemy
         void Shooting()
         {
             GameObject bullet = Instantiate(iceBulletPrefab, transform.position, transform.rotation);
-            bullet.GetComponent<IceBullet>().player = player;
+            bullet.GetComponent<IceBullet>().player = player.transform;
             StartCoroutine(SnowmanFireCooldown());
         }
         IEnumerator SnowmanFireCooldown()
