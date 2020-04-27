@@ -40,10 +40,14 @@ public class AddSorting : MonoBehaviour
         {
             Allitems[i].spr.sortingOrder = i;
         }
-
+		foreach (DynamicSorting item in GameObject.FindObjectsOfType<DynamicSorting>())
+        {
+            item.HeightMap = Allitems.Select(i => i.offset).ToList();
+        }
         
-    }
-    private void OnDrawGizmos()
+    }        
+ 
+	private void OnDrawGizmos()
     {
         if (Allitems.Count == 0)
         {
@@ -55,8 +59,8 @@ public class AddSorting : MonoBehaviour
         {
             Gizmos.DrawWireSphere(new Vector2(item.spr.transform.position.x,item.offset), 0.01f);
         }
-        
-        
+
+
     }
     
 }
