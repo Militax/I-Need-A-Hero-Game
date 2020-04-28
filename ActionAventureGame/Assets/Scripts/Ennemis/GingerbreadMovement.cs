@@ -52,7 +52,7 @@ namespace Ennemy
                 }
 
                 Movement();
-                Debug.Log(canMove);
+                //Debug.Log(canMove);
 
                 float xDiff = player.transform.position.x - transform.position.x;
                 float yDiff = player.transform.position.y - transform.position.y;

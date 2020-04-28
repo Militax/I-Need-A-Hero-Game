@@ -36,20 +36,20 @@ public class catBehaviour : MonoBehaviour
             {
                 yield return new WaitForSeconds(prepareTime / 2);
                 animator.SetTrigger("Preparation");
-                Debug.Log("0");
+                
                 prepare = false;
             }
             target = Player.transform.position;
             yield return new WaitForSeconds(prepareTime / 2);
-            Debug.Log("1");
+            
             Dash();
             yield return new WaitForSeconds(dashTime);
-            Debug.Log("2");
+            
             
             rb.velocity = Vector3.zero;
             canBeDamaged = true;
             yield return new WaitForSeconds(vulnerable);
-            Debug.Log("3");
+            
             canBeDamaged = false;
             
         }
@@ -70,7 +70,7 @@ public class catBehaviour : MonoBehaviour
         bool activation = playerisIn;
 
         playerisIn = (Vector3.Distance(transform.position, Player.transform.position) <= detectionRange);
-        Debug.Log("playeris In" + playerisIn);
+        
         if (activation != playerisIn && playerisIn)
         {
             prepare = true;

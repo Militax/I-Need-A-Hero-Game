@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 namespace GameManagement
 {
@@ -11,8 +12,18 @@ namespace GameManagement
     /// </summary>
     public class CanvasManagement : MonoBehaviour
     {
+        [System.Serializable]
+        public class Bars
+        {
+            public int Health; 
+            public Sprite Bar;
+        }
+        public Bars[] bars;
         #region PlayerLife
         public Image[] hearts;
+        public Image hpBar;
+        Sprite BaseBar;
+        
         public Sprite fullHeart;
         public Sprite emptyHeart;
         #endregion
@@ -23,13 +34,16 @@ namespace GameManagement
 
         void Start()
         {
-            
+            hpBar = hpBar.GetComponent<Image>();
+            BaseBar = hpBar.GetComponent<Image>().sprite;
+            UpdateBar(GameManager.Instance.playerHealth);
         }
         
         void Update()
         {
             EconomicCanvas();
             PlayerLifeCanvas();
+            
         }
 
 
@@ -67,6 +81,23 @@ namespace GameManagement
                     hearts[i].enabled = false;
                 }
 
+            }
+        }
+        public void UpdateBar(int hp)
+        {
+            bars = bars.OrderByDescending(t => t.Health).ToArray();
+            foreach (Bars item in bars)
+            {
+                if (hp >= item.Health)
+                {
+                    hpBar.sprite = item.Bar;
+                    return;
+                }
+                if (hp < 0)
+                {
+
+                    hpBar.sprite = BaseBar;
+                }
             }
         }
     }
