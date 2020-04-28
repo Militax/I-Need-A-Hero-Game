@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 public class SwichGlobal : ActivationDevice
 {
+    
     public bool deSpawnOnLeave = true;
     private GameObject instance;
     public GameObject eventObject;
@@ -23,7 +24,7 @@ public class SwichGlobal : ActivationDevice
     private void OnTriggerEnter2D(Collider2D other)
     {
         
-        if (activationCooldown.IsOver())
+        if (activationCooldown.IsOver() && spr.enabled)
         {
             if (HasBeenActivated && SwitchOnce)
             {
@@ -79,16 +80,18 @@ public class SwichGlobal : ActivationDevice
                 canSwitch = false;
 
         }
-        foreach (Interactables item in interactables)
+        foreach (ActivationDevice item in interactables)
         {
             if (IsActive)
             {
-                item.Button.SetActive(true);
+                item.enabled = true;
+                item.GetComponent<SpriteRenderer>().enabled = true;
             }
             if (!IsActive)
             {
-                item.Button.GetComponent<SwichGlobal>().RefreshState(false, current.colliderTag);
-                item.Button.SetActive(false);
+                item.GetComponent<SwichGlobal>().RefreshState(false, current.colliderTag);
+                item.enabled = false;
+                item.GetComponent<SpriteRenderer>().enabled = false ;
             }
             
         }
@@ -112,5 +115,17 @@ public class SwichGlobal : ActivationDevice
     {
         yield return new WaitForSeconds(timer);
         RefreshState(!IsActive,current.colliderTag);
+    }
+
+    private void Awake()
+    {
+        if (interactables.Length != 0)
+        {
+            foreach (ActivationDevice item in interactables)
+            {
+                item.GetComponent<SpriteRenderer>().enabled = false;
+                item.enabled = false;
+            }
+        }
     }
 }

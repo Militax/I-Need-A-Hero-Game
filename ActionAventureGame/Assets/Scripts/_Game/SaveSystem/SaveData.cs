@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
+[System.Serializable]
 public class SaveData
 {
     private static SaveData _current;
@@ -24,6 +24,8 @@ public class SaveData
 
     }
     public ActivationDevicesData[] InteractablesData;
+
+    public MovableObjectData[] MovableData;
 }
 
 

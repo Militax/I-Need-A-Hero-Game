@@ -13,6 +13,8 @@ namespace Puzzle
     /// </summary>
     public class MovableObject : MonoBehaviour
     {
+        [HideInInspector]
+        public int SaveID = -1;
         public int powerStateRequest;
 
         public float duration;
