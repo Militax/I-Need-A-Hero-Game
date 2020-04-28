@@ -41,7 +41,9 @@ namespace Ennemy
             {
                 Debug.Log("die");
                 if (ennemyType == "Gingerbread")
+                {
                     this.GetComponent<GingerbreadMovement>().isAlive = false;
+                }
                 animator.SetTrigger("Death");
                 StartCoroutine(cooldown());
             }

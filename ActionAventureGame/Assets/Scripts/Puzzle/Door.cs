@@ -21,16 +21,22 @@ namespace Puzzle
         void Update()
         {
             bool state = startState;
+
             if (linkedInput.Length == 0)
+            {
                 return;
+            } 
+
             foreach (ActivationDevice item in linkedInput)
             {
                 if (!item.IsActive)
+                {
                     state = !startState;
+                }   
             }
             closeState.SetActive(state);
             openState.SetActive(!state);
-
+            
         }
 
 

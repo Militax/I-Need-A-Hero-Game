@@ -68,20 +68,11 @@ namespace Player
             {
                 Attaque();
                 ComboCount = 1;
-                animator.SetTrigger("Attack 1");
-                animator.ResetTrigger("Attack 2");
-                animator.ResetTrigger("Attack 3");
             }
             else if (Input.GetButtonDown("Attack") && isAttacking == true && canAttack == true)
             {
                 Attaque();
                 ComboCount += 1;
-
-                if (ComboCount == 2)
-                { animator.SetTrigger("Attack 2"); }
-
-                if (ComboCount == 3)
-                { animator.SetTrigger("Attack 3"); }
 
                 StopCoroutine(myCoroutine);
             }
@@ -117,8 +108,10 @@ namespace Player
         }
         IEnumerator Attaque_Movement()
         {
+            animator.SetInteger("NumAttack", ComboCount);
             movespeed = baseMoveSpeed * 2;
             yield return new WaitForSeconds(attackDuration);
+            animator.SetInteger("NumAttack", 0);
             movespeed = baseMoveSpeed;
         }
         void AttaqueAIM()

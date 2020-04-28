@@ -39,7 +39,22 @@ namespace Player
         {
             CalibrateWindPower();
             InstantiateWindWave();
+
+            #region Debug Gestion vent
+            if (Input.GetButtonDown("Jump"))
+            {
+                if (GameManager.Instance.powerState == 3)
+                {
+                    GameManager.Instance.powerState = 1;
+                }
+                else
+                {
+                    GameManager.Instance.powerState ++;
+                }
+            }
+            #endregion
         }
+
 
         #region Fonctions
 
