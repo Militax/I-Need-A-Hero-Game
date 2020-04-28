@@ -51,7 +51,7 @@ namespace Boss
             }
             if (other.CompareTag("WindWave") && isOut)
             {
-                moveDirection = ((other.GetComponent<WindPower>().WaveDirection) * (power * 100) * Time.fixedDeltaTime);
+                moveDirection = ((other.GetComponentInParent<WindPower>().WaveDirection) * (power * 100) * Time.fixedDeltaTime);
             }
         }
 

@@ -15,12 +15,8 @@ public class ActivationDevice : MonoBehaviour
     }
     [HideInInspector] public Combination current;
     public Combination[] combinations;
-    [System.Serializable]
-    public class Interactables
-    {
-        public GameObject Button;
-    }
-    public Interactables[] interactables;
+    
+    public ActivationDevice[] interactables;
 
     [HideInInspector]
     public bool HasBeenActivated = false;
