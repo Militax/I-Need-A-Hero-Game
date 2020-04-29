@@ -99,6 +99,7 @@ public class ShopInteraction : MonoBehaviour
 				Debug.Log("coeur6");
 				GameManager.Instance.playerHealthMax = 6;
 				GameManager.Instance.playerHealth = 6;
+				GameObject.FindObjectOfType<CanvasManagement>().UpdateBar(GameManager.Instance.playerHealth);
 				GameManager.Instance.CoinOwned -= 50;
 			}
 	
@@ -113,6 +114,7 @@ public class ShopInteraction : MonoBehaviour
 				Debug.Log("coeur7");
 				GameManager.Instance.playerHealthMax = 7;
 				GameManager.Instance.playerHealth = 7;
+				GameObject.FindObjectOfType<CanvasManagement>().UpdateBar(GameManager.Instance.playerHealth);
 				GameManager.Instance.CoinOwned -= 70;
 			}
 			
@@ -126,6 +128,7 @@ public class ShopInteraction : MonoBehaviour
 				Debug.Log("coeur8");
 				GameManager.Instance.playerHealthMax = 8;
 				GameManager.Instance.playerHealth = 8;
+				GameObject.FindObjectOfType<CanvasManagement>().UpdateBar(GameManager.Instance.playerHealth);
 				GameManager.Instance.CoinOwned -= 150;
 			}
 		
@@ -139,6 +142,7 @@ public class ShopInteraction : MonoBehaviour
 				Debug.Log("coeur9");
 				GameManager.Instance.playerHealthMax = 9;
 				GameManager.Instance.playerHealth = 9;
+				GameObject.FindObjectOfType<CanvasManagement>().UpdateBar(GameManager.Instance.playerHealth);
 				GameManager.Instance.CoinOwned -= 300;
 			}
 		}
@@ -151,6 +155,7 @@ public class ShopInteraction : MonoBehaviour
 				Debug.Log("coeur10");
 				GameManager.Instance.playerHealthMax = 10;
 				GameManager.Instance.playerHealth = 10;
+				GameObject.FindObjectOfType<CanvasManagement>().UpdateBar(GameManager.Instance.playerHealth);
 				GameManager.Instance.CoinOwned -= 600;
 			}
 		}

@@ -11,6 +11,7 @@ namespace Economic
     {
 
         public Image Bourse;
+        Sprite baseimage;
 
 
         [System.Serializable]
@@ -32,11 +33,17 @@ namespace Economic
                     Bourse.sprite = item.accordingSprite;
                     return;
                 }
+                if (coins < 0)
+                {
+                    
+                    Bourse.sprite = baseimage;
+                }
             }
         }
         private void Start()
         {
             Bourse = Bourse.GetComponent<Image>();
+            baseimage = Bourse.GetComponent<Image>().sprite;
             UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
         }
         private void Update()
