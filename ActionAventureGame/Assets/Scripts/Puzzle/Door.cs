@@ -29,7 +29,7 @@ namespace Puzzle
 
             foreach (ActivationDevice item in linkedInput)
             {
-                if (!item.IsActive || item.GetComponent<SpriteRenderer>().enabled)
+                if (!item.IsActive )
                 {
                     state = !startState;
                 }   

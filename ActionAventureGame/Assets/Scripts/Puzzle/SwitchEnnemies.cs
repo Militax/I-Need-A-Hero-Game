@@ -15,7 +15,7 @@ public class SwitchEnnemies : ActivationDevice
 
     protected override void RefreshState(bool state, string tag = null)
     {
-        ennemies.RemoveAll(item => item == null);
+        
         foreach (Combination item in combinations)
         {
 
@@ -31,6 +31,21 @@ public class SwitchEnnemies : ActivationDevice
                 }
             }
 
+        }
+    }
+    private void Start()
+    {
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        
+    }
+    private void Update()
+    {
+        ennemies.RemoveAll(item => item == null);
+        if (ennemies.Count == 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.GetComponent<BoxCollider2D>().enabled = true;
         }
     }
 }

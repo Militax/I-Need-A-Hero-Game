@@ -43,6 +43,7 @@ namespace GameManagement
         {
             EconomicCanvas();
             PlayerLifeCanvas();
+            UpdateBar(GameManager.Instance.playerHealthMax);
             
         }
 

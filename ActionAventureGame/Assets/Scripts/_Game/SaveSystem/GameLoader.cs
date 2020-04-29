@@ -20,14 +20,14 @@ public class GameLoader : MonoBehaviour
         for (int i = 0; i < SaveData.current.InteractablesData.Length; i++)
         {
             ActivationDevicesData.Combination combination = SaveData.current.InteractablesData[i].current;
-            
+
             Devices[i].IsActive = SaveData.current.InteractablesData[i].IsActive;
             Devices[i].HasBeenActivated = SaveData.current.InteractablesData[i].HasBeenPressed;
             Devices[i].current.colliderTag = combination.colliderTag;
             Devices[i].LoadFromSave();
         }
 
-        
+
     }
     private void SaveActivationDevice()
     {
@@ -49,10 +49,10 @@ public class GameLoader : MonoBehaviour
         }
 
         SaveData.current.InteractablesData = devicesDatas;
-        
-        
+
+
     }
-    
+
 
     #endregion
 
@@ -72,7 +72,7 @@ public class GameLoader : MonoBehaviour
             Movables[i].transform.position = SaveData.current.MovableData[i].position;
             Movables[i].transform.rotation = SaveData.current.MovableData[i].rotation;
             Movables[i].SaveID = SaveData.current.MovableData[i].ID;
-            
+
         }
 
     }
@@ -86,13 +86,13 @@ public class GameLoader : MonoBehaviour
             {
                 Movables[i].SaveID = i;
             }
-            
-            MovablesData[i] = new MovableObjectData() 
+
+            MovablesData[i] = new MovableObjectData()
             { ID = i, position = Movables[i].transform.position, rotation = Movables[i].transform.rotation };
-            
+
         }
         SaveData.current.MovableData = MovablesData;
-        
+
     }
 
     #endregion

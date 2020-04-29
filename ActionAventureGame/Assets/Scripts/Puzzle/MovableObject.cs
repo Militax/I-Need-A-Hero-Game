@@ -30,7 +30,7 @@ namespace Puzzle
             isMoving = false;
         }
 
-	
+
 
         void OnTriggerEnter2D(Collider2D other)
         {
@@ -42,16 +42,16 @@ namespace Puzzle
             }
 
         }
-       /* private void OnCollisionEnter2D(Collision2D collision)
-        {
-            if (collision.collider.tag == "Player")
-            {
-                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        /* private void OnCollisionEnter2D(Collision2D collision)
+         {
+             if (collision.collider.tag == "Player")
+             {
+                 rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
-            }
-            
-        }
-		*/
+             }
+
+         }
+         */
 
 
         IEnumerator moveDuration()

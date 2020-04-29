@@ -66,13 +66,14 @@ namespace Player
 
             if (Input.GetButtonDown("Attack") && isAttacking == false && canAttack == true)
             {
-                Attaque();
                 ComboCount = 1;
+                Attaque();
+
             }
             else if (Input.GetButtonDown("Attack") && isAttacking == true && canAttack == true)
             {
-                Attaque();
                 ComboCount += 1;
+                Attaque();
 
                 StopCoroutine(myCoroutine);
             }
