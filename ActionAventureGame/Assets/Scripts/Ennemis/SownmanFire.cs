@@ -36,6 +36,29 @@ namespace Ennemy
                 Shooting();
                 animator.SetTrigger("CanAttack");
             }
+
+            float xDiff = player.transform.position.x - transform.position.x;
+            float yDiff = player.transform.position.y - transform.position.y;
+            //en bas a gauche 
+            if (xDiff < 0 && yDiff < 0)
+            {
+                animator.SetFloat("Attack",1);
+            }
+            //en bas a droite
+            if (xDiff > 0 && yDiff < 0)
+            {
+                animator.SetFloat("Attack",0);
+            }
+            //en haut a gauche
+            if (xDiff < 0 && yDiff > 0)
+            {
+                animator.SetFloat("Attack",1);
+            }
+            //en haut a droite
+            if (xDiff > 0 && yDiff > 0)
+            {
+                animator.SetFloat("Attack",0);
+            }
         }
 
         void OnTriggerEnter2D(Collider2D other)
