@@ -4,7 +4,6 @@ using UnityEngine;
 using System;
 public class SwichGlobal : ActivationDevice
 {
-
     public bool deSpawnOnLeave = true;
     private GameObject instance;
     public GameObject eventObject;
@@ -128,4 +127,5 @@ public class SwichGlobal : ActivationDevice
             }
         }
     }
+
 }
