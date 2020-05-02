@@ -14,7 +14,7 @@ public class catBehaviour : MonoBehaviour
     public float vulnerable;
     public bool canBeDamaged;
     bool playerisIn = false;
-    bool prepare;
+    public bool prepare;
     public float detectionRange;
     public PlayerMovement Player;
     Vector3 target;
@@ -34,9 +34,8 @@ public class catBehaviour : MonoBehaviour
         {
             if (prepare)
             {
-                yield return new WaitForSeconds(prepareTime / 2);
                 animator.SetTrigger("Preparation");
-                
+                yield return new WaitForSeconds(prepareTime / 2);
                 prepare = false;
             }
             target = Player.transform.position;
@@ -51,14 +50,15 @@ public class catBehaviour : MonoBehaviour
             yield return new WaitForSeconds(vulnerable);
             
             canBeDamaged = false;
+
+
+            prepare = true;
+                
             
         }
         
         
     }
-
-
-
 
     private void Update()
     {
@@ -79,7 +79,6 @@ public class catBehaviour : MonoBehaviour
         if (rb.velocity == Vector2.zero)
         {
             Vector3 path = (Player.transform.position - gameObject.transform.position).normalized;
-            animator.SetFloat("Direction", Vector2.Angle(transform.up, path));
         }
 
     }
@@ -87,10 +86,11 @@ public class catBehaviour : MonoBehaviour
     void Dash()
     {
         Vector3 path = (target - gameObject.transform.position).normalized;
+        animator.SetTrigger("CanAttack");
+        animator.SetFloat("Attack", Vector2.Angle(transform.up, path));
         float distance = Vector3.Distance(transform.position, target);
         speed = distance / dashTime;
         rb.velocity = path * speed;
-        animator.SetFloat("Direction", Vector2.Angle(transform.up, path));
         
     }
     private void OnDrawGizmos()
