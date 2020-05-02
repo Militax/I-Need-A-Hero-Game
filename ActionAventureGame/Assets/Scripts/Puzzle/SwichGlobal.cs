@@ -4,7 +4,6 @@ using UnityEngine;
 using System;
 public class SwichGlobal : ActivationDevice
 {
-    
     public bool deSpawnOnLeave = true;
     private GameObject instance;
     public GameObject eventObject;
@@ -13,18 +12,15 @@ public class SwichGlobal : ActivationDevice
     //public GameObject ActivateEvent;
     //public GameObject DeActivateEvent;
     public bool SwitchOnce;
-	public bool canSwitch = true;
+    public bool canSwitch = true;
     public bool useTimer;
     public float timer;
     Cooldown activationCooldown = new Cooldown(0.5f);
-    
 
-    
-    
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
-        if (activationCooldown.IsOver() && spr.enabled)
+
+        if (activationCooldown.IsOver())
         {
             if (HasBeenActivated && SwitchOnce)
             {
@@ -33,30 +29,30 @@ public class SwichGlobal : ActivationDevice
             activationCooldown.Reset();
             Debug.Log(other.tag + " " + gameObject.name);
             RefreshState(!IsActive, other.tag);
-            
+
             if (useTimer)
                 StartCoroutine(Timer());
-            
+
         }
-            
-        
+
+
     }
 
-    
+
 
 
     protected override void RefreshState(bool state, string tag = null)
     {
-        
+
         foreach (Combination item in combinations)
         {
-            
-            if (item.colliderTag == tag )
+
+            if (item.colliderTag == tag)
             {
-				
+
                 current = item;
                 IsActive = state;
-                
+
                 if (IsActive && eventObject && instance == null)
                 {
                     instance = Instantiate(eventObject, eventPosition + transform.position, Quaternion.identity, transform);
@@ -65,15 +61,15 @@ public class SwichGlobal : ActivationDevice
 
                 else if (!IsActive && instance && deSpawnOnLeave)
                     Destroy(instance);
-                
+
                 spr.sprite = (IsActive ? item.active : item.inactive);
                 base.RefreshState(state, tag);
                 //if (!ActivateEvent || !DeActivateEvent)
                 //    return;
                 //ActivateEvent.SetActive(!ActivateEvent.activeSelf);
                 //DeActivateEvent.SetActive(!DeActivateEvent.activeSelf);
-                
-                
+
+
                 break;
             }
             if (SwitchOnce)
@@ -91,11 +87,11 @@ public class SwichGlobal : ActivationDevice
             {
                 item.GetComponent<SwichGlobal>().RefreshState(false, current.colliderTag);
                 item.enabled = false;
-                item.GetComponent<SpriteRenderer>().enabled = false ;
+                item.GetComponent<SpriteRenderer>().enabled = false;
             }
-            
+
         }
-        
+
     }
     private void OnDrawGizmos()
     {
@@ -110,11 +106,11 @@ public class SwichGlobal : ActivationDevice
     }
 
 
-	
+
     private IEnumerator Timer()
     {
         yield return new WaitForSeconds(timer);
-        RefreshState(!IsActive,current.colliderTag);
+        RefreshState(!IsActive, current.colliderTag);
     }
 
     private void Awake()

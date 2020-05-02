@@ -24,7 +24,7 @@ namespace Player
             {
                 animator.SetTrigger("Dead");
                 Instantiate(DeathState, transform.position, Quaternion.identity);
-                gameObject.transform.position = GameManager.Instance.RespawnPoint.transform.position;
+                gameObject.transform.position = GameManager.Instance.RespawnPoint;
                 GameManager.Instance.DeathCounter += 1;
                 GameManager.Instance.playerHealth = GameManager.Instance.playerHealthMax;
             }

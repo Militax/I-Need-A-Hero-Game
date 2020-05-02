@@ -26,6 +26,8 @@ public class SaveData
     public ActivationDevicesData[] InteractablesData;
 
     public MovableObjectData[] MovableData;
+
+    public GameManagerData ManagerData;
 }
 
 

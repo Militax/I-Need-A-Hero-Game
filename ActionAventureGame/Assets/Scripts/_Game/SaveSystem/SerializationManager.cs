@@ -5,69 +5,61 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Runtime.Serialization;
 
-public class SerializationManager
+namespace SaveSystem
 {
-  
-    public static bool Save(string saveName, object saveData)
+    public class SerializationManager
     {
-        BinaryFormatter formatter = GetBinaryFormatter();
-
-        if(!Directory.Exists(Application.persistentDataPath + "/saves"))
-            Directory.CreateDirectory(Application.persistentDataPath + "/saves");
-
-        string path = Application.persistentDataPath + "/saves/" + saveName + ".save";
-
-        FileStream file = File.Create(path);
-
-        formatter.Serialize(file, saveData);
-
-        file.Close();
-
-        return true;
-    }
-
-    public static object Load(string path)
-    {
-        if (!File.Exists(path))
-            return null;
-
-        BinaryFormatter formatter = GetBinaryFormatter();
-
-        FileStream file = File.Open(path, FileMode.Open);
-        Debug.Log("loading " + path);
-        try
+        private static string ConcatenatePath(string fileName)
         {
-            object save = formatter.Deserialize(file);
-            file.Close();
-            return save;
+            return Path.Combine(Application.persistentDataPath, fileName);
         }
-        catch
+
+        public static string Save(string saveName, object saveData) // saveName SaveDirectories/FileName => e.g Saves/sample.save
         {
-            Debug.LogErrorFormat("Failed to load flie at {0}", path);
+            string absolutePath = ConcatenatePath(saveName);
+
+            Debug.Log(absolutePath);
+            BinaryFormatter formatter = GetBinaryFormatter();
+            FileStream file = File.Create(absolutePath);
+
+            formatter.Serialize(file, saveData);
             file.Close();
-            return null;
+            return absolutePath;
+        }
+
+        public static object Load(string path)
+        {
+            if (!File.Exists(path))
+                return null;
+
+            BinaryFormatter formatter = GetBinaryFormatter();
+            FileStream file = File.Open(path, FileMode.Open);
+
+            try
+            {
+                object save = formatter.Deserialize(file);
+                file.Close();
+                return save;
+            }
+            catch
+            {
+                Debug.LogErrorFormat("Failed to load flie at {0}", path);
+                file.Close();
+                return null;
+            }
+        }
+
+        public static BinaryFormatter GetBinaryFormatter()
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            SurrogateSelector selector = new SurrogateSelector();
+            Vector3SerializationSurrogate vector3Surrogate = new Vector3SerializationSurrogate();
+            QuaternionSurrogate quaternionSurrogate = new QuaternionSurrogate();
+
+            selector.AddSurrogate(typeof(Vector3), new StreamingContext(StreamingContextStates.All), vector3Surrogate);
+            selector.AddSurrogate(typeof(Quaternion), new StreamingContext(StreamingContextStates.All), quaternionSurrogate);
+            formatter.SurrogateSelector = selector;
+            return formatter;
         }
     }
-
-
-
-
-    public static BinaryFormatter GetBinaryFormatter()
-    {
-        BinaryFormatter formatter = new BinaryFormatter();
-        SurrogateSelector selector = new SurrogateSelector();
-        Vector3SerializationSurrogate vector3Surrogate = new Vector3SerializationSurrogate();
-        QuaternionSurrogate quaternionSurrogate = new QuaternionSurrogate();
-
-        selector.AddSurrogate(typeof(Vector3), new StreamingContext(StreamingContextStates.All), vector3Surrogate);
-        
-        selector.AddSurrogate(typeof(Quaternion), new StreamingContext(StreamingContextStates.All), quaternionSurrogate);
-
-        formatter.SurrogateSelector = selector;
-        
-        return formatter;
-    }
-
-
-
 }

@@ -44,6 +44,7 @@ namespace Ennemy
                 if (player == null)
                 {
                     player = GameManager.Instance.player;
+                    return;
                 }
 
                 if (Vector2.Distance(transform.position, player.transform.position) <= aggroZone && !canMove)
