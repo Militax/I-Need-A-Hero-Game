@@ -236,7 +236,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1414820884730677117}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.14, y: -0.43, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 1047077708968744948}
@@ -267,12 +267,19 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0}
-      - {x: 2.75, y: -0.6}
-      - {x: 3.1985292, y: 1.2329241}
-      - {x: 2.8301418, y: 2.5284824}
-      - {x: 1.2478496, y: 2.8031876}
-      - {x: -0.40325555, y: 2.4905646}
+    - - {x: 0.14584497, y: -0.2820116}
+      - {x: 1.2710499, y: -0.24200879}
+      - {x: 1.4368296, y: -0.058977272}
+      - {x: 1.5322837, y: 0.20785367}
+      - {x: 1.5201095, y: 0.4941001}
+      - {x: 1.370835, y: 0.77123684}
+      - {x: 1.2303619, y: 0.96517813}
+      - {x: 1.0253035, y: 1.1429768}
+      - {x: 0.842724, y: 1.2254204}
+      - {x: 0.4813126, y: 1.3108594}
+      - {x: 0.20197554, y: 1.3304447}
+      - {x: -0.09756627, y: 1.2727824}
+      - {x: -0.27588987, y: 1.2129678}
 --- !u!114 &3182750862306445507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,8 +387,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301668436816612185}
-  - component: {fileID: 7722952626412251345}
   - component: {fileID: 2754148828793719204}
+  - component: {fileID: 3290960017201797588}
   m_Layer: 0
   m_Name: Attaque_Hitbox_DownRight
   m_TagString: Sword
@@ -397,13 +404,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2329986764599153959}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.11, y: 1.63, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 1047077708968744948}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
---- !u!60 &7722952626412251345
+--- !u!114 &2754148828793719204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2329986764599153959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8068ad93e3bfbe44b8ee2a612bf91df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackduration: 0.2
+--- !u!60 &3290960017201797588
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -428,23 +448,19 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0}
-      - {x: 1, y: 0}
-      - {x: 1, y: 1}
-      - {x: 0, y: 1}
---- !u!114 &2754148828793719204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2329986764599153959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8068ad93e3bfbe44b8ee2a612bf91df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackduration: 0.2
+    - - {x: 0.15072656, y: 0.1416518}
+      - {x: 1.2710499, y: -0.24200879}
+      - {x: 1.4368296, y: -0.058977272}
+      - {x: 1.5322837, y: 0.20785367}
+      - {x: 1.5201095, y: 0.4941001}
+      - {x: 1.370835, y: 0.77123684}
+      - {x: 1.2303619, y: 0.96517813}
+      - {x: 1.0253035, y: 1.1429768}
+      - {x: 0.842724, y: 1.2254204}
+      - {x: 0.4813126, y: 1.3108594}
+      - {x: 0.20197554, y: 1.3304447}
+      - {x: -0.09756627, y: 1.2727824}
+      - {x: -0.27588987, y: 1.2129678}
 --- !u!1 &2974234147413611750
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,7 +649,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6090839389637778856}
   m_LocalRotation: {x: 0, y: -0, z: -1, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.73, y: 1.61, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 1047077708968744948}
@@ -664,10 +680,19 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0}
-      - {x: 1, y: 0}
-      - {x: 1, y: 1}
-      - {x: 0, y: 1}
+    - - {x: 0.16927825, y: 0.115679406}
+      - {x: 1.2710499, y: -0.24200879}
+      - {x: 1.4368296, y: -0.058977272}
+      - {x: 1.5322837, y: 0.20785367}
+      - {x: 1.5201095, y: 0.4941001}
+      - {x: 1.370835, y: 0.77123684}
+      - {x: 1.2303619, y: 0.96517813}
+      - {x: 1.0253035, y: 1.1429768}
+      - {x: 0.842724, y: 1.2254204}
+      - {x: 0.4813126, y: 1.3108594}
+      - {x: 0.20197554, y: 1.3304447}
+      - {x: -0.09756627, y: 1.2727824}
+      - {x: -0.27588987, y: 1.2129678}
 --- !u!114 &5512608560518494737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -690,8 +715,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5138153093408797868}
-  - component: {fileID: 2903887884852041508}
   - component: {fileID: 5748030986427194273}
+  - component: {fileID: 3900806086144933687}
   m_Layer: 0
   m_Name: Attaque_Hitbox_TopLeft
   m_TagString: Sword
@@ -707,13 +732,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7148365195945519826}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.61, y: -0.53, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 1047077708968744948}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!60 &2903887884852041508
+--- !u!114 &5748030986427194273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7148365195945519826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8068ad93e3bfbe44b8ee2a612bf91df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackduration: 0.2
+--- !u!60 &3900806086144933687
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -738,23 +776,19 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0}
-      - {x: 1, y: 0}
-      - {x: 1, y: 1}
-      - {x: 0, y: 1}
---- !u!114 &5748030986427194273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7148365195945519826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8068ad93e3bfbe44b8ee2a612bf91df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackduration: 0.2
+    - - {x: 0.107101396, y: -0.14325929}
+      - {x: 1.2710499, y: -0.24200879}
+      - {x: 1.4368296, y: -0.058977272}
+      - {x: 1.5322837, y: 0.20785367}
+      - {x: 1.5201095, y: 0.4941001}
+      - {x: 1.370835, y: 0.77123684}
+      - {x: 1.2303619, y: 0.96517813}
+      - {x: 1.0253035, y: 1.1429768}
+      - {x: 0.842724, y: 1.2254204}
+      - {x: 0.4813126, y: 1.3108594}
+      - {x: 0.20197554, y: 1.3304447}
+      - {x: -0.09756627, y: 1.2727824}
+      - {x: -0.27588987, y: 1.2129678}
 --- !u!1 &7812482197185526445
 GameObject:
   m_ObjectHideFlags: 0
