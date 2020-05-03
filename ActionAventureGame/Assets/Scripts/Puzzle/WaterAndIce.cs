@@ -38,17 +38,6 @@ namespace puzzle
         }
 
 
-        private void OnDisable()
-        {
-            if (waterClear.activeSelf == false)
-            {
-                waterClear.SetActive(true);
-                waterFrozen.SetActive(false);
-
-                isFrozen = false;
-            }
-        }
-
         IEnumerator FrozenTime()
         {
             isFrozen = true;
