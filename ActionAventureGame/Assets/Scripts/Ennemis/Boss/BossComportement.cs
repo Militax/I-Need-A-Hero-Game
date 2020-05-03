@@ -11,17 +11,35 @@ namespace Boss
         #region Variables
         public PlayerMovement player;
         public int CurrentPhase = 0;
+        public int numberOfPhases;
+        
         /*
+         0 : Idle
          1 : Feu
          2 : Eau
          3 : Lumière
          */
 
         #region FEU
+        public GameObject fireProps;
+        public List<Transform> boxSpawners;
+        List<GameObject> boxsList = new List<GameObject>();
+
+        public GameObject heavyBoxPrefab;
         public int bulletNumber;
         public float fireWaveCooldown;
+        bool canSpawnBoxs = true;
         bool canShootWave = true;
         bool playerIsPuch = false;
+        #endregion
+        #region EAU
+        public GameObject waterProps;
+        public List<GameObject> waterList;
+
+        public GameObject SnowManPrefab;
+        public List<Transform> Spawners;
+        List<GameObject> SnowManList = new List<GameObject>();
+        bool canSpawnSnowman = true;
         #endregion
         #region LUMIERE
         public GameObject shieldPrefab;
@@ -45,8 +63,10 @@ namespace Boss
 
         #endregion
 
-
-
+        void Start()
+        {
+            SelectNewPhase();
+        }
         void Update()
         {
             if (player == null)
@@ -54,6 +74,11 @@ namespace Boss
                 player = GameManager.Instance.player;
             }
 
+            PhasePropsManagement();
+            if (GetComponent<BossHealth>().haveToChange == true)
+            {
+                SelectNewPhase();
+            }
 
             switch (CurrentPhase)
             {
@@ -64,10 +89,22 @@ namespace Boss
                         FireAttack();
                         animator.SetTrigger("Feu_Attack");
                     }
+
+                    if (canSpawnBoxs)
+                    {
+                        BoxSpawn();
+                        canSpawnBoxs = false;
+                    }
                     break;
 
                 case (2):
                     animator.SetTrigger("Eau_Spawn");
+
+                    if (canSpawnSnowman)
+                    {
+                        spawnSnowMan();
+                        canSpawnSnowman = false;
+                    }
                     break;
 
                 case (3):
@@ -78,7 +115,7 @@ namespace Boss
                 default:
                     break;
                 
-            }
+            }    
         }
 
 
@@ -88,6 +125,15 @@ namespace Boss
         {
             FireWave();
             StartCoroutine(FireWaveCooldown());
+        }
+
+        void BoxSpawn()
+        {
+            foreach (Transform spawn in boxSpawners)
+            {
+                GameObject Box = Instantiate(heavyBoxPrefab, spawn.position, spawn.rotation, fireProps.transform);
+                boxsList.Add(Box);
+            }
         }
 
         //Instancie la vague de boule de feu
@@ -126,9 +172,18 @@ namespace Boss
             canShootWave = true;
         }
         #endregion
+        #region WATER ATTACK
 
+        void spawnSnowMan()
+        {
+            foreach (Transform spawn in Spawners)
+            {
+                GameObject SnowMan = Instantiate(SnowManPrefab, spawn.position, spawn.rotation, waterProps.transform);
+                SnowManList.Add(SnowMan);
+            }
+        }
 
-
+        #endregion
         #region LIGHT ATTACK
         void LightAttack()
         {
@@ -195,5 +250,143 @@ namespace Boss
         }
 
         #endregion
+
+
+        void SelectNewPhase()
+        {
+            int futurPhase;
+            futurPhase = Random.Range(1, 4);
+
+            while (futurPhase == CurrentPhase)
+            {
+                futurPhase = Random.Range(1, 4);
+            }
+            CurrentPhase = futurPhase;
+
+            GetComponent<BossHealth>().haveToChange = false;
+        }
+        void PhasePropsManagement()//Gère l'apparition des objets nécessaire à chaque phases.
+        {
+            switch (CurrentPhase)
+            {
+                case (1):
+                    
+                    if (fireProps.activeSelf == false)
+                    {
+                        fireProps.SetActive(true);
+                    }
+                    if (waterProps.activeSelf == true)
+                    {
+                        waterProps.SetActive(false);
+                    }
+
+
+                    if (canSpawnSnowman == false)
+                    {
+                        canSpawnSnowman = true;
+                    }
+
+
+                    if (SnowManList.Count > 0)
+                    {
+                        ClearList(SnowManList);
+                    }
+                    break;
+
+                case (2):
+
+                    if (waterProps.activeSelf == false)
+                    {
+                        waterProps.SetActive(true);
+                    }
+                    if (fireProps.activeSelf == true)
+                    {
+                        fireProps.SetActive(false);
+                    }
+
+                    if (canSpawnBoxs == false)
+                    {
+                        canSpawnBoxs = true;
+                    }
+
+
+                    if (boxsList.Count > 0)
+                    {
+                        ClearList(boxsList);
+                    }
+                    break;
+
+
+                case (3):
+
+
+                    if (waterProps.activeSelf == true)
+                    {
+                        waterProps.SetActive(false);
+                    }
+                    if (fireProps.activeSelf == true)
+                    {
+                        fireProps.SetActive(false);
+                    }
+
+
+                    if (canSpawnSnowman == false)
+                    {
+                        canSpawnSnowman = true;
+                    }
+                    if (canSpawnBoxs == false)
+                    {
+                        canSpawnBoxs = true;
+                    }
+
+
+                    if (SnowManList.Count > 0)
+                    {
+                        ClearList(SnowManList);
+                    }
+                    if (boxsList.Count > 0)
+                    {
+                        ClearList(boxsList);
+                    }
+                    break;
+
+
+                default:
+                    fireProps.SetActive(false);
+                    waterProps.SetActive(false);
+
+                    if (canSpawnSnowman == false)
+                    {
+                        canSpawnSnowman = true;
+                    }
+                    if (canSpawnBoxs == false)
+                    {
+                        canSpawnBoxs = true;
+                    }
+
+
+
+                    if (SnowManList.Count > 0)
+                    {
+                        ClearList(SnowManList);
+                    }
+                    if (boxsList.Count > 0)
+                    {
+                        ClearList(boxsList);
+                    }
+                    break;
+
+            }
+        }
+
+        void ClearList (List<GameObject> _list)
+        {
+            foreach (GameObject item in _list)
+            {
+                Destroy(item);
+            }
+
+            _list.Clear();
+        }
     }
 }
