@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 public class SwichGlobal : ActivationDevice
 {
-
+    Combination registered = null;
     public bool deSpawnOnLeave = true;
     private GameObject instance;
     public GameObject eventObject;
@@ -13,11 +13,12 @@ public class SwichGlobal : ActivationDevice
     //public GameObject ActivateEvent;
     //public GameObject DeActivateEvent;
     public bool SwitchOnce;
+    [HideInInspector]
     public bool canSwitch = true;
     public bool useTimer;
-    public float timer;
+    //public float timer;
     Cooldown activationCooldown = new Cooldown(0.5f);
-
+    public Cooldown timer;
 
 
 
@@ -26,7 +27,7 @@ public class SwichGlobal : ActivationDevice
 
         if (activationCooldown.IsOver())
         {
-            if (HasBeenActivated && SwitchOnce)
+            if ((HasBeenActivated && SwitchOnce) || (useTimer && !timer.isStopped) )
             {
                 return;
             }
@@ -34,16 +35,37 @@ public class SwichGlobal : ActivationDevice
             Debug.Log(other.tag + " " + gameObject.name);
             RefreshState(!IsActive, other.tag);
 
-            if (useTimer)
-                StartCoroutine(Timer());
+            //if (useTimer)
+            //{
+            //    registered = current;
+            //    timer.Reset();
+            //}
+                
 
         }
 
 
     }
 
+    private void Start()
+    {
+        if (spr == null)
+        {
+            spr = GetComponent<SpriteRenderer>();
+        }
+        timer.isStopped = true;
+        
+    }
 
-
+    private void Update()
+    {
+        if (timer.IsOver() && !timer.isStopped)
+        {
+            RefreshState(!IsActive, registered.colliderTag);
+            timer.isStopped = true;
+            
+        }
+    }
 
     protected override void RefreshState(bool state, string tag = null)
     {
@@ -65,14 +87,18 @@ public class SwichGlobal : ActivationDevice
 
                 else if (!IsActive && instance && deSpawnOnLeave)
                     Destroy(instance);
-
+                Debug.Log(item.colliderTag);
                 spr.sprite = (IsActive ? item.active : item.inactive);
                 base.RefreshState(state, tag);
                 //if (!ActivateEvent || !DeActivateEvent)
                 //    return;
                 //ActivateEvent.SetActive(!ActivateEvent.activeSelf);
                 //DeActivateEvent.SetActive(!DeActivateEvent.activeSelf);
-
+                if (useTimer && timer.isStopped)
+                {
+                    registered = current;
+                    timer.Reset();
+                }
 
                 break;
             }
@@ -111,11 +137,7 @@ public class SwichGlobal : ActivationDevice
 
 
 
-    private IEnumerator Timer()
-    {
-        yield return new WaitForSeconds(timer);
-        RefreshState(!IsActive, current.colliderTag);
-    }
+    
 
     private void Awake()
     {

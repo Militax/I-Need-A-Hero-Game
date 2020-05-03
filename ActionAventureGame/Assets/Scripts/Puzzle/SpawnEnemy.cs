@@ -6,35 +6,37 @@ using Player;
 
 public class SpawnEnemy : MonoBehaviour
 {
-    public GameObject ennemi;
-    public GameObject linkedInput;
+   public GameObject[] ennemi;
+    public ActivationDevice linkedInput;
     public PlayerMovement player;
     bool activateonce = true;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (linkedInput.activeSelf)
+        if (linkedInput == null)
+        {
+            return;
+        }
+
+        if (linkedInput.IsActive)
         {
             activate();
-        }
-        else if (!linkedInput.activeSelf)
-        {
-            activateonce = true;
         }
     }
     void activate()
     {
         if (activateonce == true)
         {
-            GameObject Gingerbread =Instantiate(ennemi, gameObject.transform.position, Quaternion.identity);
-            Gingerbread.GetComponent<GingerbreadMovement>().player = player;
-            Gingerbread.GetComponent<GingerbreadAttack>().player = player;
+            foreach (GameObject item in ennemi)
+            {
+                item.SetActive(true);
+            }
             activateonce = false;
         }
 
