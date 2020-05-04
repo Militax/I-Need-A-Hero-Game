@@ -141,7 +141,7 @@ public class GameLoader : MonoBehaviour
         }
         LoadActivationDevice(SaveData.current.InteractablesData);
         LoadMovableObjects(SaveData.current.MovableData);
-        LoadGameManager(SaveData.current.ManagerData);
+        //LoadGameManager(SaveData.current.ManagerData);
         Debug.Log(string.Format("Game '{0}' successfully loaded !", save));
     }
 
@@ -151,7 +151,7 @@ public class GameLoader : MonoBehaviour
 
         SaveActivationDevice(SaveData.current);
         SaveMovableObjects(SaveData.current);
-        SaveGameManager(SaveData.current);
+        //SaveGameManager(SaveData.current);
         savedFile = SaveDictionary.Save(SaveData.current, save);
         Debug.Log(string.Format("Game '{0}' has been saved in file '{1}'.", save, savedFile));
     }
