@@ -22,7 +22,7 @@ namespace Ennemy
 
         void Start()
         {
-           animator = gameObject.GetComponent<Animator>();
+           animator = GetComponentInParent<Animator>();
         }
         void Update()
         {
@@ -33,8 +33,31 @@ namespace Ennemy
 
             if (isInFireZone && canShoot)
             {
-                Shooting();
                 animator.SetTrigger("CanAttack");
+                Shooting();
+            }
+
+            float xDiff = player.transform.position.x - transform.position.x;
+            float yDiff = player.transform.position.y - transform.position.y;
+            //en bas a gauche 
+            if (xDiff < 0 && yDiff < 0)
+            {
+                animator.SetFloat("Attack",1);
+            }
+            //en bas a droite
+            if (xDiff > 0 && yDiff < 0)
+            {
+                animator.SetFloat("Attack",0);
+            }
+            //en haut a gauche
+            if (xDiff < 0 && yDiff > 0)
+            {
+                animator.SetFloat("Attack",1);
+            }
+            //en haut a droite
+            if (xDiff > 0 && yDiff > 0)
+            {
+                animator.SetFloat("Attack",0);
             }
         }
 
