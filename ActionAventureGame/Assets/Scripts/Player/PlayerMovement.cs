@@ -20,12 +20,14 @@ namespace Player
         Vector2 movement;
 
 
-
+        void Awake()
+        {
+            GameManager.Instance.player = this;
+        }
         void Start()
         {
             //Recuperation du rigidbody du player
             rb = GetComponent<Rigidbody2D>();
-            GameManager.Instance.player = this;
         }
 
         void Update()

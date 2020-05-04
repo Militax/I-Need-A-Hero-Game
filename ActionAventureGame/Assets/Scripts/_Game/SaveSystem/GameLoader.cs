@@ -98,7 +98,6 @@ public class GameLoader : MonoBehaviour
             return;
         if (GameManager.Instance == null)
             Debug.LogError("Gamemanager is null");
-        GameManager.Instance.player = player;
         GameManager.Instance.RespawnPoint = data.RespawnPoint;
         GameManager.Instance.SetHealth(data.PlayerHP, data.PlayerMaxHP);
         GameManager.Instance.playerHealth = data.PlayerHP;

@@ -57,7 +57,6 @@ namespace GameManagement
         void Awake()
         {
             MakeSingleton(true);
-            player = GameObject.FindObjectOfType<PlayerMovement>();
         }
 
         void Start()
