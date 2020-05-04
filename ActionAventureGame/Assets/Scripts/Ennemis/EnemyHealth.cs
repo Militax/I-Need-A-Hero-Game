@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using GameManagement;
-using Ennemy;
 
 namespace Ennemy
 {
@@ -85,8 +84,6 @@ namespace Ennemy
 
         IEnumerator cooldown()
         {
-            if (ennemyType == "Snowman")
-                GetComponentInChildren<SownmanFire>().enabled = false;
             yield return new WaitForSeconds(TimerDie);
             Destroy(gameObject);
         }
