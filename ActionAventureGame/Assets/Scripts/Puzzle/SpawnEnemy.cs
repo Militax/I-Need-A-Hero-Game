@@ -6,7 +6,7 @@ using Player;
 
 public class SpawnEnemy : MonoBehaviour
 {
-   public GameObject[] ennemi;
+    public GameObject[] ennemi;
     public ActivationDevice linkedInput;
     public PlayerMovement player;
     bool activateonce = true;

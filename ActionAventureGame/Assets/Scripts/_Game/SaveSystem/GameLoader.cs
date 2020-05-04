@@ -1,37 +1,42 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SaveSystem;
+using GameManagement;
 using Puzzle;
 using System.Linq;
+using Management;
+using Player;
 public class GameLoader : MonoBehaviour
 {
-    public string saveFile;
-    private void Awake() => OnLoad(Application.persistentDataPath + "/saves/" + saveFile + ".save");
+    public string saveName;
+    public PlayerMovement player;
 
+    private void Awake()
+    {
+        //MakeSingleton(false);
+        LoadGame(saveName);
+    }
     #region "Activation Device"
-    private void LoadActivationDevice(string path)
+    private void LoadActivationDevice(ActivationDevicesData[] data)
     {
         ActivationDevice[] Devices = GameObject.FindObjectsOfType<ActivationDevice>();
 
-        SaveData.current = (SaveData)SerializationManager.Load(path);
-        if (SaveData.current == null || SaveData.current.InteractablesData == null)
+        if (data == null)
             return;
-        Debug.Log("found: " + Devices.Length + " saved: " + SaveData.current.InteractablesData.Length);
-        for (int i = 0; i < SaveData.current.InteractablesData.Length; i++)
+        for (int i = 0; i < data.Length; i++)
         {
-            ActivationDevicesData.Combination combination = SaveData.current.InteractablesData[i].current;
+            ActivationDevicesData.Combination combination = data[i].current;
 
-            Devices[i].IsActive = SaveData.current.InteractablesData[i].IsActive;
-            Devices[i].HasBeenActivated = SaveData.current.InteractablesData[i].HasBeenPressed;
+            Devices[i].IsActive = data[i].IsActive;
+            Devices[i].HasBeenActivated = data[i].HasBeenPressed;
             Devices[i].current.colliderTag = combination.colliderTag;
             Devices[i].LoadFromSave();
         }
-
-
     }
-    private void SaveActivationDevice()
+
+    private void SaveActivationDevice(SaveData data)
     {
-        SaveData.current = new SaveData();
         ActivationDevice[] Devices = GameObject.FindObjectsOfType<ActivationDevice>();
         ActivationDevicesData[] devicesDatas = new ActivationDevicesData[Devices.Length];
 
@@ -47,36 +52,27 @@ public class GameLoader : MonoBehaviour
                 colliderTag = combination.colliderTag
             };
         }
-
-        SaveData.current.InteractablesData = devicesDatas;
-
-
+        data.InteractablesData = devicesDatas;
     }
-
-
     #endregion
 
     #region "Movable Objects"
-    private void LoadMovableObjects(string path)
+    private void LoadMovableObjects(MovableObjectData[] data)
     {
         MovableObject[] Movables = GameObject.FindObjectsOfType<MovableObject>();
 
-        SaveData.current = (SaveData)SerializationManager.Load(path);
-        if (SaveData.current == null || SaveData.current.MovableData == null)
+        if (data == null)
             return;
         Movables = Movables.OrderBy(t => t.SaveID).ToArray();
-        for (int i = 0; i < SaveData.current.MovableData.Length; i++)
+        for (int i = 0; i < data.Length; i++)
         {
-            MovableObjectData Data = SaveData.current.MovableData[i];
-
-            Movables[i].transform.position = SaveData.current.MovableData[i].position;
-            Movables[i].transform.rotation = SaveData.current.MovableData[i].rotation;
-            Movables[i].SaveID = SaveData.current.MovableData[i].ID;
-
+            Movables[i].transform.position = data[i].position;
+            Movables[i].transform.rotation = data[i].rotation;
+            Movables[i].SaveID = data[i].ID;
         }
-
     }
-    private void SaveMovableObjects()
+
+    private void SaveMovableObjects(SaveData data)
     {
         MovableObject[] Movables = GameObject.FindObjectsOfType<MovableObject>();
         MovableObjectData[] MovablesData = new MovableObjectData[Movables.Length];
@@ -91,26 +87,78 @@ public class GameLoader : MonoBehaviour
             { ID = i, position = Movables[i].transform.position, rotation = Movables[i].transform.rotation };
 
         }
-        SaveData.current.MovableData = MovablesData;
-
+        data.MovableData = MovablesData;
     }
-
     #endregion
-    void OnLoad(string path)
+
+    #region GameManager
+    private void LoadGameManager(GameManagerData data)
     {
-        LoadActivationDevice(path);
-        LoadMovableObjects(path);
+        if (data == null )
+            return;
+        if (GameManager.Instance == null)
+            Debug.LogError("Gamemanager is null");
+        GameManager.Instance.player = player;
+        GameManager.Instance.RespawnPoint = data.RespawnPoint;
+        GameManager.Instance.SetHealth(data.PlayerHP, data.PlayerMaxHP);
+        GameManager.Instance.playerHealth = data.PlayerHP;
+        GameManager.Instance.playerHealthMax = data.PlayerMaxHP;
+        GameManager.Instance.CoinOwned = data.Coins;
+        GameManager.Instance.maxCoin = data.MaxCoins;
+        GameManager.Instance.powerState = data.PowerState;
+        GameManager.Instance.DeathCounter = data.DeathCounter;
+        GameManager.Instance.swordDamage = data.SwordDamage;
+        GameManager.Instance.bottesState = data.BottesState;
     }
 
-    public void SaveGame()
+    private void SaveGameManager(SaveData data)
     {
-        SaveActivationDevice();
-        SaveMovableObjects();
-        SerializationManager.Save(saveFile, SaveData.current);
+
+        GameManagerData managerData;
+        managerData = new GameManagerData()
+        {
+            RespawnPoint = GameManager.Instance.RespawnPoint,
+            PlayerHP = GameManager.Instance.playerHealth,
+            PlayerMaxHP = GameManager.Instance.playerHealthMax,
+            Coins = GameManager.Instance.CoinOwned,
+            MaxCoins = GameManager.Instance.maxCoin,
+            PowerState = GameManager.Instance.powerState,
+            DeathCounter = GameManager.Instance.DeathCounter,
+            SwordDamage = GameManager.Instance.swordDamage,
+            BottesState = GameManager.Instance.bottesState
+        };
+        data.ManagerData = managerData;
     }
-    private void Update()
+    #endregion
+
+    public void LoadGame(string save)
+    {
+        SaveData.current = (SaveData)SaveDictionary.Load(save);
+        if (SaveData.current == null)
+        {
+            Debug.Log(string.Format("No save named '{0}' has been found.", save));
+            return;
+        }
+        LoadActivationDevice(SaveData.current.InteractablesData);
+        LoadMovableObjects(SaveData.current.MovableData);
+        //LoadGameManager(SaveData.current.ManagerData);
+        Debug.Log(string.Format("Game '{0}' successfully loaded !", save));
+    }
+
+    public void SaveGame(string save)
+    {
+        string savedFile;
+
+        SaveActivationDevice(SaveData.current);
+        SaveMovableObjects(SaveData.current);
+        //SaveGameManager(SaveData.current);
+        savedFile = SaveDictionary.Save(SaveData.current, save);
+        Debug.Log(string.Format("Game '{0}' has been saved in file '{1}'.", save, savedFile));
+    }
+
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-            SaveGame();
+            SaveGame(saveName);
     }
 }

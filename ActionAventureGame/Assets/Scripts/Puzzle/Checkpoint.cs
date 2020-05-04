@@ -5,7 +5,7 @@ using GameManagement;
 
 public class Checkpoint : MonoBehaviour
 {
-    public GameObject NewRespawnPoint;
+    public Vector3 NewRespawnPoint;
     // Start is called before the first frame update
     void Start()
     {

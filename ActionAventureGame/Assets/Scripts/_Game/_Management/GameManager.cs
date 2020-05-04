@@ -4,6 +4,7 @@ using UnityEngine;
 using Management;
 using Player;
 
+
 namespace GameManagement
 {
     /// <summary>
@@ -13,7 +14,7 @@ namespace GameManagement
     {
         #region Player Variable
 
-        public GameObject RespawnPoint;
+        public Vector3 RespawnPoint;
         public PlayerMovement player;
         public bool playerCanMove;
 
@@ -21,6 +22,7 @@ namespace GameManagement
         public int DeathCounter;
         public int playerHealth;
         public int playerHealthMax;
+        
         #endregion
         #region Power
         public int powerState;
@@ -55,6 +57,7 @@ namespace GameManagement
         void Awake()
         {
             MakeSingleton(true);
+            player = GameObject.FindObjectOfType<PlayerMovement>();
         }
 
         void Start()
@@ -62,7 +65,19 @@ namespace GameManagement
             GameInitialisation();
         }
 
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(RespawnPoint, 0.2f);
+        }
 
+        #region "Getters/Setters"
+        public void SetHealth(int health, int max)
+        {
+            Instance.playerHealth = health;
+            Instance.playerHealthMax = max;
+        }
+        #endregion
 
 
         //Initialisation de la valeur des différentes variables

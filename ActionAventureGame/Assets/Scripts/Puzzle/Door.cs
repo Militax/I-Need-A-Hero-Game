@@ -17,7 +17,7 @@ namespace Puzzle
         public GameObject closeState;
         public bool startState = false;
         public bool stayActive;
-
+        
 
         void Update()
         {
@@ -29,7 +29,7 @@ namespace Puzzle
             }
             if (openState.activeSelf && stayActive)
                 return;
-
+            
             foreach (ActivationDevice item in linkedInput)
             {
                 if (!item.IsActive)
@@ -37,7 +37,7 @@ namespace Puzzle
                     state = !startState;
                 }
             }
-
+            
             closeState.SetActive(state);
             openState.SetActive(!state);
 
