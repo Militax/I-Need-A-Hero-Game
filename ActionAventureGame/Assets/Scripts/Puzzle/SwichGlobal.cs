@@ -150,4 +150,5 @@ public class SwichGlobal : ActivationDevice
             }
         }
     }
+
 }
