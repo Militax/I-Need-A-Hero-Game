@@ -57,7 +57,7 @@ namespace Ennemy
         void Shooting()
         {
             GameObject bullet = Instantiate(iceBulletPrefab, transform.position, transform.rotation);
-            bullet.GetComponent<IceBullet>().player = player.transform;
+            bullet.GetComponent<IceBullet>().player = player.gameObject.transform;
             StartCoroutine(SnowmanFireCooldown());
         }
         IEnumerator SnowmanFireCooldown()
