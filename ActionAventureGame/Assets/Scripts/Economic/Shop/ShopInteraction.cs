@@ -6,8 +6,31 @@ using GameManagement;
 
 public class ShopInteraction : MonoBehaviour 
 {
-	
+	int coinsCollected;
+	public Sprite MaisonPaille;
+	public Sprite MaisonBois;
+	public Sprite MaisonBrique;
+	SpriteRenderer spr;
 
+	private void Start()
+	{
+		spr = FindObjectOfType<Marchand>().GetComponent<SpriteRenderer>();
+	}
+	private void Update()
+	{
+		if (coinsCollected <= 100)
+		{
+			spr.sprite = MaisonPaille;
+		}
+		else if (coinsCollected > 100 && coinsCollected <500)
+		{
+			spr.sprite = MaisonBois;
+		}
+		else if (coinsCollected >= 500)
+		{
+			spr.sprite = MaisonBrique;
+		}
+	}
 	// achat de 2 types de bottes
 	// type 1 = 100 coins
 	// type 2 = 200 coins
@@ -22,6 +45,7 @@ public class ShopInteraction : MonoBehaviour
 				Debug.Log("achat des bottes type 1");
 				GameManager.Instance.bottesState = 1;
 				GameManager.Instance.CoinOwned -= 100;
+				coinsCollected += 100;
 			}
 	
 
@@ -33,6 +57,7 @@ public class ShopInteraction : MonoBehaviour
 				Debug.Log("achat des bottes type 2");
 				GameManager.Instance.bottesState = 2;
 				GameManager.Instance.CoinOwned -= 200;
+				coinsCollected += 200;
 			}
 		}
 	}
@@ -52,7 +77,7 @@ public class ShopInteraction : MonoBehaviour
 				Debug.Log("achat de la bourse type 1");
 				GameManager.Instance.maxCoin = 300;
 				GameManager.Instance.CoinOwned -= 50;
-				
+				coinsCollected += 50;
 			}
 	
 
@@ -64,6 +89,7 @@ public class ShopInteraction : MonoBehaviour
 				Debug.Log("achat la bourse type 2");
 				GameManager.Instance.maxCoin = 500;
 				GameManager.Instance.CoinOwned -= 150;
+				coinsCollected += 150;
 			}
 			
 		}
@@ -74,6 +100,7 @@ public class ShopInteraction : MonoBehaviour
 				Debug.Log("achat la bourse type 3");
 				GameManager.Instance.maxCoin = 1000;
 				GameManager.Instance.CoinOwned -= 300;
+				coinsCollected += 300;
 			}
 		
 		}
@@ -101,6 +128,7 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.playerHealth = 6;
 				GameObject.FindObjectOfType<CanvasManagement>().UpdateBar(GameManager.Instance.playerHealth);
 				GameManager.Instance.CoinOwned -= 50;
+				coinsCollected += 50;
 			}
 	
 
@@ -116,6 +144,7 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.playerHealth = 7;
 				GameObject.FindObjectOfType<CanvasManagement>().UpdateBar(GameManager.Instance.playerHealth);
 				GameManager.Instance.CoinOwned -= 70;
+				coinsCollected += 70;
 			}
 			
 		}
@@ -130,6 +159,7 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.playerHealth = 8;
 				GameObject.FindObjectOfType<CanvasManagement>().UpdateBar(GameManager.Instance.playerHealth);
 				GameManager.Instance.CoinOwned -= 150;
+				coinsCollected += 150;
 			}
 		
 		}
@@ -144,6 +174,7 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.playerHealth = 9;
 				GameObject.FindObjectOfType<CanvasManagement>().UpdateBar(GameManager.Instance.playerHealth);
 				GameManager.Instance.CoinOwned -= 300;
+				coinsCollected += 300;
 			}
 		}
 		// coeur 10
@@ -157,6 +188,7 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.playerHealth = 10;
 				GameObject.FindObjectOfType<CanvasManagement>().UpdateBar(GameManager.Instance.playerHealth);
 				GameManager.Instance.CoinOwned -= 600;
+				coinsCollected += 600;
 			}
 		}
 	}
