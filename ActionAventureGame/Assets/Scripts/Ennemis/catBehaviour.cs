@@ -51,7 +51,10 @@ public class catBehaviour : MonoBehaviour
             yield return new WaitForSeconds(vulnerable);
             
             canBeDamaged = false;
-            
+
+
+            prepare = true;
+
         }
         
         
@@ -87,6 +90,8 @@ public class catBehaviour : MonoBehaviour
     void Dash()
     {
         Vector3 path = (target - gameObject.transform.position).normalized;
+        animator.SetTrigger("CanAttack");
+        animator.SetFloat("Attack", Vector2.Angle(transform.up, path));
         float distance = Vector3.Distance(transform.position, target);
         speed = distance / dashTime;
         rb.velocity = path * speed;

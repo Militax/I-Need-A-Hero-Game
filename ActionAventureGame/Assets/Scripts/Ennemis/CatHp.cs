@@ -25,7 +25,9 @@ public class CatHp : MonoBehaviour
             animator.SetTrigger("Death");
             StartCoroutine(cooldown());
             if(die)
+            {
                 Destroy(gameObject);
+            }
         }
            
     }
@@ -33,6 +35,7 @@ public class CatHp : MonoBehaviour
     {
         if (other.tag == "Sword")
         {
+            animator.SetTrigger("Degat");
             currentHP -= DamageTaken;
         }
         if (other.tag == "WindWave")
