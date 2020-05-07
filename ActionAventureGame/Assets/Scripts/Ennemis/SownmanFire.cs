@@ -22,7 +22,7 @@ namespace Ennemy
 
         void Start()
         {
-           animator = gameObject.GetComponentInParent<Animator>();
+           animator = gameObject.GetComponent<Animator>();
         }
         void Update()
         {
