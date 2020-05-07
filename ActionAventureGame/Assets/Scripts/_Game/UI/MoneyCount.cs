@@ -7,7 +7,8 @@ using TMPro;
 
 public class MoneyCount : MonoBehaviour
 {
-    public Text CurrentMoney;
+
+    public Score Coins;
     public TextMeshProUGUI CoinCountObject;
 
 
@@ -30,7 +31,7 @@ public class MoneyCount : MonoBehaviour
     }
     public void UpdateMoneyDisplay(int coins)
     {
-        string currentcoins = coins.ToString();
-        CurrentMoney.text = currentcoins;
+        Coins.clear();
+        Coins.SetValue(coins);
     }
 }
