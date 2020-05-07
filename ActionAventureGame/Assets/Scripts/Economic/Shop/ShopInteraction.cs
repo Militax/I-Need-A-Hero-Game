@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using GameManagement;
-
+using Economic;
 public class ShopInteraction : MonoBehaviour 
 {
 	int coinsCollected;
@@ -11,10 +11,12 @@ public class ShopInteraction : MonoBehaviour
 	public Sprite MaisonBois;
 	public Sprite MaisonBrique;
 	SpriteRenderer spr;
+	ThresholdBourse threshold;
 
 	private void Start()
 	{
 		spr = FindObjectOfType<Marchand>().GetComponent<SpriteRenderer>();
+		threshold = FindObjectOfType<ThresholdBourse>();
 	}
 	private void Update()
 	{
@@ -78,6 +80,7 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.maxCoin = 300;
 				GameManager.Instance.CoinOwned -= 50;
 				coinsCollected += 50;
+				threshold.BourseLevel = 2;
 			}
 	
 
@@ -90,6 +93,7 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.maxCoin = 500;
 				GameManager.Instance.CoinOwned -= 150;
 				coinsCollected += 150;
+				threshold.BourseLevel = 3;
 			}
 			
 		}
@@ -101,6 +105,7 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.maxCoin = 1000;
 				GameManager.Instance.CoinOwned -= 300;
 				coinsCollected += 300;
+				threshold.BourseLevel = 4;
 			}
 		
 		}
