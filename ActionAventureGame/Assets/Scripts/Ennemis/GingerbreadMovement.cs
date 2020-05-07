@@ -49,6 +49,7 @@ namespace Ennemy
                 if (Vector2.Distance(transform.position, player.transform.position) <= aggroZone && !canMove)
                 {
                     canMove = true;
+                    animator.SetTrigger("CanMove");
                 }
 
                 Movement();
