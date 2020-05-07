@@ -49,6 +49,7 @@ MonoBehaviour:
   openState: {fileID: 3133662892324817243}
   closeState: {fileID: 3133662893342086878}
   startState: 0
+  stayActive: 0
 --- !u!1 &3133662892324817243
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,20 +269,20 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 3133662892324817247}
     m_ColliderPaths:
-    - - X: 20000000
-        Y: 10000000
-      - X: 0
-        Y: 10000000
-      - X: 0
-        Y: 100
+    - - X: 0
+        Y: 0
       - X: 20000000
-        Y: 100
+        Y: 0
+      - X: 20000000
+        Y: 10000000
+      - X: 0
+        Y: 10000000
   m_CompositePaths:
     m_Paths:
-    - - {x: 1.9999708, y: 0.00001}
+    - - {x: 1.9999708, y: 0}
       - {x: 1.9999708, y: 1}
       - {x: 0, y: 0.99997073}
-      - {x: 0.000029300001, y: 0.00001}
+      - {x: 0.000029300001, y: 0}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!1 &3133662893342086878
