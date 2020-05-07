@@ -77,6 +77,7 @@ namespace Boss
             PhasePropsManagement();
             if (GetComponent<BossHealth>().haveToChange == true)
             {
+                animator.SetTrigger("Change"); 
                 SelectNewPhase();
             }
 
