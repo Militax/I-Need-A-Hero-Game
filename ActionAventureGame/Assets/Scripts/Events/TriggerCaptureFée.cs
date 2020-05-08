@@ -9,21 +9,22 @@ public class TriggerCaptureFée : MonoBehaviour
     public PlayableDirector Timeline;
     private bool TimelinePlayed;
     public GameObject Player;
+    public GameObject TimelineDirector;
 
     // Start is called before the first frame update
     void Start()
     {
-        Timeline = GetComponent<PlayableDirector>();
+        Timeline = TimelineDirector.GetComponent<PlayableDirector>();
         TimelinePlayed = false;
     }
 
     private void OnDestroy()
     {
-        Debug.Log("CA MARCHE");
+        //Debug.Log("CA MARCHE");
 
         if (TimelinePlayed == false)
         {
-            Debug.Log("CA MARCHE POUR DE VRAI");
+            //Debug.Log("CA MARCHE POUR DE VRAI");
             Timeline.Play();
             //(FindObjectOfType<PlayerMovement>()).enabled = false;
             //Player.GetComponent<PlayerMovement>().rb.velocity = Vector2.zero;
