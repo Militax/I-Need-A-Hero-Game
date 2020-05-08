@@ -5,19 +5,19 @@ using System.Linq;
 
 public class AddSorting : MonoBehaviour
 {
-    public class rendererDescriptor
+   public class rendererDescriptor
     {
         public float offset;
         public SpriteRenderer spr;
     }
     [HideInInspector]
     public List<rendererDescriptor> Allitems = new List<rendererDescriptor>();
-    
-    [ContextMenu("inspectorSort")]
-    private void inspectorSort()
+
+
+    private void Start()
     {
         Allitems.Clear();
-        
+
         foreach (SpriteRenderer item in GameObject.FindObjectsOfType<SpriteRenderer>())
         {
             Allitems.Add(new rendererDescriptor() {offset = item.transform.position.y - item.bounds.size.y / 2, spr = item});
@@ -27,12 +27,12 @@ public class AddSorting : MonoBehaviour
             //    {
             //        DestroyImmediate(p);
             //    }
-                
+
             //}
-            
+
             //var comp = item.gameObject.AddComponent<PositionRendererSorter>();
             //comp.sort();
-            
+
 
         }
         Allitems = Allitems.OrderByDescending(t => t.offset).ToList();
@@ -44,7 +44,7 @@ public class AddSorting : MonoBehaviour
         {
             item.HeightMap = Allitems.Select(i => i.offset).ToList();
         }
-        
+
     }
     private void OnDrawGizmos()
     {
@@ -58,8 +58,8 @@ public class AddSorting : MonoBehaviour
         {
             Gizmos.DrawWireSphere(new Vector2(item.spr.transform.position.x,item.offset), 0.01f);
         }
-        
-        
+
+
     }
     
 }
