@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 using Player;
+using GameManagement;
 
 public class TriggerEvents : MonoBehaviour
 {
@@ -25,8 +26,11 @@ public class TriggerEvents : MonoBehaviour
         {
             Debug.Log("doubleyep");
             Timeline.Play();
-            (FindObjectOfType<PlayerMovement>()).enabled = false;
-            Player.GetComponent<PlayerMovement>().rb.velocity = Vector2.zero;
+
+            GameManager.Instance.playerCanMove = false;
+            //(FindObjectOfType<PlayerMovement>()).enabled = false;
+            //Player.GetComponent<PlayerMovement>().rb.velocity = Vector2.zero;
+
             Timeline.stopped += OnPlayableDirectorStopped;          
         }
        
@@ -35,7 +39,8 @@ public class TriggerEvents : MonoBehaviour
     void OnPlayableDirectorStopped(PlayableDirector MontéeEau)
     {
         TimelinePlayed = true;
-        (FindObjectOfType<PlayerMovement>()).enabled = true;
-        Player.GetComponent<PlayerMovement>().rb.velocity = Player.GetComponent<PlayerMovement>().movement.normalized * (Player.GetComponent<PlayerMovement>().moveSpeed * 50) * Time.deltaTime;
+        GameManager.Instance.playerCanMove = true;
+        //(FindObjectOfType<PlayerMovement>()).enabled = true;
+        //GameManager.Instance.player.rb.velocity = GameManager.Instance.player.movement.normalized * (GameManager.Instance.player.moveSpeed * 50) * Time.deltaTime;
     }
 }

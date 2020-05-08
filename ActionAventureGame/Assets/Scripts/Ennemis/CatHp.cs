@@ -22,6 +22,8 @@ public class CatHp : MonoBehaviour
     {
         if (currentHP <= 0)
         {
+            gameObject.GetComponent<catBehaviour>().StopAllCoroutines();
+            gameObject.GetComponent<catBehaviour>().enabled = false;
             animator.SetTrigger("Death");
             StartCoroutine(cooldown());
             if(die)

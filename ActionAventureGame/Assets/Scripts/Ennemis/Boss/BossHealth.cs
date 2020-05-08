@@ -59,6 +59,7 @@ namespace Boss
                     if(haveToChange == false && haveChange == false)
                     {
                         haveToChange = true;
+                        animator.SetTrigger("Change");
                         haveChange = true;
                     }
                 }
@@ -79,7 +80,6 @@ namespace Boss
         void Death()
         {
             Debug.Log("Death");
-            animator.SetTrigger("Dead");
             Destroy(gameObject);
         }
     }

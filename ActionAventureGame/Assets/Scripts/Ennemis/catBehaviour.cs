@@ -19,6 +19,7 @@ public class catBehaviour : MonoBehaviour
     public PlayerMovement Player;
     Vector3 target;
     int direction;
+    bool RightSide;
     
 
     private void Start()
@@ -70,6 +71,17 @@ public class catBehaviour : MonoBehaviour
             Player = GameManager.Instance.player;
         }
 
+        if (Player.transform.position.x >= gameObject.transform.position.x)
+        {
+            RightSide = true;
+            animator.SetBool("RightSide", RightSide);
+        }
+        else
+        {
+            RightSide = false;
+            animator.SetBool("RightSide", RightSide);
+        }
+
         bool activation = playerisIn;
 
         playerisIn = (Vector3.Distance(transform.position, Player.transform.position) <= detectionRange);
@@ -82,7 +94,6 @@ public class catBehaviour : MonoBehaviour
         if (rb.velocity == Vector2.zero)
         {
             Vector3 path = (Player.transform.position - gameObject.transform.position).normalized;
-            animator.SetFloat("Direction", Vector2.Angle(transform.up, path));
         }
 
     }
@@ -95,7 +106,7 @@ public class catBehaviour : MonoBehaviour
         float distance = Vector3.Distance(transform.position, target);
         speed = distance / dashTime;
         rb.velocity = path * speed;
-        animator.SetFloat("Direction", Vector2.Angle(transform.up, path));
+        animator.SetFloat("Attack", Vector2.Angle(transform.up, path));
         
     }
     private void OnDrawGizmos()
