@@ -10,13 +10,14 @@ public class ShopInteraction : MonoBehaviour
 	public Sprite MaisonPaille;
 	public Sprite MaisonBois;
 	public Sprite MaisonBrique;
-	SpriteRenderer spr;
+	
+	[HideInInspector]
+	public SpriteRenderer spr;
 	ThresholdBourse threshold;
 
 	private void Start()
 	{
-		spr = FindObjectOfType<Marchand>().GetComponent<SpriteRenderer>();
-		threshold = FindObjectOfType<ThresholdBourse>();
+		threshold = GameManager.Instance.GetComponentInChildren<ThresholdBourse>();
 	}
 	private void Update()
 	{
@@ -48,6 +49,9 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.bottesState = 1;
 				GameManager.Instance.CoinOwned -= 100;
 				coinsCollected += 100;
+
+				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
+				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 			}
 	
 
@@ -60,6 +64,9 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.bottesState = 2;
 				GameManager.Instance.CoinOwned -= 200;
 				coinsCollected += 200;
+
+				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
+				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 			}
 		}
 	}
@@ -81,6 +88,9 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.CoinOwned -= 50;
 				coinsCollected += 50;
 				threshold.BourseLevel = 2;
+
+				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
+				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 			}
 	
 
@@ -94,6 +104,9 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.CoinOwned -= 150;
 				coinsCollected += 150;
 				threshold.BourseLevel = 3;
+
+				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
+				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 			}
 			
 		}
@@ -106,6 +119,9 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.CoinOwned -= 300;
 				coinsCollected += 300;
 				threshold.BourseLevel = 4;
+
+				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
+				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 			}
 		
 		}
@@ -134,6 +150,9 @@ public class ShopInteraction : MonoBehaviour
 				GameObject.FindObjectOfType<CanvasManagement>().UpdateBar(GameManager.Instance.playerHealth);
 				GameManager.Instance.CoinOwned -= 50;
 				coinsCollected += 50;
+
+				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
+				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 			}
 	
 
@@ -150,6 +169,9 @@ public class ShopInteraction : MonoBehaviour
 				GameObject.FindObjectOfType<CanvasManagement>().UpdateBar(GameManager.Instance.playerHealth);
 				GameManager.Instance.CoinOwned -= 70;
 				coinsCollected += 70;
+
+				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
+				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 			}
 			
 		}
@@ -165,6 +187,9 @@ public class ShopInteraction : MonoBehaviour
 				GameObject.FindObjectOfType<CanvasManagement>().UpdateBar(GameManager.Instance.playerHealth);
 				GameManager.Instance.CoinOwned -= 150;
 				coinsCollected += 150;
+
+				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
+				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 			}
 		
 		}
@@ -180,6 +205,9 @@ public class ShopInteraction : MonoBehaviour
 				GameObject.FindObjectOfType<CanvasManagement>().UpdateBar(GameManager.Instance.playerHealth);
 				GameManager.Instance.CoinOwned -= 300;
 				coinsCollected += 300;
+
+				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
+				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 			}
 		}
 		// coeur 10
@@ -194,6 +222,9 @@ public class ShopInteraction : MonoBehaviour
 				GameObject.FindObjectOfType<CanvasManagement>().UpdateBar(GameManager.Instance.playerHealth);
 				GameManager.Instance.CoinOwned -= 600;
 				coinsCollected += 600;
+
+				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
+				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 			}
 		}
 	}

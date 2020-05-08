@@ -77,7 +77,7 @@ namespace Boss
             PhasePropsManagement();
             if (GetComponent<BossHealth>().haveToChange == true)
             {
-                animator.SetTrigger("Change"); 
+                //animator.SetTrigger("Change"); 
                 SelectNewPhase();
             }
 
@@ -85,10 +85,13 @@ namespace Boss
             {
                 case (1):
                     animator.SetTrigger("Feu_Spawn");
+                    animator.SetBool("Feu", true);
+                    animator.SetBool("Eau", false);
+                    animator.SetBool("Lum", false);
                     if (canShootWave)
                     {
                         FireAttack();
-                        animator.SetTrigger("Feu_Attack");
+                        animator.SetTrigger("Attack");
                     }
 
                     if (canSpawnBoxs)
@@ -100,6 +103,9 @@ namespace Boss
 
                 case (2):
                     animator.SetTrigger("Eau_Spawn");
+                    animator.SetBool("Feu", false);
+                    animator.SetBool("Eau", true);
+                    animator.SetBool("Lum", false);
 
                     if (canSpawnSnowman)
                     {
@@ -110,7 +116,11 @@ namespace Boss
 
                 case (3):
                     animator.SetTrigger("Lum_Spawn");
+                    animator.SetBool("Feu", false);
+                    animator.SetBool("Eau", false);
+                    animator.SetBool("Lum", true);
                     LightAttack();
+                    
                     break;
 
                 default:
@@ -188,7 +198,8 @@ namespace Boss
         #region LIGHT ATTACK
         void LightAttack()
         {
-            animator.SetTrigger("Lum_Attack");
+            animator.SetTrigger("Attack");
+
             if (!shieldActive && !isStunt)
             {
                 createBossShield();

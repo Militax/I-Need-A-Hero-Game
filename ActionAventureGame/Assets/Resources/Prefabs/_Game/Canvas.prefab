@@ -2653,7 +2653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85d0669c9a7583944ae973b3d4d42a86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentMoney: {fileID: 0}
+  Coins: {fileID: 0}
   CoinCountObject: {fileID: 0}
 --- !u!114 &1496111983
 MonoBehaviour:
@@ -2668,16 +2668,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bourse: {fileID: 1785292633198102666}
+  BourseLevel: 1
   thresholds:
-  - Coins: 2
+  - Level: 0
+    Coins: 2
     accordingSprite: {fileID: 21300000, guid: a08fa1532ae0c684d8b183472e85f964, type: 3}
-  - Coins: 4
+  - Level: 0
+    Coins: 4
     accordingSprite: {fileID: 21300000, guid: 93a7b7dea23bd7e4cbee870ca9fbb57d, type: 3}
-  - Coins: 6
+  - Level: 0
+    Coins: 6
     accordingSprite: {fileID: 21300000, guid: d08e702da59dde649a41ed41f20e8297, type: 3}
-  - Coins: 8
+  - Level: 0
+    Coins: 8
     accordingSprite: {fileID: 21300000, guid: 4ec424bfb438cf04aad8f196ac93235e, type: 3}
-  - Coins: 0
+  - Level: 0
+    Coins: 0
     accordingSprite: {fileID: 21300000, guid: 5967eba51863ca14ab3e0148dd0ea657, type: 3}
 --- !u!1 &1165209761687345800
 GameObject:
@@ -2713,7 +2719,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -332, y: 593}
+  m_AnchoredPosition: {x: 1385, y: -201}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1165209761687345803
@@ -6610,6 +6616,7 @@ MonoBehaviour:
   - {fileID: 7363871112595631161}
   - {fileID: 6386550817836683933}
   - {fileID: 5671879462834391449}
+  scores: 0
 --- !u!1 &8081301833461969762
 GameObject:
   m_ObjectHideFlags: 0

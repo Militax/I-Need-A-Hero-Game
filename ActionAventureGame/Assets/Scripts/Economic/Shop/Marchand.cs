@@ -12,7 +12,11 @@ public class Marchand : MonoBehaviour
    public GameObject shopUI;
    public GameObject startInputShop;
 
-	
+	void Start()
+	{
+		GameManager.Instance.GetComponentInChildren<ShopInteraction>().spr = this.GetComponent<SpriteRenderer>();
+		GameManager.Instance.GetComponentInChildren<KeysBrightness>().marchand = this;
+	}
 	void Update ()
    {
 		if (CanEnterShop)
