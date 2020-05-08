@@ -11,6 +11,7 @@ namespace Ennemy
         #region Variables
         public float windEffectSlowdown;
         public float windEffectDuration;
+        public float freezEffectDuration;
 
         string ennemyType;
         Rigidbody2D rb;
@@ -29,9 +30,19 @@ namespace Ennemy
             {
                 if (ennemyType == "Gingerbread")
                 {
+                    
                     if (GetComponent<GingerbreadMovement>().isAffectedByWind == false)
                     {
-                        StartCoroutine(WindEffect(other));
+                        if (GameManager.Instance.powerState >= 2)
+                        {
+                            Debug.Log("hihihih");
+                            StartCoroutine(FreezeEffect(other));
+                        }
+                        else
+                        {
+                            StartCoroutine(WindEffect(other));
+                        }
+                        
                     }
                 }
                 else
@@ -39,6 +50,7 @@ namespace Ennemy
                     StartCoroutine(WindEffect(other));
                 }
             }
+            
         }
 
 
@@ -54,6 +66,44 @@ namespace Ennemy
                     rb.velocity = other.GetComponentInParent<Rigidbody2D>().velocity / windEffectSlowdown;//Fait reculer l'ennemi
                     yield return new WaitForSeconds(windEffectDuration);
                     rb.velocity = Vector2.zero;
+                    yield return new WaitForSeconds(windEffectDuration);
+                    GetComponent<GingerbreadMovement>().isAffectedByWind = false;
+
+                    break;
+
+
+                case ("Chat")://Sur le chat
+                    break;
+
+
+                case ("Snowman")://Sur le SnowMan
+
+                    if (GameManager.Instance.powerState == 3)
+                    {
+                        rb.velocity = other.GetComponentInParent<Rigidbody2D>().velocity / windEffectSlowdown;//Fait reculer l'ennemi
+                        yield return new WaitForSeconds(windEffectDuration);
+                        rb.velocity = Vector2.zero;
+                    }
+
+                    break;
+
+            }
+        }
+        IEnumerator FreezeEffect(Collider2D other)
+        {
+            switch (ennemyType)
+            {
+
+                case ("Gingerbread")://Sur le gingerbread
+
+                    GetComponent<GingerbreadMovement>().isAffectedByWind = true;
+                    rb.velocity = other.GetComponentInParent<Rigidbody2D>().velocity / windEffectSlowdown;//Fait reculer l'ennemi
+                    yield return new WaitForSeconds(windEffectDuration);
+                    rb.velocity = Vector2.zero;
+
+                    //anim freeze ici !!!!!!
+
+                    yield return new WaitForSeconds(freezEffectDuration);
                     GetComponent<GingerbreadMovement>().isAffectedByWind = false;
 
                     break;

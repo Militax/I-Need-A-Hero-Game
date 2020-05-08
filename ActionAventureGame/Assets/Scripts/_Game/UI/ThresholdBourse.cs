@@ -12,11 +12,12 @@ namespace Economic
 
         public Image Bourse;
         Sprite baseimage;
-
+        public int BourseLevel = 1;
 
         [System.Serializable]
         public class threshold
         {
+            public int Level;
             public int Coins;
             public Sprite accordingSprite;
         }
@@ -25,19 +26,24 @@ namespace Economic
 
         public void UpdateCoinsDisplay(int coins)
         {
+
             thresholds = thresholds.OrderByDescending(t => t.Coins).ToArray();
             foreach (threshold item in thresholds)
             {
-                if (coins >= item.Coins)
+                if (item.Level == BourseLevel)
                 {
-                    Bourse.sprite = item.accordingSprite;
-                    return;
+                    if (coins >= item.Coins)
+                    {
+                        Bourse.sprite = item.accordingSprite;
+                        return;
+                    }
+                    if (coins < 0)
+                    {
+
+                        Bourse.sprite = baseimage;
+                    }
                 }
-                if (coins < 0)
-                {
-                    
-                    Bourse.sprite = baseimage;
-                }
+                
             }
         }
         private void Start()
