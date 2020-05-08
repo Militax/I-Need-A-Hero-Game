@@ -23,12 +23,7 @@ public class MoneyCount : MonoBehaviour
             GameManager.Instance.GetComponent<CanvasManagement>().CoinCount = CoinCountObject;
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
-    }
+    
     public void UpdateMoneyDisplay(int coins)
     {
         Coins.clear();

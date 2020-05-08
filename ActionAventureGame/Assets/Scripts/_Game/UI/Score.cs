@@ -36,7 +36,7 @@ public class Score : MonoBehaviour
     {
         this.activeObj[activeObj] = Instantiate(this.Number[scores], this.field[field].position, this.field[field].rotation);
         this.activeObj[activeObj].name = this.field[field].name;
-        this.activeObj[activeObj].transform.parent = this.field[field];
+        this.activeObj[activeObj].transform.SetParent(this.field[field]);
     }
     // Update is called once per frame
     

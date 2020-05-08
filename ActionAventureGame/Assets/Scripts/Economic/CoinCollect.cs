@@ -46,8 +46,10 @@ namespace Economic
 			if (other.transform.tag == "Player")
 			{
 				GameManager.Instance.CoinOwned += coinValue;
-				GameObject.FindObjectOfType<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
-				GameObject.FindObjectOfType<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
+
+				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
+				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
+
 				Destroy(gameObject);
 			}
 		}

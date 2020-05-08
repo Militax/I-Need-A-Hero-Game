@@ -15,12 +15,9 @@ public class KeysBrightness : MonoBehaviour
     public KeyDescriptor[] Keys;
     public Color pressedColor;
     public Color defaultColor;
-    private Marchand marchand;
 
-    private void Awake()
-    {
-        marchand = GameObject.FindObjectOfType<Marchand>();
-    }
+    [HideInInspector]
+    public Marchand marchand;
 
 
     // Update is called once per frame
@@ -28,9 +25,12 @@ public class KeysBrightness : MonoBehaviour
     {
         foreach (KeyDescriptor keyDescriptor in Keys)
         {
-            if (keyDescriptor.dependsOnShop)
+            if (marchand != null)
             {
-                keyDescriptor.reference.color = (!marchand.CanEnterShop ? pressedColor : defaultColor);
+                if (keyDescriptor.dependsOnShop)
+                {
+                    keyDescriptor.reference.color = (!marchand.CanEnterShop ? pressedColor : defaultColor);
+                }
                 continue;
             }
             keyDescriptor.reference.color = (Input.GetButton(keyDescriptor.KeyInput) ? pressedColor : defaultColor);
