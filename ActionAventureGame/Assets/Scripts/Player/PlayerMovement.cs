@@ -16,8 +16,8 @@ namespace Player
 
         public Animator animator;
 
-        Rigidbody2D rb;
-        Vector2 movement;
+        public Rigidbody2D rb;
+        public Vector2 movement;
 
 
         void Start()
