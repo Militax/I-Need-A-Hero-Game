@@ -51,8 +51,8 @@ MonoBehaviour:
     inactive: {fileID: 0}
   combinations:
   - colliderTag: Sword
-    active: {fileID: 21300000, guid: 4f763dabef2ae684b9dff7d5c1fc12fb, type: 3}
-    inactive: {fileID: 21300000, guid: 7db7bdd0f56219a4ba8159bf29d90d16, type: 3}
+    active: {fileID: 21300000, guid: 02ca923317fba5840bb7ea968ddaf652, type: 3}
+    inactive: {fileID: 21300000, guid: 36b34bf9cc0b6364aac0a708b03f07e5, type: 3}
   - colliderTag: IceBullet
     active: {fileID: 21300000, guid: 4f763dabef2ae684b9dff7d5c1fc12fb, type: 3}
     inactive: {fileID: 21300000, guid: 7db7bdd0f56219a4ba8159bf29d90d16, type: 3}
@@ -68,7 +68,9 @@ MonoBehaviour:
   SwitchOnce: 0
   canSwitch: 1
   useTimer: 0
-  timer: 0
+  timer:
+    isStopped: 0
+    cooldownTime: 0
 --- !u!212 &6448018784383941533
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -116,7 +118,7 @@ SpriteRenderer:
   m_Size: {x: 0.7083333, y: 0.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &6448018784383941531
