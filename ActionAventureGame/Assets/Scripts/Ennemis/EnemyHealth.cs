@@ -30,6 +30,7 @@ namespace Ennemy
         bool canTakeDamage = true;
         #endregion
         Animator animator;
+        bool Dead = false;
         public int TimerDie;
         void Start()
         {
@@ -38,15 +39,21 @@ namespace Ennemy
         }
         void Update()
         {
-            if (health <= 0)
+            if (health <= 0 && Dead == false)
             {
+                Dead = true;
                 Debug.Log("die");
                 if (ennemyType == "Gingerbread")
                 {
                     this.GetComponent<GingerbreadMovement>().isAlive = false;
                 }
-                animator.SetTrigger("Death");
-                StartCoroutine(cooldown());
+                Debug.Log("death");
+                if (Dead == true)
+                {
+                    animator.SetTrigger("Death");
+                    StartCoroutine(cooldown());
+                }
+                
             }
         }
 
@@ -54,6 +61,7 @@ namespace Ennemy
         {
             if (other.CompareTag("Sword") && ennemyType != ("Snowman") && canTakeDamage)
             {
+                Debug.Log("degat");
                 health -= GameManager.Instance.swordDamage;
                 animator.SetTrigger("Degat");
                 StartCoroutine(SafeCooldown());
@@ -63,6 +71,7 @@ namespace Ennemy
                 if(other.GetComponent<IceBullet>().isOut)//La balle est partie du Snowman
                 {
                     Debug.Log("Hit");
+                    animator.SetTrigger("Degat");
                     health--;
                     Destroy(other.gameObject);
                     StartCoroutine(SafeCooldown());
