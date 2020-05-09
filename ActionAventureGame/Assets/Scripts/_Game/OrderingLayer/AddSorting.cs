@@ -12,8 +12,8 @@ public class AddSorting : MonoBehaviour
     }
     [HideInInspector]
     public List<rendererDescriptor> Allitems = new List<rendererDescriptor>();
-
-
+    
+    
     private void Start()
     {
         Allitems.Clear();
