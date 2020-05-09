@@ -1,22 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5469235551241908235
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4d683f551d33a84db12bb6fa65573f9, type: 3}
-  m_Name: TextSwitcherClip
-  m_EditorClassIdentifier: 
-  template:
-    color: {r: 1, g: 1, b: 1, a: 1}
-    fontSize: 30
-    text: "Ah ! te revoil\xE0 ! "
---- !u!114 &-2535826496862940068
+--- !u!114 &-5785798569242990138
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30,8 +14,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   template:
     color: {r: 1, g: 1, b: 1, a: 1}
-    fontSize: 30
-    text: C est rassurant de voir que tu ne t es pas perdue...
+    fontSize: 14
+    text: "Malgr\xE9 cette force, tu ne pourras pas forcer la porte de la chambre
+      du prince."
+--- !u!114 &-4638381532911172491
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a16748d9461eae46a725db9776d5390, type: 3}
+  m_Name: Markers
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,17 +50,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfda56da833e2384a9677cd3c976a436, type: 3}
-  m_Name: DialogueVillageTimeline
+  m_Name: DialogueChaperon5Timeline
   m_EditorClassIdentifier: 
   m_Version: 0
   m_Tracks:
-  - {fileID: 849672226146903055}
+  - {fileID: 7277758082571990996}
   m_FixedDuration: 0
   m_EditorSettings:
     m_Framerate: 60
   m_DurationMode: 0
-  m_MarkerTrack: {fileID: 1608320827951109414}
---- !u!114 &849672226146903055
+  m_MarkerTrack: {fileID: -4638381532911172491}
+--- !u!114 &6849349657873019976
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4d683f551d33a84db12bb6fa65573f9, type: 3}
+  m_Name: TextSwitcherClip(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  template:
+    color: {r: 1, g: 1, b: 1, a: 1}
+    fontSize: 14
+    text: "Certains racontent que des chats ont mis la cl\xE9 de sa porte dans un
+      coffre sur l ile la plus au sud."
+--- !u!114 &7277758082571990996
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -76,10 +101,10 @@ MonoBehaviour:
   - m_Version: 1
     m_Start: 0
     m_ClipIn: 0
-    m_Asset: {fileID: -5469235551241908235}
-    m_Duration: 3
+    m_Asset: {fileID: 7562883419692507010}
+    m_Duration: 5
     m_TimeScale: 1
-    m_ParentTrack: {fileID: 849672226146903055}
+    m_ParentTrack: {fileID: 7277758082571990996}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
@@ -143,12 +168,12 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: TextSwitcherClip
   - m_Version: 1
-    m_Start: 3
+    m_Start: 5
     m_ClipIn: 0
-    m_Asset: {fileID: -2535826496862940068}
-    m_Duration: 3
+    m_Asset: {fileID: -5785798569242990138}
+    m_Duration: 5
     m_TimeScale: 1
-    m_ParentTrack: {fileID: 849672226146903055}
+    m_ParentTrack: {fileID: 7277758082571990996}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
@@ -212,12 +237,12 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: TextSwitcherClip
   - m_Version: 1
-    m_Start: 6
+    m_Start: 10
     m_ClipIn: 0
-    m_Asset: {fileID: 4783646259251487715}
-    m_Duration: 3
+    m_Asset: {fileID: 6849349657873019976}
+    m_Duration: 5
     m_TimeScale: 1
-    m_ParentTrack: {fileID: 849672226146903055}
+    m_ParentTrack: {fileID: 7277758082571990996}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
@@ -282,30 +307,7 @@ MonoBehaviour:
     m_DisplayName: TextSwitcherClip
   m_Markers:
     m_Objects: []
---- !u!114 &1608320827951109414
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a16748d9461eae46a725db9776d5390, type: 3}
-  m_Name: Markers
-  m_EditorClassIdentifier: 
-  m_Version: 3
-  m_AnimClip: {fileID: 0}
-  m_Locked: 0
-  m_Muted: 0
-  m_CustomPlayableFullTypename: 
-  m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
-  m_Children: []
-  m_Clips: []
-  m_Markers:
-    m_Objects: []
---- !u!114 &4783646259251487715
+--- !u!114 &7562883419692507010
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -315,10 +317,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4d683f551d33a84db12bb6fa65573f9, type: 3}
-  m_Name: TextSwitcherClip(Clone)(Clone)
+  m_Name: TextSwitcherClip
   m_EditorClassIdentifier: 
   template:
     color: {r: 1, g: 1, b: 1, a: 1}
-    fontSize: 37
-    text: "M\xE8re Grand, elle, s est perdue dans le brouillard de la for\xEAt en
-      voulant activer le levier qui permet de faire appara\xEEtre une partie du pont."
+    fontSize: 14
+    text: "Maintenant que tu es presque aussi forte que moi, tu peux d\xE9placer
+      les grosses caisses !"
