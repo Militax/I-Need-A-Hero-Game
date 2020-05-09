@@ -20,7 +20,7 @@ public class AddSorting : MonoBehaviour
 
         foreach (SpriteRenderer item in GameObject.FindObjectsOfType<SpriteRenderer>())
         {
-            if (item.tag != "Water")
+            if (item.tag != "Water" && item.tag != "Interactable")
             {
                 Allitems.Add(new rendererDescriptor() { offset = item.transform.position.y - item.bounds.size.y / 2, spr = item });
             }
