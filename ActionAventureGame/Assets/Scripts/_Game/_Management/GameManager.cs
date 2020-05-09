@@ -49,11 +49,11 @@ namespace GameManagement
 		#region ShopVariable
 
 		public int bottesState;
-	
-
-		#endregion
 
 
+        #endregion
+
+        public bool isComingFromDonjon = false;
 
         void Awake()
         {

@@ -583,47 +583,6 @@ PolygonCollider2D:
       - {x: 0.33364773, y: 0.12181759}
       - {x: 0.58778536, y: -0.80901694}
       - {x: 0.43392658, y: 2.5843916}
---- !u!61 &8009730640206265032
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8762431983420781055}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.019717216, y: -0.039433718}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5416666, y: 2.2083333}
-    newSize: {x: 1.5416666, y: 2.2083333}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.1078968, y: 1.616828}
-  m_EdgeRadius: 0
---- !u!114 &623702062211668220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8762431983420781055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e79643583f7ba44fab2fe8c66e183aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RepopPos: {x: 0, y: 0, z: 0}
-  ennemyTags:
-  - Player
 --- !u!1 &3903565195940759117
 GameObject:
   m_ObjectHideFlags: 0
@@ -12931,8 +12890,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 707671759
+  m_SortingLayer: -3
   m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -13898,6 +13857,47 @@ MonoBehaviour:
   closeState: {fileID: 3903565197020836129}
   startState: 0
   stayActive: 0
+--- !u!61 &8009730640206265032
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8762431983420781055}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.019717216, y: -0.039433718}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.5416666, y: 2.2083333}
+    newSize: {x: 1.5416666, y: 2.2083333}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.1078968, y: 1.616828}
+  m_EdgeRadius: 0
+--- !u!114 &623702062211668220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8762431983420781055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e79643583f7ba44fab2fe8c66e183aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RepopPos: {x: 0, y: 0, z: 0}
+  ennemyTags:
+  - Player
 --- !u!1001 &1062787304204416058
 PrefabInstance:
   m_ObjectHideFlags: 0

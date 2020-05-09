@@ -28,7 +28,7 @@ public class OneWayWall : MonoBehaviour
         switch (side)
         {
             case ("TOP"):
-                if (player.transform.position.y > gameObject.transform.position.y + offsetY)
+                if (player.transform.position.y > gameObject.transform.position.y)
                 {
                     collider.enabled = false;
                 }
@@ -39,7 +39,7 @@ public class OneWayWall : MonoBehaviour
                 break;
 
             case ("BOTTOM"):
-                if (player.transform.position.y <= gameObject.transform.position.y + offsetY)
+                if (player.transform.position.y <= gameObject.transform.position.y)
                 {
                     collider.enabled = false;
                 }
