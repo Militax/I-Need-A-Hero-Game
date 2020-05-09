@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using GameManagement;
+using Audio;
 
 /// <summary>
 /// Matis Duperray
@@ -20,6 +21,8 @@ namespace Player
         public Vector2 movement;
 
 
+        bool footStepCoroutine = false;
+
         void Start()
         {
             //Recuperation du rigidbody du player
@@ -37,6 +40,16 @@ namespace Player
             animator.SetFloat("Horizontal", movement.x);
             animator.SetFloat("Vertical", movement.y);
             animator.SetFloat("Speed", movement.sqrMagnitude);
+
+
+
+            if(rb.velocity != Vector2.zero)
+            {
+                if (footStepCoroutine == false)
+                {
+                    StartCoroutine(FootStep());
+                }
+            }
         }
 
         private void FixedUpdate()
@@ -47,7 +60,19 @@ namespace Player
                 rb.velocity = movement.normalized * (moveSpeed * 50) * Time.deltaTime;
             }
             else
+            {
                 rb.velocity = Vector2.zero;
+            }
+                
+        }
+
+        IEnumerator FootStep()
+        {
+            footStepCoroutine = true;
+            AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Outside Step");
+            float time = Random.Range(0.4f, 0.7f);
+            yield return new WaitForSeconds(time);
+            footStepCoroutine = false;
         }
     }
 }

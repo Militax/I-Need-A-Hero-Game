@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Power;
 using GameManagement;
+using Audio;
 
 
 namespace Player
@@ -357,6 +358,20 @@ namespace Player
 
 
 
+                }
+
+
+                switch (GameManager.Instance.powerState)
+                {
+                    case (1):
+                        AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Wind Power");
+                        break;
+                    case (2):
+                        AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Frozen Power");
+                        break;
+                    case (3):
+                        AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Power Power");
+                        break;
                 }
             }
         }
