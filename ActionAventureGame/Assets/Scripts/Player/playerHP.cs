@@ -51,6 +51,9 @@ namespace Player
                     GameManager.Instance.playerHealth -= other.GetComponent<LightBall>().damage;
                     Destroy(other.gameObject);
                     break;
+                case ("Cat"):
+                    GameManager.Instance.playerHealth -= 1;
+                    break;
 
                 default:
                     break;

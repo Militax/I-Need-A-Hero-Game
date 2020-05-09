@@ -13,7 +13,8 @@ namespace GameManagement
     public class GameManager : Singleton<GameManager>
     {
         #region Player Variable
-
+        [HideInInspector]
+        public bool HasKey;
         public Vector3 RespawnPoint;
         public PlayerMovement player;
         public bool playerCanMove;

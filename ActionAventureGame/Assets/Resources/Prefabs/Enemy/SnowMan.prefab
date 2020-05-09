@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6716102325986113104}
   - component: {fileID: 1038720884}
   - component: {fileID: 441803508}
+  - component: {fileID: -3903269727326768229}
   m_Layer: 0
   m_Name: SnowMan
   m_TagString: Ennemy
@@ -167,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windEffectSlowdown: 5
   windEffectDuration: 0.2
+  freezEffectDuration: 0
 --- !u!95 &441803508
 Animator:
   serializedVersion: 3
@@ -186,6 +188,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-3903269727326768229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6716102325986113110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb0c1ae83b3131149bbe968e77a134cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LootTable:
+  - {fileID: 7181366856507520482, guid: 247ac619b3e98344c8fa4957fe10b493, type: 3}
+  - {fileID: 4054379633646435344, guid: a4d89126b7788f343b4737345811692e, type: 3}
+  lootRange: 1
+  numberOfDrops: 1
 --- !u!1 &6716102326257001572
 GameObject:
   m_ObjectHideFlags: 0

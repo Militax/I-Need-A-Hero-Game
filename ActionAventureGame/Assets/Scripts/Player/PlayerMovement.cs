@@ -37,6 +37,18 @@ namespace Player
             animator.SetFloat("Horizontal", movement.x);
             animator.SetFloat("Vertical", movement.y);
             animator.SetFloat("Speed", movement.sqrMagnitude);
+            if (GameManager.Instance.bottesState == 1)
+            {
+                moveSpeed = 3.5f;
+            }
+            if (GameManager.Instance.bottesState == 2)
+            {
+                moveSpeed = 4f;
+            }
+            if (GameManager.Instance.bottesState == 3)
+            {
+                moveSpeed = 4.3f;
+            }
         }
 
         private void FixedUpdate()
