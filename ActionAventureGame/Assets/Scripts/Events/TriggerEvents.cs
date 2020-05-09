@@ -20,20 +20,20 @@ public class TriggerEvents : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("yep");
-
-        if (TimelinePlayed == false)
+        if (collision.tag == "Player")
         {
-            Debug.Log("doubleyep");
-            Timeline.Play();
+            if (TimelinePlayed == false)
+            {
 
-            GameManager.Instance.playerCanMove = false;
-            //(FindObjectOfType<PlayerMovement>()).enabled = false;
-            //Player.GetComponent<PlayerMovement>().rb.velocity = Vector2.zero;
+                Timeline.Play();
 
-            Timeline.stopped += OnPlayableDirectorStopped;          
+                GameManager.Instance.playerCanMove = false;
+                //(FindObjectOfType<PlayerMovement>()).enabled = false;
+                //Player.GetComponent<PlayerMovement>().rb.velocity = Vector2.zero;
+
+                Timeline.stopped += OnPlayableDirectorStopped;
+            }
         }
-       
     }
 
     void OnPlayableDirectorStopped(PlayableDirector MontéeEau)
