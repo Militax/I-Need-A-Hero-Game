@@ -27,19 +27,27 @@ public class TriggerChaperon : MonoBehaviour
    
     void OnTriggerEnter2D(Collider2D collision)
     {
-       Gueulante.Stop();
-       Timeline.Play();
-       Timeline.stopped += OnPlayableDirectorStopped;
+        if (collision.tag == "Player")
+        {
+            Gueulante.Stop();
+            Timeline.Play();
+            Timeline.stopped += OnPlayableDirectorStopped;
+        }
+       
     }
 
     void OnTriggerExit2D(Collider2D Player)
     {
-        if (TimelinePlayed == false)
+        if (Player.tag == "Player")
         {
-            Timeline.Pause();
-            Gueulante.Play();
-            Debug.Log("CA MARCHE");
+            if (TimelinePlayed == false)
+            {
+                Timeline.Pause();
+                Gueulante.Play();
+                Debug.Log("CA MARCHE");
+            }
         }
+        
     }
 
     void OnPlayableDirectorStopped(PlayableDirector MontéeEau)
