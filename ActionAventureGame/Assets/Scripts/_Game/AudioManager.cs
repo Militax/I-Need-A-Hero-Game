@@ -12,11 +12,11 @@ namespace Audio
     /// </summary>
     public class AudioManager : MonoBehaviour
     {
+        //AudioManager.AMInstance.Play(AudioManager.AMInstance.TABLEAU, NOM);
         public static AudioManager AMInstance;
 
 
         public Sound[] Themes;
-        public Sound[] Ambiences;
         public Sound[] NarratorVoiceLines;
         public Sound[] PlayerSounds;
         public Sound[] EnnemySounds;
@@ -36,7 +36,6 @@ namespace Audio
 
 
             InitiateSoundArray(Themes);
-            InitiateSoundArray(Ambiences);
             InitiateSoundArray(NarratorVoiceLines);
             InitiateSoundArray(PlayerSounds);
             InitiateSoundArray(EnnemySounds);

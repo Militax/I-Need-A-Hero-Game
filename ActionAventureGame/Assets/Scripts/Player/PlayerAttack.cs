@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Audio;
 
 
 /// <summary>
@@ -104,6 +105,7 @@ namespace Player
             {
                 prefabHitboxBottomLeft.SetActive(true);
             }
+            AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Sword Attack");
             StartCoroutine(Attaque_Movement());
             myCoroutine = StartCoroutine(Attack_Cooldown());
         }
