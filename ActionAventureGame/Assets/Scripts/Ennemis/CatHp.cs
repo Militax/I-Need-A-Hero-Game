@@ -10,11 +10,13 @@ public class CatHp : MonoBehaviour
     Animator animator;
     bool die = false;
     public int TimerDie;
+    bool takedamage;
     // Start is called before the first frame update
     void Start()
     {
         currentHP = MaxHP;
         animator = gameObject.GetComponent<Animator>();
+        takedamage = GetComponent<catBehaviour>().canBeDamaged;
     }
 
     // Update is called once per frame
@@ -26,24 +28,37 @@ public class CatHp : MonoBehaviour
             gameObject.GetComponent<catBehaviour>().enabled = false;
             animator.SetTrigger("Death");
             StartCoroutine(cooldown());
-            if(die)
+            if (die)
             {
                 Destroy(gameObject);
             }
         }
-           
+
+        takedamage = GetComponent<catBehaviour>().canBeDamaged;
+
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Sword")
         {
             animator.SetTrigger("Degat");
-            currentHP -= DamageTaken;
+
+            if (takedamage)
+            {
+                animator.SetBool("CanDamaged", true);
+                currentHP -= DamageTaken;
+            }
+            if (!takedamage)
+            {
+                animator.SetBool("CanDamaged", false); //animation parade
+            }
         }
         if (other.tag == "WindWave")
         {
-            gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         }
+
+
     }
 
     IEnumerator cooldown()
