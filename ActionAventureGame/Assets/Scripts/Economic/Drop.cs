@@ -9,6 +9,7 @@ public class Drop : MonoBehaviour
     private bool isQuitting = false;
     public int numberOfDrops;
     bool canLoot = true;
+    Animator animator;
 
     void OnApplicationQuit()
     {
@@ -50,6 +51,7 @@ public class Drop : MonoBehaviour
         {
             if (Input.GetButton("Interaction"))
             {
+                animator.SetTrigger("Open");
                 open();
             }
         }
