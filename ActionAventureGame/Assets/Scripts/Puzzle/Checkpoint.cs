@@ -12,10 +12,6 @@ public class Checkpoint : MonoBehaviour
         NewRespawnPoint = gameObject.transform.position;
     }
 
-    private void Start()
-    {
-        NewRespawnPoint = gameObject.transform.position;
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
