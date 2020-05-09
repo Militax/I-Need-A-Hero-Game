@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5469235551241908235
+--- !u!114 &-8121430293988545148
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,28 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4d683f551d33a84db12bb6fa65573f9, type: 3}
-  m_Name: TextSwitcherClip
+  m_Name: TextSwitcherClip(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   template:
     color: {r: 1, g: 1, b: 1, a: 1}
-    fontSize: 30
-    text: "Ah ! te revoil\xE0 ! "
---- !u!114 &-2535826496862940068
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4d683f551d33a84db12bb6fa65573f9, type: 3}
-  m_Name: TextSwitcherClip(Clone)
-  m_EditorClassIdentifier: 
-  template:
-    color: {r: 1, g: 1, b: 1, a: 1}
-    fontSize: 30
-    text: C est rassurant de voir que tu ne t es pas perdue...
+    fontSize: 37
+    text: "M\xE8re Grand, elle, s est perdue dans le brouillard de la for\xEAt en
+      voulant activer le levier qui permet de faire appara\xEEtre une partie du pont."
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,17 +27,66 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfda56da833e2384a9677cd3c976a436, type: 3}
-  m_Name: DialogueVillageTimeline
+  m_Name: DialogueChaperon2Timeline
   m_EditorClassIdentifier: 
   m_Version: 0
   m_Tracks:
-  - {fileID: 849672226146903055}
+  - {fileID: 4607136553942371873}
   m_FixedDuration: 0
   m_EditorSettings:
     m_Framerate: 60
   m_DurationMode: 0
-  m_MarkerTrack: {fileID: 1608320827951109414}
---- !u!114 &849672226146903055
+  m_MarkerTrack: {fileID: 5389847933132644300}
+--- !u!114 &31767811066588553
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4d683f551d33a84db12bb6fa65573f9, type: 3}
+  m_Name: TextSwitcherClip(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  template:
+    color: {r: 1, g: 1, b: 1, a: 1}
+    fontSize: 30
+    text: C est rassurant de voir que tu ne t es pas perdue...
+--- !u!114 &1819011143599599608
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4d683f551d33a84db12bb6fa65573f9, type: 3}
+  m_Name: TextSwitcherClip(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  template:
+    color: {r: 1, g: 1, b: 1, a: 1}
+    fontSize: 37
+    text: "Ah ! Je vois que tu as r\xE9ussi \xE0 capturer une f\xE9e, elle va enfin
+      se montrer utile !"
+--- !u!114 &2913426753403531639
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4d683f551d33a84db12bb6fa65573f9, type: 3}
+  m_Name: TextSwitcherClip(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  template:
+    color: {r: 1, g: 1, b: 1, a: 1}
+    fontSize: 30
+    text: "Ah ! te revoil\xE0 ! "
+--- !u!114 &4607136553942371873
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -76,10 +110,112 @@ MonoBehaviour:
   - m_Version: 1
     m_Start: 0
     m_ClipIn: 0
-    m_Asset: {fileID: -5469235551241908235}
+    m_Asset: {fileID: 2913426753403531639}
+    m_Duration: 2
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 4607136553942371873}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: TextSwitcherClip
+  - m_Version: 1
+    m_Start: 2
+    m_ClipIn: 0
+    m_Asset: {fileID: 31767811066588553}
     m_Duration: 3
     m_TimeScale: 1
-    m_ParentTrack: {fileID: 849672226146903055}
+    m_ParentTrack: {fileID: 4607136553942371873}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: TextSwitcherClip
+  - m_Version: 1
+    m_Start: 5.000000000000003
+    m_ClipIn: 0
+    m_Asset: {fileID: -8121430293988545148}
+    m_Duration: 8
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 4607136553942371873}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
@@ -143,12 +279,12 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: TextSwitcherClip
   - m_Version: 1
-    m_Start: 3
+    m_Start: 13.933333333333334
     m_ClipIn: 0
-    m_Asset: {fileID: -2535826496862940068}
-    m_Duration: 3
+    m_Asset: {fileID: 1819011143599599608}
+    m_Duration: 3.9999999999999982
     m_TimeScale: 1
-    m_ParentTrack: {fileID: 849672226146903055}
+    m_ParentTrack: {fileID: 4607136553942371873}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
@@ -179,25 +315,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -212,37 +330,19 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: TextSwitcherClip
   - m_Version: 1
-    m_Start: 6
+    m_Start: 17.93333333333334
     m_ClipIn: 0
-    m_Asset: {fileID: 4783646259251487715}
-    m_Duration: 3
+    m_Asset: {fileID: 8450814228086203163}
+    m_Duration: 8
     m_TimeScale: 1
-    m_ParentTrack: {fileID: 849672226146903055}
+    m_ParentTrack: {fileID: 4607136553942371873}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -282,7 +382,7 @@ MonoBehaviour:
     m_DisplayName: TextSwitcherClip
   m_Markers:
     m_Objects: []
---- !u!114 &1608320827951109414
+--- !u!114 &5389847933132644300
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -305,7 +405,7 @@ MonoBehaviour:
   m_Clips: []
   m_Markers:
     m_Objects: []
---- !u!114 &4783646259251487715
+--- !u!114 &8450814228086203163
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -315,10 +415,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4d683f551d33a84db12bb6fa65573f9, type: 3}
-  m_Name: TextSwitcherClip(Clone)(Clone)
+  m_Name: TextSwitcherClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   template:
     color: {r: 1, g: 1, b: 1, a: 1}
     fontSize: 37
-    text: "M\xE8re Grand, elle, s est perdue dans le brouillard de la for\xEAt en
-      voulant activer le levier qui permet de faire appara\xEEtre une partie du pont."
+    text: "Regarde si tu peux d\xE9placer les caisses un peu plus loin du camps de
+      b\xFBcherons, \xE7a fera appara\xEEtre l autre partie du pont vers le village. "
