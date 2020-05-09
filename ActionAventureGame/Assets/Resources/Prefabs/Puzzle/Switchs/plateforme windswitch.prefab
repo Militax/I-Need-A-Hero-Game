@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 392991183527409201}
   m_Layer: 12
   m_Name: plateforme windswitch
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -375,6 +375,7 @@ MonoBehaviour:
   openState: {fileID: 342366339543463951}
   closeState: {fileID: 342366340661356426}
   startState: 0
+  stayActive: 0
 --- !u!1001 &3579517050363770361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -446,6 +447,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Windswitch
+      objectReference: {fileID: 0}
+    - target: {fileID: 6382363877936385905, guid: 3f71591c616048f429fb419c2d46dfa4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f71591c616048f429fb419c2d46dfa4, type: 3}
