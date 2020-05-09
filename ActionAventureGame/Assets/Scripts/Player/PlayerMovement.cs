@@ -40,15 +40,27 @@ namespace Player
             animator.SetFloat("Horizontal", movement.x);
             animator.SetFloat("Vertical", movement.y);
             animator.SetFloat("Speed", movement.sqrMagnitude);
+            if (GameManager.Instance.bottesState == 1)
+            {
+                moveSpeed = 3.5f;
+            }
+            if (GameManager.Instance.bottesState == 2)
+            {
+                moveSpeed = 4f;
+            }
+            if (GameManager.Instance.bottesState == 3)
+            {
+                moveSpeed = 4.3f;
+            }
 
 
 
-            if(rb.velocity != Vector2.zero)
-            {
-                if (footStepCoroutine == false)
-                {
-                    StartCoroutine(FootStep());
-                }
+            if(rb.velocity != Vector2.zero)
+            {
+                if (footStepCoroutine == false)
+                {
+                    StartCoroutine(FootStep());
+                }
             }
         }
 
@@ -59,20 +71,20 @@ namespace Player
             {
                 rb.velocity = movement.normalized * (moveSpeed * 50) * Time.deltaTime;
             }
-            else
-            {
-                rb.velocity = Vector2.zero;
+            else
+            {
+                rb.velocity = Vector2.zero;
             }
                 
         }
 
-        IEnumerator FootStep()
-        {
-            footStepCoroutine = true;
-            AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Outside Step");
-            float time = Random.Range(0.4f, 0.7f);
-            yield return new WaitForSeconds(time);
-            footStepCoroutine = false;
+        IEnumerator FootStep()
+        {
+            footStepCoroutine = true;
+            AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Outside Step");
+            float time = Random.Range(0.4f, 0.7f);
+            yield return new WaitForSeconds(time);
+            footStepCoroutine = false;
         }
     }
 }

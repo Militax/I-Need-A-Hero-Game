@@ -7,6 +7,7 @@ public class ChangeScene : MonoBehaviour
 {
     public string NextScene;
     
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")

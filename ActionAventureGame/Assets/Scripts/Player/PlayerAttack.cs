@@ -28,7 +28,7 @@ namespace Player
         #endregion
         #region Numbers
         [Range(0.0f, 10.0f)] public float range; //portée de l'attaque
-        [Range(0.0f, 100.0f)] public float speed; //Vitesse de déplacement
+        [Range(0.0f, 2f)] public float speed; //Vitesse de déplacement
         float verticalDelta; //position du joystick sur l'axe vertical
         float horizontalDelta; //position du joystick sur l'axe horizontal
         public float cooldown; //temps entre deux attaques
@@ -112,7 +112,7 @@ namespace Player
         IEnumerator Attaque_Movement()
         {
             animator.SetInteger("NumAttack", ComboCount);
-            movespeed = baseMoveSpeed * 2;
+            movespeed = baseMoveSpeed * speed;
             yield return new WaitForSeconds(attackDuration);
             animator.SetInteger("NumAttack", 0);
             movespeed = baseMoveSpeed;

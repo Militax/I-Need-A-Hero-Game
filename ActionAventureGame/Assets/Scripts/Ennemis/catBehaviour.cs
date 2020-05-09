@@ -45,8 +45,8 @@ public class catBehaviour : MonoBehaviour
             
             Dash();
             yield return new WaitForSeconds(dashTime);
-            
-            
+
+            GetComponentInChildren<CircleCollider2D>().enabled = false;
             rb.velocity = Vector3.zero;
             canBeDamaged = true;
             yield return new WaitForSeconds(vulnerable);
@@ -100,6 +100,7 @@ public class catBehaviour : MonoBehaviour
 
     void Dash()
     {
+        GetComponentInChildren<CircleCollider2D>().enabled = true;
         Vector3 path = (target - gameObject.transform.position).normalized;
         animator.SetTrigger("CanAttack");
         animator.SetFloat("Attack", Vector2.Angle(transform.up, path));

@@ -68,6 +68,9 @@ namespace Player
                         AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Damage");
                     }
                     break;
+                case ("Cat"):
+                    GameManager.Instance.playerHealth -= 1;
+                    break;
 
                 default:
                     break;
