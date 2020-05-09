@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameManagement;
 
 public class Vide : MonoBehaviour
 {
-    public Vector3 RepopPos;
+   public Vector3 RepopPos;
     public string[] ennemyTags;
-    
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -19,9 +20,14 @@ public class Vide : MonoBehaviour
         {
             if (item == tag)
             {
+                if (tag == "Player")
+                {
+                    GameManager.Instance.playerHealth = 0;
+                    return;
+                }
                 if (tag == "Box")
                 {
-                    
+
                     GameObject newBox = Instantiate(ennemy,transform.position + RepopPos, Quaternion.identity);
                     print(ennemy);
                 }
