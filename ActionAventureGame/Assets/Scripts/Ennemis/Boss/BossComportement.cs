@@ -56,6 +56,8 @@ namespace Boss
         bool canShootLight = true;
         #endregion
 
+        public Transform centerRespawn;
+
         public Transform shootPoint;
         public GameObject fireBallPrefab;
         public Animator animator;
@@ -247,6 +249,9 @@ namespace Boss
             yield return new WaitForSeconds(lightFireCooldown);
             canShootLight = true;
         }
+
+        #endregion
+
         IEnumerator playerPush()
         {
             playerIsPuch = true;
@@ -263,9 +268,6 @@ namespace Boss
             playerIsPuch = false;
         }
 
-        #endregion
-
-
         void SelectNewPhase()
         {
             int futurPhase;
@@ -276,6 +278,7 @@ namespace Boss
                 futurPhase = Random.Range(1, 4);
             }
             CurrentPhase = futurPhase;
+            player.transform.position = centerRespawn.position;
 
             GetComponent<BossHealth>().haveToChange = false;
         }
