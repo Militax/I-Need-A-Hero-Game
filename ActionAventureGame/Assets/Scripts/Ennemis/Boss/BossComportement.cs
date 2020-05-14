@@ -69,7 +69,6 @@ namespace Boss
         }
         void Update()
         {
-            Debug.Log(GameManager.Instance.playerCanMove);
 
 
             if (player == null)
@@ -255,9 +254,7 @@ namespace Boss
 
             player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -5);
 
-            Debug.Log("A");
             yield return new WaitForSeconds(0.5f);
-            Debug.Log("B");
 
             GameObject shield = Instantiate(shieldPrefab, shieldSpawn.position, shieldSpawn.rotation, transform);
 
