@@ -13,26 +13,32 @@ namespace Player
     {
         public GameObject DeathState;
         public Animator animator;
-
+        bool isDying = false;
 
         void Start()
         {
             animator = GetComponent<Animator>();
+            
         }
         private void Update()
         {
-            if (GameManager.Instance.playerHealth <= 0)
+            if (GameManager.Instance.playerHealth <= 0 && !isDying)
             {
                 animator.SetTrigger("Dead");
                 AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Death");
-                Instantiate(DeathState, transform.position, Quaternion.identity);
-                gameObject.transform.position = GameManager.Instance.RespawnPoint;
-                GameManager.Instance.DeathCounter += 1;
-                GameManager.Instance.playerHealth = GameManager.Instance.playerHealthMax;
+                isDying = true;
+                Invoke("Respawn", animator.GetCurrentAnimatorStateInfo(0).length);
             }
         }
 
-
+        void Respawn()
+        {
+            Instantiate(DeathState, transform.position, Quaternion.identity);
+            gameObject.transform.position = GameManager.Instance.RespawnPoint;
+            GameManager.Instance.DeathCounter += 1;
+            GameManager.Instance.playerHealth = GameManager.Instance.playerHealthMax;
+            isDying = false;
+        }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
