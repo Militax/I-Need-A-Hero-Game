@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class SwitchEnnemies : ActivationDevice
 {
@@ -9,6 +10,10 @@ public class SwitchEnnemies : ActivationDevice
     private GameObject instance;
     public bool deSpawnOnLeave = true;
     public GameObject eventObject;
+
+    public GameObject FirePit;
+    private PlayableDirector Timeline;
+    public bool TimelineNeeded;
 
     public Vector3 eventPosition;
     // Start is called before the first frame update
@@ -35,6 +40,11 @@ public class SwitchEnnemies : ActivationDevice
                     {
                         instance = Instantiate(eventObject, eventPosition + transform.position, Quaternion.identity, transform);
                         iTween.PunchScale(instance, new Vector3(1, 1, 0), 0.5f);
+
+                        if (TimelineNeeded == true)
+                        {
+                            Timeline.Play();
+                        }
                     }
 
                     else if (!IsActive && instance && deSpawnOnLeave)
@@ -52,6 +62,11 @@ public class SwitchEnnemies : ActivationDevice
     {
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
+        if (TimelineNeeded == true)
+        {
+            Timeline = FirePit.GetComponent<PlayableDirector>();
+        }
 
     }
     private void Update()
