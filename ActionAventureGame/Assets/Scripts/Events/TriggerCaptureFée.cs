@@ -3,29 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 using Player;
+using GameManagement;
 
 public class TriggerCaptureFée : MonoBehaviour
 {
-    public PlayableDirector Timeline;
+    private PlayableDirector Timeline;
     private bool TimelinePlayed;
-    public GameObject Player;
     public GameObject TimelineDirector;
+    private int powerlvl;
 
     // Start is called before the first frame update
     void Start()
     {
         Timeline = TimelineDirector.GetComponent<PlayableDirector>();
         TimelinePlayed = false;
+
+        powerlvl = GameManager.Instance.powerState;
     }
 
     private void OnDestroy()
     {
-        //Debug.Log("CA MARCHE");
+        
 
         if (TimelinePlayed == false)
         {
-            //Debug.Log("CA MARCHE POUR DE VRAI");
+            
             Timeline.Play();
+            GameManager.Instance.playerCanMove = false;
+            GameManager.Instance.powerState = 0;
             //(FindObjectOfType<PlayerMovement>()).enabled = false;
             //Player.GetComponent<PlayerMovement>().rb.velocity = Vector2.zero;
             Timeline.stopped += OnPlayableDirectorStopped;
@@ -36,6 +41,8 @@ public class TriggerCaptureFée : MonoBehaviour
     void OnPlayableDirectorStopped(PlayableDirector MontéeEau)
     {
         TimelinePlayed = true;
+        GameManager.Instance.playerCanMove = true;
+        GameManager.Instance.powerState = powerlvl;
         //(FindObjectOfType<PlayerMovement>()).enabled = true;
         //Player.GetComponent<PlayerMovement>().rb.velocity = Player.GetComponent<PlayerMovement>().movement.normalized * (Player.GetComponent<PlayerMovement>().moveSpeed * 50) * Time.deltaTime;
     }
