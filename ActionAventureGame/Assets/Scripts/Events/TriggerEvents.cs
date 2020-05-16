@@ -9,13 +9,14 @@ public class TriggerEvents : MonoBehaviour
 {
     public PlayableDirector Timeline;
     private bool TimelinePlayed;
-    public GameObject Player;
+    private int powerlvl;
     
     // Start is called before the first frame update
     void Start()
     {
         Timeline = GetComponent<PlayableDirector>();
         TimelinePlayed = false;
+        powerlvl = GameManager.Instance.powerState;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -28,6 +29,7 @@ public class TriggerEvents : MonoBehaviour
                 Timeline.Play();
 
                 GameManager.Instance.playerCanMove = false;
+                GameManager.Instance.powerState = 0;
                 //(FindObjectOfType<PlayerMovement>()).enabled = false;
                 //Player.GetComponent<PlayerMovement>().rb.velocity = Vector2.zero;
 
@@ -40,6 +42,7 @@ public class TriggerEvents : MonoBehaviour
     {
         TimelinePlayed = true;
         GameManager.Instance.playerCanMove = true;
+        GameManager.Instance.powerState = powerlvl;
         //(FindObjectOfType<PlayerMovement>()).enabled = true;
         //GameManager.Instance.player.rb.velocity = GameManager.Instance.player.movement.normalized * (GameManager.Instance.player.moveSpeed * 50) * Time.deltaTime;
     }
