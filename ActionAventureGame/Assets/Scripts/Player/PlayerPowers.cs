@@ -138,7 +138,7 @@ namespace Player
             if (Input.GetButtonDown("WindPower"))//Clique droit
             {
 
-                animator.SetTrigger("CompVersa activated");
+                
 
                 //Instantiation de la vague sur le bon point et dans la bonne direction en fonction du dernier angle enregistré par le joystick
                 switch (lookingAngle)
@@ -153,16 +153,19 @@ namespace Player
                         switch(GameManager.Instance.powerState)
                         {
                             case (1):
+                                animator.SetTrigger("CompVersa activated");
                                 //Instancie le pouvoir
                                 WindWaveT = Instantiate(WindPowerPrefab, topPoint.position, topPoint.rotation);
                                 //Donne la direction
                                 WindWaveT.GetComponent<WindPower>().WaveDirection.y = 1;
                                 break;
                             case (2):
+                                animator.SetTrigger("CompVersa activated");
                                 WindWaveT = Instantiate(FrozenPowerPrefab, topPoint.position, topPoint.rotation);
                                 WindWaveT.GetComponent<WindPower>().WaveDirection.y = 1;
                                 break;
                             case (3):
+                                animator.SetTrigger("CompVersa activated");
                                 WindWaveT = Instantiate(PowerPowerPrefab, topPoint.position, topPoint.rotation);
                                 WindWaveT.GetComponent<WindPower>().WaveDirection.y = 1;
                                 break;

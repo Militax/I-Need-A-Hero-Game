@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using System;
 public class SwichGlobal : ActivationDevice
 {
@@ -19,6 +20,9 @@ public class SwichGlobal : ActivationDevice
     //public float timer;
     Cooldown activationCooldown = new Cooldown(0.5f);
     public Cooldown timer;
+
+    public GameObject FirePit;
+    private PlayableDirector Timeline;
 
 
 
@@ -54,7 +58,8 @@ public class SwichGlobal : ActivationDevice
             spr = GetComponent<SpriteRenderer>();
         }
         timer.isStopped = true;
-        
+
+        Timeline = FirePit.GetComponent<PlayableDirector>();
     }
 
     private void Update()
@@ -83,6 +88,8 @@ public class SwichGlobal : ActivationDevice
                 {
                     instance = Instantiate(eventObject, eventPosition + transform.position, Quaternion.identity, transform);
                     iTween.PunchScale(instance, new Vector3(1, 1, 0), 0.5f);
+                    Timeline.Play();
+                    Debug.Log("c'est bon");
                 }
 
                 else if (!IsActive && instance && deSpawnOnLeave)
@@ -112,6 +119,7 @@ public class SwichGlobal : ActivationDevice
             {
                 item.enabled = true;
                 item.GetComponent<SpriteRenderer>().enabled = true;
+                
             }
             if (!IsActive)
             {
