@@ -36,9 +36,8 @@ namespace Boss
         void OnTriggerEnter2D(Collider2D other)
         {
             Debug.Log("Enter");
-            if (other.CompareTag("Sword") || other.CompareTag("IceBullet"))
+            if (other.CompareTag("Sword"))
             {
-                Debug.Log("Damage " + CurrentBossLife);
                 CurrentBossLife--;
             }
         }
@@ -79,7 +78,6 @@ namespace Boss
         }
         void Death()
         {
-            Debug.Log("Death");
             Destroy(gameObject);
         }
     }

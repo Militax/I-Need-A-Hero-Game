@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6512697627329162559}
   - component: {fileID: 7404362470210143963}
-  - component: {fileID: 264964162495972228}
-  - component: {fileID: 6199619183814524866}
+  - component: {fileID: 6835983275005857240}
+  - component: {fileID: 2568073947683719428}
   m_Layer: 0
   m_Name: Heart
   m_TagString: Untagged
@@ -48,7 +48,7 @@ MonoBehaviour:
   HeartValue: 1
   CollectingRange: 1.42
   speed: 1
---- !u!212 &264964162495972228
+--- !u!212 &6835983275005857240
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,7 +87,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0754f9beead7bf6469d4bcc4cf4725fb, type: 3}
+  m_Sprite: {fileID: -8578151820997103114, guid: a43fc1a1506dc5045ab37c6127e246b5,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,19 +99,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &6199619183814524866
-CircleCollider2D:
+--- !u!95 &2568073947683719428
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4054379633646435344}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.065
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6d91d7607f297aa42bba44888d28e62e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
