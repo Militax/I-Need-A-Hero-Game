@@ -71,10 +71,6 @@ namespace Player
             {
                 rb.velocity = movement.normalized * (moveSpeed * 50) * Time.deltaTime;
             }
-            else
-            {
-                rb.velocity = Vector2.zero;
-            }
                 
         }
 
