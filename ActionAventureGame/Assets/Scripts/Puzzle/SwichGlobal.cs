@@ -23,7 +23,7 @@ public class SwichGlobal : ActivationDevice
 
     public GameObject FirePit;
     private PlayableDirector Timeline;
-
+    public bool TimelineNeeded;
 
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -59,7 +59,11 @@ public class SwichGlobal : ActivationDevice
         }
         timer.isStopped = true;
 
-        Timeline = FirePit.GetComponent<PlayableDirector>();
+        if (TimelineNeeded == true)
+        {
+            Timeline = FirePit.GetComponent<PlayableDirector>();
+        }
+          
     }
 
     private void Update()
@@ -88,8 +92,11 @@ public class SwichGlobal : ActivationDevice
                 {
                     instance = Instantiate(eventObject, eventPosition + transform.position, Quaternion.identity, transform);
                     iTween.PunchScale(instance, new Vector3(1, 1, 0), 0.5f);
-                    Timeline.Play();
-                    Debug.Log("c'est bon");
+
+                    if (TimelineNeeded == true)
+                    {
+                        Timeline.Play();
+                    }
                 }
 
                 else if (!IsActive && instance && deSpawnOnLeave)
