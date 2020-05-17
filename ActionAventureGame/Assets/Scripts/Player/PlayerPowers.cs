@@ -42,7 +42,7 @@ namespace Player
             InstantiateWindWave();
 
             #region Debug Gestion vent
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Debug"))
             {
                 if (GameManager.Instance.powerState == 3)
                 {
