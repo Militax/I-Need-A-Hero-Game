@@ -31,7 +31,7 @@ public class TriggerEvents : MonoBehaviour
                 GameManager.Instance.playerCanMove = false;
                 GameManager.Instance.powerState = 0;
                 //(FindObjectOfType<PlayerMovement>()).enabled = false;
-                //Player.GetComponent<PlayerMovement>().rb.velocity = Vector2.zero;
+                GameManager.Instance.player.rb.velocity = Vector2.zero;
 
                 Timeline.stopped += OnPlayableDirectorStopped;
             }
@@ -44,6 +44,6 @@ public class TriggerEvents : MonoBehaviour
         GameManager.Instance.playerCanMove = true;
         GameManager.Instance.powerState = powerlvl;
         //(FindObjectOfType<PlayerMovement>()).enabled = true;
-        //GameManager.Instance.player.rb.velocity = GameManager.Instance.player.movement.normalized * (GameManager.Instance.player.moveSpeed * 50) * Time.deltaTime;
+        GameManager.Instance.player.rb.velocity = GameManager.Instance.player.movement.normalized * (GameManager.Instance.player.moveSpeed * 50) * Time.deltaTime;
     }
 }
