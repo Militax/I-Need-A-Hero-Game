@@ -88,7 +88,7 @@ namespace GameManagement
             playerCanMove = true;
 
             playerHealth = playerHealthMax;
-            powerState = 1;
+            powerState = 0;
 
             swordDamage = 1;
 
