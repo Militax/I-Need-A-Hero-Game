@@ -109,8 +109,8 @@ MonoBehaviour:
     inactive: {fileID: 0}
   combinations:
   - colliderTag: Sword
-    active: {fileID: 21300000, guid: 02ca923317fba5840bb7ea968ddaf652, type: 3}
-    inactive: {fileID: 21300000, guid: 36b34bf9cc0b6364aac0a708b03f07e5, type: 3}
+    active: {fileID: 21300000, guid: b5b831cf76e657d40b164b42798b4127, type: 3}
+    inactive: {fileID: 21300000, guid: da732eec451408e4da746f22eae3e1a8, type: 3}
   - colliderTag: IceBullet
     active: {fileID: 21300000, guid: 7db7bdd0f56219a4ba8159bf29d90d16, type: 3}
     inactive: {fileID: 21300000, guid: 4f763dabef2ae684b9dff7d5c1fc12fb, type: 3}
@@ -129,6 +129,8 @@ MonoBehaviour:
   timer:
     isStopped: 0
     cooldownTime: 0
+  FirePit: {fileID: 0}
+  TimelineNeeded: 0
 --- !u!212 &8937314038210637827
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -168,7 +170,7 @@ SpriteRenderer:
   m_SortingLayerID: -1996002887
   m_SortingLayer: -1
   m_SortingOrder: 25
-  m_Sprite: {fileID: 21300000, guid: 36b34bf9cc0b6364aac0a708b03f07e5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b5b831cf76e657d40b164b42798b4127, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -195,7 +197,7 @@ BoxCollider2D:
   m_Offset: {x: -0.109476745, y: 0.19999999}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.71100056, y: 0.37791687}
+    pivot: {x: 0.71043783, y: 0.3765432}
     oldSize: {x: 1.0833334, y: 1.0416666}
     newSize: {x: 1.0833334, y: 1.0416666}
     adaptiveTilingThreshold: 0.5
