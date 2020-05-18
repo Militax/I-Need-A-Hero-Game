@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using GameManagement;
+using Player;
 
 namespace Ennemy
 {
@@ -20,6 +21,13 @@ namespace Ennemy
         bool isInZone = false;
         bool isInCoroutine = false;
 
+        //public GameObject Player;
+        Animator animator;
+
+        private void Start()
+        {
+            animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+        }
 
         void Update()
         {
@@ -31,6 +39,7 @@ namespace Ennemy
             {
                 Debug.Log("Taking Damage");
                 GameManager.Instance.playerHealth--;
+                animator.SetTrigger("Hit");
                 canDamage = false;
             }
         }

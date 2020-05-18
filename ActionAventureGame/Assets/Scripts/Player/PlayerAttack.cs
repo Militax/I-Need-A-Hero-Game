@@ -59,7 +59,7 @@ namespace Player
         void Update()
         {
             GetComponent<PlayerMovement>().moveSpeed = movespeed;
-
+            
 
             AttaqueAIM();
 
@@ -87,6 +87,7 @@ namespace Player
 
         void Attaque()
         {
+            animator.SetInteger("NumAttack", ComboCount);
 
             //Instantiate(prefabHitbox, transform.position + range * attackPos, Quaternion.Euler(transform.rotation.eulerAngles.x+attackAngle.x, transform.rotation.eulerAngles.y+attackAngle.y, transform.rotation.eulerAngles.z+attackAngle.z));
             if (Direction == 0)
@@ -111,7 +112,6 @@ namespace Player
         }
         IEnumerator Attaque_Movement()
         {
-            animator.SetInteger("NumAttack", ComboCount);
             movespeed = baseMoveSpeed * speed;
             yield return new WaitForSeconds(attackDuration);
             animator.SetInteger("NumAttack", 0);
