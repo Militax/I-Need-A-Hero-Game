@@ -17,13 +17,12 @@ public class TriggerCaptureFée : MonoBehaviour
     {
         Timeline = TimelineDirector.GetComponent<PlayableDirector>();
         TimelinePlayed = false;
-
-        powerlvl = GameManager.Instance.powerState;
+        
     }
 
     private void OnDestroy()
     {
-        
+        powerlvl = GameManager.Instance.powerState;
 
         if (TimelinePlayed == false)
         {
