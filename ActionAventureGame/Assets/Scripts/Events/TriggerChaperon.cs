@@ -6,12 +6,11 @@ using GameManagement;
 
 public class TriggerChaperon : MonoBehaviour
 {
-    public PlayableDirector Timeline;
-    public PlayableDirector Gueulante;
+    private PlayableDirector Timeline;
+    private PlayableDirector Gueulante;
 
     private bool TimelinePlayed;
 
-    public GameObject Player;
     public GameObject TimelineDirector;
     public GameObject GueulanteDirector;
 
@@ -21,7 +20,7 @@ public class TriggerChaperon : MonoBehaviour
         Timeline = TimelineDirector.GetComponent<PlayableDirector>();
         Gueulante = GueulanteDirector.GetComponent<PlayableDirector>();
      
-        TimelinePlayed = false;
+        
     }
 
    
@@ -30,6 +29,7 @@ public class TriggerChaperon : MonoBehaviour
         if (collision.tag == "Player")
         {
             Gueulante.Stop();
+            TimelinePlayed = false;
             Timeline.Play();
             Timeline.stopped += OnPlayableDirectorStopped;
         }
@@ -40,12 +40,14 @@ public class TriggerChaperon : MonoBehaviour
     {
         if (Player.tag == "Player")
         {
+            
             if (TimelinePlayed == false)
             {
-                Timeline.Pause();
                 Gueulante.Play();
-                Debug.Log("CA MARCHE");
+                Timeline.stopped += OnGueulanteStopped;
             }
+
+            Timeline.Stop();
         }
         
     }
@@ -55,4 +57,9 @@ public class TriggerChaperon : MonoBehaviour
         TimelinePlayed = true;
     }
 
+    void OnGueulanteStopped (PlayableDirector Gueulante)
+    {
+        Timeline.Stop();
+        Debug.Log("stopped");
+    }
 }

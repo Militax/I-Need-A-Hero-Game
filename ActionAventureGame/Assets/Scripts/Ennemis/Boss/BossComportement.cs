@@ -56,6 +56,8 @@ namespace Boss
         bool canShootLight = true;
         #endregion
 
+        public Transform centerRespawn;
+
         public Transform shootPoint;
         public GameObject fireBallPrefab;
         public Animator animator;
@@ -69,7 +71,6 @@ namespace Boss
         }
         void Update()
         {
-            Debug.Log(GameManager.Instance.playerCanMove);
 
 
             if (player == null)
@@ -248,6 +249,9 @@ namespace Boss
             yield return new WaitForSeconds(lightFireCooldown);
             canShootLight = true;
         }
+
+        #endregion
+
         IEnumerator playerPush()
         {
             playerIsPuch = true;
@@ -255,9 +259,7 @@ namespace Boss
 
             player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -5);
 
-            Debug.Log("A");
             yield return new WaitForSeconds(0.5f);
-            Debug.Log("B");
 
             GameObject shield = Instantiate(shieldPrefab, shieldSpawn.position, shieldSpawn.rotation, transform);
 
@@ -265,9 +267,6 @@ namespace Boss
             GameManager.Instance.playerCanMove = true;
             playerIsPuch = false;
         }
-
-        #endregion
-
 
         void SelectNewPhase()
         {
@@ -279,6 +278,7 @@ namespace Boss
                 futurPhase = Random.Range(1, 4);
             }
             CurrentPhase = futurPhase;
+            player.transform.position = centerRespawn.position;
 
             GetComponent<BossHealth>().haveToChange = false;
         }
