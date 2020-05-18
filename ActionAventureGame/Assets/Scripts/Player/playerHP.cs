@@ -24,6 +24,8 @@ namespace Player
         {
             if (GameManager.Instance.playerHealth <= 0 && !isDying)
             {
+                gameObject.GetComponent<PlayerMovement>().enabled = false;
+                
                 animator.SetTrigger("Dead");
                 AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Death");
                 isDying = true;
@@ -33,8 +35,12 @@ namespace Player
 
         void Respawn()
         {
+            
             Instantiate(DeathState, transform.position, Quaternion.identity);
             gameObject.transform.position = GameManager.Instance.RespawnPoint;
+            gameObject.GetComponent<PlayerMovement>().enabled = true;
+            gameObject.GetComponent<PlayerAttack>().enabled = true;
+            gameObject.GetComponent<PlayerPowers>().enabled = true;
             GameManager.Instance.DeathCounter += 1;
             GameManager.Instance.playerHealth = GameManager.Instance.playerHealthMax;
             isDying = false;
@@ -42,9 +48,10 @@ namespace Player
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            
             switch (other.tag)
             {
-
+             
                 case ("Bullet"):
                     GameManager.Instance.playerHealth -= other.GetComponent<Bullet>().damages;
                     Destroy(other.gameObject);
@@ -52,6 +59,7 @@ namespace Player
                     if (GameManager.Instance.playerHealth > 0)
                     {
                         AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Damage");
+                        animator.SetTrigger("Hit");
                     }
                     break;
 
@@ -62,6 +70,7 @@ namespace Player
                     if (GameManager.Instance.playerHealth > 0)
                     {
                         AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Damage");
+                        animator.SetTrigger("Hit");
                     }
                     break;
 
@@ -72,10 +81,12 @@ namespace Player
                     if (GameManager.Instance.playerHealth > 0)
                     {
                         AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Damage");
+                        animator.SetTrigger("Hit");
                     }
                     break;
                 case ("Cat"):
                     GameManager.Instance.playerHealth -= 1;
+                    animator.SetTrigger("Hit");
                     break;
 
                 default:
