@@ -16,6 +16,8 @@ namespace Player
         public float moveSpeed = 5f;
 
         public Animator animator;
+        private float aimIdleX;
+        private float aimIdleY;
 
         public Rigidbody2D rb;
         public Vector2 movement;
@@ -40,6 +42,22 @@ namespace Player
             animator.SetFloat("Horizontal", movement.x);
             animator.SetFloat("Vertical", movement.y);
             animator.SetFloat("Speed", movement.sqrMagnitude);
+
+            if (movement.x != 0)
+            {
+                animator.SetFloat("Horizontal Idle", movement.x);
+            }
+
+            if (movement.y != 0)
+            {
+                animator.SetFloat("Vertical Idle", movement.y);
+            }
+
+            if (movement.x != 0 && movement.y == 0)
+            {
+                animator.SetFloat("Vertical Idle", -1);
+            }
+
             if (GameManager.Instance.bottesState == 1)
             {
                 moveSpeed = 3.5f;
@@ -62,6 +80,8 @@ namespace Player
                     StartCoroutine(FootStep());
                 }
             }
+
+
         }
 
         private void FixedUpdate()
