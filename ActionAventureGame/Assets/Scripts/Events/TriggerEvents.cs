@@ -16,13 +16,15 @@ public class TriggerEvents : MonoBehaviour
     {
         Timeline = GetComponent<PlayableDirector>();
         TimelinePlayed = false;
-        powerlvl = GameManager.Instance.powerState;
+        
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
+            powerlvl = GameManager.Instance.powerState;
+
             if (TimelinePlayed == false)
             {
 
