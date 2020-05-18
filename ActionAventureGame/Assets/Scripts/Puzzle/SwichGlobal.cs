@@ -24,6 +24,7 @@ public class SwichGlobal : ActivationDevice
     public GameObject FirePit;
     private PlayableDirector Timeline;
     public bool TimelineNeeded;
+    Animator animator;
 
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -74,6 +75,8 @@ public class SwichGlobal : ActivationDevice
             timer.isStopped = true;
             
         }
+
+        animator = gameObject.GetComponent<Animator>();
     }
 
     protected override void RefreshState(bool state, string tag = null)
@@ -102,7 +105,15 @@ public class SwichGlobal : ActivationDevice
                 else if (!IsActive && instance && deSpawnOnLeave)
                     Destroy(instance);
                 Debug.Log(item.colliderTag);
-                spr.sprite = (IsActive ? item.active : item.inactive);
+                //spr.sprite = (IsActive ? item.active : item.inactive);
+                if (IsActive)
+                {
+                    animator.SetTrigger("ToActive");
+                }
+                else if (!IsActive)
+                {
+                    animator.SetTrigger("ToInactive");
+                }
                 base.RefreshState(state, tag);
                 //if (!ActivateEvent || !DeActivateEvent)
                 //    return;

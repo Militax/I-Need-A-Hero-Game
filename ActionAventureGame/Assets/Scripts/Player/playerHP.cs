@@ -48,9 +48,10 @@ namespace Player
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            
             switch (other.tag)
             {
-
+             
                 case ("Bullet"):
                     GameManager.Instance.playerHealth -= other.GetComponent<Bullet>().damages;
                     Destroy(other.gameObject);
@@ -58,6 +59,7 @@ namespace Player
                     if (GameManager.Instance.playerHealth > 0)
                     {
                         AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Damage");
+                        animator.SetTrigger("Hit");
                     }
                     break;
 
@@ -68,6 +70,7 @@ namespace Player
                     if (GameManager.Instance.playerHealth > 0)
                     {
                         AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Damage");
+                        animator.SetTrigger("Hit");
                     }
                     break;
 
@@ -78,10 +81,12 @@ namespace Player
                     if (GameManager.Instance.playerHealth > 0)
                     {
                         AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Damage");
+                        animator.SetTrigger("Hit");
                     }
                     break;
                 case ("Cat"):
                     GameManager.Instance.playerHealth -= 1;
+                    animator.SetTrigger("Hit");
                     break;
 
                 default:
