@@ -25,7 +25,7 @@ public class SwichGlobal : ActivationDevice
     private PlayableDirector Timeline;
     public bool TimelineNeeded;
     Animator animator;
-
+    public ParticleSystem particlesystem;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -109,10 +109,12 @@ public class SwichGlobal : ActivationDevice
                 if (IsActive)
                 {
                     animator.SetTrigger("ToActive");
+                    particlesystem.Play();
                 }
                 else if (!IsActive)
                 {
                     animator.SetTrigger("ToInactive");
+                    particlesystem.Play();
                 }
                 base.RefreshState(state, tag);
                 //if (!ActivateEvent || !DeActivateEvent)
