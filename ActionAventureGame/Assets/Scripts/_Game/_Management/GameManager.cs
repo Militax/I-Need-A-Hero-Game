@@ -35,6 +35,7 @@ namespace GameManagement
         #endregion
         #region Damages
         public int swordDamage;
+        public int SlamDamage;
         #endregion
 
         #endregion
@@ -91,7 +92,7 @@ namespace GameManagement
             powerState = 0;
 
             swordDamage = 1;
-
+            SlamDamage = 3;
             #endregion
 
             #region Economic
