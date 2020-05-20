@@ -13,6 +13,8 @@ public class pressureplatePlayer : ActivationDevice
     public Vector3 eventPosition;
     public GameObject ActivateEvent;
     public GameObject DeActivateEvent;
+
+    public ParticleSystem particlesystem;
     
     
 
@@ -44,6 +46,7 @@ public class pressureplatePlayer : ActivationDevice
                 {
                     instance = Instantiate(eventObject, eventPosition + transform.position, Quaternion.identity, transform);
                     iTween.PunchScale(instance, new Vector3(1, 1, 0), 0.5f);
+                    particlesystem.Play();
                 }
                 else if (!IsActive && instance && deSpawnOnLeave)
                     Destroy(instance);

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2758075708199943728}
   - component: {fileID: 2758075708199943729}
   - component: {fileID: 2758075708199943735}
+  - component: {fileID: 8791568199048067840}
   m_Layer: 0
   m_Name: SwitchGlobal
   m_TagString: Interactable
@@ -71,6 +72,9 @@ MonoBehaviour:
   timer:
     isStopped: 0
     cooldownTime: 0
+  FirePit: {fileID: 0}
+  TimelineNeeded: 0
+  particlesystem: {fileID: 0}
 --- !u!212 &2758075708199943729
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -147,3 +151,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7083333, y: 0.75}
   m_EdgeRadius: 0
+--- !u!95 &8791568199048067840
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2758075708199943731}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7068eac72e592d64e9f2eed4611715ae, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
