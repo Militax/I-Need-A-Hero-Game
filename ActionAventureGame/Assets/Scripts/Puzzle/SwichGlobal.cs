@@ -109,6 +109,7 @@ public class SwichGlobal : ActivationDevice
                 if (IsActive)
                 {
                     animator.SetTrigger("ToActive");
+                    Debug.Log("Oui");
                     particlesystem.Play();
                 }
                 else if (!IsActive)
