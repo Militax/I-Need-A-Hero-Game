@@ -14,4 +14,8 @@ public class PlayGame : MonoBehaviour
     {
         SceneManager.LoadScene(levelName);
     }
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }

@@ -66,6 +66,13 @@ namespace Ennemy
                 animator.SetTrigger("Degat");
                 StartCoroutine(SafeCooldown());
             }
+            if (other.CompareTag("Slam") && ennemyType != ("Snowman") && canTakeDamage)
+            {
+                Debug.Log("degat");
+                health -= GameManager.Instance.SlamDamage;
+                animator.SetTrigger("Degat");
+                StartCoroutine(SafeCooldown());
+            }
             if (other.CompareTag("IceBullet") && canTakeDamage)
             {
                 if(other.GetComponent<IceBullet>().isOut)//La balle est partie du Snowman

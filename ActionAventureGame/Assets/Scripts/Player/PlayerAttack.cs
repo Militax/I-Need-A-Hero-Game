@@ -25,6 +25,7 @@ namespace Player
         public GameObject prefabHitboxTopLeft;
         public GameObject prefabHitboxBottomLeft;
         public GameObject prefabHitboxBottomRight;
+        public GameObject SlamHitbox;
         #endregion
         #region Numbers
         [Range(0.0f, 10.0f)] public float range; //portée de l'attaque
@@ -48,11 +49,14 @@ namespace Player
         Vector3 attaqueDash;
         #endregion
         public Animator animator;
-        Coroutine myCoroutine;
+        
+        Cooldown myCD;
         #endregion
 
         private void Start()
         {
+            
+            myCD = new Cooldown(cooldown);
             movespeed = GetComponent<PlayerMovement>().moveSpeed;
             baseMoveSpeed = movespeed;
         }
@@ -64,10 +68,11 @@ namespace Player
             AttaqueAIM();
 
 
-
+            isAttacking = !myCD.IsOver();
             if (Input.GetButtonDown("Attack") && isAttacking == false && canAttack == true)
             {
                 ComboCount = 1;
+
                 Attaque();
 
             }
@@ -76,39 +81,53 @@ namespace Player
                 ComboCount += 1;
                 Attaque();
 
-                StopCoroutine(myCoroutine);
-            }
-            else if (isAttacking == true && ComboCount == 3)
-            {
-                canAttack = false;
                 
             }
+            //else if (isAttacking == true && ComboCount == 3)
+            //{
+            //    canAttack = false;
+                
+            //}
         }
 
         void Attaque()
         {
+            
             animator.SetInteger("NumAttack", ComboCount);
 
-            //Instantiate(prefabHitbox, transform.position + range * attackPos, Quaternion.Euler(transform.rotation.eulerAngles.x+attackAngle.x, transform.rotation.eulerAngles.y+attackAngle.y, transform.rotation.eulerAngles.z+attackAngle.z));
-            if (Direction == 0)
+            if (ComboCount<3)
             {
-                prefabHitboxTopRight.SetActive(true);
+                if (Direction == 0)
+                {
+                    prefabHitboxTopRight.SetActive(true);
+                }
+                else if (Direction == 1)
+                {
+                    prefabHitboxTopLeft.SetActive(true);
+                }
+                else if (Direction == 2)
+                {
+                    prefabHitboxBottomRight.SetActive(true);
+                }
+                else if (Direction == 3)
+                {
+                    prefabHitboxBottomLeft.SetActive(true);
+                }
+                myCD.Reset();
             }
-            else if (Direction == 1)
+            else if (ComboCount == 3)
             {
-                prefabHitboxTopLeft.SetActive(true);
+                Invoke("Slam", .5f);
             }
-            else if (Direction == 2)
-            {
-                prefabHitboxBottomRight.SetActive(true);
-            }
-            else if (Direction == 3)
-            {
-                prefabHitboxBottomLeft.SetActive(true);
-            }
-            AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Sword Attack");
+            //AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Sword Attack");
             StartCoroutine(Attaque_Movement());
-            myCoroutine = StartCoroutine(Attack_Cooldown());
+            
+            
+        }
+        void Slam()
+        {
+            SlamHitbox.SetActive(true);
+            myCD.Reset();
         }
         IEnumerator Attaque_Movement()
         {
@@ -162,13 +181,13 @@ namespace Player
         }
 
 
-        IEnumerator Attack_Cooldown()
-        {
-            isAttacking = true;
-            yield return new WaitForSeconds(cooldown);
-            isAttacking = false;
-            canAttack = true;
-        }
+        //void Attack_Cooldown()
+        //{
+        //    isAttacking = true;
+        //    yield return new WaitForSeconds(cooldown);
+        //    isAttacking = false;
+        //    canAttack = true;
+        //}
     }
 
 }
