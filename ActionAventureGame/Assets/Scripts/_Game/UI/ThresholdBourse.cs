@@ -12,7 +12,7 @@ namespace Economic
 
         public Image Bourse;
         Sprite baseimage;
-        public int BourseLevel = 1;
+        public int BourseLevel = 0;
 
         [System.Serializable]
         public class threshold
