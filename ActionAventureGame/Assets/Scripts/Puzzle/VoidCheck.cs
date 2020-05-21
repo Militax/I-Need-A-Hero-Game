@@ -5,25 +5,28 @@ using UnityEngine;
 public class VoidCheck : MonoBehaviour
 {
     public string[] SafeColliders;
-    Collider2D collider;
+    public Collider2D collider;
     // Start is called before the first frame update
     void Start()
     {
-        collider = GetComponentInParent<Collider2D>();
+        //collider = GetComponentInParent<Collider2D>();
     }
 
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        foreach (string item in SafeColliders)
+        if (collider != null)
         {
-            if (item == collision.tag)
+            foreach (string item in SafeColliders)
             {
-                collider.isTrigger = false;
-            }
-            else
-            {
-                collider.isTrigger = true;
+                if (item == collision.tag)
+                {
+                    collider.isTrigger = false;
+                }
+                else
+                {
+                    collider.isTrigger = true;
+                }
             }
         }
     }
