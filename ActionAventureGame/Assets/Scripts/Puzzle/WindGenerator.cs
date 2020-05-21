@@ -14,6 +14,7 @@ namespace Puzzle
     public class WindGenerator : MonoBehaviour
     {
 
+        Animator animator;
         #region Variables
         public ActivationDevice Input;
         public string direction;
@@ -30,6 +31,7 @@ namespace Puzzle
         private void Start()
         {
             canShoot = true;
+            animator = gameObject.GetComponent<Animator>();
         }
 
         void Update()
@@ -37,6 +39,12 @@ namespace Puzzle
             if (Input.IsActive)
             {
                 WaveFire();
+                animator.SetTrigger("Generate");
+            }
+
+            else if (!Input.IsActive)
+            {
+                animator.SetTrigger("Stop");
             }
 
         }
@@ -62,9 +70,11 @@ namespace Puzzle
                         WindWave.GetComponent<WindPower>().WaveDirection.y = (-1);
                         break;
                     case ("LEFT"):
+                        animator.SetFloat("Direction", 1);
                         WindWave.GetComponent<WindPower>().WaveDirection.x = (-1);
                         break;
                     case ("RIGHT"):
+                        animator.SetFloat("Direction", 0);
                         WindWave.GetComponent<WindPower>().WaveDirection.x = 1;
                         break;
                 }

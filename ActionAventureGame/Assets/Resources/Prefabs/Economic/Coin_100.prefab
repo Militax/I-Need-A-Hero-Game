@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9001731356700129911}
   - component: {fileID: 2812785246339828665}
   - component: {fileID: 4679462047112598955}
+  - component: {fileID: 7726528286461083740}
   m_Layer: 0
   m_Name: Coin_100
   m_TagString: Coin
@@ -96,9 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 436033a8bd20dbf4787068045756d3c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinValue: 2
-  CollectingRange: 4
-  speed: 1
+  coinValue: 100
+  CollectingRange: 1
+  speed: 3
   distanceToPlayer: 0
 --- !u!58 &2812785246339828665
 CircleCollider2D:
@@ -135,3 +136,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7726528286461083740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7181366856507520482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c36804011880dd4cb1d05e9569aefde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: -0.15
+  HeightMap: []
