@@ -97,7 +97,7 @@ namespace Player
         IEnumerator FootStep()
         {
             footStepCoroutine = true;
-            //AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Outside Step");
+            AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Outside Step");
             float time = Random.Range(0.4f, 0.7f);
             yield return new WaitForSeconds(time);
             footStepCoroutine = false;
