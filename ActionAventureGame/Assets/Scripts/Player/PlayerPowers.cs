@@ -153,19 +153,19 @@ namespace Player
                         switch(GameManager.Instance.powerState)
                         {
                             case (1):
-                                animator.SetTrigger("CompVersa activated");
+                             
                                 //Instancie le pouvoir
                                 WindWaveT = Instantiate(WindPowerPrefab, topPoint.position, topPoint.rotation);
                                 //Donne la direction
                                 WindWaveT.GetComponent<WindPower>().WaveDirection.y = 1;
                                 break;
                             case (2):
-                                animator.SetTrigger("CompVersa activated");
+                               
                                 WindWaveT = Instantiate(FrozenPowerPrefab, topPoint.position, topPoint.rotation);
                                 WindWaveT.GetComponent<WindPower>().WaveDirection.y = 1;
                                 break;
                             case (3):
-                                animator.SetTrigger("CompVersa activated");
+                               
                                 WindWaveT = Instantiate(PowerPowerPrefab, topPoint.position, topPoint.rotation);
                                 WindWaveT.GetComponent<WindPower>().WaveDirection.y = 1;
                                 break;
@@ -181,14 +181,17 @@ namespace Player
                         switch (GameManager.Instance.powerState)
                         {
                             case (1):
+                                
                                 WindWaveD = Instantiate(WindPowerPrefab, downPoint.position, downPoint.rotation);
                                 WindWaveD.GetComponent<WindPower>().WaveDirection.y = (-1);
                                 break;
                             case (2):
+                              
                                 WindWaveD = Instantiate(FrozenPowerPrefab, downPoint.position, downPoint.rotation);
                                 WindWaveD.GetComponent<WindPower>().WaveDirection.y = (-1);
                                 break;
                             case (3):
+                               
                                 WindWaveD = Instantiate(PowerPowerPrefab, downPoint.position, downPoint.rotation);
                                 WindWaveD.GetComponent<WindPower>().WaveDirection.y = (-1);
                                 break;
@@ -204,14 +207,17 @@ namespace Player
                         switch (GameManager.Instance.powerState)
                         {
                             case (1):
+                                
                                 WindWaveL = Instantiate(WindPowerPrefab, leftPoint.position, leftPoint.rotation);
                                 WindWaveL.GetComponent<WindPower>().WaveDirection.x = (-1);
                                 break;
                             case (2):
+                               
                                 WindWaveL = Instantiate(FrozenPowerPrefab, leftPoint.position, leftPoint.rotation);
                                 WindWaveL.GetComponent<WindPower>().WaveDirection.x = (-1);
                                 break;
                             case (3):
+                                
                                 WindWaveL = Instantiate(PowerPowerPrefab, leftPoint.position, leftPoint.rotation);
                                 WindWaveL.GetComponent<WindPower>().WaveDirection.x = (-1);
                                 break;
@@ -227,14 +233,17 @@ namespace Player
                         switch (GameManager.Instance.powerState)
                         {
                             case (1):
+                                
                                 WindWaveR = Instantiate(WindPowerPrefab, rightPoint.position, rightPoint.rotation);
                                 WindWaveR.GetComponent<WindPower>().WaveDirection.x = 1;
                                 break;
                             case (2):
+                               
                                 WindWaveR = Instantiate(FrozenPowerPrefab, rightPoint.position, rightPoint.rotation);
                                 WindWaveR.GetComponent<WindPower>().WaveDirection.x = 1;
                                 break;
                             case (3):
+                                
                                 WindWaveR = Instantiate(PowerPowerPrefab, rightPoint.position, rightPoint.rotation);
                                 WindWaveR.GetComponent<WindPower>().WaveDirection.x = 1;
                                 break;
@@ -367,12 +376,15 @@ namespace Player
                 switch (GameManager.Instance.powerState)
                 {
                     case (1):
+                        animator.SetTrigger("CompVersa activated");
                         AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Wind Power");
                         break;
                     case (2):
+                        animator.SetTrigger("CompVersa activated");
                         AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Frozen Power");
                         break;
                     case (3):
+                        animator.SetTrigger("CompVersa activated");
                         AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Power Power");
                         break;
                 }
