@@ -14,7 +14,7 @@ public class pressureplatePlayer : ActivationDevice
     public GameObject ActivateEvent;
     public GameObject DeActivateEvent;
 
-    public ParticleSystem particlesystem;
+    public GameObject ParticleSystem;
     
     
 
@@ -46,13 +46,16 @@ public class pressureplatePlayer : ActivationDevice
                 {
                     instance = Instantiate(eventObject, eventPosition + transform.position, Quaternion.identity, transform);
                     iTween.PunchScale(instance, new Vector3(1, 1, 0), 0.5f);
-                    particlesystem.Play();
                 }
                 else if (!IsActive && instance && deSpawnOnLeave)
                     Destroy(instance);
                 Debug.Log(String.Format("this: {0} vs {1}", item.colliderTag, tag));
                 spr.sprite = (IsActive ? item.active : item.inactive);
-                
+                if (IsActive)
+                {
+                    GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
+                    Destroy(fx, 2f);
+                }
                 base.RefreshState(state, tag);
                 if (ActivateEvent && DeActivateEvent)
                 {
