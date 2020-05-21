@@ -88,7 +88,9 @@ namespace Player
                     GameManager.Instance.playerHealth -= 1;
                     animator.SetTrigger("Hit");
                     break;
-
+                
+                    
+                    
                 default:
                     break;
 

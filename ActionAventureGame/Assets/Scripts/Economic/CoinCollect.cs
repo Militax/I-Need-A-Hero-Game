@@ -45,12 +45,25 @@ namespace Economic
 		{
 			if (other.transform.tag == "Player")
 			{
-				GameManager.Instance.CoinOwned += coinValue;
+				if (GameManager.Instance.CoinOwned < GameManager.Instance.maxCoin)
+				{
+					GameManager.Instance.CoinOwned += coinValue;
 
-				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
-				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
+					GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
+					GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 
-				Destroy(gameObject);
+					Destroy(gameObject);
+				}
+				else if (GameManager.Instance.CoinOwned >= GameManager.Instance.maxCoin)
+				{
+					GameManager.Instance.CoinOwned = GameManager.Instance.maxCoin;
+
+					GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
+					GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
+
+					Destroy(gameObject);
+				}
+				
 			}
 		}
 		private void OnDrawGizmos()
