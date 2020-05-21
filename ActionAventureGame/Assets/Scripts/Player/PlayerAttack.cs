@@ -28,7 +28,7 @@ namespace Player
         public GameObject SlamHitbox;
         #endregion
         #region Numbers
-        [Range(0.0f, 10.0f)] public float range; //portée de l'attaque
+        
         [Range(0.0f, 2f)] public float speed; //Vitesse de déplacement
         float verticalDelta; //position du joystick sur l'axe vertical
         float horizontalDelta; //position du joystick sur l'axe horizontal
@@ -114,13 +114,15 @@ namespace Player
                     prefabHitboxBottomLeft.SetActive(true);
                 }
                 myCD.Reset();
+                StartCoroutine(Attaque_Movement());
             }
             else if (ComboCount == 3)
             {
                 Invoke("Slam", .5f);
+                StartCoroutine(Attaque_Movement());
             }
             //AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Sword Attack");
-            StartCoroutine(Attaque_Movement());
+            
             
             
         }

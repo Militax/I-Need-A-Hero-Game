@@ -14,6 +14,7 @@ public class SwitchEnnemies : ActivationDevice
     public GameObject FirePit;
     private PlayableDirector Timeline;
     public bool TimelineNeeded;
+    Animator animator;
 
     public Vector3 eventPosition;
     // Start is called before the first frame update
@@ -49,8 +50,16 @@ public class SwitchEnnemies : ActivationDevice
 
                     else if (!IsActive && instance && deSpawnOnLeave)
                         Destroy(instance);
-						//fin
-                    spr.sprite = (IsActive ? item.active : item.inactive);
+                    //fin
+                    //spr.sprite = (IsActive ? item.active : item.inactive);
+                    if (IsActive)
+                    {
+                        animator.SetTrigger("ToActive");
+                    }
+                    else if (!IsActive)
+                    {
+                        animator.SetTrigger("ToInactive");
+                    }
                     base.RefreshState(state, tag);
                     break;
                 }
@@ -77,6 +86,7 @@ public class SwitchEnnemies : ActivationDevice
             gameObject.GetComponent<SpriteRenderer>().enabled = true;
             gameObject.GetComponent<BoxCollider2D>().enabled = true;
         }
+        animator = gameObject.GetComponent<Animator>();
     }
 	//pour affichage
 	private void OnDrawGizmos()

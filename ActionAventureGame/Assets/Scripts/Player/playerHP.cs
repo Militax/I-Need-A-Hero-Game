@@ -27,7 +27,7 @@ namespace Player
                 gameObject.GetComponent<PlayerMovement>().enabled = false;
                 
                 animator.SetTrigger("Dead");
-                AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Death");
+                //.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Death");
                 isDying = true;
                 Invoke("Respawn", animator.GetCurrentAnimatorStateInfo(0).length);
             }
@@ -88,7 +88,9 @@ namespace Player
                     GameManager.Instance.playerHealth -= 1;
                     animator.SetTrigger("Hit");
                     break;
-
+                
+                    
+                    
                 default:
                     break;
 
