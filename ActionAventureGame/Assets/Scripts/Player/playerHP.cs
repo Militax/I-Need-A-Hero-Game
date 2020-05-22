@@ -4,7 +4,6 @@ using UnityEngine;
 using GameManagement;
 using Ennemy;
 using Boss;
-using Audio;
 
 
 namespace Player
@@ -18,7 +17,6 @@ namespace Player
         void Start()
         {
             animator = GetComponent<Animator>();
-            
         }
         private void Update()
         {
@@ -27,7 +25,6 @@ namespace Player
                 gameObject.GetComponent<PlayerMovement>().enabled = false;
                 
                 animator.SetTrigger("Dead");
-                //.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Death");
                 isDying = true;
                 Invoke("Respawn", animator.GetCurrentAnimatorStateInfo(0).length);
             }
@@ -58,7 +55,6 @@ namespace Player
 
                     if (GameManager.Instance.playerHealth > 0)
                     {
-                        AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Damage");
                         animator.SetTrigger("Hit");
                     }
                     break;
@@ -69,7 +65,6 @@ namespace Player
 
                     if (GameManager.Instance.playerHealth > 0)
                     {
-                        AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Damage");
                         animator.SetTrigger("Hit");
                     }
                     break;
@@ -80,7 +75,6 @@ namespace Player
 
                     if (GameManager.Instance.playerHealth > 0)
                     {
-                        AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Damage");
                         animator.SetTrigger("Hit");
                     }
                     break;

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Power;
 using GameManagement;
-using Audio;
 
 
 namespace Player
@@ -377,15 +376,12 @@ namespace Player
                 {
                     case (1):
                         animator.SetTrigger("CompVersa activated");
-                        AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Wind Power");
                         break;
                     case (2):
                         animator.SetTrigger("CompVersa activated");
-                        AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Frozen Power");
                         break;
                     case (3):
                         animator.SetTrigger("CompVersa activated");
-                        AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Power Power");
                         break;
                 }
             }
