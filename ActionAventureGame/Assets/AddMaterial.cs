@@ -6,6 +6,8 @@ public class AddMaterial : MonoBehaviour
 {
     public Material Shader;
     public GameObject ParticleSystem;
+    float Cooldown = 10;
+    bool CanParticle = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,12 +22,20 @@ public class AddMaterial : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Sword") || other.CompareTag("WindWave"))
+        if ((other.CompareTag("Sword") && CanParticle == true) || (other.CompareTag("WindWave")) && CanParticle == true)
         {
             Debug.Log("ParticuleArbre");
-            GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
-            Destroy(fx, 2f);
+            GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.Euler(90, 0, 0));
+            StartCoroutine(SafeCooldown());
+            Destroy(fx, 10f);
         }
+    }
+
+    IEnumerator SafeCooldown()
+    {
+        CanParticle = false;
+        yield return new WaitForSeconds(Cooldown);
+        CanParticle = true;
     }
     // Update is called once per frame
     void Update()
