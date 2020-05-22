@@ -27,7 +27,7 @@ public class SwichGlobal : ActivationDevice
     Animator animator;
     public ParticleSystem particlesystem;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
 
         if (activationCooldown.IsOver())

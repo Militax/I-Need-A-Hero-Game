@@ -25,6 +25,7 @@ namespace Ennemy
         public bool canMove = false;
         public bool isAttacking = false;
         public bool isAffectedByWind = false;
+        public bool isAffectedByFreeze = false;
         #endregion
        
         Animator animator;
@@ -87,7 +88,7 @@ namespace Ennemy
 
         void Movement()
         {
-            if (canMove && !isAttacking && !isAffectedByWind)
+            if (canMove && !isAttacking && !isAffectedByWind && !isAffectedByFreeze)
             {
                 rb.velocity = (player.transform.position - transform.position).normalized * (moveSpeed);
             }

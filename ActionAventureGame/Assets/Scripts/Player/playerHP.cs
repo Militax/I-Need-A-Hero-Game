@@ -25,7 +25,7 @@ namespace Player
             if (GameManager.Instance.playerHealth <= 0 && !isDying)
             {
                 gameObject.GetComponent<PlayerMovement>().enabled = false;
-                
+                GetComponent<Rigidbody2D>().velocity = Vector3.zero;
                 animator.SetTrigger("Dead");
                 //.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Death");
                 isDying = true;

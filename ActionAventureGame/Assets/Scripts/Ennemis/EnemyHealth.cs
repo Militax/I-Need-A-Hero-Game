@@ -26,6 +26,8 @@ namespace Ennemy
         public float maximumHealth;
         public float safeTime;
         public bool isAlive = true;
+        public float hitstun;
+        bool isStunned = false;
 
         bool canTakeDamage = true;
         #endregion
@@ -46,6 +48,7 @@ namespace Ennemy
                 if (ennemyType == "Gingerbread")
                 {
                     this.GetComponent<GingerbreadMovement>().isAlive = false;
+                    GetComponent<GingerbreadAttack>().enabled = false;
                 }
                 Debug.Log("death");
                 if (Dead == true)
@@ -61,6 +64,10 @@ namespace Ennemy
         {
             if (other.CompareTag("Sword") && ennemyType != ("Snowman") && canTakeDamage)
             {
+                if (ennemyType == "Gingerbread" && !isStunned)
+                {
+                    StartCoroutine(Hitstun());
+                }
                 Debug.Log("degat");
                 health -= GameManager.Instance.swordDamage;
                 animator.SetTrigger("Degat");
@@ -68,6 +75,10 @@ namespace Ennemy
             }
             if (other.CompareTag("Slam") && ennemyType != ("Snowman") && canTakeDamage)
             {
+                if (ennemyType == "Gingerbread" && !isStunned)
+                {
+                    StartCoroutine(Hitstun());
+                }
                 Debug.Log("degat");
                 health -= GameManager.Instance.SlamDamage;
                 animator.SetTrigger("Degat");
@@ -94,11 +105,20 @@ namespace Ennemy
         }
         IEnumerator SafeCooldown()
         {
+
             canTakeDamage = false;
             yield return new WaitForSeconds(safeTime);
             canTakeDamage = true;
         }
 
+       IEnumerator Hitstun()
+        {
+            isStunned = true;
+            GetComponent<GingerbreadAttack>().canAttack = false;
+            yield return new WaitForSeconds(hitstun);
+            GetComponent<GingerbreadAttack>().canAttack = true;
+            isStunned = false;
+        }
         IEnumerator cooldown()
         {
             if (ennemyType == "Snowman")

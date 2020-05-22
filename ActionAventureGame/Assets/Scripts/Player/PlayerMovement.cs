@@ -18,15 +18,18 @@ namespace Player
         public Animator animator;
         private float aimIdleX;
         private float aimIdleY;
-
+        public float bottes1;
+        public float bottes2;
+        public float bottes3;
         public Rigidbody2D rb;
         public Vector2 movement;
-
+        PlayerAttack PlayerAttack;
 
         bool footStepCoroutine = false;
 
         void Start()
         {
+            PlayerAttack = GetComponent<PlayerAttack>();
             //Recuperation du rigidbody du player
             rb = GetComponent<Rigidbody2D>();
             GameManager.Instance.player = this;
@@ -58,17 +61,17 @@ namespace Player
                 animator.SetFloat("Vertical Idle", -1);
             }
 
-            if (GameManager.Instance.bottesState == 1)
+            if (GameManager.Instance.bottesState == 1)
             {
-                moveSpeed = 3.5f;
+                moveSpeed = bottes1;                PlayerAttack.baseMoveSpeed = moveSpeed;
             }
-            if (GameManager.Instance.bottesState == 2)
-            {
-                moveSpeed = 4f;
+            if (GameManager.Instance.bottesState == 2)
+            {                
+                moveSpeed = bottes2;                PlayerAttack.baseMoveSpeed = moveSpeed;
             }
-            if (GameManager.Instance.bottesState == 3)
+            if (GameManager.Instance.bottesState == 3)
             {
-                moveSpeed = 4.3f;
+                moveSpeed = bottes3;                PlayerAttack.baseMoveSpeed = moveSpeed;
             }
 
 

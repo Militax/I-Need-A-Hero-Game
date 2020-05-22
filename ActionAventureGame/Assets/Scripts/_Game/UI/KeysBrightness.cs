@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using GameManagement;
 
 public class KeysBrightness : MonoBehaviour
 {
@@ -11,12 +12,14 @@ public class KeysBrightness : MonoBehaviour
         public string KeyInput;
         public Image reference;
         public bool dependsOnShop;
+        public bool usesPowerState;
+        public bool notUsed;
     }
     public KeyDescriptor[] Keys;
     public Color pressedColor;
     public Color defaultColor;
 
-    [HideInInspector]
+    
     public Marchand marchand;
 
 
@@ -27,13 +30,30 @@ public class KeysBrightness : MonoBehaviour
         {
             if (marchand != null)
             {
+                
                 if (keyDescriptor.dependsOnShop)
                 {
                     keyDescriptor.reference.color = (!marchand.CanEnterShop ? pressedColor : defaultColor);
+                    
                 }
-                continue;
+                else if (keyDescriptor.usesPowerState && GameManager.Instance.powerState < 1)
+                {
+                    keyDescriptor.reference.color = pressedColor;
+                }
+                else if (keyDescriptor.notUsed)
+                {
+                    keyDescriptor.reference.color = pressedColor;
+                }
+                else
+                {
+                    keyDescriptor.reference.color = (Input.GetButton(keyDescriptor.KeyInput) ? pressedColor : defaultColor);
+                }
+                
+                //continue;
+                
             }
-            keyDescriptor.reference.color = (Input.GetButton(keyDescriptor.KeyInput) ? pressedColor : defaultColor);
+            
+            
         }
     }
 }

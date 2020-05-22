@@ -11,6 +11,7 @@ public class Marchand : MonoBehaviour
    public bool CanEnterShop = false;
    public GameObject shopUI;
    public GameObject startInputShop;
+	public Button FirstButton;
 
 	void Start()
 	{
@@ -23,6 +24,7 @@ public class Marchand : MonoBehaviour
 		{
 			if (Input.GetButtonDown("Interaction") && shopUI.activeSelf == false) 
 			{
+				FirstButton.Select();
 				GameManager.Instance.playerCanMove = false;
 				shopUI.SetActive (true);
 				{

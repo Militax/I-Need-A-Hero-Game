@@ -36,7 +36,8 @@ namespace Player
         public int Direction;
         public int ComboCount = 0;
         float movespeed;
-        float baseMoveSpeed;
+        [HideInInspector]
+        public float baseMoveSpeed;
         public float attackDuration;//durée d'une  attaque
         #endregion
         #region Bool
@@ -62,7 +63,7 @@ namespace Player
         }
         void Update()
         {
-            GetComponent<PlayerMovement>().moveSpeed = movespeed;
+            
             
 
             AttaqueAIM();
@@ -134,9 +135,11 @@ namespace Player
         IEnumerator Attaque_Movement()
         {
             movespeed = baseMoveSpeed * speed;
+            GetComponent<PlayerMovement>().moveSpeed = movespeed;
             yield return new WaitForSeconds(attackDuration);
             animator.SetInteger("NumAttack", 0);
             movespeed = baseMoveSpeed;
+            GetComponent<PlayerMovement>().moveSpeed = movespeed;
         }
         void AttaqueAIM()
         {

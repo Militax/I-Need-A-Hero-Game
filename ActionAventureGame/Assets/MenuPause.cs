@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameManagement;
 using Player;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 public class MenuPause : MonoBehaviour
 {
     public GameObject menu;
     public GameObject player;
+    public Button FirtsButton;
 
     private void Start()
     {
@@ -17,6 +20,7 @@ public class MenuPause : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && !menu.activeSelf)
         {
             menu.SetActive(true);
+            FirtsButton.Select();
             Time.timeScale = 0;
             player.GetComponent<PlayerMovement>().enabled = false;
             player.GetComponent<PlayerPowers>().enabled = false;
