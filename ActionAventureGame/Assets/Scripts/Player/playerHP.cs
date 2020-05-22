@@ -87,6 +87,7 @@ namespace Player
                 case ("Cat"):
                     GameManager.Instance.playerHealth -= 1;
                     animator.SetTrigger("Hit");
+                    Debug.Log("attack");
                     break;
                 
                     

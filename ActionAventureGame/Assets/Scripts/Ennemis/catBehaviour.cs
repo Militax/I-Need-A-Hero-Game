@@ -20,6 +20,7 @@ public class catBehaviour : MonoBehaviour
     Vector3 target;
     int direction;
     bool RightSide;
+    public GameObject attackCollider;
     
 
     private void Start()
@@ -46,13 +47,16 @@ public class catBehaviour : MonoBehaviour
             Dash();
             yield return new WaitForSeconds(dashTime);
 
-            GetComponentInChildren<CircleCollider2D>().enabled = false;
+            attackCollider.SetActive(true);
             rb.velocity = Vector3.zero;
             canBeDamaged = true;
-            yield return new WaitForSeconds(vulnerable);
-            
-            canBeDamaged = false;
 
+            GetComponent<SpriteRenderer>().color = Color.red;
+            yield return new WaitForSeconds(vulnerable);
+            attackCollider.SetActive(false);
+
+            canBeDamaged = false;
+            GetComponent<SpriteRenderer>().color = Color.white;
 
             prepare = true;
 

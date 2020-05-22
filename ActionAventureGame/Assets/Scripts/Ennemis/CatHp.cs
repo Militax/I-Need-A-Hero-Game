@@ -45,11 +45,13 @@ public class CatHp : MonoBehaviour
 
             if (takedamage)
             {
+                
                 animator.SetBool("CanDamaged", true);
                 currentHP -= DamageTaken;
             }
             if (!takedamage)
             {
+                
                 animator.SetBool("CanDamaged", false); //animation parade
             }
         }
