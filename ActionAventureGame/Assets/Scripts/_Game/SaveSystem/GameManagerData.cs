@@ -5,6 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class GameManagerData 
 {
+    public bool CanMove;
+
     public Vector3 RespawnPoint;
 
     public int PlayerHP;
