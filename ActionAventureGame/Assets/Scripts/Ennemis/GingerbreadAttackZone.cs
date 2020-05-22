@@ -21,6 +21,9 @@ namespace Ennemy
         bool isInZone = false;
         bool isInCoroutine = false;
 
+        [Header("SFX")]
+        public AudioClip Damage;
+
         //public GameObject Player;
         Animator animator;
 
@@ -39,6 +42,7 @@ namespace Ennemy
             {
                 Debug.Log("Taking Damage");
                 GameManager.Instance.playerHealth--;
+                SoundManager.instance.PlaySfx(Damage, 1, 1);
                 animator.SetTrigger("Hit");
                 canDamage = false;
             }

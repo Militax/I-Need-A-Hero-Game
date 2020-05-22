@@ -6,11 +6,15 @@ using Player;
 
 public class explosion : MonoBehaviour
 {
+    [Header("SFX")]
+    public AudioClip Damage;
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.tag == "Player")
         {
             GameManager.Instance.playerHealth -= 3;
+            SoundManager.instance.PlaySfx(Damage, 1, 1);
         }
     }
 }

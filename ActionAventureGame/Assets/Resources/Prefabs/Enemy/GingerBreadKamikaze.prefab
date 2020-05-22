@@ -126,7 +126,9 @@ MonoBehaviour:
   maximumHealth: 1
   safeTime: 1
   isAlive: 1
+  hitstun: 0
   TimerDie: 0
+  ParticleSystem: {fileID: 0}
 --- !u!114 &3511566694759519906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,6 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2fa79c1e4898124b8e4ffd0e94fac1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: {fileID: 8300000, guid: 8d247b36ac627fc4ea57cb1ae87d20be, type: 3}
 --- !u!1 &7513832131284337432
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,4 +317,6 @@ MonoBehaviour:
   maximumHealth: 2
   safeTime: 0.2
   isAlive: 1
+  hitstun: 0
   TimerDie: 1
+  ParticleSystem: {fileID: 0}
