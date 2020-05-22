@@ -14,6 +14,7 @@ public class pressureplatePlayer : ActivationDevice
     public GameObject ActivateEvent;
     public GameObject DeActivateEvent;
 
+    public bool WasActivated;
     public GameObject ParticleSystem;
     
     
@@ -49,13 +50,26 @@ public class pressureplatePlayer : ActivationDevice
                 }
                 else if (!IsActive && instance && deSpawnOnLeave)
                     Destroy(instance);
-                Debug.Log(String.Format("this: {0} vs {1}", item.colliderTag, tag));
+                //Debug.Log(String.Format("this: {0} vs {1}", item.colliderTag, tag));
                 spr.sprite = (IsActive ? item.active : item.inactive);
-                if (IsActive)
+                if (stayActive)
                 {
-                    GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
-                    Destroy(fx, 2f);
+                    if (IsActive && !WasActivated)
+                    {
+                        WasActivated = true;
+                        GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
+                        Destroy(fx, 2f);
+                    }
                 }
+                else if (!stayActive)
+                {
+                    if (IsActive)
+                    { 
+                        GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
+                        Destroy(fx, 2f);
+                    }
+                }
+            
                 base.RefreshState(state, tag);
                 if (ActivateEvent && DeActivateEvent)
                 {

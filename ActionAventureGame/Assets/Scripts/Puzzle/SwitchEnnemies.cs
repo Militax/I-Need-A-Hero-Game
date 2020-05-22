@@ -15,6 +15,7 @@ public class SwitchEnnemies : ActivationDevice
     private PlayableDirector Timeline;
     public bool TimelineNeeded;
     Animator animator;
+    public GameObject ParticleSystem;
 
     public Vector3 eventPosition;
     // Start is called before the first frame update
@@ -55,6 +56,8 @@ public class SwitchEnnemies : ActivationDevice
                     if (IsActive)
                     {
                         animator.SetTrigger("ToActive");
+                        GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
+                        Destroy(fx, 2f);
                     }
                     else if (!IsActive)
                     {

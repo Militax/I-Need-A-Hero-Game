@@ -15,6 +15,9 @@ public class PressurePlateEnnemi : ActivationDevice
 
     public Vector3 eventPosition;
 
+    public bool WasActivated;
+    public GameObject ParticleSystem;
+
 
 
 
@@ -66,6 +69,23 @@ public class PressurePlateEnnemi : ActivationDevice
                     Destroy(instance);
 
                 spr.sprite = (IsActive ? item.active : item.inactive);
+                if (stayActive)
+                {
+                    if (IsActive && !WasActivated)
+                    {
+                        WasActivated = true;
+                        GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
+                        Destroy(fx, 2f);
+                    }
+                }
+                else if (!stayActive)
+                {
+                    if (IsActive)
+                    {
+                        GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
+                        Destroy(fx, 2f);
+                    }
+                }
 
                 base.RefreshState(state, tag);
 

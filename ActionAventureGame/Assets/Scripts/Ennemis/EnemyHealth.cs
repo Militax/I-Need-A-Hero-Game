@@ -32,6 +32,7 @@ namespace Ennemy
         Animator animator;
         bool Dead = false;
         public int TimerDie;
+        public GameObject ParticleSystem;
         void Start()
         {
             health = maximumHealth;
@@ -64,6 +65,8 @@ namespace Ennemy
                 Debug.Log("degat");
                 health -= GameManager.Instance.swordDamage;
                 animator.SetTrigger("Degat");
+                GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
+                Destroy(fx, 1f);
                 StartCoroutine(SafeCooldown());
             }
             if (other.CompareTag("Slam") && ennemyType != ("Snowman") && canTakeDamage)
