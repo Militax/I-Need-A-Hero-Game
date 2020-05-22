@@ -12,7 +12,7 @@ namespace Ennemy
         public float windEffectSlowdown;
         public float windEffectDuration;
         public float freezEffectDuration;
-
+        bool freezeOver = true;
         string ennemyType;
         Rigidbody2D rb;
         #endregion
@@ -32,12 +32,17 @@ namespace Ennemy
                 if (ennemyType == "Gingerbread")
                 {
                     
-                    if (GetComponent<GingerbreadMovement>().isAffectedByWind == false)
+                    //if (GetComponent<GingerbreadMovement>().isAffectedByWind == false)
                     {
                         if (GameManager.Instance.powerState >= 2)
                         {
                             Debug.Log("hihihih");
-                            StartCoroutine(FreezeEffect(other));
+                            StartCoroutine(WindEffect(other));
+                            if (freezeOver)
+                            {
+                                StartCoroutine(FreezeEffect(other));
+                            }
+                            
                         }
                         else
                         {
@@ -97,15 +102,19 @@ namespace Ennemy
 
                 case ("Gingerbread")://Sur le gingerbread
 
-                    GetComponent<GingerbreadMovement>().isAffectedByWind = true;
-                    rb.velocity = other.GetComponentInParent<Rigidbody2D>().velocity / windEffectSlowdown;//Fait reculer l'ennemi
-                    yield return new WaitForSeconds(windEffectDuration);
+                    freezeOver = false;
+                    GetComponent<GingerbreadAttack>().enabled = false;
+                    GetComponent<GingerbreadMovement>().isAffectedByFreeze = true;
+                    //rb.velocity = other.GetComponentInParent<Rigidbody2D>().velocity / windEffectSlowdown;//Fait reculer l'ennemi
+                    //yield return new WaitForSeconds(windEffectDuration);
                     rb.velocity = Vector2.zero;
                     Debug.Log(animator);
                     animator.SetTrigger("Freeze");
 
                     yield return new WaitForSeconds(freezEffectDuration);
-                    GetComponent<GingerbreadMovement>().isAffectedByWind = false;
+                    GetComponent<GingerbreadMovement>().isAffectedByFreeze = false;
+                    GetComponent<GingerbreadAttack>().enabled = true;
+                    freezeOver = true;
 
                     break;
 

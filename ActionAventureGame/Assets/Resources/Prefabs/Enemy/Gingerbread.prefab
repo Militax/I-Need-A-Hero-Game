@@ -256,7 +256,7 @@ BoxCollider2D:
   m_Offset: {x: 0.0048311055, y: 0.7692403}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.8333333, y: 1.3333334}
     newSize: {x: 0.8333333, y: 1.3333334}
     adaptiveTilingThreshold: 0.5
@@ -283,6 +283,7 @@ MonoBehaviour:
   maximumHealth: 2
   safeTime: 1
   isAlive: 1
+  hitstun: 2
   TimerDie: 1
 --- !u!114 &3316377136313674930
 MonoBehaviour:
@@ -303,6 +304,7 @@ MonoBehaviour:
   canMove: 0
   isAttacking: 0
   isAffectedByWind: 0
+  isAffectedByFreeze: 0
   isAlive: 1
 --- !u!114 &1471709639289433059
 MonoBehaviour:
@@ -323,6 +325,7 @@ MonoBehaviour:
   NEcollider: {fileID: 1471709638969723478}
   SWcollider: {fileID: 4110711549937549168}
   SEcollider: {fileID: 4110711551491898902}
+  canAttack: 1
 --- !u!114 &1471709640274168412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,7 +340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windEffectSlowdown: 3
   windEffectDuration: 0.5
-  freezEffectDuration: 0
+  freezEffectDuration: 5
   animator: {fileID: 4731021746995233410}
 --- !u!95 &4731021746995233410
 Animator:

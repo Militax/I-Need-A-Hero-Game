@@ -30,7 +30,8 @@ namespace Ennemy
 
         float attackRange;
         bool isInAttackRange;
-        bool canAttack = true;
+        [HideInInspector]
+        public bool canAttack = true;
         Rigidbody2D rb;
         AttackDirection direction;
         #endregion

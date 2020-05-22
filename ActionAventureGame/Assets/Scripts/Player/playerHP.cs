@@ -23,7 +23,7 @@ namespace Player
             if (GameManager.Instance.playerHealth <= 0 && !isDying)
             {
                 gameObject.GetComponent<PlayerMovement>().enabled = false;
-                
+                GetComponent<Rigidbody2D>().velocity = Vector3.zero;
                 animator.SetTrigger("Dead");
                 isDying = true;
                 Invoke("Respawn", animator.GetCurrentAnimatorStateInfo(0).length);
@@ -81,6 +81,7 @@ namespace Player
                 case ("Cat"):
                     GameManager.Instance.playerHealth -= 1;
                     animator.SetTrigger("Hit");
+                    Debug.Log("attack");
                     break;
                 
                     

@@ -87,7 +87,7 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.maxCoin = 300;
 				GameManager.Instance.CoinOwned -= 50;
 				coinsCollected += 50;
-				threshold.BourseLevel = 2;
+				threshold.BourseLevel = 1;
 
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
@@ -103,7 +103,7 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.maxCoin = 500;
 				GameManager.Instance.CoinOwned -= 150;
 				coinsCollected += 150;
-				threshold.BourseLevel = 3;
+				threshold.BourseLevel = 2;
 
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
@@ -118,7 +118,7 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.maxCoin = 1000;
 				GameManager.Instance.CoinOwned -= 300;
 				coinsCollected += 300;
-				threshold.BourseLevel = 4;
+				threshold.BourseLevel = 3;
 
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
