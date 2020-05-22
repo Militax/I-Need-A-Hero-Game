@@ -98,6 +98,7 @@ public class GameLoader : MonoBehaviour
             return;
         if (GameManager.Instance == null)
             Debug.LogError("Gamemanager is null");
+        GameManager.Instance.playerCanMove = data.CanMove;
         GameManager.Instance.RespawnPoint = data.RespawnPoint;
         GameManager.Instance.SetHealth(data.PlayerHP, data.PlayerMaxHP);
         GameManager.Instance.playerHealth = data.PlayerHP;
@@ -116,6 +117,7 @@ public class GameLoader : MonoBehaviour
         GameManagerData managerData;
         managerData = new GameManagerData()
         {
+            CanMove = GameManager.Instance.playerCanMove,
             RespawnPoint = GameManager.Instance.RespawnPoint,
             PlayerHP = GameManager.Instance.playerHealth,
             PlayerMaxHP = GameManager.Instance.playerHealthMax,
@@ -157,7 +159,7 @@ public class GameLoader : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.K))
             SaveGame(saveName);
     }
 }
