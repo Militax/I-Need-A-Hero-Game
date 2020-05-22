@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Audio;
 
 
 /// <summary>
@@ -120,9 +119,7 @@ namespace Player
             {
                 Invoke("Slam", .5f);
                 StartCoroutine(Attaque_Movement());
-            }
-            //AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Sword Attack");
-            
+            }           
             
             
         }
