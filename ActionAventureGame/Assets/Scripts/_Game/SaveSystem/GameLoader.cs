@@ -159,7 +159,7 @@ public class GameLoader : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.K))
             SaveGame(saveName);
     }
 }
