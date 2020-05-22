@@ -25,7 +25,9 @@ public class SwichGlobal : ActivationDevice
     private PlayableDirector Timeline;
     public bool TimelineNeeded;
     Animator animator;
-    public ParticleSystem particlesystem;
+    public GameObject ParticleSystem;
+    public float OffsetParticle;
+    public float RotationParticle;
 
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -109,13 +111,14 @@ public class SwichGlobal : ActivationDevice
                 if (IsActive)
                 {
                     animator.SetTrigger("ToActive");
-                    Debug.Log("Oui");
-                    particlesystem.Play();
+                    GameObject fx = Instantiate(ParticleSystem, this.transform.position + new Vector3 (0,OffsetParticle,0), Quaternion.Euler(RotationParticle,0,0));
+                    Destroy(fx, 2f);
                 }
                 else if (!IsActive)
                 {
                     animator.SetTrigger("ToInactive");
-                    particlesystem.Play();
+                    GameObject fx = Instantiate(ParticleSystem, this.transform.position + new Vector3(0, OffsetParticle, 0), Quaternion.Euler(RotationParticle,0,0));
+                    Destroy(fx, 2f);
                 }
                 base.RefreshState(state, tag);
                 //if (!ActivateEvent || !DeActivateEvent)

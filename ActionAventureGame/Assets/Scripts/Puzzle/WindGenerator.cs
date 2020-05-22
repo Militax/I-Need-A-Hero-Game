@@ -39,12 +39,12 @@ namespace Puzzle
             if (Input.IsActive)
             {
                 WaveFire();
-                animator.SetTrigger("Generate");
+                animator.enabled = true;
             }
 
             else if (!Input.IsActive)
             {
-                animator.SetTrigger("Stop");
+                animator.enabled = false;
             }
 
         }

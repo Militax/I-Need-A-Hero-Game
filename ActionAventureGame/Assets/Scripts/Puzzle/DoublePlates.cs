@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DoublePlates : ActivationDevice
 {
+    public GameObject ParticleSystem;
     public DoublePlates other;
 
     protected override void RefreshState(bool state, string tag = null)
@@ -15,6 +16,11 @@ public class DoublePlates : ActivationDevice
                 current = item;
                 IsActive = state;
                 spr.sprite = (IsActive ? item.active : item.inactive); // (Ternaire) si IsActive = true : vert else :rouge
+                if (IsActive)
+                {
+                    GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
+                    Destroy(fx, 2f);
+                }
                 if (tag != null && other.IsActive == this.IsActive && IsActive)
                 {
                     Debug.Log("hoho");

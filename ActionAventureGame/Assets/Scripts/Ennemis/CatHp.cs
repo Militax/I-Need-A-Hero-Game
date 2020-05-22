@@ -8,6 +8,7 @@ public class CatHp : MonoBehaviour
     public int currentHP;
     public int MaxHP;
     Animator animator;
+    public GameObject ParticleSystem;
     bool die = false;
     public int TimerDie;
     bool takedamage;
@@ -42,6 +43,8 @@ public class CatHp : MonoBehaviour
         if (other.tag == "Sword")
         {
             animator.SetTrigger("Degat");
+            GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
+            Destroy(fx, 1f);
 
             if (takedamage)
             {
