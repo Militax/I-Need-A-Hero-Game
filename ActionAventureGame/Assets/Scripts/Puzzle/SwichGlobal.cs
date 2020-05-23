@@ -93,15 +93,17 @@ public class SwichGlobal : ActivationDevice
                 current = item;
                 IsActive = state;
 
+                if (TimelineNeeded == true)
+                {
+                    Timeline.Play();
+                }
+
                 if (IsActive && eventObject && instance == null)
                 {
                     instance = Instantiate(eventObject, eventPosition + transform.position, Quaternion.identity, transform);
                     iTween.PunchScale(instance, new Vector3(1, 1, 0), 0.5f);
 
-                    if (TimelineNeeded == true)
-                    {
-                        Timeline.Play();
-                    }
+
                 }
 
                 else if (!IsActive && instance && deSpawnOnLeave)
@@ -113,6 +115,7 @@ public class SwichGlobal : ActivationDevice
                     animator.SetTrigger("ToActive");
                     GameObject fx = Instantiate(ParticleSystem, this.transform.position + new Vector3 (0,OffsetParticle,0), Quaternion.Euler(RotationParticle,0,0));
                     Destroy(fx, 2f);
+
                 }
                 else if (!IsActive)
                 {
