@@ -110,5 +110,20 @@ namespace GameManagement
 			#endregion
         }
 
+
+        public void loot(int _numberOfDrops, float _lootRange, GameObject[] _lootArray, GameObject _instance)
+        {
+            for (int i = 0; i < _numberOfDrops; i++)
+            {
+                int rnd = Random.Range(0, _lootArray.Length);
+                float range = Random.Range(-_lootRange, _lootRange);
+                if (_lootArray[i] != null)
+                {
+                    Debug.Log("BIM CA LOUTTE");
+                    Instantiate(_lootArray[rnd], _instance.transform.position + new Vector3(range, range, 0), Quaternion.identity);
+                }
+                
+            }
+        }
     }
 }

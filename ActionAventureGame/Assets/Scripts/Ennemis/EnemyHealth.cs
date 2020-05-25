@@ -30,6 +30,13 @@ namespace Ennemy
         bool isStunned = false;
 
         bool canTakeDamage = true;
+
+
+
+        [Header("Loot")]
+        public int dropNumber;
+        public int lootRange;
+        public GameObject[] myLoot;
         #endregion
         Animator animator;
         bool Dead = false;
@@ -129,6 +136,7 @@ namespace Ennemy
                 GetComponentInChildren<SownmanFire>().enabled = false;
             }
             yield return new WaitForSeconds(TimerDie);
+            GameManager.Instance.loot(dropNumber, lootRange, myLoot, this.gameObject);
             Destroy(gameObject);
         }
     }

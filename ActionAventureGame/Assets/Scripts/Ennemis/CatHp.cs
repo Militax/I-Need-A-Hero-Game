@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameManagement;
 
 public class CatHp : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class CatHp : MonoBehaviour
     bool die = false;
     public int TimerDie;
     bool takedamage;
+
+    [Header("Loot")]
+    public int dropNumber;
+    public int lootRange;
+    public GameObject[] myLoot;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +38,7 @@ public class CatHp : MonoBehaviour
             StartCoroutine(cooldown());
             if (die)
             {
+                GameManager.Instance.loot(dropNumber, lootRange, myLoot, this.gameObject);
                 Destroy(gameObject);
             }
         }
