@@ -11,7 +11,7 @@ public class ShopInteraction : MonoBehaviour
 	public Sprite MaisonBois;
 	public Sprite MaisonBrique;
 	
-	[HideInInspector]
+
 	public SpriteRenderer spr;
 	ThresholdBourse threshold;
 

@@ -112,16 +112,24 @@ public class SwichGlobal : ActivationDevice
                 //spr.sprite = (IsActive ? item.active : item.inactive);
                 if (IsActive)
                 {
-                    animator.SetTrigger("ToActive");
-                    GameObject fx = Instantiate(ParticleSystem, this.transform.position + new Vector3 (0,OffsetParticle,0), Quaternion.Euler(RotationParticle,0,0));
-                    Destroy(fx, 2f);
+                    if (ParticleSystem != null)
+                    {
+                        animator.SetTrigger("ToActive");
+                        GameObject fx = Instantiate(ParticleSystem, this.transform.position + new Vector3(0, OffsetParticle, 0), Quaternion.Euler(RotationParticle, 0, 0));
+                        Destroy(fx, 2f);
+                    }
+                    
 
                 }
                 else if (!IsActive)
                 {
-                    animator.SetTrigger("ToInactive");
-                    GameObject fx = Instantiate(ParticleSystem, this.transform.position + new Vector3(0, OffsetParticle, 0), Quaternion.Euler(RotationParticle,0,0));
-                    Destroy(fx, 2f);
+                    if (ParticleSystem != null)
+                    {
+                        animator.SetTrigger("ToInactive");
+                        GameObject fx = Instantiate(ParticleSystem, this.transform.position + new Vector3(0, OffsetParticle, 0), Quaternion.Euler(RotationParticle, 0, 0));
+                        Destroy(fx, 2f);
+                    }
+                        
                 }
                 base.RefreshState(state, tag);
                 //if (!ActivateEvent || !DeActivateEvent)

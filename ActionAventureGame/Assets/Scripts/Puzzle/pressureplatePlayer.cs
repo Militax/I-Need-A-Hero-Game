@@ -20,10 +20,14 @@ public class pressureplatePlayer : ActivationDevice
 
     private PlayableDirector Timeline;
     public GameObject TimelineDirector;
+    public bool timelineNeeded;
 
     public void Start()
     {
-        Timeline = TimelineDirector.GetComponent<PlayableDirector>();
+        if (Timeline != null)
+        {
+            Timeline = TimelineDirector.GetComponent<PlayableDirector>();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -45,10 +49,17 @@ public class pressureplatePlayer : ActivationDevice
             if (item.colliderTag == tag)
             {
                 if (!stayActive)
+                {
                     IsActive = !IsActive;
+                }
                 else if (state)
+                {
                     IsActive = true;
-                    Timeline.Play();
+                    if (Timeline != null)
+                    {
+                        Timeline.Play();
+                    }
+                }          
 
                 if (IsActive && eventObject && instance == null)
                 {
