@@ -1,11 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class DoublePlates : ActivationDevice
 {
     public GameObject ParticleSystem;
     public DoublePlates other;
+
+    private PlayableDirector Timeline;
+    public bool TimelineNeeded;
+    private bool TimelinePlayed;
+
+    public void Start()
+    {
+        Timeline = GetComponent<PlayableDirector>();
+        TimelinePlayed = false;
+    }
 
     protected override void RefreshState(bool state, string tag = null)
     {
@@ -13,6 +24,12 @@ public class DoublePlates : ActivationDevice
         {
             if (item.colliderTag == tag)
             {
+                if(TimelineNeeded == true && TimelinePlayed == false)
+                {
+                    Timeline.Play();
+                    TimelinePlayed = true;
+                }
+
                 current = item;
                 IsActive = state;
                 spr.sprite = (IsActive ? item.active : item.inactive); // (Ternaire) si IsActive = true : vert else :rouge

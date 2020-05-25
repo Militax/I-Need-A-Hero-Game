@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Playables;
 
 public class pressureplatePlayer : ActivationDevice
 {
@@ -16,10 +17,15 @@ public class pressureplatePlayer : ActivationDevice
 
     public bool WasActivated;
     public GameObject ParticleSystem;
-    
-    
 
-    
+    private PlayableDirector Timeline;
+    public GameObject TimelineDirector;
+
+    public void Start()
+    {
+        Timeline = TimelineDirector.GetComponent<PlayableDirector>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         RefreshState(true, collision.tag); 
@@ -42,11 +48,14 @@ public class pressureplatePlayer : ActivationDevice
                     IsActive = !IsActive;
                 else if (state)
                     IsActive = true;
-                
+                    Timeline.Play();
+
                 if (IsActive && eventObject && instance == null)
                 {
                     instance = Instantiate(eventObject, eventPosition + transform.position, Quaternion.identity, transform);
                     iTween.PunchScale(instance, new Vector3(1, 1, 0), 0.5f);
+
+                    
                 }
                 else if (!IsActive && instance && deSpawnOnLeave)
                     Destroy(instance);
