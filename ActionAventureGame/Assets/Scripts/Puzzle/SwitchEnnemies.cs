@@ -56,8 +56,11 @@ public class SwitchEnnemies : ActivationDevice
                     if (IsActive)
                     {
                         animator.SetTrigger("ToActive");
-                        GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
-                        Destroy(fx, 2f);
+                        if (ParticleSystem != null)
+                        {
+                            GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
+                            Destroy(fx, 2f);
+                        }
                     }
                     else if (!IsActive)
                     {

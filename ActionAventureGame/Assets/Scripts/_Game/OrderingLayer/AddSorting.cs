@@ -50,6 +50,8 @@ public class AddSorting : MonoBehaviour
         }
 
     }
+
+    /*
     private void OnDrawGizmos()
     {
         if (Allitems.Count == 0)
@@ -65,5 +67,6 @@ public class AddSorting : MonoBehaviour
 
 
     }
+    */
     
 }
