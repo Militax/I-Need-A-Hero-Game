@@ -14,6 +14,10 @@ namespace Player
         public Animator animator;
         bool isDying = false;
 
+        [Header("SFX")]
+        public AudioClip Death;
+        public AudioClip Damage;
+
         void Start()
         {
             animator = GetComponent<Animator>();
@@ -25,6 +29,7 @@ namespace Player
                 gameObject.GetComponent<PlayerMovement>().enabled = false;
                 GetComponent<Rigidbody2D>().velocity = Vector3.zero;
                 animator.SetTrigger("Dead");
+                SoundManager.instance.PlaySfx(Death, 1, 1);
                 isDying = true;
                 Invoke("Respawn", animator.GetCurrentAnimatorStateInfo(0).length);
             }
@@ -55,6 +60,7 @@ namespace Player
 
                     if (GameManager.Instance.playerHealth > 0)
                     {
+                        SoundManager.instance.PlaySfx(Damage, 1, 1);
                         animator.SetTrigger("Hit");
                     }
                     break;
@@ -65,6 +71,7 @@ namespace Player
 
                     if (GameManager.Instance.playerHealth > 0)
                     {
+                        SoundManager.instance.PlaySfx(Damage, 1, 1);
                         animator.SetTrigger("Hit");
                     }
                     break;
@@ -75,12 +82,14 @@ namespace Player
 
                     if (GameManager.Instance.playerHealth > 0)
                     {
+                        SoundManager.instance.PlaySfx(Damage, 1, 1);
                         animator.SetTrigger("Hit");
                     }
                     break;
                 case ("Cat"):
                     GameManager.Instance.playerHealth -= 1;
                     animator.SetTrigger("Hit");
+                    SoundManager.instance.PlaySfx(Damage, 1, 1);
                     Debug.Log("attack");
                     break;
                 

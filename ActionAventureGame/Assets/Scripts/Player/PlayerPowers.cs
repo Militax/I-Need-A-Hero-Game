@@ -19,6 +19,7 @@ namespace Player
         public GameObject WindPowerPrefab;
         public GameObject FrozenPowerPrefab;
         public GameObject PowerPowerPrefab;
+
         #region Invocation Points
         public Transform topPoint;
         public Transform downPoint;
@@ -33,6 +34,11 @@ namespace Player
         public string lookingAngle;
 
         public Animator animator;
+
+        [Header("SFX")]
+        public AudioClip Windpower;
+        public AudioClip Icepower;
+        public AudioClip Powerpower;
         #endregion
 
         void Update()
@@ -157,16 +163,22 @@ namespace Player
                                 WindWaveT = Instantiate(WindPowerPrefab, topPoint.position, topPoint.rotation);
                                 //Donne la direction
                                 WindWaveT.GetComponent<WindPower>().WaveDirection.y = 1;
+                                SoundManager.instance.PlaySfx(Windpower, 1, 1);
+                                Debug.Log("sonwind1");
                                 break;
                             case (2):
                                
                                 WindWaveT = Instantiate(FrozenPowerPrefab, topPoint.position, topPoint.rotation);
                                 WindWaveT.GetComponent<WindPower>().WaveDirection.y = 1;
+                                SoundManager.instance.PlaySfx(Icepower, 1, 1);
+                                Debug.Log("sonwind2");
                                 break;
                             case (3):
                                
                                 WindWaveT = Instantiate(PowerPowerPrefab, topPoint.position, topPoint.rotation);
                                 WindWaveT.GetComponent<WindPower>().WaveDirection.y = 1;
+                                SoundManager.instance.PlaySfx(Powerpower, 1, 1);
+                                Debug.Log("sonwind3");
                                 break;
                         }
                         
@@ -183,16 +195,19 @@ namespace Player
                                 
                                 WindWaveD = Instantiate(WindPowerPrefab, downPoint.position, downPoint.rotation);
                                 WindWaveD.GetComponent<WindPower>().WaveDirection.y = (-1);
+                                SoundManager.instance.PlaySfx(Windpower, 1, 1);
                                 break;
                             case (2):
                               
                                 WindWaveD = Instantiate(FrozenPowerPrefab, downPoint.position, downPoint.rotation);
                                 WindWaveD.GetComponent<WindPower>().WaveDirection.y = (-1);
+                                SoundManager.instance.PlaySfx(Icepower, 1, 1);
                                 break;
                             case (3):
                                
                                 WindWaveD = Instantiate(PowerPowerPrefab, downPoint.position, downPoint.rotation);
                                 WindWaveD.GetComponent<WindPower>().WaveDirection.y = (-1);
+                                SoundManager.instance.PlaySfx(Powerpower, 1, 1);
                                 break;
                         }
                         
@@ -209,16 +224,19 @@ namespace Player
                                 
                                 WindWaveL = Instantiate(WindPowerPrefab, leftPoint.position, leftPoint.rotation);
                                 WindWaveL.GetComponent<WindPower>().WaveDirection.x = (-1);
+                                SoundManager.instance.PlaySfx(Windpower, 1, 1);
                                 break;
                             case (2):
                                
                                 WindWaveL = Instantiate(FrozenPowerPrefab, leftPoint.position, leftPoint.rotation);
                                 WindWaveL.GetComponent<WindPower>().WaveDirection.x = (-1);
+                                SoundManager.instance.PlaySfx(Icepower, 1, 1);
                                 break;
                             case (3):
                                 
                                 WindWaveL = Instantiate(PowerPowerPrefab, leftPoint.position, leftPoint.rotation);
                                 WindWaveL.GetComponent<WindPower>().WaveDirection.x = (-1);
+                                SoundManager.instance.PlaySfx(Powerpower, 1, 1);
                                 break;
                         }
 
@@ -235,16 +253,19 @@ namespace Player
                                 
                                 WindWaveR = Instantiate(WindPowerPrefab, rightPoint.position, rightPoint.rotation);
                                 WindWaveR.GetComponent<WindPower>().WaveDirection.x = 1;
+                                SoundManager.instance.PlaySfx(Windpower, 1, 1);
                                 break;
                             case (2):
                                
                                 WindWaveR = Instantiate(FrozenPowerPrefab, rightPoint.position, rightPoint.rotation);
                                 WindWaveR.GetComponent<WindPower>().WaveDirection.x = 1;
+                                SoundManager.instance.PlaySfx(Icepower, 1, 1);
                                 break;
                             case (3):
                                 
                                 WindWaveR = Instantiate(PowerPowerPrefab, rightPoint.position, rightPoint.rotation);
                                 WindWaveR.GetComponent<WindPower>().WaveDirection.x = 1;
+                                SoundManager.instance.PlaySfx(Powerpower, 1, 1);
                                 break;
                         }
                         
@@ -263,12 +284,14 @@ namespace Player
                                 WindWaveTL.GetComponent<WindPower>().WaveDirection.x = (-1);
                                 WindWaveTL.GetComponent<WindPower>().WaveDirection.y = 1;
                                 WindWaveTL.GetComponent<WindPower>().power /= Mathf.Sqrt(2);
+                                SoundManager.instance.PlaySfx(Windpower, 1, 1);
                                 break;
                             case (2):
                                 WindWaveTL = Instantiate(FrozenPowerPrefab, topLeftPoint.position, topLeftPoint.rotation);
                                 WindWaveTL.GetComponent<WindPower>().WaveDirection.x = (-1);
                                 WindWaveTL.GetComponent<WindPower>().WaveDirection.y = 1;
                                 WindWaveTL.GetComponent<WindPower>().power /= Mathf.Sqrt(2);
+                                SoundManager.instance.PlaySfx(Icepower, 1, 1);
                                 break;
                             case (3):
                                 WindWaveTL = Instantiate(PowerPowerPrefab, topLeftPoint.position, topLeftPoint.rotation);
@@ -292,18 +315,21 @@ namespace Player
                                 WindWaveTR.GetComponent<WindPower>().WaveDirection.x = 1;
                                 WindWaveTR.GetComponent<WindPower>().WaveDirection.y = 1;
                                 WindWaveTR.GetComponent<WindPower>().power /= Mathf.Sqrt(2);
+                                SoundManager.instance.PlaySfx(Windpower, 1, 1);
                                 break;
                             case (2):
                                 WindWaveTR = Instantiate(FrozenPowerPrefab, topRightPoint.position, topRightPoint.rotation);
                                 WindWaveTR.GetComponent<WindPower>().WaveDirection.x = 1;
                                 WindWaveTR.GetComponent<WindPower>().WaveDirection.y = 1;
                                 WindWaveTR.GetComponent<WindPower>().power /= Mathf.Sqrt(2);
+                                SoundManager.instance.PlaySfx(Icepower, 1, 1);
                                 break;
                             case (3):
                                 WindWaveTR = Instantiate(PowerPowerPrefab, topRightPoint.position, topRightPoint.rotation);
                                 WindWaveTR.GetComponent<WindPower>().WaveDirection.x = 1;
                                 WindWaveTR.GetComponent<WindPower>().WaveDirection.y = 1;
                                 WindWaveTR.GetComponent<WindPower>().power /= Mathf.Sqrt(2);
+                                SoundManager.instance.PlaySfx(Powerpower, 1, 1);
                                 break;
                         }
 
@@ -321,18 +347,21 @@ namespace Player
                                 WindWaveDL.GetComponent<WindPower>().WaveDirection.x = (-1);
                                 WindWaveDL.GetComponent<WindPower>().WaveDirection.y = (-1);
                                 WindWaveDL.GetComponent<WindPower>().power /= Mathf.Sqrt(2);
+                                SoundManager.instance.PlaySfx(Windpower, 1, 1);
                                 break;
                             case (2):
                                 WindWaveDL = Instantiate(FrozenPowerPrefab, downLeftPoint.position, downLeftPoint.rotation);
                                 WindWaveDL.GetComponent<WindPower>().WaveDirection.x = (-1);
                                 WindWaveDL.GetComponent<WindPower>().WaveDirection.y = (-1);
                                 WindWaveDL.GetComponent<WindPower>().power /= Mathf.Sqrt(2);
+                                SoundManager.instance.PlaySfx(Icepower, 1, 1);
                                 break;
                             case (3):
                                 WindWaveDL = Instantiate(PowerPowerPrefab, downLeftPoint.position, downLeftPoint.rotation);
                                 WindWaveDL.GetComponent<WindPower>().WaveDirection.x = (-1);
                                 WindWaveDL.GetComponent<WindPower>().WaveDirection.y = (-1);
                                 WindWaveDL.GetComponent<WindPower>().power /= Mathf.Sqrt(2);
+                                SoundManager.instance.PlaySfx(Powerpower, 1, 1);
                                 break;
                         }
 
@@ -350,18 +379,21 @@ namespace Player
                                 WindWaveDR.GetComponent<WindPower>().WaveDirection.x = 1;
                                 WindWaveDR.GetComponent<WindPower>().WaveDirection.y = (-1);
                                 WindWaveDR.GetComponent<WindPower>().power /= Mathf.Sqrt(2);
+                                SoundManager.instance.PlaySfx(Windpower, 1, 1);
                                 break;
                             case (2):
                                 WindWaveDR = Instantiate(FrozenPowerPrefab, downRightPoint.position, downRightPoint.rotation);
                                 WindWaveDR.GetComponent<WindPower>().WaveDirection.x = 1;
                                 WindWaveDR.GetComponent<WindPower>().WaveDirection.y = (-1);
                                 WindWaveDR.GetComponent<WindPower>().power /= Mathf.Sqrt(2);
+                                SoundManager.instance.PlaySfx(Icepower, 1, 1);
                                 break;
                             case (3):
                                 WindWaveDR = Instantiate(PowerPowerPrefab, downRightPoint.position, downRightPoint.rotation);
                                 WindWaveDR.GetComponent<WindPower>().WaveDirection.x = 1;
                                 WindWaveDR.GetComponent<WindPower>().WaveDirection.y = (-1);
                                 WindWaveDR.GetComponent<WindPower>().power /= Mathf.Sqrt(2);
+                                SoundManager.instance.PlaySfx(Powerpower, 1, 1);
                                 break;
                         }
 
