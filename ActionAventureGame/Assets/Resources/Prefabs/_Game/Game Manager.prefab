@@ -245,12 +245,18 @@ MonoBehaviour:
   - KeyInput: Interaction
     reference: {fileID: 1700068427}
     dependsOnShop: 1
+    usesPowerState: 0
+    notUsed: 0
   - KeyInput: Attack
     reference: {fileID: 1810673786}
     dependsOnShop: 0
+    usesPowerState: 0
+    notUsed: 0
   - KeyInput: WindPower
     reference: {fileID: 1616666389}
     dependsOnShop: 0
+    usesPowerState: 0
+    notUsed: 0
   pressedColor: {r: 1, g: 1, b: 1, a: 0.42745098}
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
   marchand: {fileID: 0}
@@ -2707,6 +2713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 6776821469312882513}
   player: {fileID: 0}
+  FirtsButton: {fileID: 0}
 --- !u!114 &3304288246907891321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3239,13 +3246,13 @@ MonoBehaviour:
   HasKey: 0
   RespawnPoint: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
-  playerCanMove: 0
+  playerCanMove: 1
   DeathCounter: 0
   playerHealth: 10
   playerHealthMax: 10
   powerState: 0
-  swordDamage: 0
-  SlamDamage: 0
+  swordDamage: 1
+  SlamDamage: 2
   CoinOwned: 0
   maxCoin: 0
   bottesState: 0
