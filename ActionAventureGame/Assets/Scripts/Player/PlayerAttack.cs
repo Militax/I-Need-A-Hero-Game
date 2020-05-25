@@ -53,6 +53,12 @@ namespace Player
         Cooldown myCD;
         #endregion
 
+
+		[Header("Sound")]
+		public AudioClip attaque1;
+
+		
+
         private void Start()
         {
             
@@ -74,13 +80,13 @@ namespace Player
                 ComboCount = 1;
 
                 Attaque();
-
+				
             }
             else if (Input.GetButtonDown("Attack") && isAttacking == true && canAttack == true)
             {
                 ComboCount += 1;
                 Attaque();
-
+				
                 
             }
             //else if (isAttacking == true && ComboCount == 3)
@@ -100,10 +106,12 @@ namespace Player
                 if (Direction == 0)
                 {
                     prefabHitboxTopRight.SetActive(true);
+					
                 }
                 else if (Direction == 1)
                 {
                     prefabHitboxTopLeft.SetActive(true);
+					
                 }
                 else if (Direction == 2)
                 {
@@ -114,6 +122,7 @@ namespace Player
                     prefabHitboxBottomLeft.SetActive(true);
                 }
                 myCD.Reset();
+				SoundManager.instance.PlaySfx(attaque1, 1, 1);
                 StartCoroutine(Attaque_Movement());
             }
             else if (ComboCount == 3)
