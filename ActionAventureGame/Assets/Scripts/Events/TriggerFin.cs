@@ -21,6 +21,7 @@ public class TriggerFin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Boss.GetComponent<BossHealth>().CurrentBossLife <= 0)
         {
             Timeline.Play();
@@ -28,6 +29,8 @@ public class TriggerFin : MonoBehaviour
             //GameManager.Instance.player.enabled = false;
             //GameManager.Instance.player.rb.velocity = Vector2.zero;
         }
+
+
 
     }
 }
