@@ -29,7 +29,7 @@ public class SwichGlobal : ActivationDevice
     public float OffsetParticle;
     public float RotationParticle;
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
 
         if (activationCooldown.IsOver())
