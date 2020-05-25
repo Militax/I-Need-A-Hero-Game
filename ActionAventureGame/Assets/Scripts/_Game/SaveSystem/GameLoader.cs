@@ -7,15 +7,16 @@ using Puzzle;
 using System.Linq;
 using Management;
 using Player;
-public class GameLoader : MonoBehaviour
+public class GameLoader : Singleton<GameLoader>
 {
-    public string saveName;
+    string saveName;
     public PlayerMovement player;
 
     private void Start()
     {
-        //MakeSingleton(false);
-        LoadGame(saveName);
+        MakeSingleton(false);
+        // TODO: Init currentSave from MainMenu
+        //LoadGame(GameManager.Instance.currentSave);
     }
     #region "Activation Device"
     private void LoadActivationDevice(ActivationDevicesData[] data)

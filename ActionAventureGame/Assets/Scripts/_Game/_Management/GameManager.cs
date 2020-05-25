@@ -56,6 +56,8 @@ namespace GameManagement
 
         public bool isComingFromDonjon = false;
 
+        [HideInInspector]
+        public string currentSave;
         void Awake()
         {
             MakeSingleton(true);
