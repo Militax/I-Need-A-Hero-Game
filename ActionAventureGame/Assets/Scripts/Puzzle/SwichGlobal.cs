@@ -86,7 +86,7 @@ public class SwichGlobal : ActivationDevice
 
         foreach (Combination item in combinations)
         {
-
+            FindObjectOfType<rotationAiguille>().timerSwitch = this;
             if (item.colliderTag == tag)
             {
 
