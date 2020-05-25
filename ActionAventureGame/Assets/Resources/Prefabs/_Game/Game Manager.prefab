@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 38831499}
-  - component: {fileID: 38831498}
   m_Layer: 0
   m_Name: ShopUI
   m_TagString: Untagged
@@ -35,22 +34,6 @@ Transform:
   m_Father: {fileID: 1165209760898652085}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &38831498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 38831492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 914955946f1340a489b3dcc112f33637, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaisonPaille: {fileID: 21300000, guid: 7b07cba6030cd93488dd5f8f8dea6ba4, type: 3}
-  MaisonBois: {fileID: 21300000, guid: 0bb62df42f19779418f1b77476617fea, type: 3}
-  MaisonBrique: {fileID: 21300000, guid: 93a5322158b988b42ac2d1a2ad3039e7, type: 3}
-  spr: {fileID: 0}
 --- !u!1 &67973484
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,7 +485,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 38831498}
+      - m_Target: {fileID: 38831498, guid: 0080a4b80d96c9747a2efedd6161e8f7, type: 3}
         m_MethodName: playerHealthMax
         m_Mode: 1
         m_Arguments:
@@ -1330,7 +1313,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8, y: -86.8}
+  m_AnchoredPosition: {x: 39, y: -51}
   m_SizeDelta: {x: 72.2, y: 45.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1616666388
@@ -1480,7 +1463,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16, y: 5.4}
+  m_AnchoredPosition: {x: -56, y: -49}
   m_SizeDelta: {x: 50, y: 43.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1700068426
@@ -1553,7 +1536,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 38, y: -47}
+  m_AnchoredPosition: {x: -7, y: -90}
   m_SizeDelta: {x: 54.6, y: 54.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1810673785
@@ -2032,7 +2015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2075250711
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2049,8 +2032,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -72, y: -47.99993}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: -14, y: -15}
+  m_SizeDelta: {x: 42, y: 44.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2075250709
 CanvasRenderer:
@@ -2078,7 +2061,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e6bf2f59e4f7c964895054e8a067335a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2559,6 +2542,7 @@ GameObject:
   - component: {fileID: 6900250571808254123}
   - component: {fileID: 3304288246907891321}
   - component: {fileID: 2933282054991463320}
+  - component: {fileID: 82611810}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2682,23 +2666,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bourse: {fileID: 1785292633359452905}
-  BourseLevel: 1
+  BourseLevel: 0
   thresholds:
   - Level: 0
-    Coins: 2
-    accordingSprite: {fileID: 21300000, guid: a08fa1532ae0c684d8b183472e85f964, type: 3}
+    Coins: 0
+    accordingSprite: {fileID: 21300000, guid: ba8feff81d799314e99e424cd09c6d9f, type: 3}
   - Level: 0
-    Coins: 4
-    accordingSprite: {fileID: 21300000, guid: 93a7b7dea23bd7e4cbee870ca9fbb57d, type: 3}
+    Coins: 25
+    accordingSprite: {fileID: 21300000, guid: 1a23b99dc2822eb4dbbb366d1affb139, type: 3}
   - Level: 0
-    Coins: 6
-    accordingSprite: {fileID: 21300000, guid: d08e702da59dde649a41ed41f20e8297, type: 3}
+    Coins: 38
+    accordingSprite: {fileID: 21300000, guid: 50bd18ece64db3c4fb6dfd049293370b, type: 3}
   - Level: 0
-    Coins: 8
-    accordingSprite: {fileID: 21300000, guid: 4ec424bfb438cf04aad8f196ac93235e, type: 3}
+    Coins: 50
+    accordingSprite: {fileID: 21300000, guid: 067de5d078c7f9c43b5aee8e4de32780, type: 3}
   - Level: 0
     Coins: 0
-    accordingSprite: {fileID: 21300000, guid: 5967eba51863ca14ab3e0148dd0ea657, type: 3}
+    accordingSprite: {fileID: 21300000, guid: fb2d346f7bc08e041bfc3481a68eae4e, type: 3}
+  - Level: 0
+    Coins: 0
+    accordingSprite: {fileID: 21300000, guid: fb2d346f7bc08e041bfc3481a68eae4e, type: 3}
+  - Level: 1
+    Coins: 0
+    accordingSprite: {fileID: 21300000, guid: a08fa1532ae0c684d8b183472e85f964, type: 3}
+  - Level: 1
+    Coins: 25
+    accordingSprite: {fileID: 21300000, guid: 93a7b7dea23bd7e4cbee870ca9fbb57d, type: 3}
+  - Level: 1
+    Coins: 41
+    accordingSprite: {fileID: 21300000, guid: d08e702da59dde649a41ed41f20e8297, type: 3}
+  - Level: 1
+    Coins: 50
+    accordingSprite: {fileID: 21300000, guid: 4ec424bfb438cf04aad8f196ac93235e, type: 3}
+  - Level: 2
+    Coins: 0
+    accordingSprite: {fileID: 21300000, guid: 3737542a031b03946a972e94e5e4a9f5, type: 3}
+  - Level: 2
+    Coins: 70
+    accordingSprite: {fileID: 21300000, guid: 706da8ad5e2023a4db4612eaf8755181, type: 3}
+  - Level: 2
+    Coins: 90
+    accordingSprite: {fileID: 21300000, guid: 6f248c6537a88d74d8b32e101c407ab0, type: 3}
+  - Level: 2
+    Coins: 200
+    accordingSprite: {fileID: 21300000, guid: 547b16225b3d1fa43af500bcc9153dda, type: 3}
 --- !u!114 &6900250571808254123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2713,7 +2724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 6776821469312882513}
   player: {fileID: 0}
-  FirtsButton: {fileID: 0}
+  FirtsButton: {fileID: 753070404034573684}
 --- !u!114 &3304288246907891321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2748,6 +2759,22 @@ MonoBehaviour:
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
+--- !u!114 &82611810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165209760898651977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 914955946f1340a489b3dcc112f33637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaisonPaille: {fileID: 21300000, guid: 7b07cba6030cd93488dd5f8f8dea6ba4, type: 3}
+  MaisonBois: {fileID: 21300000, guid: 0bb62df42f19779418f1b77476617fea, type: 3}
+  MaisonBrique: {fileID: 21300000, guid: 93a5322158b988b42ac2d1a2ad3039e7, type: 3}
+  spr: {fileID: 0}
 --- !u!1 &1165209761522063595
 GameObject:
   m_ObjectHideFlags: 0
@@ -3252,7 +3279,7 @@ MonoBehaviour:
   playerHealthMax: 10
   powerState: 0
   swordDamage: 1
-  SlamDamage: 2
+  SlamDamage: 1
   CoinOwned: 0
   maxCoin: 0
   bottesState: 0
@@ -4118,7 +4145,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 38831498}
+      - m_Target: {fileID: 38831498, guid: 0080a4b80d96c9747a2efedd6161e8f7, type: 3}
         m_MethodName: maxCoin
         m_Mode: 1
         m_Arguments:
@@ -4397,7 +4424,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 38831498}
+      - m_Target: {fileID: 38831498, guid: 0080a4b80d96c9747a2efedd6161e8f7, type: 3}
         m_MethodName: maxCoin
         m_Mode: 1
         m_Arguments:
@@ -4580,8 +4607,8 @@ MonoBehaviour:
     m_Mode: 3
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 605525739}
+    m_SelectOnRight: {fileID: 6614675302675543297}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 0, b: 0.8550439, a: 1}
@@ -4607,7 +4634,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 38831498}
+      - m_Target: {fileID: 38831498, guid: 0080a4b80d96c9747a2efedd6161e8f7, type: 3}
         m_MethodName: maxCoin
         m_Mode: 1
         m_Arguments:
@@ -4756,7 +4783,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 38831498}
+      - m_Target: {fileID: 38831498, guid: 0080a4b80d96c9747a2efedd6161e8f7, type: 3}
         m_MethodName: maxCoin
         m_Mode: 1
         m_Arguments:
@@ -4785,7 +4812,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &980751244767728289
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4863,9 +4890,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -5069,7 +5096,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 605525739}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 0, b: 0.8550439, a: 1}
@@ -5095,7 +5122,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 38831498}
+      - m_Target: {fileID: 38831498, guid: 0080a4b80d96c9747a2efedd6161e8f7, type: 3}
         m_MethodName: bottesState
         m_Mode: 1
         m_Arguments:
@@ -5589,7 +5616,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 38831498}
+      - m_Target: {fileID: 38831498, guid: 0080a4b80d96c9747a2efedd6161e8f7, type: 3}
         m_MethodName: bottesState
         m_Mode: 1
         m_Arguments:
@@ -5927,14 +5954,14 @@ RectTransform:
   m_GameObject: {fileID: 5592127655306546305}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
+  m_LocalScale: {x: 3.57, y: 2.68, z: 1}
   m_Children: []
   m_Father: {fileID: 1165209760898652085}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -72, y: -107}
+  m_AnchoredPosition: {x: -81.6001, y: -100}
   m_SizeDelta: {x: 42, y: 69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8033430228137477386
@@ -5963,7 +5990,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5967eba51863ca14ab3e0148dd0ea657, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ba8feff81d799314e99e424cd09c6d9f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5972,7 +5999,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 24
 --- !u!1 &5664992582495022327
 GameObject:
   m_ObjectHideFlags: 0
@@ -6476,7 +6503,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 38831498}
+      - m_Target: {fileID: 38831498, guid: 0080a4b80d96c9747a2efedd6161e8f7, type: 3}
         m_MethodName: maxCoin
         m_Mode: 1
         m_Arguments:
@@ -7101,7 +7128,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 38831498}
+      - m_Target: {fileID: 38831498, guid: 0080a4b80d96c9747a2efedd6161e8f7, type: 3}
         m_MethodName: bottesState
         m_Mode: 1
         m_Arguments:
@@ -7603,7 +7630,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 38831498}
+      - m_Target: {fileID: 38831498, guid: 0080a4b80d96c9747a2efedd6161e8f7, type: 3}
         m_MethodName: bottesState
         m_Mode: 1
         m_Arguments:
@@ -7971,9 +7998,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -8342,6 +8369,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6444661527015498786}
     m_Modifications:
+    - target: {fileID: 506875887053908725, guid: ebc2d0ed4e2612242938f42d1f1480f4,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 506875887053908725, guid: ebc2d0ed4e2612242938f42d1f1480f4,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 506875887053908725, guid: ebc2d0ed4e2612242938f42d1f1480f4,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 506875887053908725, guid: ebc2d0ed4e2612242938f42d1f1480f4,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 506875887053908725, guid: ebc2d0ed4e2612242938f42d1f1480f4,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 506875887053908725, guid: ebc2d0ed4e2612242938f42d1f1480f4,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6536277876176109359, guid: ebc2d0ed4e2612242938f42d1f1480f4,
         type: 3}
       propertyPath: m_Name

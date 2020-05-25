@@ -53,7 +53,17 @@ public class SwichGlobal : ActivationDevice
 
 
     }
-
+    private void Awake()
+    {
+        if (interactables.Length != 0)
+        {
+            foreach (ActivationDevice item in interactables)
+            {
+                item.GetComponent<SpriteRenderer>().enabled = false;
+                item.enabled = false;
+            }
+        }
+    }
     private void Start()
     {
         if (spr == null)
@@ -66,7 +76,8 @@ public class SwichGlobal : ActivationDevice
         {
             Timeline = FirePit.GetComponent<PlayableDirector>();
         }
-          
+
+        animator = gameObject.GetComponent<Animator>();
     }
 
     private void Update()
@@ -75,10 +86,7 @@ public class SwichGlobal : ActivationDevice
         {
             RefreshState(!IsActive, registered.colliderTag);
             timer.isStopped = true;
-            
         }
-
-        animator = gameObject.GetComponent<Animator>();
     }
 
     protected override void RefreshState(bool state, string tag = null)
@@ -112,9 +120,10 @@ public class SwichGlobal : ActivationDevice
                 //spr.sprite = (IsActive ? item.active : item.inactive);
                 if (IsActive)
                 {
+                    animator.SetTrigger("ToActive");
+
                     if (ParticleSystem != null)
                     {
-                        animator.SetTrigger("ToActive");
                         GameObject fx = Instantiate(ParticleSystem, this.transform.position + new Vector3(0, OffsetParticle, 0), Quaternion.Euler(RotationParticle, 0, 0));
                         Destroy(fx, 2f);
                     }
@@ -123,9 +132,10 @@ public class SwichGlobal : ActivationDevice
                 }
                 else if (!IsActive)
                 {
+                    animator.SetTrigger("ToInactive");
+
                     if (ParticleSystem != null)
                     {
-                        animator.SetTrigger("ToInactive");
                         GameObject fx = Instantiate(ParticleSystem, this.transform.position + new Vector3(0, OffsetParticle, 0), Quaternion.Euler(RotationParticle, 0, 0));
                         Destroy(fx, 2f);
                     }
@@ -182,15 +192,5 @@ public class SwichGlobal : ActivationDevice
 
     
 
-    private void Awake()
-    {
-        if (interactables.Length != 0)
-        {
-            foreach (ActivationDevice item in interactables)
-            {
-                item.GetComponent<SpriteRenderer>().enabled = false;
-                item.enabled = false;
-            }
-        }
-    }
+
 }
