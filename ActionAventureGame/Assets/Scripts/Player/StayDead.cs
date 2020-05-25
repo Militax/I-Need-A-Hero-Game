@@ -12,6 +12,10 @@ public class StayDead : MonoBehaviour
     public Sprite state1;
     public Sprite state2;
     public Sprite state3;
+    public Sprite state4;
+    public Sprite state5;
+    public Sprite state6;
+    public Sprite state7;
     int numberofDeath = 0;
     // Start is called before the first frame update
     void Start()
@@ -34,6 +38,22 @@ public class StayDead : MonoBehaviour
         else if (GameManager.Instance.DeathCounter == numberofDeath+2)
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = state3;
+        }
+        else if (GameManager.Instance.DeathCounter == numberofDeath+3)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = state4;
+        }
+        else if (GameManager.Instance.DeathCounter == numberofDeath+4)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = state5;
+        }
+        else if (GameManager.Instance.DeathCounter == numberofDeath+5)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = state6;
+        }
+        else if (GameManager.Instance.DeathCounter == numberofDeath+6)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = state7;
         }
         else
         {
