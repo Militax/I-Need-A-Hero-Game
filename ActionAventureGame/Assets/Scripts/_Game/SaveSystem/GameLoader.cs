@@ -9,7 +9,8 @@ using Management;
 using Player;
 public class GameLoader : Singleton<GameLoader>
 {
-    string saveName;
+    [HideInInspector]
+    public string saveName;
     public PlayerMovement player;
 
     private void Start()

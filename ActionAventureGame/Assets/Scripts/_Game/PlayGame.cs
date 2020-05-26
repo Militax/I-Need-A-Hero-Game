@@ -29,7 +29,7 @@ public class PlayGame : MonoBehaviour
         instance.GetComponentInChildren<Button>().onClick.AddListener(
             delegate 
             { 
-                LoadSave(name); 
+                LoadSave(SaveDictionary.GetPrefix(name)); 
             });
     }
 
