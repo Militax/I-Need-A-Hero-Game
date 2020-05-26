@@ -298,6 +298,7 @@ namespace Player
                                 WindWaveTL.GetComponent<WindPower>().WaveDirection.x = (-1);
                                 WindWaveTL.GetComponent<WindPower>().WaveDirection.y = 1;
                                 WindWaveTL.GetComponent<WindPower>().power /= Mathf.Sqrt(2);
+                                SoundManager.instance.PlaySfx(Powerpower, 1, 1);
                                 break;
                         }
                         
