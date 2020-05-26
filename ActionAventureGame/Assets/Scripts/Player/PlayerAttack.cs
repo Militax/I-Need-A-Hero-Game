@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Player;
 
 
 /// <summary>
@@ -47,6 +48,8 @@ namespace Player
         Vector3 attackPos; //destination de l'attaque du joueur
         Vector3 attackAngle; //angle de l'attaque
         Vector3 attaqueDash;
+        public Vector3 attackScale;
+        
         #endregion
         public Animator animator;
         
@@ -105,23 +108,28 @@ namespace Player
             {
                 if (Direction == 0)
                 {
-                    prefabHitboxTopRight.SetActive(true);
+                    prefabHitboxTopRight.transform.localScale = attackScale;
+                    prefabHitboxTopRight.GetComponent<AttackColliders>().Invoke("deactivate", attackDuration);
 					
                 }
                 else if (Direction == 1)
                 {
-                    prefabHitboxTopLeft.SetActive(true);
-					
+                    prefabHitboxTopLeft.transform.localScale = attackScale;
+                    prefabHitboxTopLeft.GetComponent<AttackColliders>().Invoke("deactivate", attackDuration);
+
                 }
                 else if (Direction == 2)
                 {
-                    prefabHitboxBottomRight.SetActive(true);
+                    prefabHitboxBottomRight.transform.localScale = attackScale;
+                    prefabHitboxBottomRight.GetComponent<AttackColliders>().Invoke("deactivate", attackDuration);
                 }
                 else if (Direction == 3)
                 {
-                    prefabHitboxBottomLeft.SetActive(true);
+                    prefabHitboxBottomLeft.transform.localScale = attackScale;
+                    prefabHitboxBottomLeft.GetComponent<AttackColliders>().Invoke("deactivate", attackDuration);
                 }
                 myCD.Reset();
+                
 				SoundManager.instance.PlaySfx(attaque1, 1, 1);
                 StartCoroutine(Attaque_Movement());
             }

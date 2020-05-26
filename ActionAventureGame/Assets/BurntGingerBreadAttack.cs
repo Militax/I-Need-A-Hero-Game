@@ -18,7 +18,7 @@ public class BurntGingerBreadAttack : MonoBehaviour
     {
         if (player == null)
         {
-            player = GameObject.FindObjectOfType<PlayerMovement>();
+            player = GameManager.Instance.player;
         }
         rb = GetComponent<Rigidbody2D>();
     }
