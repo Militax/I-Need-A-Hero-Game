@@ -20,7 +20,7 @@ public class Vide : MonoBehaviour
         {
             if (item == tag)
             {
-                if (tag == "Player")
+                if (tag == "PlayerFeet")
                 {
                     GameManager.Instance.playerHealth = 0;
                     return;
