@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 using System;
+using GameManagement;
 public class SwichGlobal : ActivationDevice
 {
     Combination registered = null;
@@ -91,10 +92,15 @@ public class SwichGlobal : ActivationDevice
 
     protected override void RefreshState(bool state, string tag = null)
     {
-
+        if (useTimer)
+        {
+            
+            FindObjectOfType<rotationAiguille>().timerSwitch = this;
+        }
+        
         foreach (Combination item in combinations)
         {
-            FindObjectOfType<rotationAiguille>().timerSwitch = this;
+            
             if (item.colliderTag == tag)
             {
 
