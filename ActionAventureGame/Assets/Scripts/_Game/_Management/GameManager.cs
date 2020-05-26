@@ -65,7 +65,7 @@ namespace GameManagement
 
         void Start()
         {
-            //GameInitialisation();
+            GameInitialisation();
         }
 
         private void OnDrawGizmos()
