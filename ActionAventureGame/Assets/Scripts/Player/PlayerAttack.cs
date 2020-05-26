@@ -81,13 +81,14 @@ namespace Player
             if (Input.GetButtonDown("Attack") && isAttacking == false && canAttack == true)
             {
                 ComboCount = 1;
-
+                isAttacking = true;
                 Attaque();
 				
             }
             else if (Input.GetButtonDown("Attack") && isAttacking == true && canAttack == true)
             {
                 ComboCount += 1;
+                isAttacking = true;
                 Attaque();
 				
                 

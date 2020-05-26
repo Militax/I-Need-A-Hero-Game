@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameManagement;
 
 namespace Player
 {
@@ -18,6 +19,7 @@ namespace Player
         {
             
             gameObject.transform.localScale = Vector3.zero;
+            GameManager.Instance.player.GetComponent<PlayerAttack>().isAttacking = false;
         }
     }
 }
