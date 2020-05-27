@@ -31,6 +31,7 @@ namespace Boss
         bool canSpawnBoxs = true;
         bool canShootWave = true;
         bool playerIsPuch = false;
+        bool bouncefire = true;
         #endregion
         #region EAU
         public GameObject waterProps;
@@ -73,7 +74,14 @@ namespace Boss
         }
         void Update()
         {
-
+            if (CurrentPhase == 3) 
+            {
+                if (this.GetComponent<BossHealth>().CurrentBossLife == 2 && bouncefire == true)
+                {
+                    player.transform.position = fireRespawn.position;
+                    bouncefire = false;
+                }
+            }
 
             if (player == null)
             {
