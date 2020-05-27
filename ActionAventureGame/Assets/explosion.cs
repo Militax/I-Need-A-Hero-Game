@@ -11,10 +11,18 @@ public class explosion : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && GameManager.Instance.player.GetComponent<playerHP>().invulnerability == false)
         {
             GameManager.Instance.playerHealth -= 3;
             SoundManager.instance.PlaySfx(Damage, 1, 1);
+            GameManager.Instance.player.GetComponent<playerHP>().invulnerability = true;
+            Invoke("ResetInvulnerability", GameManager.Instance.player.GetComponent<playerHP>().invulnerabilityDuration);
+
+        }
+
+        void ResetInvulnerability()
+        {
+            GameManager.Instance.player.GetComponent<playerHP>().invulnerability = false;
         }
     }
 }
