@@ -16,10 +16,6 @@ public class BurntGingerBreadAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (player == null)
-        {
-            player = GameManager.Instance.player;
-        }
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -39,6 +35,11 @@ public class BurntGingerBreadAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player == null)
+        {
+            player = GameManager.Instance.player;
+        }
+
         float Distance = Vector3.Distance(gameObject.transform.position, player.transform.position);
         if (Distance <= DashRange && !InRange)
         {
