@@ -13,7 +13,7 @@ public class MenuPause : MonoBehaviour
 
     private void Start()
     {
-        
+        player = GameManager.Instance.player.gameObject;
     }
     void Update()
     {
