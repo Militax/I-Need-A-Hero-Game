@@ -91,7 +91,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8068ad93e3bfbe44b8ee2a612bf91df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackduration: 0.2
 --- !u!212 &603276770
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -404,7 +403,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8068ad93e3bfbe44b8ee2a612bf91df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackduration: 0.2
 --- !u!1 &2040212549296103510
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,7 +532,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8068ad93e3bfbe44b8ee2a612bf91df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackduration: 0.2
 --- !u!60 &3290960017201797588
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -716,7 +713,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 100
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 8883492670370414284}
@@ -817,7 +814,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8068ad93e3bfbe44b8ee2a612bf91df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackduration: 0.2
 --- !u!1 &7148365195945519826
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,7 +858,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8068ad93e3bfbe44b8ee2a612bf91df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackduration: 0.2
 --- !u!60 &3900806086144933687
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1065,8 +1060,8 @@ MonoBehaviour:
   DeathState: {fileID: 2299627288841480003, guid: 03db50bf7a7d7b54b8aec34dee723d68,
     type: 3}
   animator: {fileID: 1358456097}
-  Death: {fileID: 0}
-  Damage: {fileID: 0}
+  Death: {fileID: 8300000, guid: 031d9b5c1bf76cf47a10facbc18631d6, type: 3}
+  Damage: {fileID: 8300000, guid: 8d247b36ac627fc4ea57cb1ae87d20be, type: 3}
 --- !u!114 &8883492670370414281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1081,9 +1076,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   animator: {fileID: 1358456097}
-  bottes1: 0
-  bottes2: 0
-  bottes3: 0
+  bottes1: 4
+  bottes2: 5
+  bottes3: 6
   rb: {fileID: 0}
   movement: {x: 0, y: 0}
 --- !u!114 &8883492670370414285
@@ -1104,7 +1099,7 @@ MonoBehaviour:
   prefabHitboxBottomRight: {fileID: 2329986764599153959}
   SlamHitbox: {fileID: 603276766}
   speed: 0.8
-  cooldown: 1
+  cooldown: 0.2
   Direction: 0
   ComboCount: 0
   baseMoveSpeed: 0
@@ -1113,7 +1108,7 @@ MonoBehaviour:
   canAttack: 1
   attackScale: {x: 5, y: 5, z: 1}
   animator: {fileID: 1358456097}
-  attaque1: {fileID: 0}
+  attaque1: {fileID: 8300000, guid: baf3860e4ccd1864f9012a3efef34394, type: 3}
 --- !u!95 &1358456097
 Animator:
   serializedVersion: 3
