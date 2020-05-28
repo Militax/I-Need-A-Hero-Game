@@ -42,10 +42,13 @@ namespace Ennemy
         bool Dead = false;
         public int TimerDie;
         public GameObject ParticleSystem;
+        
         void Start()
         {
             health = maximumHealth;
             animator = gameObject.GetComponent<Animator>();
+            
+            
         }
         void Update()
         {
@@ -68,7 +71,7 @@ namespace Ennemy
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Sword") && ennemyType != ("Snowman") && canTakeDamage)
             {
@@ -76,7 +79,7 @@ namespace Ennemy
                 {
                     StartCoroutine(Hitstun());
                 }
-                Debug.Log("degat");
+                Debug.Log(other);
                 health -= GameManager.Instance.swordDamage;
                 animator.SetTrigger("Degat");
                 GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
@@ -96,7 +99,7 @@ namespace Ennemy
             }
             if (other.CompareTag("IceBullet") && canTakeDamage)
             {
-                if(other.GetComponent<IceBullet>().isOut)//La balle est partie du Snowman
+                if (other.GetComponent<IceBullet>().isOut)//La balle est partie du Snowman
                 {
                     Debug.Log("Hit");
                     animator.SetTrigger("Degat");

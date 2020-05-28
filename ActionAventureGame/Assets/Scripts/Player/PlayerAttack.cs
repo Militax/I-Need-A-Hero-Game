@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Player;
 
 
 /// <summary>
@@ -47,10 +48,14 @@ namespace Player
         Vector3 attackPos; //destination de l'attaque du joueur
         Vector3 attackAngle; //angle de l'attaque
         Vector3 attaqueDash;
+        public Vector3 attackScale;
+        
         #endregion
         public Animator animator;
         
         Cooldown myCD;
+        Cooldown myAtkSpeed;
+        public float attackSpeed;
         #endregion
 
 
@@ -61,7 +66,7 @@ namespace Player
 
         private void Start()
         {
-            
+            myAtkSpeed = new Cooldown(attackSpeed);
             myCD = new Cooldown(cooldown);
             movespeed = GetComponent<PlayerMovement>().moveSpeed;
             baseMoveSpeed = movespeed;
@@ -73,18 +78,21 @@ namespace Player
 
             AttaqueAIM();
 
-
+            canAttack = myAtkSpeed.IsOver();
             isAttacking = !myCD.IsOver();
             if (Input.GetButtonDown("Attack") && isAttacking == false && canAttack == true)
             {
+                
                 ComboCount = 1;
-
+                
                 Attaque();
 				
             }
             else if (Input.GetButtonDown("Attack") && isAttacking == true && canAttack == true)
             {
+                
                 ComboCount += 1;
+                
                 Attaque();
 				
                 
@@ -98,36 +106,47 @@ namespace Player
 
         void Attaque()
         {
-            
+            Debug.Log("attaaaa");
             animator.SetInteger("NumAttack", ComboCount);
 
             if (ComboCount<3)
             {
                 if (Direction == 0)
                 {
-                    prefabHitboxTopRight.SetActive(true);
+                    prefabHitboxTopRight.transform.localScale = attackScale;
+                    
+                    prefabHitboxTopRight.GetComponent<AttackColliders>().Invoke("deactivate", attackDuration);
 					
                 }
                 else if (Direction == 1)
                 {
-                    prefabHitboxTopLeft.SetActive(true);
-					
+                    prefabHitboxTopLeft.transform.localScale = attackScale;
+                    
+                    prefabHitboxTopLeft.GetComponent<AttackColliders>().Invoke("deactivate", attackDuration);
+
                 }
                 else if (Direction == 2)
                 {
-                    prefabHitboxBottomRight.SetActive(true);
+                    prefabHitboxBottomRight.transform.localScale = attackScale;
+                    
+                    prefabHitboxBottomRight.GetComponent<AttackColliders>().Invoke("deactivate", attackDuration);
                 }
                 else if (Direction == 3)
                 {
-                    prefabHitboxBottomLeft.SetActive(true);
+                    prefabHitboxBottomLeft.transform.localScale = attackScale;
+                    
+                    prefabHitboxBottomLeft.GetComponent<AttackColliders>().Invoke("deactivate", attackDuration);
                 }
+                myAtkSpeed.Reset();
                 myCD.Reset();
+                
 				SoundManager.instance.PlaySfx(attaque1, 1, 1);
                 StartCoroutine(Attaque_Movement());
             }
             else if (ComboCount == 3)
             {
-                Invoke("Slam", .5f);
+                Debug.Log("alooo");
+                Invoke("Slam",.5f);
                 StartCoroutine(Attaque_Movement());
             }           
             
@@ -135,8 +154,11 @@ namespace Player
         }
         void Slam()
         {
-            SlamHitbox.SetActive(true);
+            SlamHitbox.transform.localScale = attackScale;
+
+            SlamHitbox.GetComponent<AttackColliders>().Invoke("deactivate", attackDuration);
             myCD.Reset();
+            myAtkSpeed.Reset();
         }
         IEnumerator Attaque_Movement()
         {

@@ -56,6 +56,8 @@ namespace GameManagement
 
         public bool isComingFromDonjon = false;
 
+        [HideInInspector]
+        public string currentSave;
         void Awake()
         {
             MakeSingleton(true);
@@ -63,7 +65,7 @@ namespace GameManagement
 
         void Start()
         {
-            //GameInitialisation();
+            GameInitialisation();
         }
 
         private void OnDrawGizmos()

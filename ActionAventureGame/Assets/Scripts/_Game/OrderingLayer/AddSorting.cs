@@ -48,7 +48,10 @@ public class AddSorting : MonoBehaviour
         {
             item.HeightMap = Allitems.Select(i => i.offset).ToList();
         }
-
+        foreach (SortingonSpawn item in GameObject.FindObjectsOfType<SortingonSpawn>())
+        {
+            item.HeightMap = Allitems.Select(i => i.offset).ToList();
+        }
     }
 
     /*

@@ -38,16 +38,22 @@ namespace Ennemy
             {
                 StartCoroutine(Duration());
             }
-            if (isInZone && attackIsAsked && canDamage)
+            if (isInZone && attackIsAsked && canDamage && GameManager.Instance.player.GetComponent<playerHP>().invulnerability == false)
             {
                 Debug.Log("Taking Damage");
                 GameManager.Instance.playerHealth--;
+                GameManager.Instance.player.GetComponent<playerHP>().invulnerability = true;
+                Invoke("ResetInvulnerability", GameManager.Instance.player.GetComponent<playerHP>().invulnerabilityDuration);
                 SoundManager.instance.PlaySfx(Damage, 1, 1);
                 animator.SetTrigger("Hit");
                 canDamage = false;
             }
         }
 
+        void ResetInvulnerability()
+        {
+            GameManager.Instance.player.GetComponent<playerHP>().invulnerability = false;
+        }
 
         void OnTriggerEnter2D(Collider2D other)
         {
