@@ -27,7 +27,7 @@ namespace Ennemy
         
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag("WindWave"))
+            if (other.CompareTag("WindWave") || other.CompareTag("GeneratorWave"))
             {
                 if (ennemyType == "Gingerbread")
                 {
@@ -53,6 +53,7 @@ namespace Ennemy
                 }
                 else
                 {
+                    
                     StartCoroutine(WindEffect(other));
                 }
             }
@@ -86,6 +87,7 @@ namespace Ennemy
 
                     if (GameManager.Instance.powerState == 3)
                     {
+
                         rb.velocity = other.GetComponentInParent<Rigidbody2D>().velocity / windEffectSlowdown;//Fait reculer l'ennemi
                         yield return new WaitForSeconds(windEffectDuration);
                         rb.velocity = Vector2.zero;

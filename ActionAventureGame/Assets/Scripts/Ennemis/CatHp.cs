@@ -52,6 +52,8 @@ public class CatHp : MonoBehaviour
     {
         if (other.tag == "Sword")
         {
+            
+            
             animator.SetTrigger("Degat");
             GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
             Destroy(fx, 1f);
@@ -59,6 +61,7 @@ public class CatHp : MonoBehaviour
             if (takedamage)
             {
                 
+                takedamage = false;
                 animator.SetBool("CanDamaged", true);
                 currentHP -= DamageTaken;
             }
@@ -72,7 +75,7 @@ public class CatHp : MonoBehaviour
         {
             GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         }
-
+        
 
     }
 
