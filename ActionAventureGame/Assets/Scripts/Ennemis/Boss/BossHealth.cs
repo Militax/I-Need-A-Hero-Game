@@ -10,13 +10,13 @@ namespace Boss
         public int CurrentBossLife;
         public int maxBossLife;
 
-        int lifeByPhase;
-        int NbPhase;
+        public int lifeByPhase;
+        public int NbPhase;
         public bool haveToChange = false;
         bool haveChange = false;
         int lifeStat;
 
-        bool canTakeDamage= true;
+        bool canTakeDamage = true;
 
         public Animator animator;
         #endregion
@@ -36,7 +36,7 @@ namespace Boss
         void OnTriggerEnter2D(Collider2D other)
         {
             Debug.Log("Enter");
-            if (other.tag == ("Sword")|| other.tag ==("IceBullet") || other.tag == ("Bullet"))
+            if (other.tag == ("Sword") || other.tag == ("IceBullet") || other.tag == ("Bullet"))
             {
                 CurrentBossLife--;
                 Debug.Log("BossTookDamage");
@@ -48,15 +48,13 @@ namespace Boss
         {
             for (int n = 1; n < NbPhase; n++)
             {
-                
-
-                if (CurrentBossLife == lifeByPhase*n)
+                if (CurrentBossLife == lifeByPhase * n)
                 {
                     lifeStat = CurrentBossLife;
                     Debug.Log("Must Change" + " " + n);
 
-                    
-                    if(haveToChange == false && haveChange == false)
+
+                    if (haveToChange == false && haveChange == false)
                     {
                         haveToChange = true;
                         animator.SetTrigger("Change");

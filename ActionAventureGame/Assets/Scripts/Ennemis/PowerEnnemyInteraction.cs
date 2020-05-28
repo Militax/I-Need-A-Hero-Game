@@ -108,7 +108,7 @@ namespace Ennemy
                     //rb.velocity = other.GetComponentInParent<Rigidbody2D>().velocity / windEffectSlowdown;//Fait reculer l'ennemi
                     //yield return new WaitForSeconds(windEffectDuration);
                     rb.velocity = Vector2.zero;
-                    Debug.Log(animator);
+                    //Debug.Log(animator);
                     animator.SetTrigger("Freeze");
 
                     yield return new WaitForSeconds(freezEffectDuration);
