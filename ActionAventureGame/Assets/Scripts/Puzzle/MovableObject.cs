@@ -23,6 +23,10 @@ namespace Puzzle
         Rigidbody2D rb;
         public bool isMoving;
 
+        [Header("Audio")]
+        public AudioClip boxMoving;
+        public AudioClip heavyMoving;
+
 
         void Start()
         {
@@ -72,6 +76,17 @@ namespace Puzzle
         IEnumerator moveDuration()
         {
             isMoving = true;
+            
+            if (powerStateRequest >= 3)
+            {
+                SoundManager.instance.PlaySfx(heavyMoving, 1, 1);
+            }
+            else
+            {
+                SoundManager.instance.PlaySfx(boxMoving, 1, 1);
+            }
+
+            
             yield return new WaitForSeconds(duration);
             rb.velocity = Vector2.zero;
             isMoving = false;

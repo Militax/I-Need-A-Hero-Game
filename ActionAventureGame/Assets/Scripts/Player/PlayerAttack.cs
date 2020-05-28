@@ -154,9 +154,9 @@ namespace Player
         }
         void Slam()
         {
-            SlamHitbox.transform.localScale = attackScale;
+            Instantiate(SlamHitbox, transform.position, Quaternion.identity);
 
-            SlamHitbox.GetComponent<AttackColliders>().Invoke("deactivate", attackDuration);
+            SlamHitbox.GetComponent<AttackColliders>().Invoke("deSpawn", attackDuration);
             myCD.Reset();
             myAtkSpeed.Reset();
         }
