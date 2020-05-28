@@ -9,6 +9,11 @@ public class BreakableObject : MonoBehaviour
     public int dropNumber;
     public int lootRange;
     public GameObject[] myLoot;
+
+    [Header ("Audio")]
+    public AudioClip breakAudio;
+    public AudioClip breakAudio2;
+    public AudioClip breakAudio3;
     //GameManager.Instance.loot(dropNumber, lootRange, myLoot);
 
 
@@ -18,6 +23,26 @@ public class BreakableObject : MonoBehaviour
     {
         if (collision.tag == "Sword")
         {
+            int token = Random.Range(1, 4);
+            switch (token)
+            {
+                case (1):
+                    Debug.Log("Playing Sound");
+                    SoundManager.instance.PlaySfx(breakAudio, 1, 1);
+                    break;
+
+                case (2):
+                    Debug.Log("Playing Sound");
+                    SoundManager.instance.PlaySfx(breakAudio2, 1, 1);
+                    break;
+
+                case (3):
+                    Debug.Log("Playing Sound");
+                    SoundManager.instance.PlaySfx(breakAudio3, 1, 1);
+                    break;
+
+            }
+
             GameManager.Instance.loot(dropNumber, lootRange, myLoot, this.gameObject);
             Destroy(gameObject);
         }

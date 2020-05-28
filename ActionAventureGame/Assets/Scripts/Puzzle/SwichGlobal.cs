@@ -30,6 +30,12 @@ public class SwichGlobal : ActivationDevice
     public float OffsetParticle;
     public float RotationParticle;
 
+    [Header ("Audio")]
+    public AudioClip switchOn;
+    public AudioClip switchOff;
+
+
+
     private void OnTriggerEnter2D(Collider2D other)
     {
 
@@ -42,12 +48,6 @@ public class SwichGlobal : ActivationDevice
             activationCooldown.Reset();
             Debug.Log(other.tag + " " + gameObject.name);
             RefreshState(!IsActive, other.tag);
-
-            //if (useTimer)
-            //{
-            //    registered = current;
-            //    timer.Reset();
-            //}
                 
 
         }
@@ -127,6 +127,8 @@ public class SwichGlobal : ActivationDevice
                 if (IsActive)
                 {
                     animator.SetTrigger("ToActive");
+                    Debug.Log("Play Sound");
+                    SoundManager.instance.PlaySfx(switchOn, 1, 1);
 
                     if (ParticleSystem != null)
                     {
@@ -139,6 +141,8 @@ public class SwichGlobal : ActivationDevice
                 else if (!IsActive)
                 {
                     animator.SetTrigger("ToInactive");
+                    Debug.Log("Play Sound");
+                    SoundManager.instance.PlaySfx(switchOff, 1, 1);
 
                     if (ParticleSystem != null)
                     {

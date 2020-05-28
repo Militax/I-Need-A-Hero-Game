@@ -8,10 +8,13 @@ using GameManagement;
 public class Marchand : MonoBehaviour 
 {
 	[HideInInspector]
-   public bool CanEnterShop = false;
-   public GameObject shopUI;
-   public GameObject startInputShop;
+	public bool CanEnterShop = false;
+	public GameObject shopUI;
+	public GameObject startInputShop;
 	public Button FirstButton;
+
+	[Header("Audio")]
+	public AudioClip OpenShopAudio;
 
 	void Start()
 	{
@@ -29,9 +32,9 @@ public class Marchand : MonoBehaviour
 				shopUI.SetActive (true);
 				{
 					  if (Input.GetButtonDown("Interaction") && shopUI.activeSelf == true) 
-					   {
-							
+					   {	
 							startInputShop.SetActive (false);
+							SoundManager.instance.PlaySfx(OpenShopAudio, 1, 1);
 							Debug.Log("je suis dans la boutique le bouton est éteint");
 						}
 				}

@@ -22,7 +22,7 @@ public class Vide : MonoBehaviour
             {
                 if (tag == "PlayerFeet")
                 {
-                    ennemy.transform.position = transform.position + RepopPos;
+                    GameManager.Instance.player.transform.position = transform.position + RepopPos;
                     return;
                 }
                 if (tag == "Box")
