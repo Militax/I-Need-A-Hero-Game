@@ -30,6 +30,12 @@ public class SwichGlobal : ActivationDevice
     public float OffsetParticle;
     public float RotationParticle;
 
+    [Header ("Audio")]
+    public AudioClip switchOn;
+    public AudioClip switchOff;
+
+
+
     private void OnTriggerEnter2D(Collider2D other)
     {
 

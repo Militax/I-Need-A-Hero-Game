@@ -22,7 +22,7 @@ public class Vide : MonoBehaviour
             {
                 if (tag == "PlayerFeet")
                 {
-                    GameManager.Instance.playerHealth = 0;
+                    GameManager.Instance.player.transform.position = transform.position + RepopPos;
                     return;
                 }
                 if (tag == "Box")
@@ -31,7 +31,11 @@ public class Vide : MonoBehaviour
                     GameObject newBox = Instantiate(ennemy,transform.position + RepopPos, Quaternion.identity);
                     print(ennemy);
                 }
-                Destroy(ennemy);
+                if (ennemy.tag != "PlayerFeet")
+                {
+                    Destroy(ennemy);
+                }
+                
             }
         }
     }

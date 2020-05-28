@@ -15,9 +15,9 @@ namespace Boss
         
         /*
          0 : Idle
-         1 : Feu
+         3 : Feu
          2 : Eau
-         3 : Lumière
+         1 : Lumière
          */
 
         #region FEU
@@ -31,6 +31,7 @@ namespace Boss
         bool canSpawnBoxs = true;
         bool canShootWave = true;
         bool playerIsPuch = false;
+        bool bouncefire = true;
         #endregion
         #region EAU
         public GameObject waterProps;
@@ -42,6 +43,7 @@ namespace Boss
         bool canSpawnSnowman = true;
         #endregion
         #region LUMIERE
+        public GameObject lightprops;
         public GameObject shieldPrefab;
         public GameObject lightBulletPrefab;
         public Transform shieldSpawn;
@@ -57,6 +59,7 @@ namespace Boss
         #endregion
 
         public Transform centerRespawn;
+        public Transform fireRespawn;
 
         public Transform shootPoint;
         public GameObject fireBallPrefab;
@@ -71,7 +74,14 @@ namespace Boss
         }
         void Update()
         {
-
+            if (CurrentPhase == 3) 
+            {
+                if (this.GetComponent<BossHealth>().CurrentBossLife == 2 && bouncefire == true)
+                {
+                    player.transform.position = fireRespawn.position;
+                    bouncefire = false;
+                }
+            }
 
             if (player == null)
             {
@@ -87,7 +97,7 @@ namespace Boss
 
             switch (CurrentPhase)
             {
-                case (1):
+                case (3):
                     animator.SetTrigger("Feu_Spawn");
                     animator.SetBool("Feu", true);
                     animator.SetBool("Eau", false);
@@ -100,7 +110,7 @@ namespace Boss
 
                     if (canSpawnBoxs)
                     {
-                        BoxSpawn();
+                        
                         canSpawnBoxs = false;
                     }
                     break;
@@ -118,7 +128,7 @@ namespace Boss
                     }
                     break;
 
-                case (3):
+                case (1):
                     animator.SetTrigger("Lum_Spawn");
                     animator.SetBool("Feu", false);
                     animator.SetBool("Eau", false);
@@ -142,14 +152,14 @@ namespace Boss
             StartCoroutine(FireWaveCooldown());
         }
 
-        void BoxSpawn()
-        {
-            foreach (Transform spawn in boxSpawners)
-            {
-                GameObject Box = Instantiate(heavyBoxPrefab, spawn.position, spawn.rotation, fireProps.transform);
-                boxsList.Add(Box);
-            }
-        }
+        //void BoxSpawn()
+        //{
+        //    foreach (Transform spawn in boxSpawners)
+        //    {
+        //        GameObject Box = Instantiate(heavyBoxPrefab, spawn.position, spawn.rotation, fireProps.transform);
+        //        boxsList.Add(Box);
+        //    }
+        //}
 
         //Instancie la vague de boule de feu
         void FireWave()
@@ -270,15 +280,17 @@ namespace Boss
 
         void SelectNewPhase()
         {
-            int futurPhase;
-            futurPhase = Random.Range(1, 4);
 
-            while (futurPhase == CurrentPhase)
-            {
-                futurPhase = Random.Range(1, 4);
+            CurrentPhase++;
+            if (CurrentPhase <=2) 
+            { 
+                player.transform.position = centerRespawn.position;
             }
-            CurrentPhase = futurPhase;
-            player.transform.position = centerRespawn.position;
+            if (CurrentPhase ==3)
+            {
+                player.transform.position = fireRespawn.position;
+            }
+            
 
             GetComponent<BossHealth>().haveToChange = false;
         }
@@ -286,8 +298,8 @@ namespace Boss
         {
             switch (CurrentPhase)
             {
-                case (1):
-                    
+                case (3):
+                    lightprops.SetActive(false);
                     if (fireProps.activeSelf == false)
                     {
                         fireProps.SetActive(true);
@@ -311,7 +323,7 @@ namespace Boss
                     break;
 
                 case (2):
-
+                    lightprops.SetActive(false);
                     if (waterProps.activeSelf == false)
                     {
                         waterProps.SetActive(true);
@@ -334,8 +346,9 @@ namespace Boss
                     break;
 
 
-                case (3):
+                case (1):
 
+                    lightprops.SetActive(true);
 
                     if (waterProps.activeSelf == true)
                     {
@@ -369,6 +382,7 @@ namespace Boss
 
 
                 default:
+                    lightprops.SetActive(false);
                     fireProps.SetActive(false);
                     waterProps.SetActive(false);
 
