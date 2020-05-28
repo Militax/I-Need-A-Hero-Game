@@ -5,29 +5,27 @@ using GameManagement;
 
 public class teleporter : MonoBehaviour
 {
-    public GameObject tpcastle;
-    public string tpCastleKey;
-    public GameObject tpstart;
-    public string tpStartKey;
-    public GameObject tpvillage;
-    public string tpVillageKey;
+    [System.Serializable]
+    public class Tele
+    {
+        public GameObject teleporter;
+        public string tpKey;
+    }
+    public Tele[] teleports;
+    
+
 
     // Start is called before the first frame update
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "PlayerFeet")
         {
-            if (Input.GetKeyDown(tpCastleKey))
+            foreach (Tele item in teleports)
             {
-                GameManager.Instance.player.gameObject.transform.position = tpcastle.transform.position;
-            }
-            else if (Input.GetKeyDown(tpStartKey))
-            {
-                GameManager.Instance.player.gameObject.transform.position = tpstart.transform.position;
-            }
-            else if (Input.GetKeyDown(tpVillageKey))
-            {
-                GameManager.Instance.player.gameObject.transform.position = tpvillage.transform.position;
+                if (Input.GetKey(item.tpKey))
+                {
+                    GameManager.Instance.player.transform.position = item.teleporter.transform.position;
+                }
             }
         }
     }
