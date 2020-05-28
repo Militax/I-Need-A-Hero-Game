@@ -12,7 +12,9 @@ namespace Boss
         public PlayerMovement player;
         public int CurrentPhase = 0;
         public int numberOfPhases;
-        
+        [SerializeField]
+        private SwichGlobal _switch1, _switch2;
+
         /*
          0 : Idle
          3 : Feu
@@ -48,6 +50,7 @@ namespace Boss
         public GameObject lightBulletPrefab;
         public Transform shieldSpawn;
         public float lightFireCooldown;
+        bool bouncelight = true;
 
         int shieldLife = 4;
         float stuntTime = 4;
@@ -80,6 +83,15 @@ namespace Boss
                 {
                     player.transform.position = fireRespawn.position;
                     bouncefire = false;
+                }
+            }
+            if (CurrentPhase == 1)
+            {
+                if (this.GetComponent<BossHealth>().CurrentBossLife == 12 && bouncelight == true)
+                {
+                    player.transform.position = fireRespawn.position;
+                    ChangeSwitchLightState(false);
+                    bouncelight = false;
                 }
             }
 
@@ -282,6 +294,7 @@ namespace Boss
         {
 
             CurrentPhase++;
+            Debug.Log(CurrentPhase);
             if (CurrentPhase <=2) 
             { 
                 player.transform.position = centerRespawn.position;
@@ -293,6 +306,11 @@ namespace Boss
             
 
             GetComponent<BossHealth>().haveToChange = false;
+        }
+        void ChangeSwitchLightState(bool newState)
+        {
+            _switch1.IsActive = newState;
+            _switch2.IsActive = newState;
         }
         void PhasePropsManagement()//Gère l'apparition des objets nécessaire à chaque phases.
         {
