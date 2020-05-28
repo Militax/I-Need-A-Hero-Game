@@ -18,6 +18,12 @@ public class SwitchEnnemies : ActivationDevice
     public GameObject ParticleSystem;
 
     public Vector3 eventPosition;
+
+
+    [Header("Audio")]
+    public AudioClip switchOn;
+    public AudioClip switchOff;
+
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -56,6 +62,9 @@ public class SwitchEnnemies : ActivationDevice
                     if (IsActive)
                     {
                         animator.SetTrigger("ToActive");
+                        Debug.Log("Play Sound");
+                        SoundManager.instance.PlaySfx(switchOn, 1, 1);
+
                         if (ParticleSystem != null)
                         {
                             GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
@@ -65,6 +74,8 @@ public class SwitchEnnemies : ActivationDevice
                     else if (!IsActive)
                     {
                         animator.SetTrigger("ToInactive");
+                        Debug.Log("Play Sound");
+                        SoundManager.instance.PlaySfx(switchOff, 1, 1);
                     }
                     base.RefreshState(state, tag);
                     break;

@@ -6,7 +6,7 @@ namespace Boss
 {
     public class bossShield : MonoBehaviour
     {
-        int shieldLife = 4;
+        public int shieldLife = 2;
 
         void Update()
         {
@@ -16,6 +16,7 @@ namespace Boss
                 GetComponentInParent<BossComportement>().isStunt = true;
                 GetComponentInParent<BossComportement>().shieldActive = false;
             }
+
         }
 
 
