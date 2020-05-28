@@ -9,6 +9,7 @@ public class BreakableObject : MonoBehaviour
     public int dropNumber;
     public int lootRange;
     public GameObject[] myLoot;
+	public GameObject[] coeur;
 
     [Header ("Audio")]
     public AudioClip breakAudio;
@@ -44,6 +45,7 @@ public class BreakableObject : MonoBehaviour
             }
 
             GameManager.Instance.loot(dropNumber, lootRange, myLoot, this.gameObject);
+			GameManager.Instance.loot(1, lootRange, coeur, this.gameObject);
             Destroy(gameObject);
         }
     }
