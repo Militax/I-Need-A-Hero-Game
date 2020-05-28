@@ -37,6 +37,7 @@ namespace Ennemy
         public int dropNumber;
         public int lootRange;
         public GameObject[] myLoot;
+		public GameObject[] coeur;
         #endregion
         Animator animator;
         bool Dead = false;
@@ -140,6 +141,7 @@ namespace Ennemy
             }
             yield return new WaitForSeconds(TimerDie);
             GameManager.Instance.loot(dropNumber, lootRange, myLoot, this.gameObject);
+			GameManager.Instance.loot(1, lootRange, coeur, this.gameObject);
             Destroy(gameObject);
         }
     }

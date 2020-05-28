@@ -18,6 +18,7 @@ public class CatHp : MonoBehaviour
     public int dropNumber;
     public int lootRange;
     public GameObject[] myLoot;
+	public GameObject[]	coeur;
     
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,7 @@ public class CatHp : MonoBehaviour
             if (die)
             {
                 GameManager.Instance.loot(dropNumber, lootRange, myLoot, this.gameObject);
+				GameManager.Instance.loot(2, lootRange, coeur, this.gameObject);
                 Destroy(gameObject);
             }
         }
