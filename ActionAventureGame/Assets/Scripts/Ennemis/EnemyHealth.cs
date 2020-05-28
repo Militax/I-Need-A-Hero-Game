@@ -108,6 +108,15 @@ namespace Ennemy
                     StartCoroutine(SafeCooldown());
                 }
             }
+            if (other.CompareTag("BossBall") && canTakeDamage)
+            {
+                    Debug.Log("Hit");
+                    animator.SetTrigger("Degat");
+                    health--;
+                    Destroy(other.gameObject);
+                    StartCoroutine(SafeCooldown());
+               
+            }
         }
 
 

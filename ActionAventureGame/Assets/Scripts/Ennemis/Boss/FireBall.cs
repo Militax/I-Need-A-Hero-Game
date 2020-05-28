@@ -34,6 +34,7 @@ namespace Boss
                 GameManager.Instance.playerHealth -= damage;
                 Destroy(gameObject);
             }
+
         }
 
         IEnumerator LifeTime()
