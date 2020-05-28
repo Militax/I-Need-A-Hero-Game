@@ -17,7 +17,8 @@ namespace Player
         [Header("SFX")]
         public AudioClip Death;
         public AudioClip Damage;
-
+        public bool invulnerability;
+        public float invulnerabilityDuration;
         void Start()
         {
             animator = GetComponent<Animator>();
@@ -48,57 +49,72 @@ namespace Player
             isDying = false;
         }
 
+        void ResetInvulnerability()
+        {
+            invulnerability = false;
+        }
         private void OnTriggerEnter2D(Collider2D other)
         {
-            
-            switch (other.tag)
+            if (invulnerability == false)
             {
-             
-                case ("Bullet"):
-                    GameManager.Instance.playerHealth -= other.GetComponent<Bullet>().damages;
-                    Destroy(other.gameObject);
+                switch (other.tag)
+                {
 
-                    if (GameManager.Instance.playerHealth > 0)
-                    {
-                        SoundManager.instance.PlaySfx(Damage, 1, 1);
+                    case ("Bullet"):
+                        GameManager.Instance.playerHealth -= other.GetComponent<Bullet>().damages;
+                        Destroy(other.gameObject);
+
+                        if (GameManager.Instance.playerHealth > 0)
+                        {
+                            SoundManager.instance.PlaySfx(Damage, 1, 1);
+                            animator.SetTrigger("Hit");
+                            invulnerability = true;
+                            Invoke("ResetInvulnerability", invulnerabilityDuration);
+                        }
+                        break;
+
+                    case ("IceBullet"):
+                        GameManager.Instance.playerHealth -= other.GetComponent<IceBullet>().damage;
+                        Destroy(other.gameObject);
+
+                        if (GameManager.Instance.playerHealth > 0)
+                        {
+                            SoundManager.instance.PlaySfx(Damage, 1, 1);
+                            animator.SetTrigger("Hit");
+                            invulnerability = true;
+                            Invoke("ResetInvulnerability", invulnerabilityDuration);
+                        }
+                        break;
+
+                    case ("LightBullet"):
+                        GameManager.Instance.playerHealth -= other.GetComponent<LightBall>().damage;
+                        Destroy(other.gameObject);
+
+                        if (GameManager.Instance.playerHealth > 0)
+                        {
+                            SoundManager.instance.PlaySfx(Damage, 1, 1);
+                            animator.SetTrigger("Hit");
+                            invulnerability = true;
+                            Invoke("ResetInvulnerability", invulnerabilityDuration);
+                        }
+                        break;
+                    case ("Cat"):
+                        GameManager.Instance.playerHealth -= 1;
                         animator.SetTrigger("Hit");
-                    }
-                    break;
-
-                case ("IceBullet"):
-                    GameManager.Instance.playerHealth -= other.GetComponent<IceBullet>().damage;
-                    Destroy(other.gameObject);
-
-                    if (GameManager.Instance.playerHealth > 0)
-                    {
                         SoundManager.instance.PlaySfx(Damage, 1, 1);
-                        animator.SetTrigger("Hit");
-                    }
-                    break;
+                        Debug.Log("attack");
+                        invulnerability = true;
+                        Invoke("ResetInvulnerability", invulnerabilityDuration);
+                        break;
 
-                case ("LightBullet"):
-                    GameManager.Instance.playerHealth -= other.GetComponent<LightBall>().damage;
-                    Destroy(other.gameObject);
 
-                    if (GameManager.Instance.playerHealth > 0)
-                    {
-                        SoundManager.instance.PlaySfx(Damage, 1, 1);
-                        animator.SetTrigger("Hit");
-                    }
-                    break;
-                case ("Cat"):
-                    GameManager.Instance.playerHealth -= 1;
-                    animator.SetTrigger("Hit");
-                    SoundManager.instance.PlaySfx(Damage, 1, 1);
-                    Debug.Log("attack");
-                    break;
-                
-                    
-                    
-                default:
-                    break;
 
+                    default:
+                        break;
+
+                }
             }
+            
         }
     }
 }
