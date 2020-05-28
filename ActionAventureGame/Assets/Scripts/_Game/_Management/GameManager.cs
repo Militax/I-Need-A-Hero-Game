@@ -16,8 +16,11 @@ namespace GameManagement
         [HideInInspector]
         public bool HasKey;
         public Vector3 RespawnPoint;
+        public Vector3 RespawnPointVide;
         public PlayerMovement player;
         public bool playerCanMove;
+        public bool invulnerability;
+        public float invulnerabilityduration;
 
         #region Health
         public int DeathCounter;
@@ -68,6 +71,19 @@ namespace GameManagement
             GameInitialisation();
         }
 
+        private void Update()
+        {
+            if (invulnerability == true)
+            {
+                StartCoroutine(resetinvulnerability());
+            }
+        }
+
+        IEnumerator resetinvulnerability()
+        {
+            yield return new WaitForSeconds(invulnerabilityduration);
+            invulnerability = false;
+        }
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;

@@ -7,6 +7,8 @@ public class Vide : MonoBehaviour
 {
    public Vector3 RepopPos;
     public string[] ennemyTags;
+    [HideInInspector]
+    public Vector3 respawnPoint;
 
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -14,6 +16,10 @@ public class Vide : MonoBehaviour
         Fall(other.tag, other.gameObject);
     }
 
+    private void Update()
+    {
+        respawnPoint = GameManager.Instance.RespawnPointVide;
+    }
     void Fall(string tag, GameObject ennemy)
     {
         foreach (string item in ennemyTags)
@@ -22,7 +28,8 @@ public class Vide : MonoBehaviour
             {
                 if (tag == "PlayerFeet")
                 {
-                    GameManager.Instance.player.transform.position = transform.position + RepopPos;
+                    GameManager.Instance.player.transform.position = respawnPoint;
+                    GameManager.Instance.playerHealth--;
                     return;
                 }
                 if (tag == "Box")
