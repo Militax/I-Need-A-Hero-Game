@@ -104,7 +104,7 @@ public class catBehaviour : MonoBehaviour
 
     void Dash()
     {
-        GetComponentInChildren<CircleCollider2D>().enabled = true;
+        
         Vector3 path = (target - gameObject.transform.position).normalized;
         animator.SetTrigger("CanAttack");
         animator.SetFloat("Attack", Vector2.Angle(transform.up, path));
