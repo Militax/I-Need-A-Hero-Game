@@ -8,6 +8,7 @@ public class DoublePlates : ActivationDevice
     public GameObject ParticleSystem;
     public DoublePlates other;
 
+
     private PlayableDirector Timeline;
     public bool TimelineNeeded;
     private bool TimelinePlayed;
@@ -18,6 +19,10 @@ public class DoublePlates : ActivationDevice
         TimelinePlayed = false;
     }
 
+    private void Update()
+    {
+        GetComponent<Collider2D>().enabled = !IsActive;
+    }
     protected override void RefreshState(bool state, string tag = null)
     {
         foreach (Combination item in combinations)
