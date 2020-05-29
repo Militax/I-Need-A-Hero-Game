@@ -101,7 +101,7 @@ namespace Player
                         GameManager.Instance.playerHealth -= 1;
                         animator.SetTrigger("Hit");
                         SoundManager.instance.PlaySfx(Damage, 1, 1);
-                        Debug.Log("attack");
+                        //Debug.Log("attack");
                         GameManager.Instance.invulnerability = true;
                         
                         break;

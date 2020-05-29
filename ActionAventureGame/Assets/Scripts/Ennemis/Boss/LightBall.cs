@@ -49,12 +49,19 @@ namespace Boss
                 GameManager.Instance.playerHealth -= damage;
                 Destroy(gameObject);
             }
+
             if (other.CompareTag("WindWave") && isOut)
             {
                 moveDirection = ((other.GetComponentInParent<WindPower>().WaveDirection) * (power * 100) * Time.fixedDeltaTime);
             }
         }
-
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            if (other.CompareTag("Interactable") && isOut)
+            {
+                Destroy(gameObject);
+            }
+        }
         void OnBecameInvisible()
         {
             Destroy(gameObject);

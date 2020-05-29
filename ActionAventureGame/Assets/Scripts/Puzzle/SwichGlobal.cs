@@ -25,7 +25,7 @@ public class SwichGlobal : ActivationDevice
     public GameObject FirePit;
     private PlayableDirector Timeline;
     public bool TimelineNeeded;
-    Animator animator;
+    public Animator animator;
     public GameObject ParticleSystem;
     public float OffsetParticle;
     public float RotationParticle;

@@ -35,7 +35,7 @@ namespace Boss
 
         void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("Enter");
+            //Debug.Log("Enter");
             if (other.tag == ("Sword") || other.tag == ("IceBullet") || other.tag == ("Bullet"))
             {
                 CurrentBossLife--;
@@ -51,7 +51,7 @@ namespace Boss
                 if (CurrentBossLife == lifeByPhase * n)
                 {
                     lifeStat = CurrentBossLife;
-                    Debug.Log("Must Change" + " " + n);
+                    //Debug.Log("Must Change" + " " + n);
 
 
                     if (haveToChange == false && haveChange == false)

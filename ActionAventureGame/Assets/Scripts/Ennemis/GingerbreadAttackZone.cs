@@ -40,7 +40,7 @@ namespace Ennemy
             }
             if (isInZone && attackIsAsked && canDamage && GameManager.Instance.invulnerability == false)
             {
-                Debug.Log("Taking Damage");
+                //Debug.Log("Taking Damage");
                 GameManager.Instance.playerHealth--;
                 GameManager.Instance.invulnerability = true;
                 

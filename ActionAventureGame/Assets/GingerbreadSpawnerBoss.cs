@@ -7,38 +7,52 @@ public class GingerbreadSpawnerBoss : MonoBehaviour
 {
     public GameObject Gingerbread;
     [SerializeField]
-    private float cooldown;
-    private bool canInstaciate=true;
+    private float _cooldown;
+    [SerializeField]
+    private bool _canInstaciate = true;
+    [SerializeField]
+    private bool _isWaiting = false;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        Debug.Log("Start "+name);
+        _canInstaciate = true;
+        _isWaiting = false;
     }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
-        if(transform.childCount <= 0 )
+        
+        if (this.transform.childCount <= 0)
         {
-            if (canInstaciate==true)
+            Debug.Log("Can "+name+" instanciate Ggb ? " + _canInstaciate);
+            if (_canInstaciate)
             {
-                GameObject myGingerBread = Instantiate(Gingerbread);
-                myGingerBread.transform.SetParent(transform);
-                myGingerBread.transform.localPosition = Vector3.zero;
-                canInstaciate = false;
-                
+                InstanciateNewGingerbread();
+
             }
-            else
+            else if (!_isWaiting)
             {
-                
+                StartCoroutine("Cooldown");
             }
 
         }
     }
+    void InstanciateNewGingerbread()
+    {
+        Debug.Log("I will instanciate the gingerbread !");
+        GameObject myGingerBread = Instantiate(Gingerbread);
+        myGingerBread.transform.SetParent(this.transform);
+        myGingerBread.transform.localPosition = Vector3.zero;
+        _canInstaciate = false;
+    }
     IEnumerator Cooldown()
     {
-        yield return new WaitForSeconds (cooldown);
+        Debug.Log("I'll Wait for " + _cooldown + " sec");
+        _isWaiting = true;
+        yield return new WaitForSeconds(_cooldown);
+        _canInstaciate = true;
+        _isWaiting = false;
+        Debug.Log("End Waiting for respawn.");
 
     }
 }
