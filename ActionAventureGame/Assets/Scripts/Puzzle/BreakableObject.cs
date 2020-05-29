@@ -22,7 +22,7 @@ public class BreakableObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Sword")
+        if (collision.tag == "Sword" || collision.tag == "Slam")
         {
             int token = Random.Range(1, 4);
             switch (token)
@@ -45,7 +45,8 @@ public class BreakableObject : MonoBehaviour
             }
 
             GameManager.Instance.loot(dropNumber, lootRange, myLoot, this.gameObject);
-			GameManager.Instance.loot(1, lootRange, coeur, this.gameObject);
+			//GameManager.Instance.loot(1, lootRange, coeur, this.gameObject);
+            Debug.Log("HOP");
             Destroy(gameObject);
         }
     }
