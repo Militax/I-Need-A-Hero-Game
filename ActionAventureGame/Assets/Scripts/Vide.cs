@@ -38,11 +38,10 @@ public class Vide : MonoBehaviour
                 }
                 if (tag == "Box")
                 {
-
                     GameObject newBox = Instantiate(ennemy,transform.position + RepopPos, Quaternion.identity);
                     print(ennemy);
                 }
-                if (ennemy.tag != "PlayerFeet")
+                else
                 {
                     Destroy(ennemy);
                 }
