@@ -45,7 +45,7 @@ public class BreakableObject : MonoBehaviour
             }
 
             GameManager.Instance.loot(dropNumber, lootRange, myLoot, this.gameObject);
-			//GameManager.Instance.loot(1, lootRange, coeur, this.gameObject);
+			GameManager.Instance.loot(1, lootRange, coeur, this.gameObject);
             Debug.Log("HOP");
             Destroy(gameObject);
         }
