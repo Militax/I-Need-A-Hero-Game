@@ -37,6 +37,7 @@ namespace Ennemy
         public int dropNumber;
         public int lootRange;
         public GameObject[] myLoot;
+		public GameObject[] coeur;
         #endregion
         Animator animator;
         bool Dead = false;
@@ -108,6 +109,15 @@ namespace Ennemy
                     StartCoroutine(SafeCooldown());
                 }
             }
+            if (other.CompareTag("BossBall") && canTakeDamage)
+            {
+                    Debug.Log("Hit");
+                    animator.SetTrigger("Degat");
+                    health--;
+                    Destroy(other.gameObject);
+                    StartCoroutine(SafeCooldown());
+               
+            }
         }
 
 
@@ -140,6 +150,7 @@ namespace Ennemy
             }
             yield return new WaitForSeconds(TimerDie);
             GameManager.Instance.loot(dropNumber, lootRange, myLoot, this.gameObject);
+			GameManager.Instance.loot(1, lootRange, coeur, this.gameObject);
             Destroy(gameObject);
         }
     }

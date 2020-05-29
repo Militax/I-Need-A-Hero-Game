@@ -5,11 +5,15 @@ using GameManagement;
 
 public class Vide : MonoBehaviour
 {
-   public Vector3 RepopPos;
+    public Vector3 RepopPos;
     public string[] ennemyTags;
     [HideInInspector]
     public Vector3 respawnPoint;
 
+
+    [Header("Audio")]
+    public AudioClip FallingAudio;
+    public AudioClip WaterDeathAudio;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
