@@ -137,7 +137,7 @@ namespace GameManagement
                 float range = Random.Range(-_lootRange, _lootRange);
                 if (_lootArray[i] != null)
                 {
-                    Debug.Log("BIM CA LOUTTE");
+                    //Debug.Log("BIM CA LOUTTE");
                     Instantiate(_lootArray[rnd], _instance.transform.position + new Vector3(range, range, 0), Quaternion.identity);
                 }
                 

@@ -106,7 +106,7 @@ namespace Player
 
         void Attaque()
         {
-            Debug.Log("attaaaa");
+            //Debug.Log("attaaaa");
             animator.SetInteger("NumAttack", ComboCount);
 
             if (ComboCount<3)

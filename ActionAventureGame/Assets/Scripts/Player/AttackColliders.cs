@@ -25,7 +25,7 @@ namespace Player
         public void deSpawn()
         {
             GameManager.Instance.player.GetComponent<PlayerAttack>().isAttacking = false;
-            Debug.Log("poof");
+            //Debug.Log("poof");
             Destroy(GameObject.FindGameObjectWithTag("Slam"));
         }
     }

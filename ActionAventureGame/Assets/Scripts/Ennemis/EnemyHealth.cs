@@ -56,13 +56,13 @@ namespace Ennemy
             if (health <= 0 && Dead == false)
             {
                 Dead = true;
-                Debug.Log("die");
+                //Debug.Log("die");
                 if (ennemyType == "Gingerbread")
                 {
                     this.GetComponent<GingerbreadMovement>().isAlive = false;
                     GetComponent<GingerbreadAttack>().enabled = false;
                 }
-                Debug.Log("death");
+                //Debug.Log("death");
                 if (Dead == true)
                 {
                     animator.SetTrigger("Death");
@@ -80,7 +80,7 @@ namespace Ennemy
                 {
                     StartCoroutine(Hitstun());
                 }
-                Debug.Log(other);
+                //Debug.Log(other);
                 health -= GameManager.Instance.swordDamage;
                 animator.SetTrigger("Degat");
                 GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);

@@ -13,7 +13,7 @@ namespace Boss
         public int CurrentPhase = 0;
         public int numberOfPhases;
         [SerializeField]
-        private SwichGlobal _switch1, _switch2;
+        private SwichGlobal switch1, switch2;
 
         /*
          0 : Idle
@@ -34,6 +34,7 @@ namespace Boss
         bool canShootWave = true;
         bool playerIsPuch = false;
         bool bouncefire = true;
+        bool firephase2 = false;
         #endregion
         #region EAU
         public GameObject waterProps;
@@ -77,12 +78,12 @@ namespace Boss
         }
         void Update()
         {
-            if (CurrentPhase == 3) 
+            if (CurrentPhase == 3)
             {
-                if (this.GetComponent<BossHealth>().CurrentBossLife == 2 && bouncefire == true)
+                if (this.GetComponent<BossHealth>().CurrentBossLife == 2 && firephase2 == false)
                 {
                     player.transform.position = fireRespawn.position;
-                    bouncefire = false;
+                    firephase2 = true;
                 }
             }
             if (CurrentPhase == 1)
@@ -122,7 +123,7 @@ namespace Boss
 
                     if (canSpawnBoxs)
                     {
-                        
+
                         canSpawnBoxs = false;
                     }
                     break;
@@ -146,13 +147,13 @@ namespace Boss
                     animator.SetBool("Eau", false);
                     animator.SetBool("Lum", true);
                     LightAttack();
-                    
+
                     break;
 
                 default:
                     break;
-                
-            }    
+
+            }
         }
 
 
@@ -230,7 +231,7 @@ namespace Boss
             {
                 createBossShield();
             }
-            if(isStunt && !isInLightCoroutine)
+            if (isStunt && !isInLightCoroutine)
             {
                 StartCoroutine(bossStunt());
             }
@@ -295,40 +296,56 @@ namespace Boss
 
             CurrentPhase++;
             Debug.Log(CurrentPhase);
-            if (CurrentPhase <=2) 
-            { 
+            if (CurrentPhase <= 2)
+            {
                 player.transform.position = centerRespawn.position;
             }
-            if (CurrentPhase ==3)
-            {
-                player.transform.position = fireRespawn.position;
-            }
-            
-
             GetComponent<BossHealth>().haveToChange = false;
         }
         void ChangeSwitchLightState(bool newState)
         {
-            _switch1.IsActive = newState;
-            _switch2.IsActive = newState;
+            //switch1.IsActive = newState;
+            //switch2.IsActive = newState;
+            GameObject switcher1 = Instantiate(lightBulletPrefab, switch1.gameObject.transform);
+            GameObject switcher2 = Instantiate(lightBulletPrefab, switch2.gameObject.transform);
+            //switcher1.tag = "LightBullet"; switcher2.tag = "LightBullet";
+            //BoxCollider2D col1 = switcher1.AddComponent<BoxCollider2D>();
+            //BoxCollider2D col2 = switcher2.AddComponent<BoxCollider2D>();
+            //col1.size = Vector2.one; col2.size = Vector2.one;
+            StartCoroutine("DestroyAfterSeconds", switcher1);
+            StartCoroutine("DestroyAfterSeconds", switcher2);
+        }
+        IEnumerator DestroyAfterSeconds(GameObject gameObject)
+        {
+            yield return new WaitForSeconds(0.1f);
+            Destroy(gameObject);
         }
         void PhasePropsManagement()//Gère l'apparition des objets nécessaire à chaque phases.
         {
             switch (CurrentPhase)
             {
                 case (3):
-                    lightprops.SetActive(false);
-                    if (fireProps.activeSelf == false)
+                    if (bouncefire)
                     {
-                        fireProps.SetActive(true);
+                        player.transform.position = fireRespawn.position;
+                        bouncefire = false;
                     }
-                    if (waterProps.activeSelf == true)
+
+                    if (lightprops.activeSelf)
+                    {
+                        lightprops.SetActive(false);
+                    }
+                    if (waterProps.activeSelf)
                     {
                         waterProps.SetActive(false);
                     }
+                    if (!fireProps.activeSelf)
+                    {
+                        fireProps.SetActive(true);
+                    }
 
 
-                    if (canSpawnSnowman == false)
+                    if (!canSpawnSnowman)
                     {
                         canSpawnSnowman = true;
                     }
@@ -341,17 +358,20 @@ namespace Boss
                     break;
 
                 case (2):
-                    lightprops.SetActive(false);
-                    if (waterProps.activeSelf == false)
+                    if (lightprops.activeSelf)
+                    {
+                        lightprops.SetActive(false);
+                    }
+                    if (!waterProps.activeSelf)
                     {
                         waterProps.SetActive(true);
                     }
-                    if (fireProps.activeSelf == true)
+                    if (fireProps.activeSelf)
                     {
                         fireProps.SetActive(false);
                     }
 
-                    if (canSpawnBoxs == false)
+                    if (!canSpawnBoxs)
                     {
                         canSpawnBoxs = true;
                     }
@@ -365,14 +385,15 @@ namespace Boss
 
 
                 case (1):
-
-                    lightprops.SetActive(true);
-
-                    if (waterProps.activeSelf == true)
+                    if (!lightprops.activeSelf)
+                    {
+                        lightprops.SetActive(true);
+                    }
+                    if (waterProps.activeSelf)
                     {
                         waterProps.SetActive(false);
                     }
-                    if (fireProps.activeSelf == true)
+                    if (fireProps.activeSelf)
                     {
                         fireProps.SetActive(false);
                     }
@@ -428,7 +449,7 @@ namespace Boss
             }
         }
 
-        void ClearList (List<GameObject> _list)
+        void ClearList(List<GameObject> _list)
         {
             foreach (GameObject item in _list)
             {
