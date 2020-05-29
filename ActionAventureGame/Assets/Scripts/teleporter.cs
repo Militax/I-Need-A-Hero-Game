@@ -5,27 +5,23 @@ using GameManagement;
 
 public class teleporter : MonoBehaviour
 {
-    [System.Serializable]
+   [System.Serializable]
     public class Tele
     {
         public GameObject teleporter;
         public string tpKey;
     }
     public Tele[] teleports;
-    
 
 
-    // Start is called before the first frame update
-    private void OnTriggerStay2D(Collider2D collision)
+
+    private void Update()
     {
-        if (collision.tag == "PlayerFeet")
+        foreach (Tele item in teleports)
         {
-            foreach (Tele item in teleports)
+            if (Input.GetKey(item.tpKey))
             {
-                if (Input.GetKey(item.tpKey))
-                {
-                    GameManager.Instance.player.transform.position = item.teleporter.transform.position;
-                }
+                GameManager.Instance.player.transform.position = item.teleporter.transform.position;
             }
         }
     }
