@@ -240,6 +240,11 @@ MonoBehaviour:
     dependsOnShop: 0
     usesPowerState: 0
     notUsed: 0
+  - KeyInput: Y
+    reference: {fileID: 2075250710}
+    dependsOnShop: 0
+    usesPowerState: 0
+    notUsed: 1
   pressedColor: {r: 1, g: 1, b: 1, a: 0.42745098}
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
   marchand: {fileID: 0}
@@ -2712,8 +2717,8 @@ MonoBehaviour:
   MaisonBois: {fileID: 21300000, guid: 0bb62df42f19779418f1b77476617fea, type: 3}
   MaisonBrique: {fileID: 21300000, guid: 93a5322158b988b42ac2d1a2ad3039e7, type: 3}
   spr: {fileID: 0}
-  BuyAudio: {fileID: 0}
-  BuyDeniedAudio: {fileID: 0}
+  BuyAudio: {fileID: 8300000, guid: d3c3d13ec2d7d1a4aa7293e2ac656041, type: 3}
+  BuyDeniedAudio: {fileID: 8300000, guid: f5de7bb3dd8f611479c116a5dfb6f73d, type: 3}
 --- !u!1 &1165209761522063595
 GameObject:
   m_ObjectHideFlags: 0
@@ -3100,6 +3105,7 @@ GameObject:
   - component: {fileID: 4686697161276044652}
   - component: {fileID: -2166417210116586935}
   - component: {fileID: 5913522770453334982}
+  - component: {fileID: 652709980}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -3136,14 +3142,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HasKey: 0
   RespawnPoint: {x: 0, y: 0, z: 0}
+  RespawnPointVide: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
   playerCanMove: 1
+  invulnerability: 0
+  invulnerabilityduration: 1
   DeathCounter: 0
   playerHealth: 5
   playerHealthMax: 5
   powerState: 0
   swordDamage: 1
-  SlamDamage: 0
+  SlamDamage: 1
   CoinOwned: 0
   maxCoin: 0
   bottesState: 0
@@ -3187,6 +3196,21 @@ MonoBehaviour:
   fullHeart: {fileID: 21300000, guid: 0754f9beead7bf6469d4bcc4cf4725fb, type: 3}
   emptyHeart: {fileID: 21300000, guid: 05dee05c2bea890478e64ee97604e60b, type: 3}
   CoinCount: {fileID: 1165209761522063593}
+--- !u!114 &652709980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077402419351812654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a99318db394924eb6e5fa73713eea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invulnerability: i
+  die: o
+  money: p
 --- !u!1 &2126999260799440317
 GameObject:
   m_ObjectHideFlags: 0
@@ -5283,7 +5307,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -92.700195, y: -131.69995}
+  m_AnchoredPosition: {x: -92.700195, y: -131.7002}
   m_SizeDelta: {x: 57, y: 73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8033430228137477386

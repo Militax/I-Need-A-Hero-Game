@@ -29,6 +29,9 @@ public class Marchand : MonoBehaviour
 			{
 				FirstButton.Select();
 				GameManager.Instance.playerCanMove = false;
+				GameManager.Instance.player.GetComponent<PlayerAttack>().enabled = false;
+				GameManager.Instance.player.GetComponent<PlayerPowers>().enabled = false;
+				GameManager.Instance.player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 				shopUI.SetActive (true);
 				{
 					  if (Input.GetButtonDown("Interaction") && shopUI.activeSelf == true) 
@@ -44,6 +47,8 @@ public class Marchand : MonoBehaviour
 			else if (Input.GetButtonDown("Interaction") && shopUI.activeSelf == true)
 			{
 				GameManager.Instance.playerCanMove = true;
+				GameManager.Instance.player.GetComponent<PlayerAttack>().enabled = true;
+				GameManager.Instance.player.GetComponent<PlayerPowers>().enabled = true;
 				shopUI.SetActive (false); 
 				{
 					  if (Input.GetButtonDown("Interaction") && shopUI.activeSelf == false) 
@@ -61,7 +66,7 @@ public class Marchand : MonoBehaviour
 
    void OnTriggerEnter2D(Collider2D other)
    {
-		if (other.tag == "Player")
+		if (other.tag == "PlayerFeet")
 		{
 			
 			CanEnterShop = true;

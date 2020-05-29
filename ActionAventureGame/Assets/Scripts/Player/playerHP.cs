@@ -17,7 +17,7 @@ namespace Player
         [Header("SFX")]
         public AudioClip Death;
         public AudioClip Damage;
-        public bool invulnerability;
+        
         public float invulnerabilityDuration;
         void Start()
         {
@@ -49,13 +49,12 @@ namespace Player
             isDying = false;
         }
 
-        void ResetInvulnerability()
-        {
-            invulnerability = false;
-        }
+        
+
+
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (invulnerability == false)
+            if (GameManager.Instance.invulnerability == false)
             {
                 switch (other.tag)
                 {
@@ -68,8 +67,8 @@ namespace Player
                         {
                             SoundManager.instance.PlaySfx(Damage, 1, 1);
                             animator.SetTrigger("Hit");
-                            invulnerability = true;
-                            Invoke("ResetInvulnerability", invulnerabilityDuration);
+                            GameManager.Instance.invulnerability = true;
+                            
                         }
                         break;
 
@@ -81,8 +80,8 @@ namespace Player
                         {
                             SoundManager.instance.PlaySfx(Damage, 1, 1);
                             animator.SetTrigger("Hit");
-                            invulnerability = true;
-                            Invoke("ResetInvulnerability", invulnerabilityDuration);
+                            GameManager.Instance.invulnerability = true;
+                            
                         }
                         break;
 
@@ -94,8 +93,8 @@ namespace Player
                         {
                             SoundManager.instance.PlaySfx(Damage, 1, 1);
                             animator.SetTrigger("Hit");
-                            invulnerability = true;
-                            Invoke("ResetInvulnerability", invulnerabilityDuration);
+                            GameManager.Instance.invulnerability = true;
+                            
                         }
                         break;
                     case ("Cat"):
@@ -103,8 +102,8 @@ namespace Player
                         animator.SetTrigger("Hit");
                         SoundManager.instance.PlaySfx(Damage, 1, 1);
                         Debug.Log("attack");
-                        invulnerability = true;
-                        Invoke("ResetInvulnerability", invulnerabilityDuration);
+                        GameManager.Instance.invulnerability = true;
+                        
                         break;
 
 

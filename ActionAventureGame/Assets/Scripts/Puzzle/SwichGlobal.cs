@@ -46,7 +46,7 @@ public class SwichGlobal : ActivationDevice
                 return;
             }
             activationCooldown.Reset();
-            Debug.Log(other.tag + " " + gameObject.name);
+            //Debug.Log(other.tag + " " + gameObject.name);
             RefreshState(!IsActive, other.tag);
                 
 
@@ -122,7 +122,7 @@ public class SwichGlobal : ActivationDevice
 
                 else if (!IsActive && instance && deSpawnOnLeave)
                     Destroy(instance);
-                Debug.Log(item.colliderTag);
+                //Debug.Log(item.colliderTag);
                 //spr.sprite = (IsActive ? item.active : item.inactive);
                 if (IsActive)
                 {
