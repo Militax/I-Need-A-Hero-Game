@@ -116,7 +116,7 @@ namespace GameManagement
             #region Economic
 
             CoinOwned = 0; 
-			maxCoin = 50;
+			maxCoin = 1000;
 
             #endregion
 
