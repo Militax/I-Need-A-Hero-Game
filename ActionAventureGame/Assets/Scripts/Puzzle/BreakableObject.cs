@@ -29,17 +29,17 @@ public class BreakableObject : MonoBehaviour
             {
                 case (1):
                     Debug.Log("Playing Sound");
-                    SoundManager.instance.PlaySfx(breakAudio, 1, 1);
+                    SoundManager.instance.PlaySfx(breakAudio, 0.3f, 1);
                     break;
 
                 case (2):
                     Debug.Log("Playing Sound");
-                    SoundManager.instance.PlaySfx(breakAudio2, 1, 1);
+                    SoundManager.instance.PlaySfx(breakAudio2, 0.3f, 1);
                     break;
 
                 case (3):
                     Debug.Log("Playing Sound");
-                    SoundManager.instance.PlaySfx(breakAudio3, 1, 1);
+                    SoundManager.instance.PlaySfx(breakAudio3, 0.3f, 1);
                     break;
 
             }
