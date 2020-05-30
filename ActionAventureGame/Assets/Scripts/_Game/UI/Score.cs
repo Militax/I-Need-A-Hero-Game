@@ -29,7 +29,10 @@ public class Score : MonoBehaviour
     {
         for (int i = 0; i < field.Length; i++)
         {
-            Destroy(activeObj[i]);
+            if (activeObj[i])
+                Destroy(activeObj[i]);
+
+
         }
     }
     void Print( int activeObj, int scores, int field)
