@@ -41,7 +41,7 @@ public class Ponts : MonoBehaviour
         {
             if (!item.IsActive)
             {
-                fade == Time.deltaTime;
+                fade = Time.deltaTime;
 
                 if (fade <= 0f)
                 {
