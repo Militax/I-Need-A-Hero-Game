@@ -86,7 +86,7 @@ namespace Player
 
             if(rb.velocity != Vector2.zero)
             {
-                if (footStepCoroutine == false)
+                if (footStepCoroutine == false && !GetComponent<PlayerAttack>().isAttacking)
                 {
                     StartCoroutine(FootStep());
                 }
