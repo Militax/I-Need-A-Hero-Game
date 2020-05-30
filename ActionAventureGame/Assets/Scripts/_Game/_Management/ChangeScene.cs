@@ -3,28 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using GameManagement;
+using Player;
 
 public class ChangeScene : MonoBehaviour
 {
     public string NextScene;
-    public GameLoader tamere;
-    
+    public Vector3 exit;
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            if (NextScene == "Forest")
-            {
-                GameManager.Instance.isComingFromDonjon = true;
-            }
-            else
-            {
-                GameManager.Instance.isComingFromDonjon = false;
-                tamere.SaveGame(tamere.saveName);
-            }
-
+            collision.GetComponent<PlayerMovement>().exitPos = exit + transform.position;
+            GameLoader.Instance.SaveGame(GameManager.Instance.currentSave);
             SceneManager.LoadScene(NextScene);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta;
+
+        Gizmos.DrawLine(transform.position, exit + transform.position);
+        Gizmos.DrawCube(exit + transform.position, new Vector3(.1f, .1f));
     }
 }

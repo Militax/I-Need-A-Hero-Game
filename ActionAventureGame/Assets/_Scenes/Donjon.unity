@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NextScene: Boss
-  tamere: {fileID: 2023626407}
+  exit: {x: 0, y: -4.44, z: 0}
 --- !u!61 &103823137
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1979,6 +1979,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1331390986 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 67973484, guid: 0080a4b80d96c9747a2efedd6161e8f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1856696391}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1453944170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4858,6 +4864,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -1066879822479313526, guid: bb94625e86f1fde4fb0f5e7aec2d3f9a,
         type: 3}
+    - target: {fileID: 8507806030404965223, guid: e7fff32212fd2b74498eaae86b653dfa,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8908068650864434557, guid: e7fff32212fd2b74498eaae86b653dfa,
         type: 3}
       propertyPath: m_SortingOrder
@@ -4993,7 +5004,8 @@ PrefabInstance:
       propertyPath: m_ApplyToSortingLayers.Array.data[7]
       value: -1874022343
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5051069979241356442, guid: e7fff32212fd2b74498eaae86b653dfa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e7fff32212fd2b74498eaae86b653dfa, type: 3}
 --- !u!1 &1585883089 stripped
 GameObject:
