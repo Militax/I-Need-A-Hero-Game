@@ -18,16 +18,8 @@ namespace Puzzle
         public bool startState = false;
         public bool stayActive;
 
-        Material material;
-        bool isDossolving = false;
-        public float fade;
-        public bool Pont;
 
-
-        private void Start()
-        {
-            material = GetComponent<SpriteRenderer>().material;
-        }
+    
         void Update()
         {
             bool state = startState;
