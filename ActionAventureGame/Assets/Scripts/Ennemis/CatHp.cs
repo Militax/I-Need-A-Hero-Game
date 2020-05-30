@@ -63,11 +63,32 @@ public class CatHp : MonoBehaviour
                 
                 takedamage = false;
                 animator.SetBool("CanDamaged", true);
-                currentHP -= DamageTaken;
+                currentHP -= GameManager.Instance.swordDamage;
             }
             if (!takedamage)
             {
                 
+                animator.SetBool("CanDamaged", false); //animation parade
+            }
+        }
+        else if (other.tag == "Slam")
+        {
+
+
+            animator.SetTrigger("Degat");
+            GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
+            Destroy(fx, 1f);
+
+            if (takedamage)
+            {
+
+                takedamage = false;
+                animator.SetBool("CanDamaged", true);
+                currentHP -= GameManager.Instance.SlamDamage;
+            }
+            if (!takedamage)
+            {
+
                 animator.SetBool("CanDamaged", false); //animation parade
             }
         }

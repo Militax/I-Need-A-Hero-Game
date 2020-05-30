@@ -38,7 +38,7 @@ public class Vide : MonoBehaviour
                 }
                 if (tag == "Box")
                 {
-                    GameObject newBox = Instantiate(ennemy,transform.position + RepopPos, Quaternion.identity);
+                    ennemy.transform.position = transform.position + RepopPos;
                     print(ennemy);
                 }
                 else
