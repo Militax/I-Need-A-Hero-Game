@@ -26,6 +26,15 @@ namespace Player
 
         bool footStepCoroutine = false;
 
+        [Header("Audio")]
+        public float timeBetweenSound;
+        public bool walkOnStone = false;
+        public bool walkOnIce = false;
+
+        public AudioClip[] grassStepAudio;
+        public AudioClip[] stoneStepAudio;
+        public AudioClip[] iceStepAudio;
+
         void Start()
         {
             PlayerAttack = GetComponent<PlayerAttack>();
@@ -97,11 +106,26 @@ namespace Player
         }
 
         IEnumerator FootStep()
-        {
-            footStepCoroutine = true;
-            //AudioManager.AMInstance.Play(AudioManager.AMInstance.PlayerSounds, "Outside Step");
-            float time = Random.Range(0.4f, 0.7f);
-            yield return new WaitForSeconds(time);
+        {
+            footStepCoroutine = true;            AudioClip[] AudioArray;
+
+
+            if (walkOnStone && !walkOnIce)
+            {
+                AudioArray = stoneStepAudio;
+            }
+            else if (walkOnIce)
+            {
+                AudioArray = iceStepAudio;
+            }
+            else
+            {
+                AudioArray = grassStepAudio;
+            }
+
+            SoundManager.instance.PlaySfx(AudioArray[Random.Range(0, AudioArray.Length)], 1, 1);
+
+            yield return new WaitForSeconds(timeBetweenSound);
             footStepCoroutine = false;
         }
     }
