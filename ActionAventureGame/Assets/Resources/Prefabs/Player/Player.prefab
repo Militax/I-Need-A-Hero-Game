@@ -292,6 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8068ad93e3bfbe44b8ee2a612bf91df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slamduration: 0
 --- !u!1 &2040212549296103510
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,6 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8068ad93e3bfbe44b8ee2a612bf91df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slamduration: 0
 --- !u!60 &3290960017201797588
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -703,6 +705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8068ad93e3bfbe44b8ee2a612bf91df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slamduration: 0
 --- !u!1 &7148365195945519826
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,6 +750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8068ad93e3bfbe44b8ee2a612bf91df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slamduration: 0
 --- !u!60 &3900806086144933687
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -970,6 +974,27 @@ MonoBehaviour:
   bottes3: 6
   rb: {fileID: 0}
   movement: {x: 0, y: 0}
+  timeBetweenSound: 0.4
+  walkOnStone: 0
+  walkOnIce: 0
+  grassStepAudio:
+  - {fileID: 8300000, guid: 7bb9e7b053ba6354bbdb8f1a7884ddae, type: 3}
+  - {fileID: 8300000, guid: 39bc19ee533b634408fa2ea2d1420c99, type: 3}
+  - {fileID: 8300000, guid: 465620228a7e8504e806b345688c94ef, type: 3}
+  - {fileID: 8300000, guid: 76e1b62fbcdc45341aa6d12b1321dcdb, type: 3}
+  - {fileID: 8300000, guid: 0cc7f76fc8c443e49b0b4728d608a3fc, type: 3}
+  - {fileID: 8300000, guid: b46110dbf2cfea4449331cfea3f9b09d, type: 3}
+  - {fileID: 8300000, guid: 294e6f0d157a7b34b9382e3c65a2c1c3, type: 3}
+  stoneStepAudio:
+  - {fileID: 8300000, guid: c9a6ca040eca2b24abf366ea38799e70, type: 3}
+  - {fileID: 8300000, guid: 7ba30f602a86fe545af96e991008ae9b, type: 3}
+  - {fileID: 8300000, guid: f367d6a997d922949938a6bc3956ad27, type: 3}
+  iceStepAudio:
+  - {fileID: 8300000, guid: 109125a946c4da54dac6ba5e30cb0df5, type: 3}
+  - {fileID: 8300000, guid: 04a628c39de62514299fb30ff4117a25, type: 3}
+  - {fileID: 8300000, guid: 69ead755c0d0fd843a24c11976eb15af, type: 3}
+  - {fileID: 8300000, guid: 1cdce9ca752fc934ebfae142fdbf5361, type: 3}
+  - {fileID: 8300000, guid: 8d7b40505130dba4b9015bca14953958, type: 3}
 --- !u!114 &8883492670370414285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -993,7 +1018,7 @@ MonoBehaviour:
   Direction: 0
   ComboCount: 0
   baseMoveSpeed: 0
-  attackDuration: 0.2
+  attackDuration: 0.5
   isAttacking: 0
   canAttack: 1
   attackScale: {x: 5, y: 5, z: 1}
