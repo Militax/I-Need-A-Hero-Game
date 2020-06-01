@@ -60,7 +60,7 @@ public class SoundManager : MonoBehaviour
     /// <summary>
     /// Start playing a given music.
     /// </summary>
-    public void PlayMusic(AudioClip music, float volume = 1f)
+    public void PlayMusic(AudioClip music, float volume)
     {
         musicSource.clip = music;
         musicSource.volume = musicDefaultVolume * volume;
@@ -73,7 +73,7 @@ public class SoundManager : MonoBehaviour
     /// <summary>
     /// Plays a given sfx. Specific volume and pitch can be specified in parameters.
     /// </summary>
-    public void PlaySfx(AudioClip sfx, float volume = 1f, float pitch = 1f)
+    public void PlaySfx(AudioClip sfx, float volume, float pitch)
     {
         sfxSource.pitch = pitch;
         sfxSource.PlayOneShot(sfx, sfxDefaultVolume * volume);
@@ -86,7 +86,7 @@ public class SoundManager : MonoBehaviour
     /// <summary>
     /// Plays a given voice.
     /// </summary>
-    public void PlayVoices(AudioClip voice, float volume = 1f)
+    public void PlayVoices(AudioClip voice, float volume)
     {
         voiceSource.PlayOneShot(voice, voicesDefaultVolume * volume);
 
