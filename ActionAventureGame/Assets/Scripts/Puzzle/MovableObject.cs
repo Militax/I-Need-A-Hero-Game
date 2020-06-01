@@ -83,7 +83,7 @@ namespace Puzzle
             }
             else
             {
-                SoundManager.instance.PlaySfx(boxMoving, 1, 1);
+                SoundManager.instance.PlaySfx(boxMoving, 0, 1);
             }
 
             

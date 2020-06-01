@@ -87,7 +87,7 @@ namespace Player
 
             if(rb.velocity != Vector2.zero)
             {
-                if (footStepCoroutine == false)
+                if (footStepCoroutine == false && !GetComponent<PlayerAttack>().isAttacking)
                 {
                     StartCoroutine(FootStep());
                 }
@@ -124,7 +124,7 @@ namespace Player
                 AudioArray = grassStepAudio;
             }
 
-            SoundManager.instance.PlaySfx(AudioArray[Random.Range(0, AudioArray.Length)], 1, 1);
+            SoundManager.instance.PlaySfx(AudioArray[Random.Range(0, AudioArray.Length)], 0.5f, 1);
 
             yield return new WaitForSeconds(timeBetweenSound);
             footStepCoroutine = false;

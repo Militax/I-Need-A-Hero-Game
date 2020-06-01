@@ -17,8 +17,9 @@ namespace Puzzle
         public GameObject closeState;
         public bool startState = false;
         public bool stayActive;
-        
 
+
+    
         void Update()
         {
             bool state = startState;
