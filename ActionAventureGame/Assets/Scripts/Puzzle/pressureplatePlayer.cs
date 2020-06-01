@@ -21,10 +21,12 @@ public class pressureplatePlayer : ActivationDevice
     private PlayableDirector Timeline;
     public GameObject TimelineDirector;
     public bool timelineNeeded;
+    private bool timelinePlayed;
 
     public void Start()
     {
-        if (Timeline != null)
+        timelinePlayed = false;
+        if (timelineNeeded == true)
         {
             Timeline = TimelineDirector.GetComponent<PlayableDirector>();
         }
@@ -48,6 +50,12 @@ public class pressureplatePlayer : ActivationDevice
 
             if (item.colliderTag == tag)
             {
+                if (timelineNeeded == true && timelinePlayed == false)
+                {
+                    Timeline.Play();
+                    timelinePlayed = true;
+                }
+
                 if (!stayActive)
                 {
                     IsActive = !IsActive;
@@ -55,18 +63,15 @@ public class pressureplatePlayer : ActivationDevice
                 else if (state)
                 {
                     IsActive = true;
-                    if (Timeline != null)
-                    {
-                        Timeline.Play();
-                    }
+                  
                 }          
 
                 if (IsActive && eventObject && instance == null)
                 {
                     instance = Instantiate(eventObject, eventPosition + transform.position, Quaternion.identity, transform);
                     iTween.PunchScale(instance, new Vector3(1, 1, 0), 0.5f);
+                   
 
-                    
                 }
                 else if (!IsActive && instance && deSpawnOnLeave)
                     Destroy(instance);

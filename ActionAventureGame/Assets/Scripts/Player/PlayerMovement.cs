@@ -14,6 +14,7 @@ namespace Player
     {
         public float moveSpeed = 5f;
 
+        public Vector3 exitPos;
         public Animator animator;
         private float aimIdleX;
         private float aimIdleY;

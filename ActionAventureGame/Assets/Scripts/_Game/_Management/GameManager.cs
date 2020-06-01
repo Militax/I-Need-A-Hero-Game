@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Management;
+using UnityEngine.SceneManagement;
 using Player;
 
 
@@ -60,14 +61,10 @@ namespace GameManagement
         public bool isComingFromDonjon = false;
 
         [HideInInspector]
-        public string currentSave;
+        public string currentSave = null;
         void Awake()
         {
             MakeSingleton(true);
-        }
-
-        void Start()
-        {
             GameInitialisation();
         }
 
@@ -116,7 +113,7 @@ namespace GameManagement
             #region Economic
 
             CoinOwned = 0; 
-			maxCoin = 50;
+			maxCoin = 1000;
 
             #endregion
 

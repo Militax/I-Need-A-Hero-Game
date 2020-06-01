@@ -10,69 +10,77 @@ namespace SaveSystem
 	class SaveDictionary
 	{
         static string saveDirectory = "Saves";
+        public const string RawPreffix = "rawdata";
 
-        public static string GetSaveName(string prefix)
+        public static string GetSaveName(string prefix, string scene)
         {
-            string creation = DateTime.Now.ToShortDateString().Replace("/", "-") + "_" + DateTime.Now.ToShortTimeString().Replace(":", "-");
-            string namePath = prefix + "-" + creation + ".save";
+            return (Path.Combine(saveDirectory, prefix, scene)) + ".save"; // /Saves/Game/Scene
+        }
 
-            return (Path.Combine(saveDirectory, namePath));
+        public static string GetFullPath(string prefix, string scene)
+        {
+            return Path.Combine(Application.persistentDataPath, saveDirectory, prefix, scene) + ".save";
         }
 
         public static string GetPrefix(string saveName)
         {
-            string[] tab = saveName.Split('-');
+            string[] tab = saveName.Split('.');
 
             if (tab.Length == 0)
                 return null;
-            return saveName.Split('-')[0];
+            return tab[0];
         }
 
-        public static string Save(object data, string saveName)
+        public static string Save(object data, string saveName, string scene)
         {
-            CheckValidity();
-            string name = GetSaveName(saveName);
-            string existing = GetLastSave(saveName);
+            CheckValidity(saveName);
+            string name = GetSaveName(saveName, scene);
+            string existing = GetLastSave(saveName, scene);
 
             if (!String.IsNullOrEmpty(existing))
                 File.Delete(existing);
             return SerializationManager.Save(name, data);
         }
 
-        public static object Load(string saveName)
+        public static object Load(string prefix, string scene)
         {
-            CheckValidity();
-            string path = GetLastSave(saveName);
+            CheckValidity(prefix);
+            string path = GetLastSave(prefix, scene);
 
             if (path != null)
-                return SerializationManager.Load(GetLastSave(saveName));
+                return SerializationManager.Load(GetLastSave(prefix, scene));
             return null;
         }
 
-        private static void CheckValidity()
+        private static void CheckValidity(string saveName)
         {
+            string dir = Path.Combine(Path.Combine(Application.persistentDataPath, saveDirectory), saveName);
+
             if (!Directory.Exists(Path.Combine(Application.persistentDataPath, saveDirectory)))
                 Directory.CreateDirectory(Path.Combine(Application.persistentDataPath, saveDirectory));
+            if (!Directory.Exists(dir))
+                Directory.CreateDirectory(dir);
         }
 
-        public static string GetLastSave(string saveName)
+        public static string GetLastSave(string prefix, string scene)
         {
-            DirectoryInfo dir = new DirectoryInfo(Path.Combine(Application.persistentDataPath, saveDirectory));
+            DirectoryInfo dir = new DirectoryInfo(Path.Combine(Application.persistentDataPath, saveDirectory, prefix));
             FileInfo[] result = dir.GetFiles();
             FileInfo res;
 
-            result = result.Where(f => f.Name.Contains(saveName)).ToArray();
+            result = result.Where(f => f.Name.Contains(scene)).ToArray();
             res = result.OrderByDescending(c => c.LastWriteTime).FirstOrDefault();
             return (res == null ? null : res.FullName);
         }
+
         public static string[] GetAllSaves()
         {
             DirectoryInfo dir = new DirectoryInfo(Path.Combine(Application.persistentDataPath, saveDirectory));
-            FileInfo[] files = dir.GetFiles();
+            DirectoryInfo[] files = dir.GetDirectories();
             List<string> result = new List<string>();
 
-            foreach (FileInfo file in files)
-                result.Add(file.Name);
+            foreach (DirectoryInfo d in files)
+                result.Add(d.Name);
             return result.ToArray();
         }
     }
