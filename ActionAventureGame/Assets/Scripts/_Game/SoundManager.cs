@@ -32,6 +32,132 @@ public class SoundManager : MonoBehaviour
     public AudioSource sfxSource;
     public AudioSource voiceSource;
 
+    #region VoicesLinesBool
+    [HideInInspector]
+    public bool voice1 = false;
+    [HideInInspector]
+    public bool voice2 = false;
+    [HideInInspector]
+    public bool voice3 = false;
+    [HideInInspector]
+    public bool voice4 = false;
+    [HideInInspector]
+    public bool voice5 = false;
+    [HideInInspector]
+    public bool voice6 = false;
+    [HideInInspector]
+    public bool voice7 = false;
+    [HideInInspector]
+    public bool voice8 = false;
+    [HideInInspector]
+    public bool voice9 = false;
+    [HideInInspector]
+    public bool voice10 = false;
+    [HideInInspector]
+    public bool voice11 = false;
+    [HideInInspector]
+    public bool voice12 = false;
+    [HideInInspector]
+    public bool voice13 = false;
+    [HideInInspector]
+    public bool voice14 = false;
+    [HideInInspector]
+    public bool voice15 = false;
+    [HideInInspector]
+    public bool voice16 = false;
+    [HideInInspector]
+    public bool voice17 = false;
+    [HideInInspector]
+    public bool voice18 = false;
+    [HideInInspector]
+    public bool voice19 = false;
+    [HideInInspector]
+    public bool voice20 = false;
+    [HideInInspector]
+    public bool voice21 = false;
+    [HideInInspector]
+    public bool voice22 = false;
+    [HideInInspector]
+    public bool voice23 = false;
+    [HideInInspector]
+    public bool voice24 = false;
+    [HideInInspector]
+    public bool voice25 = false;
+    [HideInInspector]
+    public bool voice26 = false;
+    [HideInInspector]
+    public bool voice27 = false;
+    [HideInInspector]
+    public bool voice28 = false;
+    [HideInInspector]
+    public bool voice29 = false;
+    [HideInInspector]
+    public bool voice30 = false;
+    [HideInInspector]
+    public bool voice31 = false;
+    [HideInInspector]
+    public bool voice32 = false;
+    [HideInInspector]
+    public bool voice33 = false;
+    [HideInInspector]
+    public bool voice34 = false;
+    [HideInInspector]
+    public bool voice35 = false;
+    [HideInInspector]
+    public bool voice36 = false;
+    [HideInInspector]
+    public bool voice37 = false;
+    [HideInInspector]
+    public bool voice38 = false;
+    [HideInInspector]
+    public bool voice39 = false;
+    [HideInInspector]
+    public bool voice40 = false;
+    [HideInInspector]
+    public bool voice41 = false;
+    [HideInInspector]
+    public bool voice42 = false;
+    [HideInInspector]
+    public bool voice43 = false;
+    [HideInInspector]
+    public bool voice44 = false;
+    [HideInInspector]
+    public bool voice45 = false;
+    [HideInInspector]
+    public bool voice46 = false;
+    [HideInInspector]
+    public bool voice47 = false;
+    [HideInInspector]
+    public bool voice48 = false;
+    [HideInInspector]
+    public bool voice49 = false;
+    [HideInInspector]
+    public bool voice50 = false;
+    [HideInInspector]
+    public bool voice51 = false;
+    [HideInInspector]
+    public bool voice52 = false;
+    [HideInInspector]
+    public bool voice53 = false;
+    [HideInInspector]
+    public bool voice54 = false;
+    [HideInInspector]
+    public bool voice55 = false;
+    [HideInInspector]
+    public bool voice56 = false;
+    [HideInInspector]
+    public bool voice57 = false;
+    [HideInInspector]
+    public bool voice58 = false;
+    [HideInInspector]
+    public bool voice59 = false;
+    [HideInInspector]
+    public bool voice60 = false;
+    [HideInInspector]
+    public bool voice61 = false;
+    #endregion
+
+
     // = = =
 
     // = = = [ MONOBEHAVIOR METHODS ] = = =
