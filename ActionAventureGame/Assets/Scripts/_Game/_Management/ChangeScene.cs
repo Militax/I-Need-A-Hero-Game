@@ -14,7 +14,7 @@ public class ChangeScene : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            collision.GetComponent<PlayerMovement>().exitPos = exit + transform.position;
+            collision.transform.position = exit + transform.position;
             GameLoader.Instance.SaveGame(GameManager.Instance.currentSave);
             SceneManager.LoadScene(NextScene);
         }

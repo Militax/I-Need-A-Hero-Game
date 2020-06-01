@@ -40,10 +40,14 @@ public class PlayGame : MonoBehaviour
     public void LoadSave(string name)
     {
         string save = SaveDictionary.GetPrefix(name);
+        string last = SaveDictionary.GetLastScene(name);
 
         Debug.Log(string.Format("Loading from Menu to {0}", save));
         GameManagement.GameManager.Instance.currentSave = save;
-        NextLevelButton(1);
+        if (last == null)
+            NextLevelButton(1);
+        else
+            NextLevelButton(last);
     }
 
     public void NewSave()
