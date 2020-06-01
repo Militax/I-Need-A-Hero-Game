@@ -1,24 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using SaveSystem;
 using GameManagement;
 using Puzzle;
 using System.Linq;
 using Management;
 using Player;
+using System.IO;
+
 public class GameLoader : Singleton<GameLoader>
 {
-    [HideInInspector]
-    public string saveName;
-    public PlayerMovement player;
 
     private void Start()
     {
         MakeSingleton(false);
-        // TODO: Init currentSave from MainMenu
-        //LoadGame(GameManager.Instance.currentSave);
+        if (GameManager.Instance == null || GameManager.Instance.currentSave == null || string.IsNullOrEmpty(GameManager.Instance.currentSave))
+        {
+            Debug.Log("An error occured while loading save. Scene Event: " + SceneManager.GetActiveScene().name);
+            return;
+        }
+        LoadGame(GameManager.Instance.currentSave);
     }
+
     #region "Activation Device"
     private void LoadActivationDevice(ActivationDevicesData[] data)
     {
@@ -37,7 +42,7 @@ public class GameLoader : Singleton<GameLoader>
         }
     }
 
-    private void SaveActivationDevice(SaveData data)
+    private void SaveActivationDevice(SceneData data)
     {
         ActivationDevice[] Devices = GameObject.FindObjectsOfType<ActivationDevice>();
         ActivationDevicesData[] devicesDatas = new ActivationDevicesData[Devices.Length];
@@ -74,7 +79,7 @@ public class GameLoader : Singleton<GameLoader>
         }
     }
 
-    private void SaveMovableObjects(SaveData data)
+    private void SaveMovableObjects(SceneData data)
     {
         MovableObject[] Movables = GameObject.FindObjectsOfType<MovableObject>();
         MovableObjectData[] MovablesData = new MovableObjectData[Movables.Length];
@@ -113,7 +118,7 @@ public class GameLoader : Singleton<GameLoader>
         GameManager.Instance.bottesState = data.BottesState;
     }
 
-    private void SaveGameManager(SaveData data)
+    private void SaveGameManager(RawData data)
     {
 
         GameManagerData managerData;
@@ -134,17 +139,71 @@ public class GameLoader : Singleton<GameLoader>
     }
     #endregion
 
-    public void LoadGame(string save)
+    #region "Player"
+    private void LoadPlayerData(PlayerData data)
     {
-        SaveData.current = (SaveData)SaveDictionary.Load(save);
-        if (SaveData.current == null)
+        if (data == null)
+            return;
+        if (GameManager.Instance == null)
+            Debug.LogError("Player is null");
+
+        PlayerMovement player = GameManager.Instance.player;
+        
+        print("stonks");
+        if (player == null)
         {
-            Debug.Log(string.Format("No save named '{0}' has been found.", save));
+            Debug.Log("Player not found");
             return;
         }
-        LoadActivationDevice(SaveData.current.InteractablesData);
-        LoadMovableObjects(SaveData.current.MovableData);
-        LoadGameManager(SaveData.current.ManagerData);
+        player.transform.position = data.position;
+        player.transform.rotation = data.rotation;
+        player.exitPos = data.position;
+    }
+
+    private void SavePlayerData(SceneData data)
+    {
+        PlayerData playerData;
+        playerData = new PlayerData()
+        {
+            position = GameManager.Instance.player.exitPos,
+            rotation = GameManager.Instance.player.transform.rotation
+        };
+        data.PlayerData = playerData;
+    }
+
+    #endregion
+
+    private void LoadRaw(string save)
+    {
+        RawData.current = (RawData)SaveDictionary.Load(save, SaveDictionary.RawPreffix);
+
+        if (RawData.current == null)
+            return;
+        LoadGameManager(RawData.current.ManagerData);
+    }
+
+    private void LoadScene(string save)
+    {
+        SceneData.current = (SceneData)SaveDictionary.Load(save, SceneManager.GetActiveScene().name);
+
+        if (SceneData.current == null)
+            return;
+        LoadPlayerData(SceneData.current.PlayerData);
+        LoadActivationDevice(SceneData.current.InteractablesData);
+        LoadMovableObjects(SceneData.current.MovableData);
+    }
+
+    public void LoadGame(string save)
+    {
+        if (!File.Exists(SaveDictionary.GetFullPath(save, SceneManager.GetActiveScene().name)))
+            return;
+        else if (GameManager.Instance == null || GameManager.Instance.currentSave == null || string.IsNullOrEmpty(GameManager.Instance.currentSave))
+        {
+            Debug.Log("An error occured when loading save. Scene Event: " + SceneManager.GetActiveScene().name);
+            return;
+        }
+        LoadRaw(save);
+        LoadScene(save);
         Debug.Log(string.Format("Game '{0}' successfully loaded !", save));
     }
 
@@ -152,16 +211,18 @@ public class GameLoader : Singleton<GameLoader>
     {
         string savedFile;
 
-        SaveActivationDevice(SaveData.current);
-        SaveMovableObjects(SaveData.current);
-        SaveGameManager(SaveData.current);
-        savedFile = SaveDictionary.Save(SaveData.current, save);
+        SaveActivationDevice(SceneData.current);
+        SaveMovableObjects(SceneData.current);
+        SaveGameManager(RawData.current);
+        SavePlayerData(SceneData.current);
+        savedFile = SaveDictionary.Save(SceneData.current, save, SceneManager.GetActiveScene().name);
+        SaveDictionary.Save(RawData.current, save, SaveDictionary.RawPreffix);
         Debug.Log(string.Format("Game '{0}' has been saved in file '{1}'.", save, savedFile));
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))
-            SaveGame(saveName);
+            SaveGame(GameManager.Instance.currentSave);
     }
 }

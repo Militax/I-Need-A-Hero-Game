@@ -5,57 +5,40 @@ using UnityEngine;
 public class Ponts : MonoBehaviour
 {
     public ActivationDevice[] linkedInput;
-    public bool startState = false;
 
     public Material material;
-    public bool isDissolving = false;
-    public float fade;
+    public float DissolveAmount;
+    int AllActive = 0;
 
 
     private void Start()
     {
         material = GetComponent<SpriteRenderer>().material;
+        material.SetFloat("DissolveAmount", 0);
     }
     void Update()
     {
-        //bool state = startState;
+        int AllActive = 0;
 
-        //if (linkedInput.Length == 0)
-        //{
-        //return;
-        //}
-        //if (isDissolving && stayActive)
-        //    return;
-
-        //foreach (ActivationDevice item in linkedInput)
-        //{
-        //    if (!item.IsActive)
-        //    {
-        //        state = !startState;
-        //    }
-        //}
-
-        //isDissolving = !state;
-
-       foreach (ActivationDevice item in linkedInput)
+        foreach (ActivationDevice item in linkedInput)
         {
-            if (!item.IsActive)
+
+            if (item.IsActive)
             {
-                fade = Time.deltaTime;
+                AllActive++;
+            }
 
-                if (fade <= 0f)
+            if (AllActive >= linkedInput.Length)
+            {
+                if (DissolveAmount < 1)
                 {
-                    fade = 0f;
-                    isDissolving = false;
-                }
+                    material.SetFloat("DissolveAmount", DissolveAmount);
 
-                material.SetFloat("DissolveAmount", fade);
+                    DissolveAmount += 0.01f;
+                }
             }
         }
 
-        //if (material == null)
-        //{
-        //    material = GetComponent<SpriteRenderer>().material;
-        //}
+    
     }
 }
