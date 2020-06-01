@@ -8,6 +8,7 @@ public class cheatCodes : MonoBehaviour
     public string invulnerability;
     public string die;
     public string money;
+	public string normalLife;
 
     // Update is called once per frame
     void Update()
@@ -27,6 +28,11 @@ public class cheatCodes : MonoBehaviour
             GameManager.Instance.CoinOwned = GameManager.Instance.maxCoin;
 
         }
+		else if (Input.GetKey(normalLife))
+		{
+			GameManager.Instance.playerHealthMax = 5;
+            GameManager.Instance.playerHealth = GameManager.Instance.playerHealthMax;
+		}
 
     }
 }

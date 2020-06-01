@@ -128,7 +128,7 @@ public class SwichGlobal : ActivationDevice
                 {
                     animator.SetTrigger("ToActive");
                     Debug.Log("Play Sound");
-                    SoundManager.instance.PlaySfx(switchOn, 1, 1);
+                    SoundManager.instance.PlaySfx(switchOn, 3, 1);
 
                     if (ParticleSystem != null)
                     {
@@ -142,7 +142,7 @@ public class SwichGlobal : ActivationDevice
                 {
                     animator.SetTrigger("ToInactive");
                     Debug.Log("Play Sound");
-                    SoundManager.instance.PlaySfx(switchOff, 1, 1);
+                    SoundManager.instance.PlaySfx(switchOff, 3, 1);
 
                     if (ParticleSystem != null)
                     {

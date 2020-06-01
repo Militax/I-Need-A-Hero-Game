@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using SaveSystem;
+using System.Linq;
+using GameManagement;
 
 public class PlayGame : MonoBehaviour
 {
@@ -15,6 +17,8 @@ public class PlayGame : MonoBehaviour
     {
         string[] saves = SaveDictionary.GetAllSaves();
 
+        if (GameManager.Instance)
+            GameManager.Instance.currentSave = null;
         if (saves == null)
             return;
         foreach (string item in saves)
@@ -25,11 +29,11 @@ public class PlayGame : MonoBehaviour
     {
         GameObject instance = Instantiate(buttonPrefab, saveGrid);
 
-        instance.GetComponentInChildren<Text>().text = name;
+        instance.GetComponentInChildren<Text>().text = SaveDictionary.GetPrefix(name);
         instance.GetComponentInChildren<Button>().onClick.AddListener(
-            delegate 
-            { 
-                LoadSave(SaveDictionary.GetPrefix(name)); 
+            delegate
+            {
+                LoadSave(name);
             });
     }
 
@@ -37,18 +41,20 @@ public class PlayGame : MonoBehaviour
     {
         string save = SaveDictionary.GetPrefix(name);
 
-        if (save != null)
-        {
-            //TODO: Instance GameManager in MainMenu scene
-            // GameManagement.GameManager.Instance.currentSave = save;
-            SaveDictionary.Load(save);
-        }
-        NextLevelButton(0);
+        Debug.Log(string.Format("Loading from Menu to {0}", save));
+        GameManagement.GameManager.Instance.currentSave = save;
+        NextLevelButton(1);
     }
 
     public void NewSave()
     {
-        SaveDictionary.Load(MyText.text);
+        if (string.IsNullOrWhiteSpace(MyText.text) || string.IsNullOrEmpty(MyText.text) || !MyText.text.All(x => char.IsLetterOrDigit(x)))
+        {
+            Debug.LogError("Enter A Valid Name");
+            return;
+        }
+        GameManagement.GameManager.Instance.currentSave = MyText.text;
+        NextLevelButton(1);
     }
 
     public void NextLevelButton(int index)

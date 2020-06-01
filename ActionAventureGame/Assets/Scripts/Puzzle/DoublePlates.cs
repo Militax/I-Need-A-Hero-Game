@@ -15,7 +15,11 @@ public class DoublePlates : ActivationDevice
 
     public void Start()
     {
-        Timeline = GetComponent<PlayableDirector>();
+        if (TimelineNeeded == true)
+        {
+            Timeline = GetComponent<PlayableDirector>();
+        }
+
         TimelinePlayed = false;
     }
 
