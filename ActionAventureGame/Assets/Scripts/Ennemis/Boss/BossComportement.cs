@@ -14,7 +14,7 @@ namespace Boss
         public int numberOfPhases;
         [SerializeField]
         private SwichGlobal switch1, switch2;
-
+        public bool canDestroyBox = false;
         /*
          0 : Idle
          3 : Feu
@@ -83,12 +83,13 @@ namespace Boss
                 if (this.GetComponent<BossHealth>().CurrentBossLife == 2 && firephase2 == false)
                 {
                     player.transform.position = fireRespawn.position;
+                    canDestroyBox = true;
                     firephase2 = true;
                 }
             }
             if (CurrentPhase == 1)
             {
-                if (this.GetComponent<BossHealth>().CurrentBossLife == 12 && bouncelight == true)
+                if (this.GetComponent<BossHealth>().CurrentBossLife == 13 && bouncelight == true)
                 {
                     player.transform.position = fireRespawn.position;
                     ChangeSwitchLightState(false);
