@@ -36,9 +36,10 @@ namespace Boss
         void OnTriggerEnter2D(Collider2D other)
         {
             //Debug.Log("Enter");
-            if (other.tag == ("Sword") || other.tag == ("IceBullet") || other.tag == ("Bullet"))
+            if (other.tag == ("Sword") || other.tag == ("Bullet") || other.tag == ("Slam"))
             {
                 CurrentBossLife--;
+                animator.SetTrigger("Hit");
                 Debug.Log("BossTookDamage");
             }
         }

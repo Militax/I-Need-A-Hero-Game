@@ -62,6 +62,17 @@ namespace SaveSystem
                 Directory.CreateDirectory(dir);
         }
 
+        public static string GetLastScene(string prefix)
+        {
+            DirectoryInfo dir = new DirectoryInfo(Path.Combine(Application.persistentDataPath, saveDirectory, prefix));
+            FileInfo[] result = dir.GetFiles();
+            FileInfo res;
+
+            result = result.Where(f => f.Name != RawPreffix + ".save").ToArray();
+            res = result.OrderByDescending(c => c.LastWriteTime).FirstOrDefault();
+            return (res == null ? null : GetPrefix(res.Name));
+        }
+
         public static string GetLastSave(string prefix, string scene)
         {
             DirectoryInfo dir = new DirectoryInfo(Path.Combine(Application.persistentDataPath, saveDirectory, prefix));

@@ -27,7 +27,6 @@ public class ActivationDevice : MonoBehaviour
     protected virtual void RefreshState(bool state, string tag = null)  // demande un state et optionnelement un string
     {
         HasBeenActivated = true;
-        
     }
 
     private void Awake()
@@ -37,10 +36,10 @@ public class ActivationDevice : MonoBehaviour
 
     public void LoadFromSave()
     {
-
         Combination my = combinations.Where(c => c.colliderTag == current.colliderTag).FirstOrDefault();  //foreach en une ligne (pour flex)
         spr = GetComponent<SpriteRenderer>();
         if (my != null)
             spr.sprite = (IsActive ? my.active : my.inactive);
+        Debug.Log(gameObject.name + " loaded with activity (" + IsActive + ")");
     }
 }

@@ -29,6 +29,10 @@ namespace Boss
             {
                 Destroy(gameObject);
             }
+            if (other.CompareTag("Wall"))
+            {
+                Destroy(gameObject);
+            }
             else if (other.CompareTag("Player"))
             {
                 GameManager.Instance.playerHealth -= damage;

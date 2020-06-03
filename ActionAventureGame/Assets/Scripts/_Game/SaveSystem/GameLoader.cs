@@ -107,7 +107,6 @@ public class GameLoader : Singleton<GameLoader>
             Debug.LogError("Gamemanager is null");
         GameManager.Instance.playerCanMove = data.CanMove;
         GameManager.Instance.RespawnPoint = data.RespawnPoint;
-        GameManager.Instance.SetHealth(data.PlayerHP, data.PlayerMaxHP);
         GameManager.Instance.playerHealth = data.PlayerHP;
         GameManager.Instance.playerHealthMax = data.PlayerMaxHP;
         GameManager.Instance.CoinOwned = data.Coins;
@@ -149,7 +148,6 @@ public class GameLoader : Singleton<GameLoader>
 
         PlayerMovement player = GameManager.Instance.player;
         
-        print("stonks");
         if (player == null)
         {
             Debug.Log("Player not found");
@@ -157,7 +155,6 @@ public class GameLoader : Singleton<GameLoader>
         }
         player.transform.position = data.position;
         player.transform.rotation = data.rotation;
-        player.exitPos = data.position;
     }
 
     private void SavePlayerData(SceneData data)
@@ -165,7 +162,7 @@ public class GameLoader : Singleton<GameLoader>
         PlayerData playerData;
         playerData = new PlayerData()
         {
-            position = GameManager.Instance.player.exitPos,
+            position = GameManager.Instance.player.transform.position,
             rotation = GameManager.Instance.player.transform.rotation
         };
         data.PlayerData = playerData;
@@ -189,8 +186,8 @@ public class GameLoader : Singleton<GameLoader>
         if (SceneData.current == null)
             return;
         LoadPlayerData(SceneData.current.PlayerData);
-        LoadActivationDevice(SceneData.current.InteractablesData);
         LoadMovableObjects(SceneData.current.MovableData);
+        LoadActivationDevice(SceneData.current.InteractablesData);
     }
 
     public void LoadGame(string save)
