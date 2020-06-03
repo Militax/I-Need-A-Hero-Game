@@ -61,6 +61,7 @@ namespace Player
 
 		[Header("Sound")]
 		public AudioClip attaque1;
+        public AudioClip attaqueSlam;
 
 		
 
@@ -145,7 +146,7 @@ namespace Player
             }
             else if (ComboCount == 3)
             {
-                Debug.Log("alooo");
+                SoundManager.instance.PlaySfx(attaqueSlam, 1, 1);
                 Invoke("Slam",.5f);
                 StartCoroutine(Attaque_Movement());
             }           
