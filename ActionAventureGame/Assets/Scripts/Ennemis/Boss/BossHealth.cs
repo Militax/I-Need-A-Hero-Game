@@ -39,6 +39,7 @@ namespace Boss
             if (other.tag == ("Sword") || other.tag == ("Bullet") || other.tag == ("Slam"))
             {
                 CurrentBossLife--;
+                animator.SetTrigger("Hit");
                 Debug.Log("BossTookDamage");
             }
         }
