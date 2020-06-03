@@ -32,6 +32,22 @@ namespace Puzzle
         {
             canShoot = true;
             animator = gameObject.GetComponent<Animator>();
+
+            switch (direction)
+            {
+                case ("TOP"):
+                    shootPoint.transform.Rotate(0, 0, -90);
+                    break;
+                case ("DOWN"):
+                    shootPoint.transform.Rotate(0, 0, 90);
+                    break;
+                case ("LEFT"):
+                    shootPoint.transform.Rotate(0, 0, 180);
+                    break;
+                case ("RIGHT"):
+                    shootPoint.transform.Rotate(0, 0, 0);
+                    break;
+            }
         }
 
         void Update()
