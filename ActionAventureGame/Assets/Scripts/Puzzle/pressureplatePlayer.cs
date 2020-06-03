@@ -101,6 +101,7 @@ public class pressureplatePlayer : ActivationDevice
                     ActivateEvent.SetActive(!ActivateEvent.activeSelf);
                     DeActivateEvent.SetActive(!DeActivateEvent.activeSelf);
                 }
+                Debug.Log(gameObject.name + " Switched state to (" + IsActive + ")");
                 break;
             }
         }

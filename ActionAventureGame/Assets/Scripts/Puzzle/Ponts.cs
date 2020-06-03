@@ -34,7 +34,7 @@ public class Ponts : MonoBehaviour
                 {
                     material.SetFloat("DissolveAmount", DissolveAmount);
 
-                    DissolveAmount += 0.01f;
+                    DissolveAmount += 0.004f;
                 }
             }
         }
