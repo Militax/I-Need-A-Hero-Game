@@ -72,7 +72,7 @@ public class SnowMenBehaviour : MonoBehaviour
 
         if (ispushed && isalive)
         {
-            PushZone.radius += PushSpeed/100;
+            PushZone.radius += PushSpeed/100 *Time.deltaTime;
             if (PushZone.radius >= PushRange)
             {
                 PushZone.radius = 0;
