@@ -8,7 +8,8 @@ public class Ponts : MonoBehaviour
 
     public Material material;
     public float DissolveAmount;
-    int AllActive = 0;
+    bool appeared = false;
+
 
 
     private void Start()
@@ -23,22 +24,46 @@ public class Ponts : MonoBehaviour
         foreach (ActivationDevice item in linkedInput)
         {
 
+
             if (item.IsActive)
             {
+
                 AllActive++;
             }
 
             if (AllActive >= linkedInput.Length)
             {
-                if (DissolveAmount < 1)
+
+
+                if (DissolveAmount < 1 && appeared == false)
                 {
                     material.SetFloat("DissolveAmount", DissolveAmount);
 
                     DissolveAmount += 0.004f;
                 }
+                if (DissolveAmount >= 1)
+                {
+                    appeared = true;
+                }
+            }
+            if (appeared == true && !item.IsActive)
+            {
+                
+                if (DissolveAmount > 0)
+                {
+
+                    material.SetFloat("DissolveAmount", DissolveAmount);
+
+                    DissolveAmount -= 0.004f;
+                }
+                if (DissolveAmount <= 0)
+                {
+                    appeared = false;
+                }
+
             }
         }
 
-    
+
     }
 }
