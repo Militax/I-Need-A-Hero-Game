@@ -58,7 +58,11 @@ namespace GameManagement
 
         #endregion
 
+
+        #region Special
         public bool isComingFromDonjon = false;
+        public int NarrativeStat = 1;
+        #endregion
 
         [HideInInspector]
         public string currentSave = null;
