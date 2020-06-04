@@ -42,8 +42,10 @@ namespace Boss
 
         public GameObject SnowManPrefab;
         public List<Transform> Spawners;
+        public Transform WaterRespawn;
         List<GameObject> SnowManList = new List<GameObject>();
         bool canSpawnSnowman = true;
+       
         #endregion
         #region LUMIERE
         public GameObject lightprops;
@@ -64,6 +66,7 @@ namespace Boss
 
         public Transform centerRespawn;
         public Transform fireRespawn;
+        public Transform fireRespawn2;
 
         public Transform shootPoint;
         public GameObject fireBallPrefab;
@@ -80,9 +83,10 @@ namespace Boss
         {
             if (CurrentPhase == 3)
             {
+
                 if (this.GetComponent<BossHealth>().CurrentBossLife == 2 && firephase2 == false)
                 {
-                    player.transform.position = fireRespawn.position;
+                    player.transform.position = fireRespawn2.position;
                     canDestroyBox = true;
                     firephase2 = true;
                 }
@@ -297,9 +301,17 @@ namespace Boss
 
             CurrentPhase++;
             Debug.Log(CurrentPhase);
-            if (CurrentPhase <= 2)
+            if (CurrentPhase == 2)
+            {
+                player.transform.position = WaterRespawn.position;
+            }
+            if (CurrentPhase == 1)
             {
                 player.transform.position = centerRespawn.position;
+            }
+            if (CurrentPhase == 3)
+            {
+                player.transform.position = fireRespawn.position;
             }
             GetComponent<BossHealth>().haveToChange = false;
         }
