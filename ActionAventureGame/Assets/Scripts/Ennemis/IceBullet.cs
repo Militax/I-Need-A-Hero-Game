@@ -13,6 +13,7 @@ namespace Ennemy
         public float power;
         public int damage;
         public bool isOut = false;
+        
 
         Rigidbody2D rb;
         Vector2 FireDirection = new Vector2(0, 0); //Direction du tir
@@ -21,12 +22,21 @@ namespace Ennemy
 
         void Start()
         {
+            if (player == null)
+            {
+                player = GameManager.Instance.player.transform;
+            }
+            power = GetComponentInParent<SnowMenBehaviour>().bulletSpeed;
             FireDirection = player.position - gameObject.transform.position;
+            
+            
             rb = GetComponent<Rigidbody2D>();
             moveDirection = FireDirection.normalized * (power * 100) * Time.fixedDeltaTime;
         }
         void Update()
         {
+            
+            
             //Fait avancer la balle en fonction de (DIRECTION * FORCE)
             rb.velocity = moveDirection;
             //petite sécu

@@ -31,6 +31,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource musicSource;
     public AudioSource sfxSource;
     public AudioSource voiceSource;
+    
 
     #region VoicesLinesBool
     [HideInInspector]
@@ -155,6 +156,8 @@ public class SoundManager : MonoBehaviour
     public bool voice60 = false;
     [HideInInspector]
     public bool voice61 = false;
+
+    
     #endregion
 
 
@@ -192,8 +195,6 @@ public class SoundManager : MonoBehaviour
         musicSource.volume = musicDefaultVolume * volume;
 
         musicSource.Play();
-
-        return;
     }
 
     /// <summary>
@@ -206,7 +207,6 @@ public class SoundManager : MonoBehaviour
 
         sfxSource.pitch = 1;
 
-        return;
     }
 
     /// <summary>
@@ -215,8 +215,18 @@ public class SoundManager : MonoBehaviour
     public void PlayVoices(AudioClip voice, float volume)
     {
         voiceSource.PlayOneShot(voice, voicesDefaultVolume * volume);
+    }
 
-        return;
+    // = = =
+
+    /// <summary>
+    /// Set volume
+    /// </summary>
+    public void SetMainVolume(Slider slider)
+    {
+        musicDefaultVolume = slider.value /100;
+        sfxDefaultVolume = slider.value/100;
+        voicesDefaultVolume = slider.value/100;
     }
 
     // = = =

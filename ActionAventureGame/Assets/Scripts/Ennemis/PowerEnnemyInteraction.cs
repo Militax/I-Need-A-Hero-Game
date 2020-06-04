@@ -94,6 +94,16 @@ namespace Ennemy
                     }
 
                     break;
+                case ("SnowManProto")://Sur le SnowMan
+
+                    if (GameManager.Instance.powerState == 3)
+                    {
+
+                        rb.velocity = other.GetComponentInParent<Rigidbody2D>().velocity / windEffectSlowdown;//Fait reculer l'ennemi
+                        yield return new WaitForSeconds(windEffectDuration);
+                        rb.velocity = Vector2.zero;
+                    }
+                    break;
 
             }
         }

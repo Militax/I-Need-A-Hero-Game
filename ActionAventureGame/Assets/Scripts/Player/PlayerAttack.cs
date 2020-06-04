@@ -145,7 +145,7 @@ namespace Player
             }
             else if (ComboCount == 3)
             {
-                Debug.Log("alooo");
+                
                 Invoke("Slam",.5f);
                 StartCoroutine(Attaque_Movement());
             }           
