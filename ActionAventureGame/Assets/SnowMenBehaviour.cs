@@ -32,8 +32,8 @@ public class SnowMenBehaviour : MonoBehaviour
     [Header ("Push")]
     public float PushRange;
     public float PushSpeed;
-    public float PushDuration;
-    public float timeBeforePushing;
+    //public float PushDuration;
+    
     Vector3 pushDirection;
     bool ispushed = false;
     public CircleCollider2D PushZone;
@@ -72,7 +72,7 @@ public class SnowMenBehaviour : MonoBehaviour
 
         if (ispushed && isalive)
         {
-            PushZone.radius += PushSpeed;
+            PushZone.radius += PushSpeed/100;
             if (PushZone.radius >= PushRange)
             {
                 PushZone.radius = 0;
@@ -134,6 +134,7 @@ public class SnowMenBehaviour : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, DetectionRange);
         Gizmos.DrawWireSphere(transform.position, PushRange);
-
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, PushZone.radius);
     }
 }
