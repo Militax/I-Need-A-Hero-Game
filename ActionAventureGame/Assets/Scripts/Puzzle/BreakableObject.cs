@@ -15,6 +15,7 @@ public class BreakableObject : MonoBehaviour
     public AudioClip breakAudio;
     public AudioClip breakAudio2;
     public AudioClip breakAudio3;
+    public AudioClip NarratorVoice48;
     //GameManager.Instance.loot(dropNumber, lootRange, myLoot);
 
 
@@ -28,17 +29,14 @@ public class BreakableObject : MonoBehaviour
             switch (token)
             {
                 case (1):
-                    Debug.Log("Playing Sound");
                     SoundManager.instance.PlaySfx(breakAudio, 0.3f, 1);
                     break;
 
                 case (2):
-                    Debug.Log("Playing Sound");
                     SoundManager.instance.PlaySfx(breakAudio2, 0.3f, 1);
                     break;
 
                 case (3):
-                    Debug.Log("Playing Sound");
                     SoundManager.instance.PlaySfx(breakAudio3, 0.3f, 1);
                     break;
 
@@ -46,7 +44,19 @@ public class BreakableObject : MonoBehaviour
 
             GameManager.Instance.loot(dropNumber, lootRange, myLoot, this.gameObject);
 			GameManager.Instance.loot(1, lootRange, coeur, this.gameObject);
-            Debug.Log("HOP");
+
+
+
+
+            if (!SoundManager.instance.voice48 && !SoundManager.instance.voiceSource.isPlaying)
+            {
+                SoundManager.instance.PlayVoices(NarratorVoice48, 1);
+                SoundManager.instance.voice48 = true;
+            }
+
+
+
+
             Destroy(gameObject);
         }
     }

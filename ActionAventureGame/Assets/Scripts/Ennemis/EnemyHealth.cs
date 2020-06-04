@@ -43,7 +43,14 @@ namespace Ennemy
         bool Dead = false;
         public int TimerDie;
         public GameObject ParticleSystem;
-        
+
+
+        [Header("Voices")]
+        public AudioClip NarratorVoice8;
+        public AudioClip NarratorVoice25;
+        public AudioClip NarratorVoice51;
+        public AudioClip NarratorVoice52;
+
         void Start()
         {
             health = maximumHealth;
@@ -67,6 +74,51 @@ namespace Ennemy
                 {
                     animator.SetTrigger("Death");
                     StartCoroutine(cooldown());
+
+
+                    //---------------------------------Voix du narrateur-------------------------------------
+                    switch(GameManager.Instance.NarrativeStat)
+                    {
+                        case (1):
+                            Debug.Log("Play Sound");
+                            if (!SoundManager.instance.voice8 && !SoundManager.instance.voiceSource.isPlaying)
+                            {
+                                SoundManager.instance.PlayVoices(NarratorVoice8, 1);
+                                SoundManager.instance.voice8 = true;
+                            }
+                            break;
+
+                        case (2):
+                            Debug.Log("Play Sound 2");
+                            if (!SoundManager.instance.voice25 && !SoundManager.instance.voiceSource.isPlaying)
+                            {
+                                SoundManager.instance.PlayVoices(NarratorVoice25, 1);
+                                SoundManager.instance.voice25 = true;
+                            }
+                            break;
+
+                        case (3):
+                            Debug.Log("Play Sound 3");
+                            if (!SoundManager.instance.voice51 && !SoundManager.instance.voiceSource.isPlaying)
+                            {
+                                SoundManager.instance.PlayVoices(NarratorVoice51, 1);
+                                SoundManager.instance.voice51 = true;
+                            }
+                            break;
+
+                        case (4):
+                            Debug.Log("Play Sound 4");
+                            if (!SoundManager.instance.voice52 && !SoundManager.instance.voiceSource.isPlaying)
+                            {
+                                SoundManager.instance.PlayVoices(NarratorVoice52, 1);
+                                SoundManager.instance.voice52 = true;
+                            }
+                            break;
+
+                        default:
+                            break;
+                    }
+                    //----------------------------------------------------------------------------------------
                 }
                 
             }
@@ -93,7 +145,6 @@ namespace Ennemy
                 {
                     StartCoroutine(Hitstun());
                 }
-                Debug.Log("degat");
                 health -= GameManager.Instance.SlamDamage;
                 animator.SetTrigger("Degat");
                 StartCoroutine(SafeCooldown());
@@ -102,8 +153,6 @@ namespace Ennemy
             {
                 if (other.GetComponent<IceBullet>().isOut)//La balle est partie du Snowman
                 {
-                    Debug.Log("Hit");
-                    animator.SetTrigger("Degat");
                     health--;
                     Destroy(other.gameObject);
                     StartCoroutine(SafeCooldown());
@@ -111,7 +160,6 @@ namespace Ennemy
             }
             if (other.CompareTag("BossBall") && canTakeDamage)
             {
-                    Debug.Log("Hit");
                     animator.SetTrigger("Degat");
                     health--;
                     Destroy(other.gameObject);

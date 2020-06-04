@@ -145,7 +145,7 @@ namespace Player
         {
             if (Input.GetButtonDown("WindPower"))//Clique droit
             {
-                if (SoundManager.instance.voice13 == false && GameManager.Instance.powerState >= 1)
+                if (SoundManager.instance.voice13 == false && GameManager.Instance.powerState >= 1 && !SoundManager.instance.voiceSource.isPlaying)
                 {
                     SoundManager.instance.PlayVoices(NarratorVoice13, 1);
                     SoundManager.instance.voice13 = true;

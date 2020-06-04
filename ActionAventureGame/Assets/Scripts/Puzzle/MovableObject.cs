@@ -26,6 +26,7 @@ namespace Puzzle
         [Header("Audio")]
         public AudioClip boxMoving;
         public AudioClip heavyMoving;
+        public AudioClip NarratorVoice53;
 
 
         void Start()
@@ -45,6 +46,14 @@ namespace Puzzle
                     rb.constraints = RigidbodyConstraints2D.FreezeRotation;
                     rb.velocity = other.GetComponentInParent<Rigidbody2D>().velocity / slowdown;
                     StartCoroutine(moveDuration());
+                }
+                else if (GameManager.Instance.powerState < powerStateRequest)
+                {
+                    if (!SoundManager.instance.voice53 && !SoundManager.instance.voiceSource.isPlaying)
+                    {
+                        SoundManager.instance.PlayVoices(NarratorVoice53, 1);
+                        SoundManager.instance.voice53 = true;
+                    }
                 }
                 
             }
