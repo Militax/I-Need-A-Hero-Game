@@ -42,6 +42,7 @@ namespace Boss
 
         public GameObject SnowManPrefab;
         public List<Transform> Spawners;
+        public Transform WaterRespawn;
         List<GameObject> SnowManList = new List<GameObject>();
         bool canSpawnSnowman = true;
        
@@ -300,7 +301,11 @@ namespace Boss
 
             CurrentPhase++;
             Debug.Log(CurrentPhase);
-            if (CurrentPhase <= 2)
+            if (CurrentPhase == 2)
+            {
+                player.transform.position = WaterRespawn.position;
+            }
+            if (CurrentPhase == 1)
             {
                 player.transform.position = centerRespawn.position;
             }
