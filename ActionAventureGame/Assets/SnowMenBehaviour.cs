@@ -65,32 +65,26 @@ public class SnowMenBehaviour : MonoBehaviour
         {
             if (isalive)
             {
-                StartCoroutine(Push());
+                ispushed = true;
             }
             
         }
 
-        if (ispushed && distance<PushRange && isalive)
+        if (ispushed && isalive)
         {
             PushZone.radius += PushSpeed;
+            if (PushZone.radius >= PushRange)
+            {
+                PushZone.radius = 0;
+                ispushed = false;
+            }
             //rb.velocity = pushDirection.normalized * (PushSpeed*50) * Time.deltaTime; 
         }
         
 
     }
 
-    IEnumerator Push()
-    {
-        
-        yield return new WaitForSeconds(timeBeforePushing);
-        
-        ispushed = true;
-
-        yield return new WaitForSeconds(PushDuration);
-
-        ispushed = false;
-        PushZone.radius = 0;
-    }
+    
     //IEnumerator Push()
     //{
     //    yield return new WaitForSeconds(timeBeforePushing);
@@ -115,7 +109,7 @@ public class SnowMenBehaviour : MonoBehaviour
         for (int i = 0; i < angles.Length; i++)
         {
             GameObject bullet = Instantiate(Bullet, transform.position, Quaternion.identity,transform);
-            bullet.GetComponent<Rigidbody2D>().AddForce(Quaternion.Euler(0, 0, angles[i]) * shootDirection * bulletSpeed);
+            bullet.GetComponent<Rigidbody2D>().AddForce(Quaternion.Euler(0, 0, angles[i]) * shootDirection.normalized * bulletSpeed);
             
         }
 

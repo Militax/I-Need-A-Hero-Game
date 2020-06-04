@@ -222,13 +222,19 @@ public class SoundManager : MonoBehaviour
     /// <summary>
     /// Set volume
     /// </summary>
-    public void SetMainVolume(Slider slider)
+    public void SetMusicVolume(Slider slider)
     {
         musicDefaultVolume = slider.value /100;
-        sfxDefaultVolume = slider.value/100;
-        voicesDefaultVolume = slider.value/100;
     }
 
+    public void SetSFXVolume(Slider slider)
+    {
+        sfxDefaultVolume = slider.value / 100;
+    }
+    public void SetVoicesVolume(Slider slider)
+    {
+        voicesDefaultVolume = slider.value / 100;
+    }
     // = = =
 
 }
