@@ -238,9 +238,9 @@ MonoBehaviour:
     usesPowerState: 0
     notUsed: 0
   - KeyInput: WindPower
-    reference: {fileID: 1616666389}
+    reference: {fileID: 568267832}
     dependsOnShop: 0
-    usesPowerState: 0
+    usesPowerState: 1
     notUsed: 0
   - KeyInput: Y
     reference: {fileID: 2075250710}
@@ -1371,7 +1371,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1616666390
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3181,6 +3181,7 @@ GameObject:
   - component: {fileID: -2166417210116586935}
   - component: {fileID: 5913522770453334982}
   - component: {fileID: 652709980}
+  - component: {fileID: 1411742931}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -3289,6 +3290,20 @@ MonoBehaviour:
   die: o
   money: p
   normalLife: y
+--- !u!114 &1411742931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077402419351812654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5056ef26a68916045ab338d0574e71e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: {fileID: 1165209760898651977}
+  disabled: 00000000
 --- !u!1 &2126999260799440317
 GameObject:
   m_ObjectHideFlags: 0

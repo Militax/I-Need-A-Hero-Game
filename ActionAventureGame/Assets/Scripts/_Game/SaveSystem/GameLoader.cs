@@ -18,7 +18,7 @@ public class GameLoader : Singleton<GameLoader>
         MakeSingleton(false);
         if (GameManager.Instance == null || GameManager.Instance.currentSave == null || string.IsNullOrEmpty(GameManager.Instance.currentSave))
         {
-            Debug.Log("An error occured while loading save. Scene Event: " + SceneManager.GetActiveScene().name);
+            Debug.LogError("An error occured while loading save. Scene Event: " + SceneManager.GetActiveScene().name);
             return;
         }
         LoadGame(GameManager.Instance.currentSave);

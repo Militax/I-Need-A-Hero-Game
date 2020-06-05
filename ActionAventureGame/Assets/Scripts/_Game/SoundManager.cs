@@ -31,44 +31,19 @@ public class SoundManager : MonoBehaviour
     public AudioSource musicSource;
     public AudioSource sfxSource;
     public AudioSource voiceSource;
+    
 
     #region VoicesLinesBool
     [HideInInspector]
-    public bool voice1 = false;
-    [HideInInspector]
-    public bool voice2 = false;
-    [HideInInspector]
-    public bool voice3 = false;
-    [HideInInspector]
-    public bool voice4 = false;
-    [HideInInspector]
-    public bool voice5 = false;
-    [HideInInspector]
-    public bool voice6 = false;
-    [HideInInspector]
-    public bool voice7 = false;
-    [HideInInspector]
     public bool voice8 = false;
     [HideInInspector]
-    public bool voice9 = false;
-    [HideInInspector]
-    public bool voice10 = false;
-    [HideInInspector]
-    public bool voice11 = false;
-    [HideInInspector]
-    public bool voice12 = false;
-    [HideInInspector]
     public bool voice13 = false;
-    [HideInInspector]
-    public bool voice14 = false;
     [HideInInspector]
     public bool voice15 = false;
     [HideInInspector]
     public bool voice16 = false;
     [HideInInspector]
     public bool voice17 = false;
-    [HideInInspector]
-    public bool voice18 = false;
     [HideInInspector]
     public bool voice19 = false;
     [HideInInspector]
@@ -77,8 +52,6 @@ public class SoundManager : MonoBehaviour
     public bool voice21 = false;
     [HideInInspector]
     public bool voice22 = false;
-    [HideInInspector]
-    public bool voice23 = false;
     [HideInInspector]
     public bool voice24 = false;
     [HideInInspector]
@@ -155,6 +128,8 @@ public class SoundManager : MonoBehaviour
     public bool voice60 = false;
     [HideInInspector]
     public bool voice61 = false;
+
+    
     #endregion
 
 
@@ -192,8 +167,6 @@ public class SoundManager : MonoBehaviour
         musicSource.volume = musicDefaultVolume * volume;
 
         musicSource.Play();
-
-        return;
     }
 
     /// <summary>
@@ -206,7 +179,6 @@ public class SoundManager : MonoBehaviour
 
         sfxSource.pitch = 1;
 
-        return;
     }
 
     /// <summary>
@@ -215,10 +187,26 @@ public class SoundManager : MonoBehaviour
     public void PlayVoices(AudioClip voice, float volume)
     {
         voiceSource.PlayOneShot(voice, voicesDefaultVolume * volume);
-
-        return;
     }
 
+    // = = =
+
+    /// <summary>
+    /// Set volume
+    /// </summary>
+    public void SetMusicVolume(Slider slider)
+    {
+        musicDefaultVolume = slider.value /100;
+    }
+
+    public void SetSFXVolume(Slider slider)
+    {
+        sfxDefaultVolume = slider.value / 100;
+    }
+    public void SetVoicesVolume(Slider slider)
+    {
+        voicesDefaultVolume = slider.value / 100;
+    }
     // = = =
 
 }

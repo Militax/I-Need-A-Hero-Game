@@ -39,6 +39,8 @@ public class PlayGame : MonoBehaviour
 
     public void LoadSave(string name)
     {
+
+
         string save = SaveDictionary.GetPrefix(name);
         string last = SaveDictionary.GetLastScene(name);
 
@@ -68,6 +70,9 @@ public class PlayGame : MonoBehaviour
 
     public void NextLevelButton(string levelName)
     {
+        SoundManager.instance.musicSource.Stop();
+        SoundManager.instance.musicSource.loop = false;
+
         SceneManager.LoadScene(levelName);
     }
     public void ExitGame()

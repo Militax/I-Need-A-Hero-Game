@@ -8,7 +8,7 @@ public class BoursePrix : MonoBehaviour
 {
     public GameObject maxCoinlvl1;
 	public GameObject maxCoinlvl2;
-	public GameObject maxCoinlvl3;
+	
 	public GameObject maxCoinEpuise;
 
    
@@ -17,31 +17,26 @@ public class BoursePrix : MonoBehaviour
         // les prix des bourse plus grande 
 		if (GameManager.Instance.maxCoin == 50)
 		{
+			Debug.Log("ca marche");
 			maxCoinlvl1.SetActive (true);
 			maxCoinlvl2.SetActive (false);
-			maxCoinlvl3.SetActive (false);
+			
 			maxCoinEpuise.SetActive (false);
 		}
-		else if (GameManager.Instance.maxCoin == 300)
+		else if (GameManager.Instance.maxCoin <= 300 && GameManager.Instance.maxCoin > 50)
 		{
 			maxCoinlvl1.SetActive (false);
 			maxCoinlvl2.SetActive (true);
-			maxCoinlvl3.SetActive (false);
+			
 			maxCoinEpuise.SetActive (false);
 		}
-		else if (GameManager.Instance.maxCoin == 500)
+		else if (GameManager.Instance.maxCoin <= 500 && GameManager.Instance.maxCoin >300 )
 		{
 			maxCoinlvl1.SetActive (false);
 			maxCoinlvl2.SetActive (false);
-			maxCoinlvl3.SetActive (true);
-			maxCoinEpuise.SetActive (false);
-		}
-		else if (GameManager.Instance.maxCoin == 1000)
-		{
-			maxCoinlvl1.SetActive (false);
-			maxCoinlvl2.SetActive (false);
-			maxCoinlvl3.SetActive (false);
+			
 			maxCoinEpuise.SetActive (true);
 		}
+		
     }
 }
