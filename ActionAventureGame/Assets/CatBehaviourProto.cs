@@ -80,7 +80,7 @@ public class CatBehaviourProto : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "WindWave" && takedamage == false)
+        if (collision.tag == "WindWave" &&isPushed == false)
         {
             Debug.Log("hihi");
             Cape();
@@ -100,7 +100,7 @@ public class CatBehaviourProto : MonoBehaviour
     }
     void Cape()
     {
-        takedamage = true;
+        //takedamage = true;
 
         //anim cape
         isPushed = true;
@@ -112,7 +112,7 @@ public class CatBehaviourProto : MonoBehaviour
     void BecomeVulnerable()
     {
         isPushed = false;
-        takedamage = false;
+        //takedamage = false;
     }
 
     private void OnDrawGizmos()
