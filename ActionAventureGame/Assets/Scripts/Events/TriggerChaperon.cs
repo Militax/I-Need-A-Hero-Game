@@ -60,6 +60,5 @@ public class TriggerChaperon : MonoBehaviour
     void OnGueulanteStopped (PlayableDirector Gueulante)
     {
         Timeline.Stop();
-        Debug.Log("stopped");
     }
 }

@@ -39,6 +39,9 @@ namespace Player
         public AudioClip Windpower;
         public AudioClip Icepower;
         public AudioClip Powerpower;
+
+        [Header("Voices")]
+        public AudioClip NarratorVoice13;
         #endregion
 
         void Update()
@@ -142,7 +145,11 @@ namespace Player
         {
             if (Input.GetButtonDown("WindPower"))//Clique droit
             {
-
+                if (SoundManager.instance.voice13 == false && GameManager.Instance.powerState >= 1 && !SoundManager.instance.voiceSource.isPlaying)
+                {
+                    SoundManager.instance.PlayVoices(NarratorVoice13, 1);
+                    SoundManager.instance.voice13 = true;
+                }
                 
 
                 //Instantiation de la vague sur le bon point et dans la bonne direction en fonction du dernier angle enregistré par le joystick

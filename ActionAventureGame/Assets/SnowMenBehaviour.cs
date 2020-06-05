@@ -31,9 +31,10 @@ public class SnowMenBehaviour : MonoBehaviour
 
     [Header ("Push")]
     public float PushRange;
+    public float pushDistance;
     public float PushSpeed;
-    public float PushDuration;
-    public float timeBeforePushing;
+    //public float PushDuration;
+    
     Vector3 pushDirection;
     bool ispushed = false;
     public CircleCollider2D PushZone;
@@ -65,32 +66,26 @@ public class SnowMenBehaviour : MonoBehaviour
         {
             if (isalive)
             {
-                StartCoroutine(Push());
+                ispushed = true;
             }
             
         }
 
-        if (ispushed && distance<PushRange && isalive)
+        if (ispushed && isalive)
         {
-            PushZone.radius += PushSpeed;
+            PushZone.radius += PushSpeed*Time.deltaTime;
+            if (PushZone.radius >= pushDistance)
+            {
+                PushZone.radius = 0;
+                ispushed = false;
+            }
             //rb.velocity = pushDirection.normalized * (PushSpeed*50) * Time.deltaTime; 
         }
         
 
     }
 
-    IEnumerator Push()
-    {
-        
-        yield return new WaitForSeconds(timeBeforePushing);
-        
-        ispushed = true;
-
-        yield return new WaitForSeconds(PushDuration);
-
-        ispushed = false;
-        PushZone.radius = 0;
-    }
+    
     //IEnumerator Push()
     //{
     //    yield return new WaitForSeconds(timeBeforePushing);
@@ -110,12 +105,12 @@ public class SnowMenBehaviour : MonoBehaviour
     {
         shootDirection = Player.transform.position - transform.position;
 
-        float[] angles = { 0, -45, 45 };
+        float[] angles = { 0, -25, 25 };
 
         for (int i = 0; i < angles.Length; i++)
         {
             GameObject bullet = Instantiate(Bullet, transform.position, Quaternion.identity,transform);
-            bullet.GetComponent<Rigidbody2D>().AddForce(Quaternion.Euler(0, 0, angles[i]) * shootDirection * bulletSpeed);
+            bullet.GetComponent<Rigidbody2D>().AddForce(Quaternion.Euler(0, 0, angles[i]) * shootDirection.normalized * bulletSpeed);
             
         }
 
@@ -140,6 +135,9 @@ public class SnowMenBehaviour : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, DetectionRange);
         Gizmos.DrawWireSphere(transform.position, PushRange);
-
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, pushDistance);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, PushZone.radius);
     }
 }

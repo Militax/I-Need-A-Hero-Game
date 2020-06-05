@@ -61,6 +61,7 @@ namespace Player
 
 		[Header("Sound")]
 		public AudioClip attaque1;
+        public AudioClip attaqueSlam;
 
 		
 
@@ -105,60 +106,60 @@ namespace Player
         }
 
         void Attaque()
-        {
-            //Debug.Log("attaaaa");
+        {
+            //Debug.Log("attaaaa");
             animator.SetInteger("NumAttack", ComboCount);
 
-            if (ComboCount<3)
-            {
-                if (Direction == 0)
-                {
-                    prefabHitboxTopRight.transform.localScale = attackScale;
-                    
-                    prefabHitboxTopRight.GetComponent<AttackColliders>().Invoke("deactivate", attackDuration);
-					
-                }
-                else if (Direction == 1)
-                {
-                    prefabHitboxTopLeft.transform.localScale = attackScale;
-                    
-                    prefabHitboxTopLeft.GetComponent<AttackColliders>().Invoke("deactivate", attackDuration);
-
-                }
-                else if (Direction == 2)
-                {
-                    prefabHitboxBottomRight.transform.localScale = attackScale;
-                    
-                    prefabHitboxBottomRight.GetComponent<AttackColliders>().Invoke("deactivate", attackDuration);
-                }
-                else if (Direction == 3)
-                {
-                    prefabHitboxBottomLeft.transform.localScale = attackScale;
-                    
-                    prefabHitboxBottomLeft.GetComponent<AttackColliders>().Invoke("deactivate", attackDuration);
-                }
-                myAtkSpeed.Reset();
-                myCD.Reset();
-                
-				SoundManager.instance.PlaySfx(attaque1, 1, 1);
-                StartCoroutine(Attaque_Movement());
+            if (ComboCount<3)
+            {
+                if (Direction == 0)
+                {
+                    prefabHitboxTopRight.transform.localScale = attackScale;
+                    
+                    prefabHitboxTopRight.GetComponent<AttackColliders>().Invoke("deactivate", attackDuration);
+					
+                }
+                else if (Direction == 1)
+                {
+                    prefabHitboxTopLeft.transform.localScale = attackScale;
+                    
+                    prefabHitboxTopLeft.GetComponent<AttackColliders>().Invoke("deactivate", attackDuration);
+
+                }
+                else if (Direction == 2)
+                {
+                    prefabHitboxBottomRight.transform.localScale = attackScale;
+                    
+                    prefabHitboxBottomRight.GetComponent<AttackColliders>().Invoke("deactivate", attackDuration);
+                }
+                else if (Direction == 3)
+                {
+                    prefabHitboxBottomLeft.transform.localScale = attackScale;
+                    
+                    prefabHitboxBottomLeft.GetComponent<AttackColliders>().Invoke("deactivate", attackDuration);
+                }
+                myAtkSpeed.Reset();
+                myCD.Reset();
+                
+				SoundManager.instance.PlaySfx(attaque1, 1, 1);
+                StartCoroutine(Attaque_Movement());
             }
-            else if (ComboCount == 3)
-            {
-                
-                Invoke("Slam",.5f);
-                StartCoroutine(Attaque_Movement());
+            else if (ComboCount == 3)
+            {
+                SoundManager.instance.PlaySfx(attaqueSlam, 1, 1);
+                Invoke("Slam",.5f);
+                StartCoroutine(Attaque_Movement());
             }           
             
             
         }
-        void Slam()
-        {
-            Instantiate(SlamHitbox, transform.position, Quaternion.identity);
-
-            SlamHitbox.GetComponent<AttackColliders>().Invoke("deSpawn", attackDuration);
-            myCD.Reset();
-            myAtkSpeed.Reset();
+        void Slam()
+        {
+            Instantiate(SlamHitbox, transform.position, Quaternion.identity);
+
+            SlamHitbox.GetComponent<AttackColliders>().Invoke("deSpawn", attackDuration);
+            myCD.Reset();
+            myAtkSpeed.Reset();
         }
         IEnumerator Attaque_Movement()
         {

@@ -25,7 +25,6 @@ namespace Player
         public void deSpawn()
         {
             GameManager.Instance.player.GetComponent<PlayerAttack>().isAttacking = false;
-            Debug.Log("poof");
             GameObject.FindGameObjectWithTag("Slam").GetComponent<Collider2D>().enabled = false;
             Invoke("destroySlam", slamduration);
         }

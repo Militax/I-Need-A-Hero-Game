@@ -11,7 +11,4 @@ public class GingerbreadVoice : MonoBehaviour
     {
         SoundManager.instance.PlayVoices(voiceLine14, 1);
     }
-
-
-
 }

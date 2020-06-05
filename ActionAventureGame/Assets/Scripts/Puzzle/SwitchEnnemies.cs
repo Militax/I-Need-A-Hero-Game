@@ -62,7 +62,6 @@ public class SwitchEnnemies : ActivationDevice
                     if (IsActive)
                     {
                         animator.SetTrigger("ToActive");
-                        Debug.Log("Play Sound");
                         SoundManager.instance.PlaySfx(switchOn, 1, 1);
 
                         if (ParticleSystem != null)
@@ -74,7 +73,6 @@ public class SwitchEnnemies : ActivationDevice
                     else if (!IsActive)
                     {
                         animator.SetTrigger("ToInactive");
-                        Debug.Log("Play Sound");
                         SoundManager.instance.PlaySfx(switchOff, 1, 1);
                     }
                     base.RefreshState(state, tag);
