@@ -97,7 +97,7 @@ namespace Player
                         break;
 
                     case ("IceBullet"):
-                        GameManager.Instance.playerHealth -= other.GetComponent<IceBullet>().damage;
+                        GameManager.Instance.playerHealth -= other.GetComponent<SnowBullet>().damage;
                         Destroy(other.gameObject);
 
                         if (GameManager.Instance.playerHealth > 0)
