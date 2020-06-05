@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5221861490979428156
+--- !u!1 &1329275570963498679
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,45 +8,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4101829153988820027}
-  - component: {fileID: 7089603538257893532}
-  m_Layer: 21
-  m_Name: PushZone
+  - component: {fileID: 6003561603434018104}
+  - component: {fileID: 5865935130289622921}
+  m_Layer: 12
+  m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4101829153988820027
+--- !u!4 &6003561603434018104
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5221861490979428156}
+  m_GameObject: {fileID: 1329275570963498679}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 6716102325986113105}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &7089603538257893532
+--- !u!58 &5865935130289622921
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5221861490979428156}
+  m_GameObject: {fileID: 1329275570963498679}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.24}
   serializedVersion: 2
-  m_Radius: 0.0001
+  m_Radius: 0.3
 --- !u!1 &6716102325986113110
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,7 +56,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6716102325986113105}
-  - component: {fileID: -7790758920030927332}
   - component: {fileID: 6716102325986113106}
   - component: {fileID: 8996176885942682499}
   - component: {fileID: 6716102325986113107}
@@ -64,7 +63,7 @@ GameObject:
   - component: {fileID: 1038720884}
   - component: {fileID: 441803508}
   m_Layer: 0
-  m_Name: SnowMan
+  m_Name: SnowManBeta
   m_TagString: Ennemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,35 +80,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
-  - {fileID: 4101829153988820027}
+  - {fileID: 6716102326257001575}
+  - {fileID: 6003561603434018104}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-7790758920030927332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6716102325986113110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d69b6ec0090395143ba07e227f869f53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  DetectionRange: 5
-  bulletSpeed: 100
-  deflectedSpeed: 200
-  Bullet: {fileID: 1925648897625447472, guid: 4a3b2b0578fd5404d90c61f7248b393a, type: 3}
-  FireRate:
-    isStopped: 0
-    cooldownTime: 1.5
-  shootDirection: {x: 0, y: 0}
-  PushRange: 2
-  pushDistance: 2.45
-  PushSpeed: 6
-  PushZone: {fileID: 7089603538257893532}
 --- !u!212 &6716102325986113106
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -169,11 +144,11 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6716102325986113110}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10000
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -220,12 +195,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb0e57f387b47634f894aff286f1d7cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ennemyType: SnowManProto
-  health: 5
-  maximumHealth: 5
-  safeTime: 0
+  ennemyType: Snowman
+  health: 3
+  maximumHealth: 3
+  safeTime: 0.1
   isAlive: 1
-  hitstun: 0
+  hitstun: 0.5
   dropNumber: 1
   lootRange: 1
   myLoot:
@@ -332,7 +307,7 @@ MonoBehaviour:
   coeur:
   - {fileID: 3425394139406070937, guid: 5b5b8eac4ca48824e9218a7ab6224623, type: 3}
   - {fileID: 4054379633646435344, guid: a4d89126b7788f343b4737345811692e, type: 3}
-  TimerDie: 0.5
+  TimerDie: 0
   ParticleSystem: {fileID: 0}
   NarratorVoice8: {fileID: 0}
   NarratorVoice25: {fileID: 0}
@@ -373,3 +348,67 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &6716102326257001572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6716102326257001575}
+  - component: {fileID: 6716102326257001569}
+  - component: {fileID: 6716102326257001574}
+  m_Layer: 17
+  m_Name: Shootpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6716102326257001575
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6716102326257001572}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6716102325986113105}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6716102326257001569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6716102326257001572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f292aab5fc76424b9692e2d4f042707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  iceBulletPrefab: {fileID: 4897522390217860516, guid: 1767680840017fe479ac0cc07c702675,
+    type: 3}
+  cooldown: 1
+--- !u!58 &6716102326257001574
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6716102326257001572}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 5

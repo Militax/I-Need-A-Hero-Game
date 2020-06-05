@@ -105,7 +105,7 @@ public class SnowMenBehaviour : MonoBehaviour
     {
         shootDirection = Player.transform.position - transform.position;
 
-        float[] angles = { 0, -45, 45 };
+        float[] angles = { 0, -25, 25 };
 
         for (int i = 0; i < angles.Length; i++)
         {

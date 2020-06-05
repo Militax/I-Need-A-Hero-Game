@@ -41,7 +41,7 @@ namespace Ennemy
         #endregion
         Animator animator;
         bool Dead = false;
-        public int TimerDie;
+        public float TimerDie;
         public GameObject ParticleSystem;
 
 
