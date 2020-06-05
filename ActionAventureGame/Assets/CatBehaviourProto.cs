@@ -89,6 +89,7 @@ public class CatBehaviourProto : MonoBehaviour
 
     void Attack()
     {
+
         GameManager.Instance.playerHealth -= Damage;
         iTween.MoveAdd(player.gameObject, direction.normalized * attackForce, attackDuration);
         Invoke("AttackCD", attackCoolDown);

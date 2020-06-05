@@ -48,7 +48,6 @@ public class ShopInteraction : MonoBehaviour
 		if(GameManager.Instance.bottesState == 0)
 		{
 			if(GameManager.Instance.CoinOwned >= 100)
-
 			{
 				Debug.Log("achat des bottes type 1");
 				GameManager.Instance.bottesState = 1;
