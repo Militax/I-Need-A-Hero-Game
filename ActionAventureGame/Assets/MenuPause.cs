@@ -13,10 +13,16 @@ public class MenuPause : MonoBehaviour
 
     private void Start()
     {
-        player = GameManager.Instance.player.gameObject;
+        
     }
     void Update()
     {
+        if (player == null)
+        {
+            player = GameManager.Instance.player.gameObject;
+        }
+        
+
         if (Input.GetKeyDown(KeyCode.Escape) && !menu.activeSelf)
         {
             menu.SetActive(true);

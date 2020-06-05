@@ -29,7 +29,8 @@ namespace Ennemy
         public float hitstun;
         bool isStunned = false;
 
-        bool canTakeDamage = true;
+        [HideInInspector]
+        public bool canTakeDamage = true;
 
 
 
