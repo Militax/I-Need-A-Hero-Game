@@ -25,7 +25,7 @@ namespace Power
         #endregion
         
         void Start()
-        {//Quand l'objet s'instanci
+        {//Quand l'objet s'instancie
             rb = GetComponent<Rigidbody2D>();       
             StartCoroutine(PowerDuration());
             ScaleChange.Set(0, (YPerFrame/1000), 0);

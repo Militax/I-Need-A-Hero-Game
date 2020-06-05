@@ -41,7 +41,7 @@ namespace Ennemy
         #endregion
         Animator animator;
         bool Dead = false;
-        public int TimerDie;
+        public float TimerDie;
         public GameObject ParticleSystem;
 
 
@@ -151,7 +151,7 @@ namespace Ennemy
             }
             if (other.CompareTag("IceBullet") && canTakeDamage)
             {
-                if (other.GetComponent<IceBullet>().isOut)//La balle est partie du Snowman
+                if (other.GetComponent<SnowBullet>().isOut)//La balle est partie du Snowman
                 {
                     health--;
                     Destroy(other.gameObject);
@@ -192,6 +192,7 @@ namespace Ennemy
         }
         IEnumerator cooldown()
         {
+            isAlive = false;
             if (ennemyType == "Snowman")
             {
                 GetComponentInChildren<SownmanFire>().enabled = false;
