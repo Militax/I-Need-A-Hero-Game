@@ -111,7 +111,7 @@ namespace GameManagement
             powerState = 0;
 
             swordDamage = 1;
-            SlamDamage = 3;
+            SlamDamage = 2;
             #endregion
 
             #region Economic
