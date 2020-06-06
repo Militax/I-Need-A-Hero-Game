@@ -65,7 +65,7 @@ public class GingerBreadBehaviour : MonoBehaviour
             distance = Vector2.Distance(player.transform.position, gameObject.transform.position);
             Vector2 dir = player.transform.position - gameObject.transform.position;
 
-            if (distance < detectionRange && distance > attackRange)
+            if (distance < detectionRange && distance > attackRange && missed == false)
             {
                 rb.velocity = dir.normalized * Speed;
             }
@@ -85,7 +85,7 @@ public class GingerBreadBehaviour : MonoBehaviour
 
             }
 
-            if (distance < damageRange && isAttacking == true && !isDealingDamage)
+            if (distance < damageRange && isAttacking == true && !isDealingDamage && !missed)
             {
                 GameManager.Instance.playerHealth -= damage;
                 isDealingDamage = true;
@@ -103,6 +103,10 @@ public class GingerBreadBehaviour : MonoBehaviour
                 isAttacking = false;
                 missed = true;
                 Invoke("Missed", attackCooldown);
+            }
+            if (missed && !ispushed)
+            {
+                rb.velocity = Vector2.zero;
             }
         }
         
