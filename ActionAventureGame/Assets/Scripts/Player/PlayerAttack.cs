@@ -154,8 +154,9 @@ namespace Player
         }
         void Slam()
         {
-            Instantiate(SlamHitbox, transform.position, Quaternion.identity);
+            GameObject slam = Instantiate(SlamHitbox, transform.position, Quaternion.identity);
 
+            slam.GetComponent<CircleCollider2D>().radius += .1f;
             SlamHitbox.GetComponent<AttackColliders>().Invoke("deSpawn", attackDuration);
             myCD.Reset();
             myAtkSpeed.Reset();
