@@ -15,7 +15,7 @@ public class ShopInteraction : MonoBehaviour
 	public SpriteRenderer spr;
 	ThresholdBourse threshold;
 
-	[Header ("Audio")]
+	[Header ("Audio")]
 	public AudioClip BuyAudio;
 	public AudioClip BuyDeniedAudio;
 
@@ -26,33 +26,33 @@ public class ShopInteraction : MonoBehaviour
 	}
 	private void Update()
 	{
-		if (coinsCollected <= 100)
+		if (coinsCollected <= 900)
 		{
 			spr.sprite = MaisonPaille;
 		}
-		else if (coinsCollected > 100 && coinsCollected <500)
+		else if (coinsCollected > 900 && coinsCollected <1600)
 		{
 			spr.sprite = MaisonBois;
 		}
-		else if (coinsCollected >= 500)
+		else if (coinsCollected >= 1600)
 		{
 			spr.sprite = MaisonBrique;
 		}
 	}
 	// achat de 2 types de bottes
-	// type 1 = 100 coins
-	// type 2 = 200 coins
+	// type 1 = 400 coins
+	// type 2 = 1000 coins
 	public void bottesState()
 	{
 
 		if(GameManager.Instance.bottesState == 0)
 		{
-			if(GameManager.Instance.CoinOwned >= 100)
+			if(GameManager.Instance.CoinOwned >= 400)
 			{
 				Debug.Log("achat des bottes type 1");
 				GameManager.Instance.bottesState = 1;
-				GameManager.Instance.CoinOwned -= 100;
-				coinsCollected += 100;
+				GameManager.Instance.CoinOwned -= 400;
+				coinsCollected += 400;
 
 				SoundManager.instance.PlaySfx(BuyAudio, 1, 1);
 
@@ -64,12 +64,12 @@ public class ShopInteraction : MonoBehaviour
 		}
 		else if (GameManager.Instance.bottesState == 1)
 		{
-			if(GameManager.Instance.CoinOwned >= 200)
+			if(GameManager.Instance.CoinOwned >= 1000)
 			{
 				Debug.Log("achat des bottes type 2");
 				GameManager.Instance.bottesState = 2;
-				GameManager.Instance.CoinOwned -= 200;
-				coinsCollected += 200;
+				GameManager.Instance.CoinOwned -= 1000;
+				coinsCollected += 1000;
 
 				SoundManager.instance.PlaySfx(BuyAudio, 1, 1);
 
@@ -80,21 +80,21 @@ public class ShopInteraction : MonoBehaviour
 	}
 
 	//achat d'amélioration de la bourse 
-	// bourse de 300 = 50 coins
-	// bourse de 500 = 150 coins
-	// bourse de 1000 = 300 coins
+	// bourse de 2000 = 300 coins
+	// bourse de 5000 = 1000 coins
+
 	public void maxCoin()
 	{
 
-		if(GameManager.Instance.maxCoin == 50)
+		if(GameManager.Instance.maxCoin == 1000)
 		{
-			if(GameManager.Instance.CoinOwned >= 50)
+			if(GameManager.Instance.CoinOwned >= 1000)
 
 			{
 				Debug.Log("achat de la bourse type 1");
-				GameManager.Instance.maxCoin = 300;
-				GameManager.Instance.CoinOwned -= 50;
-				coinsCollected += 50;
+				GameManager.Instance.maxCoin = 2000;
+				GameManager.Instance.CoinOwned -= 300;
+				coinsCollected += 300;
 				threshold.BourseLevel = 1;
 
 				SoundManager.instance.PlaySfx(BuyAudio, 1, 1);
@@ -102,21 +102,21 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 			}
-			else
-			{
-				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
-			}
-
-
+			else
+			{
+				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
+			}
+
+
 		}
-		else if (GameManager.Instance.maxCoin == 300)
+		else if (GameManager.Instance.maxCoin == 2000)
 		{
-			if(GameManager.Instance.CoinOwned >= 150)
+			if(GameManager.Instance.CoinOwned >= 1000)
 			{
 				Debug.Log("achat la bourse type 2");
-				GameManager.Instance.maxCoin = 500;
-				GameManager.Instance.CoinOwned -= 150;
-				coinsCollected += 150;
+				GameManager.Instance.maxCoin = 5000;
+				GameManager.Instance.CoinOwned -= 1000;
+				coinsCollected += 1000;
 				threshold.BourseLevel = 2;
 
 				SoundManager.instance.PlaySfx(BuyAudio, 1, 1);
@@ -124,151 +124,84 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 			}
-			else
-			{
-				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
-			}
-
+			else
+			{
+				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
+			}
+
 		}
-		else if (GameManager.Instance.maxCoin == 500)
-		{	
-			if(GameManager.Instance.CoinOwned >= 300)
-			{
-				Debug.Log("achat la bourse type 3");
-				GameManager.Instance.maxCoin = 1000;
-				GameManager.Instance.CoinOwned -= 300;
-				coinsCollected += 300;
-				threshold.BourseLevel = 3;
-
-				SoundManager.instance.PlaySfx(BuyAudio, 1, 1);
-
-				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
-				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
-			}
-			else
-			{
-				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
-			}
-
-		}
+		
 
 
 
 	}
 
 	// Achat des emplacement pour les coeurs
-	// coeur 6 = 50 coins
-	// coeur 7 = 70 coins
-	// coeur 8 = 150 coins
-	// coeur 9 = 300 coins
-	// coeur 10 = 600 coins
+	// coeur 6 = 200 coins
+	// coeur 7 = 400 coins
+	// coeur 8 = 600 coins
+	// coeur 9 = 800 coins
+	// coeur 10 = 1000 coins
 	 public void playerHealthMax()
 	{
 		// coeur 6
 		if(GameManager.Instance.playerHealthMax == 5)
 		{
-			if(GameManager.Instance.CoinOwned >= 50)
+			if(GameManager.Instance.CoinOwned >= 200)
 
 			{
 				Debug.Log("coeur6");
 				GameManager.Instance.playerHealthMax = 6;
 				GameManager.Instance.playerHealth = 6;
 				GameObject.FindObjectOfType<CanvasManagement>().UpdateBar(GameManager.Instance.playerHealth);
-				GameManager.Instance.CoinOwned -= 50;
-				coinsCollected += 50;
+				GameManager.Instance.CoinOwned -= 200;
+				coinsCollected += 200;
 
 				SoundManager.instance.PlaySfx(BuyAudio, 1, 1);
 
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 			}
-			else
-			{
-				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
-			}
-
-
+			else
+			{
+				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
+			}
+
+
 		}
 		//coeur 7
 		else if (GameManager.Instance.playerHealthMax == 6)
 		{
-			if(GameManager.Instance.CoinOwned >= 70)
+			if(GameManager.Instance.CoinOwned >= 400)
 
 			{
 				Debug.Log("coeur7");
 				GameManager.Instance.playerHealthMax = 7;
 				GameManager.Instance.playerHealth = 7;
 				GameObject.FindObjectOfType<CanvasManagement>().UpdateBar(GameManager.Instance.playerHealth);
-				GameManager.Instance.CoinOwned -= 70;
-				coinsCollected += 70;
+				GameManager.Instance.CoinOwned -= 400;
+				coinsCollected += 400;
 
 				SoundManager.instance.PlaySfx(BuyAudio, 1, 1);
 
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 			}
-			else
-			{
-				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
-			}
-
+			else
+			{
+				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
+			}
+
 		}
 		// coeur 8
 		else if (GameManager.Instance.playerHealthMax == 7)
 		{	
-			if(GameManager.Instance.CoinOwned >= 150)
+			if(GameManager.Instance.CoinOwned >= 600)
 
 			{
 				Debug.Log("coeur8");
 				GameManager.Instance.playerHealthMax = 8;
 				GameManager.Instance.playerHealth = 8;
-				GameObject.FindObjectOfType<CanvasManagement>().UpdateBar(GameManager.Instance.playerHealth);
-				GameManager.Instance.CoinOwned -= 150;
-				coinsCollected += 150;
-
-				SoundManager.instance.PlaySfx(BuyAudio, 1, 1);
-
-				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
-				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
-			}
-			else
-			{
-				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
-			}
-
-		}
-		// coeur 9
-		else if (GameManager.Instance.playerHealthMax == 8)
-		{
-			if(GameManager.Instance.CoinOwned >= 300)
-
-			{
-				Debug.Log("coeur9");
-				GameManager.Instance.playerHealthMax = 9;
-				GameManager.Instance.playerHealth = 9;
-				GameObject.FindObjectOfType<CanvasManagement>().UpdateBar(GameManager.Instance.playerHealth);
-				GameManager.Instance.CoinOwned -= 300;
-				coinsCollected += 300;
-
-				SoundManager.instance.PlaySfx(BuyAudio, 1, 1);
-
-				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
-				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
-			}
-			else
-			{
-				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
-			}
-		}
-		// coeur 10
-		else if (GameManager.Instance.playerHealthMax == 9)
-		{
-			if(GameManager.Instance.CoinOwned >= 600)
-
-			{
-				Debug.Log("coeur10");
-				GameManager.Instance.playerHealthMax = 10;
-				GameManager.Instance.playerHealth = 10;
 				GameObject.FindObjectOfType<CanvasManagement>().UpdateBar(GameManager.Instance.playerHealth);
 				GameManager.Instance.CoinOwned -= 600;
 				coinsCollected += 600;
@@ -278,9 +211,56 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 			}
-			else
+			else
+			{
+				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
+			}
+
+		}
+		// coeur 9
+		else if (GameManager.Instance.playerHealthMax == 8)
+		{
+			if(GameManager.Instance.CoinOwned >= 800)
+
 			{
-				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
+				Debug.Log("coeur9");
+				GameManager.Instance.playerHealthMax = 9;
+				GameManager.Instance.playerHealth = 9;
+				GameObject.FindObjectOfType<CanvasManagement>().UpdateBar(GameManager.Instance.playerHealth);
+				GameManager.Instance.CoinOwned -= 800;
+				coinsCollected += 800;
+
+				SoundManager.instance.PlaySfx(BuyAudio, 1, 1);
+
+				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
+				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
+			}
+			else
+			{
+				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
+			}
+		}
+		// coeur 10
+		else if (GameManager.Instance.playerHealthMax == 9)
+		{
+			if(GameManager.Instance.CoinOwned >= 1000)
+
+			{
+				Debug.Log("coeur10");
+				GameManager.Instance.playerHealthMax = 10;
+				GameManager.Instance.playerHealth = 10;
+				GameObject.FindObjectOfType<CanvasManagement>().UpdateBar(GameManager.Instance.playerHealth);
+				GameManager.Instance.CoinOwned -= 1000;
+				coinsCollected += 1000;
+
+				SoundManager.instance.PlaySfx(BuyAudio, 1, 1);
+
+				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
+				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
+			}
+			else
+			{
+				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
 			}
 		}
 	}

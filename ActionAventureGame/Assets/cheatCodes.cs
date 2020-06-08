@@ -24,8 +24,8 @@ public class cheatCodes : MonoBehaviour
         }
         else if (Input.GetKey(money))
         {
-            GameManager.Instance.maxCoin = 10000;
             GameManager.Instance.CoinOwned = GameManager.Instance.maxCoin;
+            //GameManager.Instance.CoinOwned = GameManager.Instance.maxCoin;
 
         }
 		else if (Input.GetKey(normalLife))
