@@ -122,6 +122,7 @@ public class CatBehaviourProto : MonoBehaviour
     void BecomeVulnerable()
     {
         isPushed = false;
+        animator.SetTrigger("Idle");
         //takedamage = false;
     }
 

@@ -9,6 +9,7 @@ public class GingerBreadBehaviour : MonoBehaviour
     #region References
     PlayerMovement player;
     Rigidbody2D rb;
+    Animator animator;
     #endregion
 
     #region Variables
@@ -59,6 +60,7 @@ public class GingerBreadBehaviour : MonoBehaviour
     {
         player = FindObjectOfType<PlayerMovement>(); //parceque le gamemanager est pas encore a jour au start
         rb = GetComponent<Rigidbody2D>();
+        animator = gameObject.GetComponent<Animator>();
     }
     private void Update()
     {
@@ -66,7 +68,7 @@ public class GingerBreadBehaviour : MonoBehaviour
         
         if (isFrozen && !isRunning)
         {
-            //anim gel
+            animator.SetTrigger("Gel");
             isRunning = true;
             Invoke("Degel", FreezeStunTime);
             Invoke("ResetFreeze", FreezeStunTime);
@@ -78,12 +80,13 @@ public class GingerBreadBehaviour : MonoBehaviour
 
             if (distance < detectionRange && distance > attackRange && missed == false)
             {
+                animator.SetTrigger("Walk");
                 rb.velocity = dir.normalized * Speed;
             }
 
             if (distance < attackRange && isAttacking == false && missed == false)
             {
-
+                animator.SetTrigger("Attack");
                 direction = player.transform.position - gameObject.transform.position;
                 isAttacking = true;
                 attackDuration.Reset();
