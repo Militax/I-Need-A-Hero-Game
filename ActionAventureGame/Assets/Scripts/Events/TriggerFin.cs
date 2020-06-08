@@ -12,9 +12,12 @@ public class TriggerFin : MonoBehaviour
     public GameObject Boss;
     public GameObject Player;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
+        
         Timeline = GetComponent<PlayableDirector>();
     }
 
@@ -24,7 +27,9 @@ public class TriggerFin : MonoBehaviour
 
         if (Boss.GetComponent<BossHealth>().CurrentBossLife <= 0)
         {
+            Camera.main.GetComponent<BossCamera>().enabled = false;
             Timeline.Play();
+
             GameManager.Instance.playerCanMove = false;
             //GameManager.Instance.player.enabled = false;
             //GameManager.Instance.player.rb.velocity = Vector2.zero;
