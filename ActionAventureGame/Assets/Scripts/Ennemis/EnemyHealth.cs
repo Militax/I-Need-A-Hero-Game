@@ -23,6 +23,7 @@ namespace Ennemy
          */
         CatBehaviourProto MyCat;
 
+        CatBehaviourProto MyCat;
         public float health;
         public float maximumHealth;
         public float safeTime;

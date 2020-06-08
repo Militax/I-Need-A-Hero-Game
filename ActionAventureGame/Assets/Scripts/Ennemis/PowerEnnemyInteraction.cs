@@ -106,10 +106,14 @@ namespace Ennemy
                     break;
                 case ("GingerBreadProto")://Sur le gingerbread
                     GetComponent<GingerBreadBehaviour>().ispushed = true;
+                    GetComponent<GingerBreadBehaviour>().isStunned = true;
                     rb.velocity = other.GetComponentInParent<Rigidbody2D>().velocity / windEffectSlowdown;//Fait reculer l'ennemi
                     yield return new WaitForSeconds(windEffectDuration);
                     GetComponent<GingerBreadBehaviour>().ispushed = false;
                     rb.velocity = Vector2.zero;
+                    yield return new WaitForSeconds(GetComponent<GingerBreadBehaviour>().stunduration);
+                    GetComponent<GingerBreadBehaviour>().isStunned = false;
+                    
                     
                     break;
 

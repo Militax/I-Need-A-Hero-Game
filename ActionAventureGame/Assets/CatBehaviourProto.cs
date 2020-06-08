@@ -21,6 +21,10 @@ public class CatBehaviourProto : MonoBehaviour
     Vector2 dir;
     float distance;
     Vector2 direction;
+    float LookingDir;
+    bool LookingRight;
+
+    [HideInInspector]
     public bool isPushed;
     public float cdCape;
 
@@ -127,5 +131,22 @@ public class CatBehaviourProto : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, detectionRange);
         Gizmos.DrawWireSphere(transform.position, AttackRange);
         
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        iTween.Stop();
+    }
+
+    void LookAt()
+    {
+        LookingDir = Vector2.Angle(Vector2.up, player.transform.position);
+        if (player.transform.position.x > transform.position.x)
+        {
+            LookingRight = true;
+        }
+        else
+        {
+            LookingRight = false;
+        }
     }
 }
