@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7590573724793607089}
   - component: {fileID: 7590573724793607095}
   - component: {fileID: 7590573724793607094}
+  - component: {fileID: 8334221813010257616}
   m_Layer: 0
   m_Name: ChatPrototype
   m_TagString: Ennemy
@@ -50,15 +51,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPushed: 0
-  cdCape: 10
-  speed: 1
-  detectionRange: 5.33
+  cdCape: 2.5
+  speed: 2
+  detectionRange: 5
   Damage: 1
-  AttackRange: 1.47
-  attackForce: 2
+  AttackRange: 1
+  attackForce: 1.5
   attackDuration: 0.5
-  timeBeforeAttack: 0.5
-  attackCoolDown: 1
+  timeBeforeAttack: 0.2
+  attackCoolDown: 0.5
 --- !u!50 &7590573724793607091
 Rigidbody2D:
   serializedVersion: 4
@@ -71,7 +72,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -109,8 +110,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ennemyType: Cat
-  health: 3
-  maximumHealth: 3
+  health: 6
+  maximumHealth: 6
   safeTime: 0
   isAlive: 1
   hitstun: 0
@@ -121,7 +122,7 @@ MonoBehaviour:
   - {fileID: 7181366856507520482, guid: f78627d0b85a3a443a16a03e10d23c0b, type: 3}
   coeur:
   - {fileID: 4054379633646435344, guid: a4d89126b7788f343b4737345811692e, type: 3}
-  TimerDie: 3
+  TimerDie: 0.5
   ParticleSystem: {fileID: 6061024983972321384, guid: 1f630f7e9a6a2914fae3d6014e76e838,
     type: 3}
   NarratorVoice8: {fileID: 0}
@@ -198,6 +199,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8334221813010257616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7590573724793607084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c36804011880dd4cb1d05e9569aefde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 0.66
+  HeightMap: []
 --- !u!1 &7590573725213270021
 GameObject:
   m_ObjectHideFlags: 0
