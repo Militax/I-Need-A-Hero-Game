@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2132,6 +2132,23 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2112740660648078751}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1882522331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882522329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54dc45bee305c114b979c6df71cfb969, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onStart: 0
+  ifTrigger: 0
+  needToLoop: 0
+  volume: 0.3
+  music: {fileID: 8300000, guid: abf62162a3336d74a9f6c79859acf006, type: 3}
 --- !u!114 &1882522335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2145,6 +2162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   voiceLine42: {fileID: 8300000, guid: 8d72607caf87cde4daaf4ca4adc077f0, type: 3}
+  aubane: {fileID: 8300000, guid: 18e02b9b7cd1bf4409150cea22122ab8, type: 3}
 --- !u!114 &1882522336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2160,11 +2178,39 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: 56ba27c5f497dc04c92eeceb0fbecc7e, type: 2}
+    - {fileID: 11400000, guid: ee7f936a1cd2f6a4ab32b8ae28139384, type: 2}
+    - {fileID: 11400000, guid: c1fca96e1a032cf4e8289028ce7345ce, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1882522335}
           m_MethodName: Play42
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1882522331}
+          m_MethodName: PlaySong
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1882522335}
+          m_MethodName: PlayAubane
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2376,6 +2422,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: EventsBoss
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1882522335, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
