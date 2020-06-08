@@ -21,7 +21,7 @@ namespace Ennemy
         2.Snowman
         3.Chat
          */
-        CatBehaviourProto MyCat;
+        
 
         CatBehaviourProto MyCat;
         public float health;
