@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 1471709639289433059}
   - component: {fileID: 1471709640274168412}
   - component: {fileID: 4731021746995233410}
+  - component: {fileID: 1062946907}
   m_Layer: 0
   m_Name: Gingerbread
   m_TagString: Ennemy
@@ -208,7 +209,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2307
-  m_Sprite: {fileID: -5606871310305549768, guid: 43c0c96a83a561745b2f45a0effb21d9,
+  m_Sprite: {fileID: 4119286151567660874, guid: e6dc5927615534845968d11f171d3eba,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -257,8 +258,8 @@ BoxCollider2D:
   m_Offset: {x: 0.0048311055, y: 0.7692403}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.8333333, y: 1.3333334}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.6666667, y: 2.6666667}
     newSize: {x: 0.8333333, y: 1.3333334}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -285,6 +286,7 @@ MonoBehaviour:
   safeTime: 0.21
   isAlive: 1
   hitstun: 0.2
+  canTakeDamage: 1
   dropNumber: 1
   lootRange: 1
   myLoot:
@@ -405,7 +407,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4110711550277075488}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2aaed1a75f24584889038212bc9de0f, type: 3}
   m_Name: 
@@ -426,7 +428,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4110711550277075488}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2020b86aedb11254cb2b51d600c7ba1a, type: 3}
   m_Name: 
@@ -465,7 +467,7 @@ Animator:
   m_GameObject: {fileID: 4110711550277075488}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a650ba071f123504e83c27271e95979d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 14895ef1c39e77743b634ca21b407835, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -474,6 +476,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1062946907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4110711550277075488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac29fd448f9b4044db70a9a391d5db48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ispushed: 0
+  isFrozen: 0
+  FreezeStunTime: 4
+  Speed: 2
+  detectionRange: 7
+  damage: 1
+  jumpSpeed: 10
+  attackCooldown: 2
+  attackRange: 4
+  damageRange: 1
 --- !u!1 &4110711550766156442
 GameObject:
   m_ObjectHideFlags: 0
