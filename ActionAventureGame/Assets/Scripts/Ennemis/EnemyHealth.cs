@@ -22,6 +22,7 @@ namespace Ennemy
         3.Chat
          */
 
+        CatBehaviourProto MyCat;
         public float health;
         public float maximumHealth;
         public float safeTime;
@@ -49,7 +50,7 @@ namespace Ennemy
         {
             health = maximumHealth;
             animator = gameObject.GetComponent<Animator>();
-            
+            MyCat = GetComponent<CatBehaviourProto>();
             
         }
         void Update()
@@ -82,6 +83,7 @@ namespace Ennemy
                     StartCoroutine(Hitstun());
                 }
                 //Debug.Log(other);
+                
                 health -= GameManager.Instance.swordDamage;
                 animator.SetTrigger("Degat");
                 GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
