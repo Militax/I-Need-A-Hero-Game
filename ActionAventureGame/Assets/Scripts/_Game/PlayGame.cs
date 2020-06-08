@@ -65,6 +65,9 @@ public class PlayGame : MonoBehaviour
 
     public void NextLevelButton(int index)
     {
+        SoundManager.instance.musicSource.Stop();
+        SoundManager.instance.musicSource.loop = false;
+
         SceneManager.LoadScene(index);
     }
 

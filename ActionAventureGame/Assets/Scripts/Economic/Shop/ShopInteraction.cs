@@ -15,7 +15,7 @@ public class ShopInteraction : MonoBehaviour
 	public SpriteRenderer spr;
 	ThresholdBourse threshold;
 
-	[Header ("Audio")]
+	[Header ("Audio")]
 	public AudioClip BuyAudio;
 	public AudioClip BuyDeniedAudio;
 
@@ -102,12 +102,12 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 			}
-			else
-			{
-				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
-			}
-
-
+			else
+			{
+				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
+			}
+
+
 		}
 		else if (GameManager.Instance.maxCoin == 2000)
 		{
@@ -124,11 +124,11 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 			}
-			else
-			{
-				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
-			}
-
+			else
+			{
+				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
+			}
+
 		}
 		
 
@@ -162,12 +162,12 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 			}
-			else
-			{
-				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
-			}
-
-
+			else
+			{
+				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
+			}
+
+
 		}
 		//coeur 7
 		else if (GameManager.Instance.playerHealthMax == 6)
@@ -187,11 +187,11 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 			}
-			else
-			{
-				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
-			}
-
+			else
+			{
+				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
+			}
+
 		}
 		// coeur 8
 		else if (GameManager.Instance.playerHealthMax == 7)
@@ -211,11 +211,11 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 			}
-			else
-			{
-				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
-			}
-
+			else
+			{
+				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
+			}
+
 		}
 		// coeur 9
 		else if (GameManager.Instance.playerHealthMax == 8)
@@ -235,9 +235,9 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 			}
-			else
-			{
-				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
+			else
+			{
+				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
 			}
 		}
 		// coeur 10
@@ -258,9 +258,9 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 			}
-			else
-			{
-				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
+			else
+			{
+				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
 			}
 		}
 	}

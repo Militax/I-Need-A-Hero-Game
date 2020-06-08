@@ -29,7 +29,7 @@ namespace Ennemy
         {
             if (other.CompareTag("WindWave") || other.CompareTag("GeneratorWave"))
             {
-                if (ennemyType == "Gingerbread")
+                if (ennemyType == "Gingerbread" || ennemyType == "GingerBreadProto")
                 {
                     
                     //if (GetComponent<GingerbreadMovement>().isAffectedByWind == false)
@@ -104,6 +104,14 @@ namespace Ennemy
                         rb.velocity = Vector2.zero;
                     }
                     break;
+                case ("GingerBreadProto")://Sur le gingerbread
+                    GetComponent<GingerBreadBehaviour>().ispushed = true;
+                    rb.velocity = other.GetComponentInParent<Rigidbody2D>().velocity / windEffectSlowdown;//Fait reculer l'ennemi
+                    yield return new WaitForSeconds(windEffectDuration);
+                    GetComponent<GingerBreadBehaviour>().ispushed = false;
+                    rb.velocity = Vector2.zero;
+                    
+                    break;
 
             }
         }
@@ -129,22 +137,37 @@ namespace Ennemy
                     freezeOver = true;
 
                     break;
+                case ("GingerBreadProto")://Sur le gingerbread
 
+                    freezeOver = false;
+                    GetComponent<GingerBreadBehaviour>().isFrozen = true;
 
-                case ("Chat")://Sur le chat
+                    //rb.velocity = other.GetComponentInParent<Rigidbody2D>().velocity / windEffectSlowdown;//Fait reculer l'ennemi
+                    //yield return new WaitForSeconds(windEffectDuration);
+                    rb.velocity = Vector2.zero;
+                    //Debug.Log(animator);
+                    animator.SetTrigger("Freeze");
+
+                    yield return new WaitForSeconds(GetComponent<GingerBreadBehaviour>().FreezeStunTime);
+                    
+                    freezeOver = true;
+
                     break;
 
+                //case ("Chat")://Sur le chat
+                //    break;
 
-                case ("Snowman")://Sur le SnowMan
 
-                    if (GameManager.Instance.powerState == 3)
-                    {
-                        rb.velocity = other.GetComponentInParent<Rigidbody2D>().velocity / windEffectSlowdown;//Fait reculer l'ennemi
-                        yield return new WaitForSeconds(windEffectDuration);
-                        rb.velocity = Vector2.zero;
-                    }
+                //case ("Snowman")://Sur le SnowMan
 
-                    break;
+                //    if (GameManager.Instance.powerState == 3)
+                //    {
+                //        rb.velocity = other.GetComponentInParent<Rigidbody2D>().velocity / windEffectSlowdown;//Fait reculer l'ennemi
+                //        yield return new WaitForSeconds(windEffectDuration);
+                //        rb.velocity = Vector2.zero;
+                //    }
+
+                //    break;
 
             }
         }

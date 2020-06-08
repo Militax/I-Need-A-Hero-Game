@@ -8,6 +8,8 @@ public class PlayMusic : MonoBehaviour
     public bool ifTrigger;
     public bool needToLoop;
 
+    [Range(0f, 1f)] public float volume;
+
     public AudioClip music;
 
 
@@ -19,7 +21,7 @@ public class PlayMusic : MonoBehaviour
             {
                 SoundManager.instance.musicSource.loop = true;
             }
-            SoundManager.instance.PlayMusic(music, 1);
+            SoundManager.instance.PlayMusic(music, volume);
         }
     }
 
@@ -32,8 +34,19 @@ public class PlayMusic : MonoBehaviour
                 SoundManager.instance.musicSource.loop = true;
             }
 
-            SoundManager.instance.PlayMusic(music, 1);
+            SoundManager.instance.PlayMusic(music, volume);
             Destroy(gameObject);
         }
+    }
+
+
+    public void PlaySong()
+    {
+        if (needToLoop)
+        {
+            SoundManager.instance.musicSource.loop = true;
+        }
+
+        SoundManager.instance.PlayMusic(music, volume);
     }
 }
