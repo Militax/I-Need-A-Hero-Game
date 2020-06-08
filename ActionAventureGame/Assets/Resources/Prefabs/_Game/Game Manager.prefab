@@ -540,7 +540,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
     m_PressedColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.6509804, g: 0.6509804, b: 0.6509804, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -560,7 +560,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 82611810}
         m_MethodName: playerHealthMax
         m_Mode: 1
         m_Arguments:
@@ -588,7 +588,7 @@ MonoBehaviour:
   emptyHearth8: {fileID: 481177346056673953}
   emptyHearth9: {fileID: 2126999260799440317}
   emptyHearth10: {fileID: 451057347178709648}
-  emptyHearthEpuise: {fileID: 0}
+  emptyHearthEpuise: {fileID: 2237236212215546995}
 --- !u!1 &621067696
 GameObject:
   m_ObjectHideFlags: 0
@@ -1987,7 +1987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &501854041509087261
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2697,36 +2697,36 @@ MonoBehaviour:
   - Level: 0
     Coins: 1000
     accordingSprite: {fileID: 21300000, guid: 067de5d078c7f9c43b5aee8e4de32780, type: 3}
-  - Level: 0
-    Coins: 0
-    accordingSprite: {fileID: 21300000, guid: fb2d346f7bc08e041bfc3481a68eae4e, type: 3}
-  - Level: 0
-    Coins: 0
-    accordingSprite: {fileID: 21300000, guid: fb2d346f7bc08e041bfc3481a68eae4e, type: 3}
+  - Level: 2
+    Coins: 5000
+    accordingSprite: {fileID: 21300000, guid: 547b16225b3d1fa43af500bcc9153dda, type: 3}
+  - Level: 1
+    Coins: 2000
+    accordingSprite: {fileID: 21300000, guid: 4ec424bfb438cf04aad8f196ac93235e, type: 3}
   - Level: 1
     Coins: 0
+    accordingSprite: {fileID: 21300000, guid: 5967eba51863ca14ab3e0148dd0ea657, type: 3}
+  - Level: 1
+    Coins: 500
     accordingSprite: {fileID: 21300000, guid: a08fa1532ae0c684d8b183472e85f964, type: 3}
   - Level: 1
-    Coins: 25
+    Coins: 1000
     accordingSprite: {fileID: 21300000, guid: 93a7b7dea23bd7e4cbee870ca9fbb57d, type: 3}
   - Level: 1
-    Coins: 41
+    Coins: 1500
     accordingSprite: {fileID: 21300000, guid: d08e702da59dde649a41ed41f20e8297, type: 3}
-  - Level: 1
-    Coins: 50
-    accordingSprite: {fileID: 21300000, guid: 4ec424bfb438cf04aad8f196ac93235e, type: 3}
   - Level: 2
     Coins: 0
     accordingSprite: {fileID: 21300000, guid: 3737542a031b03946a972e94e5e4a9f5, type: 3}
   - Level: 2
-    Coins: 70
+    Coins: 1000
+    accordingSprite: {fileID: 21300000, guid: 8904d1865c1d48a4e82b72bedfd2dcdf, type: 3}
+  - Level: 2
+    Coins: 2000
     accordingSprite: {fileID: 21300000, guid: 706da8ad5e2023a4db4612eaf8755181, type: 3}
   - Level: 2
-    Coins: 90
+    Coins: 3000
     accordingSprite: {fileID: 21300000, guid: 6f248c6537a88d74d8b32e101c407ab0, type: 3}
-  - Level: 2
-    Coins: 200
-    accordingSprite: {fileID: 21300000, guid: 547b16225b3d1fa43af500bcc9153dda, type: 3}
 --- !u!114 &6900250571808254123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3230,9 +3230,10 @@ MonoBehaviour:
   swordDamage: 1
   SlamDamage: 1
   CoinOwned: 0
-  maxCoin: 1000
+  maxCoin: 50
   bottesState: 0
   isComingFromDonjon: 0
+  NarrativeStat: 1
   currentSave: 
 --- !u!114 &5913522770453334982
 MonoBehaviour:
@@ -3834,7 +3835,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1789059680427658853
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3914,7 +3915,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
     m_PressedColor: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.6431373, g: 0.6431373, b: 0.6431373, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3934,7 +3935,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 82611810}
         m_MethodName: maxCoin
         m_Mode: 1
         m_Arguments:
@@ -4035,7 +4036,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &697940951710961087
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4393,8 +4394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxCoinlvl1: {fileID: 3132216446346844468}
   maxCoinlvl2: {fileID: 3759478400056833384}
-  maxCoinlvl3: {fileID: 0}
-  maxCoinEpuise: {fileID: 0}
+  maxCoinEpuise: {fileID: 3285586653529624214}
 --- !u!1 &3759478400056833384
 GameObject:
   m_ObjectHideFlags: 0
@@ -4413,7 +4413,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8081525269496025472
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4493,7 +4493,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
     m_PressedColor: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.62352943, g: 0.62352943, b: 0.62352943, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -4513,7 +4513,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 82611810}
         m_MethodName: maxCoin
         m_Mode: 1
         m_Arguments:
@@ -4684,7 +4684,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3757570710893377013
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5018,7 +5018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   botteslvl1: {fileID: 7616385896951435821}
   botteslvl2: {fileID: 8188971839568809869}
-  bottesEpuise: {fileID: 0}
+  bottesEpuise: {fileID: 189922530632663894}
 --- !u!1 &4440977717343324519
 GameObject:
   m_ObjectHideFlags: 0
@@ -5404,7 +5404,7 @@ RectTransform:
   m_GameObject: {fileID: 5592127655306546305}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 1165209760898652085}
   m_RootOrder: 6
@@ -5976,7 +5976,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2715711992899432400
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6189,7 +6189,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
     m_PressedColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.6509804, g: 0.6509804, b: 0.6509804, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -6209,7 +6209,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 82611810}
         m_MethodName: playerHealthMax
         m_Mode: 1
         m_Arguments:
@@ -6237,7 +6237,7 @@ MonoBehaviour:
   emptyHearth8: {fileID: 1336078875333872122}
   emptyHearth9: {fileID: 6751815410642932011}
   emptyHearth10: {fileID: 7554275997590360031}
-  emptyHearthEpuise: {fileID: 0}
+  emptyHearthEpuise: {fileID: 594975612219388846}
 --- !u!1 &7203015317593114859
 GameObject:
   m_ObjectHideFlags: 0
@@ -6418,7 +6418,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
     m_PressedColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.6509804, g: 0.6509804, b: 0.6509804, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -6438,7 +6438,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 82611810}
         m_MethodName: playerHealthMax
         m_Mode: 1
         m_Arguments:
@@ -6466,7 +6466,7 @@ MonoBehaviour:
   emptyHearth8: {fileID: 8804006397884109601}
   emptyHearth9: {fileID: 4995419923392242627}
   emptyHearth10: {fileID: 6565696001326086627}
-  emptyHearthEpuise: {fileID: 0}
+  emptyHearthEpuise: {fileID: 1319841633454187672}
 --- !u!1 &7554275997590360031
 GameObject:
   m_ObjectHideFlags: 0
@@ -6564,7 +6564,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5289209102541920671
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6644,7 +6644,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 1}
     m_PressedColor: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.69803923, g: 0.69803923, b: 0.69803923, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -6664,7 +6664,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 82611810}
         m_MethodName: bottesState
         m_Mode: 1
         m_Arguments:
@@ -6761,7 +6761,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1312514606155091755
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6839,7 +6839,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5472592540409579129
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6918,8 +6918,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.6132076, g: 0.52354044, b: 0.52354044, a: 1}
-    m_PressedColor: {r: 1, g: 0.759434, b: 0.9704817, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 1}
+    m_SelectedColor: {r: 0.6117647, g: 0.5254902, b: 0.5254902, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -6939,7 +6939,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 82611810}
         m_MethodName: bottesState
         m_Mode: 1
         m_Arguments:

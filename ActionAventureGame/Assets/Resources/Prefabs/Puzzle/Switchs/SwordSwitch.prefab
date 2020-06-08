@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6448018784383941533}
   - component: {fileID: 6448018784383941531}
   - component: {fileID: 6775468436048891667}
+  - component: {fileID: 5033258471920960039}
   m_Layer: 0
   m_Name: SwordSwitch
   m_TagString: Interactable
@@ -60,6 +61,9 @@ MonoBehaviour:
   - colliderTag: Bullet
     active: {fileID: 21300000, guid: 4f763dabef2ae684b9dff7d5c1fc12fb, type: 3}
     inactive: {fileID: 21300000, guid: 7db7bdd0f56219a4ba8159bf29d90d16, type: 3}
+  - colliderTag: Slam
+    active: {fileID: 21300000, guid: 02ca923317fba5840bb7ea968ddaf652, type: 3}
+    inactive: {fileID: 21300000, guid: 36b34bf9cc0b6364aac0a708b03f07e5, type: 3}
   interactables: []
   HasBeenActivated: 0
   IsActive: 0
@@ -74,6 +78,12 @@ MonoBehaviour:
     cooldownTime: 0
   FirePit: {fileID: 0}
   TimelineNeeded: 0
+  animator: {fileID: 0}
+  ParticleSystem: {fileID: 0}
+  OffsetParticle: 0
+  RotationParticle: 0
+  switchOn: {fileID: 0}
+  switchOff: {fileID: 0}
 --- !u!212 &6448018784383941533
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -169,3 +179,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &5033258471920960039
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6448018784383941535}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0005531311, y: 0.05746746}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.71100056, y: 0.37791687}
+    oldSize: {x: 1.0833334, y: 1.0416666}
+    newSize: {x: 1.0833334, y: 1.0416666}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.557106, y: 0.83989525}
+  m_EdgeRadius: 0

@@ -21,6 +21,7 @@ namespace Ennemy
         2.Snowman
         3.Chat
          */
+        CatBehaviourProto MyCat;
 
         public float health;
         public float maximumHealth;
@@ -28,6 +29,7 @@ namespace Ennemy
         public bool isAlive = true;
         public float hitstun;
         bool isStunned = false;
+        
 
         [HideInInspector]
         public bool canTakeDamage = true;
@@ -56,8 +58,8 @@ namespace Ennemy
         {
             health = maximumHealth;
             animator = gameObject.GetComponent<Animator>();
-            
-            
+            MyCat = GetComponent<CatBehaviourProto>();
+            animator.SetBool("Death", false);
         }
         void Update()
         {
@@ -73,7 +75,7 @@ namespace Ennemy
                 //Debug.Log("death");
                 if (Dead == true)
                 {
-                    animator.SetTrigger("Death");
+                    animator.SetBool("Death", true);
                     StartCoroutine(cooldown());
 
 
@@ -134,6 +136,17 @@ namespace Ennemy
                     StartCoroutine(Hitstun());
                 }
                 //Debug.Log(other);
+                if (ennemyType == "Cat")
+                {
+                    if (MyCat.isPushed)
+                    {
+                        animator.SetBool("isPushed", false);
+                    }
+                    else
+                    {
+                        animator.SetBool("isPushed", true);
+                    }
+                }
                 health -= GameManager.Instance.swordDamage;
                 animator.SetTrigger("Degat");
                 GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
