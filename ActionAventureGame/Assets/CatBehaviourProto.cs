@@ -16,11 +16,12 @@ public class CatBehaviourProto : MonoBehaviour
     #endregion
     Animator animator;
 
+
     #region Variables
     Vector2 dir;
     float distance;
     Vector2 direction;
-    bool isPushed;
+    public bool isPushed;
     public float cdCape;
 
     [Header("Movement")]
@@ -63,7 +64,7 @@ public class CatBehaviourProto : MonoBehaviour
         if (distance <= AttackRange && isAttacking == false && !isPushed)
         {
             isAttacking = true;
-            animator.SetTrigger("CanAttack");
+            animator.SetTrigger("Attack");
             rb.velocity = Vector2.zero;
             direction = player.transform.position - gameObject.transform.position;
             print("attack");
@@ -106,7 +107,7 @@ public class CatBehaviourProto : MonoBehaviour
     {
         //takedamage = true;
 
-        animator.SetTrigger("CanCape");
+        animator.SetTrigger("Etourdi");
         isPushed = true;
         Invoke("BecomeVulnerable", cdCape);
 
