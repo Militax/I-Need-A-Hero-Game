@@ -154,6 +154,13 @@ public class SoundManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+
+    private void Update()
+    {
+    }
+
+
+
     // = = =
 
     // = = = [ CLASS METHODS ] = = =

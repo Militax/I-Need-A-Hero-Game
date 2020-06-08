@@ -32,6 +32,7 @@ public class Vide : MonoBehaviour
             {
                 if (tag == "PlayerFeet")
                 {
+                    SoundManager.instance.PlaySfx(FallingAudio, 1, 1);
                     GameManager.Instance.player.transform.position = respawnPoint;
                     GameManager.Instance.playerHealth--;
                     return;
