@@ -13,15 +13,25 @@ public class GingerBreadBehaviour : MonoBehaviour
 
     #region Variables
 
+    public float stunduration;
     float distance;
     Vector2 direction;
+    float LookingDir;
+    bool LookingRight;
+
     [HideInInspector]
     public bool ispushed;
     [HideInInspector]
+    public bool isStunned;
+    [HideInInspector]
     public bool isFrozen;
 
-    
+    public float Shakeduration;
+    public float ShakeAmount;
     bool isRunning;
+    bool degel;
+    
+    Vector2 newpos;
 
     
     public float FreezeStunTime;
@@ -35,7 +45,7 @@ public class GingerBreadBehaviour : MonoBehaviour
     public float jumpSpeed;
     public float attackCooldown;
     public float attackRange;
-    
+    public Cooldown attackDuration;
     public float damageRange;
     bool isAttacking;
     bool isDealingDamage;
@@ -52,12 +62,13 @@ public class GingerBreadBehaviour : MonoBehaviour
     }
     private void Update()
     {
-        
 
+        
         if (isFrozen && !isRunning)
         {
             //anim gel
             isRunning = true;
+            Invoke("Degel", FreezeStunTime);
             Invoke("ResetFreeze", FreezeStunTime);
         }
         if ( !isFrozen)
@@ -75,11 +86,12 @@ public class GingerBreadBehaviour : MonoBehaviour
 
                 direction = player.transform.position - gameObject.transform.position;
                 isAttacking = true;
+                attackDuration.Reset();
             }
 
-            if (isAttacking && !isDealingDamage &&!ispushed)
+            if (isAttacking && !isDealingDamage && !ispushed && !isStunned && !attackDuration.IsOver()) 
             {
-
+                
                 rb.velocity = direction.normalized * jumpSpeed;
 
 
@@ -93,26 +105,40 @@ public class GingerBreadBehaviour : MonoBehaviour
                 Invoke("ResetAttack", attackCooldown);
             }
 
-            if (distance > detectionRange && !ispushed)
+            if (isAttacking && attackDuration.IsOver())
             {
-                rb.velocity = Vector2.zero;
-            }
-
-            if (distance > attackRange && isAttacking)
-            {
+                
                 isAttacking = false;
                 missed = true;
                 Invoke("Missed", attackCooldown);
             }
+            
+            if ((distance > detectionRange && !ispushed))
+            {
+                rb.velocity = Vector2.zero;
+            }
+
+            //if (distance > attackRange && isAttacking)
+            //{
+            //    isAttacking = false;
+            //    missed = true;
+            //    Invoke("Missed", attackCooldown);
+            //}
             if (missed && !ispushed)
             {
                 rb.velocity = Vector2.zero;
             }
         }
         
+    }   
+
+    void Degel()
+    {
+        iTween.ShakePosition(gameObject, new Vector3(ShakeAmount, 0, 0), Shakeduration);
     }
     void ResetFreeze()
     {
+        degel = false;
         isRunning = false;
         isFrozen = false;
     }
@@ -146,5 +172,17 @@ public class GingerBreadBehaviour : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRange);
         Gizmos.DrawWireSphere(transform.position, damageRange);
 
+    }
+    void LookAt()
+    {
+        LookingDir = Vector2.Angle(Vector2.up, player.transform.position);
+        if (player.transform.position.x > transform.position.x)
+        {
+            LookingRight = true;
+        }
+        else
+        {
+            LookingRight = false;
+        }
     }
 }
