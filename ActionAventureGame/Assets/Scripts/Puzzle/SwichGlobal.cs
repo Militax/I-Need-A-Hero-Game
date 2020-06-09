@@ -23,6 +23,7 @@ public class SwichGlobal : ActivationDevice
     public Cooldown timer;
 
     public GameObject FirePit;
+    public GameObject WhenActive;
     private PlayableDirector Timeline;
     public bool TimelineNeeded;
     public Animator animator;
@@ -134,7 +135,13 @@ public class SwichGlobal : ActivationDevice
                         GameObject fx = Instantiate(ParticleSystem, this.transform.position + new Vector3(0, OffsetParticle, 0), Quaternion.Euler(RotationParticle, 0, 0));
                         Destroy(fx, 2f);
                     }
+
+                    if (WhenActive != null)
+                    {
+                        WhenActive.SetActive(true);
+                    }
                     
+               
 
                 }
                 else if (!IsActive)
@@ -147,7 +154,12 @@ public class SwichGlobal : ActivationDevice
                         GameObject fx = Instantiate(ParticleSystem, this.transform.position + new Vector3(0, OffsetParticle, 0), Quaternion.Euler(RotationParticle, 0, 0));
                         Destroy(fx, 2f);
                     }
-                        
+
+                    if (WhenActive != null)
+                    {
+                        WhenActive.SetActive(false);
+                    }
+
                 }
                 base.RefreshState(state, tag);
                 //if (!ActivateEvent || !DeActivateEvent)
