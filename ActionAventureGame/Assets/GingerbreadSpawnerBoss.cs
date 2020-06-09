@@ -15,7 +15,6 @@ public class GingerbreadSpawnerBoss : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Start "+name);
         _canInstaciate = true;
         _isWaiting = false;
     }
@@ -24,7 +23,6 @@ public class GingerbreadSpawnerBoss : MonoBehaviour
         
         if (this.transform.childCount <= 0)
         {
-            Debug.Log("Can "+name+" instanciate Ggb ? " + _canInstaciate);
             if (_canInstaciate)
             {
                 InstanciateNewGingerbread();
@@ -39,7 +37,6 @@ public class GingerbreadSpawnerBoss : MonoBehaviour
     }
     void InstanciateNewGingerbread()
     {
-        Debug.Log("I will instanciate the gingerbread !");
         GameObject myGingerBread = Instantiate(Gingerbread);
         myGingerBread.transform.SetParent(this.transform);
         myGingerBread.transform.localPosition = Vector3.zero;
@@ -47,12 +44,10 @@ public class GingerbreadSpawnerBoss : MonoBehaviour
     }
     IEnumerator Cooldown()
     {
-        Debug.Log("I'll Wait for " + _cooldown + " sec");
         _isWaiting = true;
         yield return new WaitForSeconds(_cooldown);
         _canInstaciate = true;
         _isWaiting = false;
-        Debug.Log("End Waiting for respawn.");
 
     }
 }
