@@ -13,26 +13,30 @@ public class cheatCodes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(invulnerability))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            GameManager.Instance.playerHealthMax = 1000;
-            GameManager.Instance.playerHealth = GameManager.Instance.playerHealthMax;
-        }
-        else if (Input.GetKey(die))
-        {
-            GameManager.Instance.playerHealth = 0;
-        }
-        else if (Input.GetKey(money))
-        {
-            GameManager.Instance.CoinOwned = GameManager.Instance.maxCoin;
-            //GameManager.Instance.CoinOwned = GameManager.Instance.maxCoin;
+            if (Input.GetKey(invulnerability))
+            {
+                GameManager.Instance.playerHealthMax = 1000;
+                GameManager.Instance.playerHealth = GameManager.Instance.playerHealthMax;
+            }
+            else if (Input.GetKey(die))
+            {
+                GameManager.Instance.playerHealth = 0;
+            }
+            else if (Input.GetKey(money))
+            {
+                GameManager.Instance.CoinOwned = GameManager.Instance.maxCoin;
+                //GameManager.Instance.CoinOwned = GameManager.Instance.maxCoin;
 
+            }
+            else if (Input.GetKey(normalLife))
+            {
+                GameManager.Instance.playerHealthMax = 5;
+                GameManager.Instance.playerHealth = GameManager.Instance.playerHealthMax;
+            }
         }
-		else if (Input.GetKey(normalLife))
-		{
-			GameManager.Instance.playerHealthMax = 5;
-            GameManager.Instance.playerHealth = GameManager.Instance.playerHealthMax;
-		}
+        
 
     }
 }

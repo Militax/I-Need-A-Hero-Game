@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using GameManagement;
+using Economic;
 
 public class BoursePrix : MonoBehaviour
 {
@@ -10,12 +11,16 @@ public class BoursePrix : MonoBehaviour
 	public GameObject maxCoinlvl2;
 	
 	public GameObject maxCoinEpuise;
+	ThresholdBourse threshold;
 
-   
-    void Update()
+	private void Start()
+	{
+		threshold = GameManager.Instance.GetComponentInChildren<ThresholdBourse>();
+	}
+	void Update()
     {
         // les prix des bourse plus grande 
-		if (GameManager.Instance.maxCoin == 50)
+		if (threshold.BourseLevel == 0)
 		{
 			Debug.Log("ca marche");
 			maxCoinlvl1.SetActive (true);
@@ -23,14 +28,14 @@ public class BoursePrix : MonoBehaviour
 			
 			maxCoinEpuise.SetActive (false);
 		}
-		else if (GameManager.Instance.maxCoin <= 300 && GameManager.Instance.maxCoin > 50)
+		else if (threshold.BourseLevel == 1)
 		{
 			maxCoinlvl1.SetActive (false);
 			maxCoinlvl2.SetActive (true);
 			
 			maxCoinEpuise.SetActive (false);
 		}
-		else if (GameManager.Instance.maxCoin <= 500 && GameManager.Instance.maxCoin >300 )
+		else if (threshold.BourseLevel == 2)
 		{
 			maxCoinlvl1.SetActive (false);
 			maxCoinlvl2.SetActive (false);
