@@ -144,7 +144,7 @@ namespace Player
 				SoundManager.instance.PlaySfx(attaque1, 1, 1);
                 StartCoroutine(Attaque_Movement());
             }
-            else if (ComboCount == 3)
+            else if (ComboCount == 3)
             {
                 SoundManager.instance.PlaySfx(attaqueSlam, 1, 1);
                 Invoke("Slam",.5f);
@@ -153,14 +153,13 @@ namespace Player
             
             
         }
-        void Slam()
-        {
+        void Slam()
+        {
             GameObject slam = Instantiate(SlamHitbox, transform.position, Quaternion.identity);
-
-            slam.GetComponent<CircleCollider2D>().radius += .1f;
-            SlamHitbox.GetComponent<AttackColliders>().Invoke("deSpawn", attackDuration);
-            myCD.Reset();
-            myAtkSpeed.Reset();
+            slam.GetComponent<CircleCollider2D>().radius += .1f;
+            SlamHitbox.GetComponent<AttackColliders>().Invoke("deSpawn", attackDuration);
+            myCD.Reset();
+            myAtkSpeed.Reset();
         }
         IEnumerator Attaque_Movement()
         {

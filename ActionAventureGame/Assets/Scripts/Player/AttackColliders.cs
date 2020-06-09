@@ -22,6 +22,7 @@ namespace Player
             GameManager.Instance.player.GetComponent<PlayerAttack>().isAttacking = false;
         }
 
+        
         public void deSpawn()
         {
             GameManager.Instance.player.GetComponent<PlayerAttack>().isAttacking = false;

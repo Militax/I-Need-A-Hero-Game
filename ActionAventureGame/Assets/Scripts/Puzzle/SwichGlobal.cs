@@ -39,7 +39,7 @@ public class SwichGlobal : ActivationDevice
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
+        Debug.Log("BIM " + other.tag);
         if (activationCooldown.IsOver())
         {
             if ((HasBeenActivated && SwitchOnce) || (useTimer && !timer.isStopped) )
@@ -91,7 +91,7 @@ public class SwichGlobal : ActivationDevice
         }
     }
 
-    protected override void RefreshState(bool state, string tag = null)
+    public virtual void RefreshState(bool state, string tag = null)
     {
         if (useTimer)
         {
@@ -159,7 +159,6 @@ public class SwichGlobal : ActivationDevice
                     {
                         WhenActive.SetActive(false);
                     }
-
                 }
                 base.RefreshState(state, tag);
                 //if (!ActivateEvent || !DeActivateEvent)

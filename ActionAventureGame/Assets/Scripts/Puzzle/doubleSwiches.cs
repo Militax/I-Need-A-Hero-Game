@@ -7,7 +7,7 @@ public class doubleSwiches : ActivationDevice
 
     public doubleSwiches other;
 
-    protected override void RefreshState(bool state, string tag = null)
+    public virtual void RefreshState(bool state, string tag = null)
     {
         foreach (Combination item in combinations)
         {

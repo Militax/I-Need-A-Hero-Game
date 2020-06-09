@@ -24,7 +24,7 @@ public class ActivationDevice : MonoBehaviour
     public bool IsActive;
     protected SpriteRenderer spr;
 
-    protected virtual void RefreshState(bool state, string tag = null)  // demande un state et optionnelement un string
+    public virtual void RefreshState(bool state, string tag = null)  // demande un state et optionnelement un string
     {
         HasBeenActivated = true;
     }

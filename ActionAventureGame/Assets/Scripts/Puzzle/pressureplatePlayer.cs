@@ -46,7 +46,7 @@ public class pressureplatePlayer : ActivationDevice
     }
     
 
-    protected override void RefreshState(bool state, string tag = null)
+    public virtual void RefreshState(bool state, string tag = null)
     {
         foreach (Combination item in combinations)
         {
