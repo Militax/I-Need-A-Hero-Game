@@ -300,7 +300,6 @@ namespace Boss
         {
 
             CurrentPhase++;
-            Debug.Log(CurrentPhase);
             if (CurrentPhase == 2)
             {
                 player.transform.position = WaterRespawn.position;

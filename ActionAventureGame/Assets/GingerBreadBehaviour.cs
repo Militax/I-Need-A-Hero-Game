@@ -52,7 +52,16 @@ public class GingerBreadBehaviour : MonoBehaviour
     bool isAttacking;
     bool isDealingDamage;
     bool missed;
-    
+
+
+
+    [Header("Audio")]
+    public AudioClip GbDash1;
+    public AudioClip GbDash2;
+    public AudioClip GbDash3;
+    public AudioClip GbDash4;
+    public AudioClip GbDash5;
+
     #endregion
 
 
@@ -90,6 +99,7 @@ public class GingerBreadBehaviour : MonoBehaviour
 
             if (distance < attackRange && isAttacking == false && missed == false)
             {
+                PlayGBSound();
                 animator.SetTrigger("Attack");
                 direction = player.transform.position - gameObject.transform.position;
                 isAttacking = true;
@@ -207,6 +217,47 @@ public class GingerBreadBehaviour : MonoBehaviour
         else
         {
             LookingRight = false;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    void PlayGBSound()
+    {
+        int token = Random.Range(1, 6);
+
+        switch(token)
+        {
+            case (1):
+                SoundManager.instance.PlaySfx(GbDash1, 1, 1);
+                break;
+
+            case (2):
+                SoundManager.instance.PlaySfx(GbDash2, 1, 1);
+                break;
+
+            case (3):
+                SoundManager.instance.PlaySfx(GbDash3, 1, 1);
+                break;
+
+            case (4):
+                SoundManager.instance.PlaySfx(GbDash4, 1, 1);
+                break;
+
+            case (5):
+                SoundManager.instance.PlaySfx(GbDash5, 1, 1);
+                break;
+
         }
     }
 }

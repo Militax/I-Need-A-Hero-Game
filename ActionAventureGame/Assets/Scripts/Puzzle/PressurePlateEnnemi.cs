@@ -18,6 +18,9 @@ public class PressurePlateEnnemi : ActivationDevice
     public bool WasActivated;
     public GameObject ParticleSystem;
 
+    [Header("Audio")]
+    public AudioClip pressurePlateAudio;
+
 
 
 
@@ -74,6 +77,7 @@ public class PressurePlateEnnemi : ActivationDevice
                     if (IsActive && !WasActivated)
                     {
                         WasActivated = true;
+                        SoundManager.instance.PlaySfx(pressurePlateAudio, 1, 1);
                         GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
                         Destroy(fx, 2f);
                     }
@@ -82,6 +86,7 @@ public class PressurePlateEnnemi : ActivationDevice
                 {
                     if (IsActive)
                     {
+                        SoundManager.instance.PlaySfx(pressurePlateAudio, 1, 1);
                         GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
                         Destroy(fx, 2f);
                     }

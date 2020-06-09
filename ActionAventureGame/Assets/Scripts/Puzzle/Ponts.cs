@@ -10,6 +10,11 @@ public class Ponts : MonoBehaviour
     public float DissolveAmount;
     bool appeared = false;
 
+    [Header("Audio")]
+    public AudioClip pontAudio1;
+    public AudioClip pontAudio2;
+
+    bool havePlay = false;
 
 
     private void Start()
@@ -27,7 +32,6 @@ public class Ponts : MonoBehaviour
 
             if (item.IsActive)
             {
-
                 AllActive++;
             }
 
@@ -37,6 +41,11 @@ public class Ponts : MonoBehaviour
 
                 if (DissolveAmount < 1 && appeared == false)
                 {
+                    if (!havePlay)
+                    {
+                        PlayPontSound();
+                    }
+
                     material.SetFloat("DissolveAmount", DissolveAmount);
 
                     DissolveAmount += 0.004f;
@@ -65,5 +74,36 @@ public class Ponts : MonoBehaviour
         }
 
 
+
+        
+    }
+
+
+
+
+
+    void PlayPontSound()
+    {
+        int index = Random.Range(1, 3);
+
+        switch(index)
+        {
+            case (1):
+                SoundManager.instance.PlaySfx(pontAudio1, 1, 1);
+                break;
+
+            case (2):
+                SoundManager.instance.PlaySfx(pontAudio2, 1, 1);
+                break;
+        }
+
+        StartCoroutine(SoundCoolDown());
+    }
+
+    IEnumerator SoundCoolDown()
+    {
+        havePlay = true;
+        yield return new WaitForSeconds(3);
+        havePlay = false;
     }
 }

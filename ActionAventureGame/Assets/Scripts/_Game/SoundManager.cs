@@ -128,8 +128,16 @@ public class SoundManager : MonoBehaviour
     public bool voice60 = false;
     [HideInInspector]
     public bool voice61 = false;
+    [HideInInspector]
+    public bool voicePhase1 = false;
+    [HideInInspector]
+    public bool voicePhase1bis = false;
+    [HideInInspector]
+    public bool voicePhase2 = false;
+    [HideInInspector]
+    public bool voicePhase3 = false;
 
-    
+
     #endregion
 
 
