@@ -45,7 +45,12 @@ public class CatBehaviourProto : MonoBehaviour
 
     [Header("Audio")]
     public AudioClip CatDrappedAudio;
-    
+    public AudioClip CatAttackAudio1;
+    public AudioClip CatAttackAudio2;
+    public AudioClip CatAttackAudio3;
+    public AudioClip CatAttackAudio4;
+    public AudioClip CatAttackAudio5;
+
 
     #endregion
 
@@ -106,6 +111,7 @@ public class CatBehaviourProto : MonoBehaviour
 
         GameManager.Instance.playerHealth -= Damage;
         iTween.MoveAdd(player.gameObject, direction.normalized * attackForce, attackDuration);
+        PlayAttackSound();
         Invoke("AttackCD", attackCoolDown);
     }
 
@@ -153,6 +159,38 @@ public class CatBehaviourProto : MonoBehaviour
         else
         {
             LookingRight = false;
+        }
+    }
+
+
+
+
+
+    void PlayAttackSound()
+    {
+        int token = Random.Range(1, 6);
+
+        switch(token)
+        {
+            case (1):
+                SoundManager.instance.PlaySfx(CatAttackAudio1, 1, 1);
+                break;
+
+            case (2):
+                SoundManager.instance.PlaySfx(CatAttackAudio2, 1, 1);
+                break;
+
+            case (3):
+                SoundManager.instance.PlaySfx(CatAttackAudio3, 1, 1);
+                break;
+
+            case (4):
+                SoundManager.instance.PlaySfx(CatAttackAudio4, 1, 1);
+                break;
+
+            case (5):
+                SoundManager.instance.PlaySfx(CatAttackAudio5, 1, 1);
+                break;
         }
     }
 }
