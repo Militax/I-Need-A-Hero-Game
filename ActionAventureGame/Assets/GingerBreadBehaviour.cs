@@ -17,8 +17,9 @@ public class GingerBreadBehaviour : MonoBehaviour
     public float stunduration;
     float distance;
     Vector2 direction;
-    float LookingDir;
-    bool LookingRight;
+    public GameObject ParticleSystem;
+    //float LookingDir;
+    //bool LookingRight;
 
     [HideInInspector]
     public bool ispushed;
@@ -82,6 +83,9 @@ public class GingerBreadBehaviour : MonoBehaviour
         {
             FreezeTime.isStopped = true;
             animator.SetTrigger("Gel");
+            isRunning = true;
+            Invoke("Degel", FreezeStunTime-1);
+            Invoke("ResetFreeze", FreezeStunTime);
             
             
             StartCoroutine(ResetFreeze());
@@ -146,7 +150,30 @@ public class GingerBreadBehaviour : MonoBehaviour
                 rb.velocity = Vector2.zero;
             }
         }
-        
+
+        float xDiff = player.transform.position.x - transform.position.x;
+        float yDiff = player.transform.position.y - transform.position.y;
+        //en bas a gauche 
+        if (xDiff < 0 && yDiff < 0)
+        {
+            animator.SetFloat("Direction", 0);
+        }
+        //en bas a droite
+        if (xDiff > 0 && yDiff < 0)
+        {
+            animator.SetFloat("Direction", 0.33f);
+        }
+        //en haut a gauche
+        if (xDiff < 0 && yDiff > 0)
+        {
+            animator.SetFloat("Direction", 0.66f);
+        }
+        //en haut a droite
+        if (xDiff > 0 && yDiff > 0)
+        {
+            animator.SetFloat("Direction", 1);
+        }
+
     }   
 
     IEnumerator ResetFreeze()
@@ -164,6 +191,16 @@ public class GingerBreadBehaviour : MonoBehaviour
             isFrozen = false;
         }
         
+    }
+    void ResetFreeze()
+    {
+        degel = false;
+        isRunning = false;
+        isFrozen = false;
+        GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
+
+        Destroy(fx, 1f);
+        animator.SetTrigger("Idle");
     }
    
 
@@ -207,31 +244,6 @@ public class GingerBreadBehaviour : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, damageRange);
 
     }
-    void LookAt()
-    {
-        LookingDir = Vector2.Angle(Vector2.up, player.transform.position);
-        if (player.transform.position.x > transform.position.x)
-        {
-            LookingRight = true;
-        }
-        else
-        {
-            LookingRight = false;
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
     void PlayGBSound()
     {
         int token = Random.Range(1, 6);

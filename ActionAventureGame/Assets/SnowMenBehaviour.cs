@@ -28,6 +28,7 @@ public class SnowMenBehaviour : MonoBehaviour
     public Cooldown FireRate;
     [HideInInspector]
     public Vector2 shootDirection;
+    Animator animator;
 
     [Header ("Push")]
     public float PushRange;
@@ -39,6 +40,11 @@ public class SnowMenBehaviour : MonoBehaviour
     bool ispushed = false;
     public CircleCollider2D PushZone;
 
+
+    private void Start()
+    {
+        animator = gameObject.GetComponent<Animator>();
+    }
     private void Update()
     {
         isalive = gameObject.GetComponent<EnemyHealth>().isAlive;
@@ -57,8 +63,9 @@ public class SnowMenBehaviour : MonoBehaviour
         {
             if (isalive)
             {
+                animator.SetTrigger("Attack");
                 Shoot();
-                LookAt();
+                //LookAt();
             }
             
         }
@@ -66,6 +73,7 @@ public class SnowMenBehaviour : MonoBehaviour
         {
             if (isalive)
             {
+                animator.SetTrigger("Repousse");
                 ispushed = true;
             }
             
@@ -81,8 +89,30 @@ public class SnowMenBehaviour : MonoBehaviour
             }
             //rb.velocity = pushDirection.normalized * (PushSpeed*50) * Time.deltaTime; 
         }
-        
 
+
+        float xDiff = Player.transform.position.x - transform.position.x;
+        float yDiff = Player.transform.position.y - transform.position.y;
+        //en bas a gauche 
+        if (xDiff < 0 && yDiff < 0)
+        {
+            animator.SetFloat("Direction", 0);
+        }
+        //en bas a droite
+        if (xDiff > 0 && yDiff < 0)
+        {
+            animator.SetFloat("Direction", 0.33f);
+        }
+        //en haut a gauche
+        if (xDiff < 0 && yDiff > 0)
+        {
+            animator.SetFloat("Direction", 0.66f);
+        }
+        //en haut a droite
+        if (xDiff > 0 && yDiff > 0)
+        {
+            animator.SetFloat("Direction", 1);
+        }
     }
 
     
@@ -117,18 +147,18 @@ public class SnowMenBehaviour : MonoBehaviour
         FireRate.Reset();
     }
 
-    void LookAt()
-    {
-        LookingDir = Vector2.Angle(Vector2.up, Player.transform.position);
-        if (Player.transform.position.x > transform.position.x)
-        {
-            LookingRight = true;
-        }
-        else
-        {
-            LookingRight = false;
-        }
-    }
+    //void LookAt()
+    //{
+    //    LookingDir = Vector2.Angle(Vector2.up, Player.transform.position);
+    //    if (Player.transform.position.x > transform.position.x)
+    //    {
+    //        LookingRight = true;
+    //    }
+    //    else
+    //    {
+    //        LookingRight = false;
+    //    }
+    //}
 
     private void OnDrawGizmos()
     {

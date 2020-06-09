@@ -12,9 +12,9 @@ public class CatBehaviourProto : MonoBehaviour
     Rigidbody2D rb;
     Rigidbody2D PlayeRb;
     bool takedamage = false;
-
-    #endregion
     Animator animator;
+    #endregion
+
 
 
     #region Variables
@@ -95,6 +95,30 @@ public class CatBehaviourProto : MonoBehaviour
             rb.velocity = Vector2.zero;
         }
 
+
+        float xDiff = player.transform.position.x - transform.position.x;
+        float yDiff = player.transform.position.y - transform.position.y;
+        //en bas a gauche 
+        if (xDiff < 0 && yDiff < 0)
+        {
+            animator.SetFloat("Direction", 0);
+        }
+        //en bas a droite
+        if (xDiff > 0 && yDiff < 0)
+        {
+            animator.SetFloat("Direction", 0.33f);
+        }
+        //en haut a gauche
+        if (xDiff < 0 && yDiff > 0)
+        {
+            animator.SetFloat("Direction", 0.66f);
+        }
+        //en haut a droite
+        if (xDiff > 0 && yDiff > 0)
+        {
+            animator.SetFloat("Direction", 1);
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -149,18 +173,6 @@ public class CatBehaviourProto : MonoBehaviour
         iTween.Stop();
     }
 
-    void LookAt()
-    {
-        LookingDir = Vector2.Angle(Vector2.up, player.transform.position);
-        if (player.transform.position.x > transform.position.x)
-        {
-            LookingRight = true;
-        }
-        else
-        {
-            LookingRight = false;
-        }
-    }
 
 
 
