@@ -17,7 +17,7 @@ public class Ponts : MonoBehaviour
         material = GetComponent<SpriteRenderer>().material;
         material.SetFloat("DissolveAmount", 0);
     }
-    void Update()
+    void FixedUpdate()
     {
         int AllActive = 0;
 
@@ -39,7 +39,7 @@ public class Ponts : MonoBehaviour
                 {
                     material.SetFloat("DissolveAmount", DissolveAmount);
 
-                    DissolveAmount += 0.004f;
+                    DissolveAmount += 0.010f;
                 }
                 if (DissolveAmount >= 1)
                 {
@@ -54,7 +54,7 @@ public class Ponts : MonoBehaviour
 
                     material.SetFloat("DissolveAmount", DissolveAmount);
 
-                    DissolveAmount -= 0.004f;
+                    DissolveAmount -= 0.010f;
                 }
                 if (DissolveAmount <= 0)
                 {
