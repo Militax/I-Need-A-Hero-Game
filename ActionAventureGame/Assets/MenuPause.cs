@@ -42,4 +42,14 @@ public class MenuPause : MonoBehaviour
             player.GetComponent<PlayerAttack>().enabled = true;
         }
     }
+    public void Retour()
+    {
+        Time.timeScale = 1;
+
+        player.GetComponent<PlayerMovement>().enabled = true;
+        player.GetComponent<PlayerPowers>().enabled = true;
+        player.GetComponent<PlayerAttack>().enabled = true;
+        menu.SetActive(false);
+        
+    }
 }

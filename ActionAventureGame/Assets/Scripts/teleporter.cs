@@ -19,10 +19,14 @@ public class teleporter : MonoBehaviour
     {
         foreach (Tele item in teleports)
         {
-            if (Input.GetKey(item.tpKey))
+            if (Input.GetKey(KeyCode.LeftShift))
             {
-                GameManager.Instance.player.transform.position = item.teleporter.transform.position;
+                if (Input.GetKey(item.tpKey))
+                {
+                    GameManager.Instance.player.transform.position = item.teleporter.transform.position;
+                }
             }
+            
         }
     }
             

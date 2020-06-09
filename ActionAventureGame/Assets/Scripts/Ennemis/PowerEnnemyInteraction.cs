@@ -105,8 +105,10 @@ namespace Ennemy
                     }
                     break;
                 case ("GingerBreadProto")://Sur le gingerbread
+                    
                     GetComponent<GingerBreadBehaviour>().ispushed = true;
                     GetComponent<GingerBreadBehaviour>().isStunned = true;
+                    rb.velocity = Vector2.zero;
                     rb.velocity = other.GetComponentInParent<Rigidbody2D>().velocity / windEffectSlowdown;//Fait reculer l'ennemi
                     yield return new WaitForSeconds(windEffectDuration);
                     GetComponent<GingerBreadBehaviour>().ispushed = false;
@@ -145,6 +147,8 @@ namespace Ennemy
 
                     freezeOver = false;
                     GetComponent<GingerBreadBehaviour>().isFrozen = true;
+                    GetComponent<GingerBreadBehaviour>().FreezeTime.Reset();
+
 
                     //rb.velocity = other.GetComponentInParent<Rigidbody2D>().velocity / windEffectSlowdown;//Fait reculer l'ennemi
                     //yield return new WaitForSeconds(windEffectDuration);
