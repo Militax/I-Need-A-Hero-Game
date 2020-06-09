@@ -83,8 +83,7 @@ namespace Ennemy
                     //---------------------------------Voix du narrateur-------------------------------------
                     switch(GameManager.Instance.NarrativeStat)
                     {
-                        case (1):
-                            Debug.Log("Play Sound");
+                        case (1):
                             if (!SoundManager.instance.voice8 && !SoundManager.instance.voiceSource.isPlaying)
                             {
                                 SoundManager.instance.PlayVoices(NarratorVoice8, 1);
@@ -92,8 +91,7 @@ namespace Ennemy
                             }
                             break;
 
-                        case (2):
-                            Debug.Log("Play Sound 2");
+                        case (2):
                             if (!SoundManager.instance.voice25 && !SoundManager.instance.voiceSource.isPlaying)
                             {
                                 SoundManager.instance.PlayVoices(NarratorVoice25, 1);
@@ -101,8 +99,7 @@ namespace Ennemy
                             }
                             break;
 
-                        case (3):
-                            Debug.Log("Play Sound 3");
+                        case (3):
                             if (!SoundManager.instance.voice51 && !SoundManager.instance.voiceSource.isPlaying)
                             {
                                 SoundManager.instance.PlayVoices(NarratorVoice51, 1);
@@ -110,8 +107,7 @@ namespace Ennemy
                             }
                             break;
 
-                        case (4):
-                            Debug.Log("Play Sound 4");
+                        case (4):
                             if (!SoundManager.instance.voice52 && !SoundManager.instance.voiceSource.isPlaying)
                             {
                                 SoundManager.instance.PlayVoices(NarratorVoice52, 1);

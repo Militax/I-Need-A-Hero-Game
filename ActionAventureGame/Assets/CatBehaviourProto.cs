@@ -40,6 +40,11 @@ public class CatBehaviourProto : MonoBehaviour
     public float attackDuration;
     public float timeBeforeAttack;
     public float attackCoolDown;
+
+
+
+    [Header("Audio")]
+    public AudioClip CatDrappedAudio;
     
 
     #endregion
@@ -111,7 +116,7 @@ public class CatBehaviourProto : MonoBehaviour
     void Cape()
     {
         //takedamage = true;
-
+        SoundManager.instance.PlaySfx(CatDrappedAudio, 1, 1);
         animator.SetTrigger("Etourdi");
         isPushed = true;
         Invoke("BecomeVulnerable", cdCape);

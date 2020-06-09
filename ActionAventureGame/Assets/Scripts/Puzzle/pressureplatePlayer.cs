@@ -23,6 +23,9 @@ public class pressureplatePlayer : ActivationDevice
     public bool timelineNeeded;
     private bool timelinePlayed;
 
+    [Header("Audio")]
+    public AudioClip pressurePlateAudio;
+
     public void Start()
     {
         timelinePlayed = false;
@@ -82,14 +85,19 @@ public class pressureplatePlayer : ActivationDevice
                     if (IsActive && !WasActivated)
                     {
                         WasActivated = true;
+                        Debug.Log("Play the fucking sound");
+                        SoundManager.instance.PlaySfx(pressurePlateAudio, 1, 1);
                         GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
+
                         Destroy(fx, 2f);
                     }
                 }
                 else if (!stayActive)
                 {
                     if (IsActive)
-                    { 
+                    {
+                        Debug.Log("Play the fucking sound");
+                        SoundManager.instance.PlaySfx(pressurePlateAudio, 1, 1);
                         GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
                         Destroy(fx, 2f);
                     }
