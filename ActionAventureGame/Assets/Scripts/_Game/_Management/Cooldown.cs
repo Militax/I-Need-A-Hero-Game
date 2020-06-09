@@ -38,7 +38,7 @@ public class Cooldown
 
     public bool IsOver()
     {
-        return Time.time >= nextTime;
+        return (isStopped ? false : Time.time >= nextTime);
     }
 
     public void Reset()

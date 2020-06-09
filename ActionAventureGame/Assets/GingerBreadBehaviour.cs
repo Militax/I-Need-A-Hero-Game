@@ -27,6 +27,7 @@ public class GingerBreadBehaviour : MonoBehaviour
     [HideInInspector]
     public bool isFrozen;
 
+    public Cooldown FreezeTime;
     public float Shakeduration;
     public float ShakeAmount;
     bool isRunning;
@@ -61,24 +62,27 @@ public class GingerBreadBehaviour : MonoBehaviour
         player = FindObjectOfType<PlayerMovement>(); //parceque le gamemanager est pas encore a jour au start
         rb = GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
+        FreezeTime.isStopped = true;
+        FreezeTime.cooldownTime = FreezeStunTime;
     }
     private void Update()
     {
 
         
-        if (isFrozen && !isRunning)
+        if (FreezeTime.IsOver())
         {
+            FreezeTime.isStopped = true;
             animator.SetTrigger("Gel");
-            isRunning = true;
-            Invoke("Degel", FreezeStunTime);
-            Invoke("ResetFreeze", FreezeStunTime);
+            
+            
+            StartCoroutine(ResetFreeze());
         }
-        if ( !isFrozen)
+        if (!isFrozen)
         {
             distance = Vector2.Distance(player.transform.position, gameObject.transform.position);
             Vector2 dir = player.transform.position - gameObject.transform.position;
 
-            if (distance < detectionRange && distance > attackRange && missed == false)
+            if (distance < detectionRange && distance > attackRange && missed == false && !ispushed && !isStunned)
             {
                 animator.SetTrigger("Walk");
                 rb.velocity = dir.normalized * Speed;
@@ -100,13 +104,13 @@ public class GingerBreadBehaviour : MonoBehaviour
 
             }
 
-            if (distance < damageRange && isAttacking == true && !isDealingDamage && !missed)
-            {
-                GameManager.Instance.playerHealth -= damage;
-                isDealingDamage = true;
-                rb.velocity = Vector2.zero;
-                Invoke("ResetAttack", attackCooldown);
-            }
+            //if (distance < damageRange && isAttacking == true && !isDealingDamage && !missed)
+            //{
+            //    GameManager.Instance.playerHealth -= damage;
+            //    isDealingDamage = true;
+            //    rb.velocity = Vector2.zero;
+            //    Invoke("ResetAttack", attackCooldown);
+            //}
 
             if (isAttacking && attackDuration.IsOver())
             {
@@ -135,15 +139,21 @@ public class GingerBreadBehaviour : MonoBehaviour
         
     }   
 
-    void Degel()
+    IEnumerator ResetFreeze()
     {
-        iTween.ShakePosition(gameObject, new Vector3(ShakeAmount, 0, 0), Shakeduration);
-    }
-    void ResetFreeze()
-    {
-        degel = false;
-        isRunning = false;
-        isFrozen = false;
+
+        yield return new WaitForSeconds(FreezeStunTime-Shakeduration);
+       
+        
+        if (FreezeTime.isStopped)
+        {
+            iTween.ShakePosition(gameObject, new Vector3(ShakeAmount, 0, 0), Shakeduration);
+            Debug.Log("works");
+            
+            
+            isFrozen = false;
+        }
+        
     }
    
 
@@ -167,7 +177,18 @@ public class GingerBreadBehaviour : MonoBehaviour
             isAttacking = false;
         }
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag ==player.tag && isAttacking == true && !isDealingDamage && !missed)
+        {
+            GameManager.Instance.playerHealth -= damage;
+            isDealingDamage = true;
+            rb.velocity = Vector2.zero;
+            Invoke("ResetAttack", attackCooldown);
+        }
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
