@@ -5,6 +5,7 @@ using UnityEngine.Playables;
 using Boss;
 using Player;
 using GameManagement;
+using Cinemachine;
 
 public class TriggerFin : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class TriggerFin : MonoBehaviour
         if (Boss.GetComponent<BossHealth>().CurrentBossLife <= 0)
         {
             Camera.main.GetComponent<BossCamera>().enabled = false;
+            Camera.main.GetComponent<CinemachineBrain>().enabled = true;
             Timeline.Play();
 
             GameManager.Instance.playerCanMove = false;
