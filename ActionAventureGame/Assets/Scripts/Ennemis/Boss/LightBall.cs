@@ -12,7 +12,7 @@ namespace Boss
         #region Variables
         public PlayerMovement player;
         public float power;
-        public int damage;
+        public int damage=1;
         public bool isOut = false;
 
         Rigidbody2D rb;

@@ -192,16 +192,16 @@ public class GingerBreadBehaviour : MonoBehaviour
         }
         
     }
-    void ResetFreeze()
-    {
-        degel = false;
-        isRunning = false;
-        isFrozen = false;
-        GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
+    //void ResetFreeze()
+    //{
+    //    degel = false;
+    //    isRunning = false;
+    //    isFrozen = false;
+    //    GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
 
-        Destroy(fx, 1f);
-        animator.SetTrigger("Idle");
-    }
+    //    Destroy(fx, 1f);
+    //    animator.SetTrigger("Idle");
+    //}
    
 
     void Missed()
