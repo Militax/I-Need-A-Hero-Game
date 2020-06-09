@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 using GameManagement;
-
+using Cinemachine;
+using UnityEngine.Playables;
 
 public class TriggerBoss : MonoBehaviour
 {
@@ -13,11 +14,15 @@ public class TriggerBoss : MonoBehaviour
     private bool TimelinePlayed;
     private int powerlvl;
 
+
     // Start is called before the first frame update
     void Start()
     {
+        Timeline.Play();
         Boss.SetActive(false);
         TimelinePlayed = false;
+        Camera.main.GetComponent<BossCamera>().enabled = true;
+        Camera.main.GetComponent<CinemachineBrain>().enabled = false;
     }
 
     // Update is called once per frame
@@ -37,6 +42,7 @@ public class TriggerBoss : MonoBehaviour
     void OnPlayableDirectorStopped(PlayableDirector IntroBoss)
     {
         Boss.SetActive(true);
+
         TimelinePlayed = true;
         GameManager.Instance.playerCanMove = true;
         GameManager.Instance.powerState = powerlvl;
