@@ -16,6 +16,8 @@ public class GameLoader : Singleton<GameLoader>
     private void Start()
     {
         MakeSingleton(false);
+        if (GameManager.Instance)
+            print("Current scene: " + GameManager.Instance.currentSave);
         if (GameManager.Instance == null || GameManager.Instance.currentSave == null || string.IsNullOrEmpty(GameManager.Instance.currentSave))
         {
             Debug.LogError("An error occured while loading save. Scene Event: " + SceneManager.GetActiveScene().name);
@@ -176,6 +178,7 @@ public class GameLoader : Singleton<GameLoader>
 
         if (RawData.current == null)
             return;
+        print("Loading raw data: " + save);
         LoadGameManager(RawData.current.ManagerData);
     }
 
@@ -185,6 +188,7 @@ public class GameLoader : Singleton<GameLoader>
 
         if (SceneData.current == null)
             return;
+        print("Loading scene data: " + save);
         LoadPlayerData(SceneData.current.PlayerData);
         LoadMovableObjects(SceneData.current.MovableData);
         LoadActivationDevice(SceneData.current.InteractablesData);

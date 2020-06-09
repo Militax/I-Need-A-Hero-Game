@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1041,7 +1041,7 @@ PrefabInstance:
     - target: {fileID: 3108279018172330563, guid: 30ee726857eabd849a71c80d3ee2f1a9,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3108279018172330565, guid: 30ee726857eabd849a71c80d3ee2f1a9,
         type: 3}
@@ -2100,11 +2100,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1533780210216097218, guid: 714b06d8824d9a24c876347da60db8b3,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 165630418492348318, guid: a2e9e3602115d9541a518512b456779d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2189,6 +2184,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Points.Array.data[1].y
       value: 0.542387
+      objectReference: {fileID: 0}
+    - target: {fileID: 1533780210216097218, guid: 714b06d8824d9a24c876347da60db8b3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 714b06d8824d9a24c876347da60db8b3, type: 3}
@@ -2711,6 +2711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda9bbc1e2ef007429a031018f2bc9c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  voiceLine67: {fileID: 0}
 --- !u!1 &965455633
 GameObject:
   m_ObjectHideFlags: 0
@@ -3168,6 +3169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 792a8d1284be5234bb0a2354f66b553d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  voiceLine65: {fileID: 0}
+  voiceLine66: {fileID: 0}
 --- !u!1001 &1467812679
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3175,11 +3178,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1533780210216097218, guid: 714b06d8824d9a24c876347da60db8b3,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 165630418492348318, guid: a2e9e3602115d9541a518512b456779d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3295,6 +3293,11 @@ PrefabInstance:
       propertyPath: m_Points.Array.data[4].y
       value: 0.5213127
       objectReference: {fileID: 0}
+    - target: {fileID: 1533780210216097218, guid: 714b06d8824d9a24c876347da60db8b3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 714b06d8824d9a24c876347da60db8b3, type: 3}
 --- !u!1 &1469540642 stripped
@@ -3327,6 +3330,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54dc45bee305c114b979c6df71cfb969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onStart: 0
+  ifTrigger: 0
+  needToLoop: 0
+  volume: 0
+  music: {fileID: 0}
 --- !u!1 &1471126565
 GameObject:
   m_ObjectHideFlags: 0
