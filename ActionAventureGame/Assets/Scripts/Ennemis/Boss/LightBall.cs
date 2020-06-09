@@ -12,7 +12,7 @@ namespace Boss
         #region Variables
         public PlayerMovement player;
         public float power;
-        public int damage=1;
+        public int damage;
         public bool isOut = false;
 
         Rigidbody2D rb;
@@ -46,7 +46,8 @@ namespace Boss
         {
             if (other.CompareTag("Player") && isOut)
             {
-                GameManager.Instance.playerHealth -= damage;
+
+
                 Destroy(gameObject);
             }
 
