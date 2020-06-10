@@ -52,9 +52,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stunduration: 3
+  ParticleSystem: {fileID: 0}
   ispushed: 0
   isStunned: 0
   isFrozen: 0
+  FreezeTime:
+    isStopped: 0
+    cooldownTime: 0
   Shakeduration: 1
   ShakeAmount: 0.3
   FreezeStunTime: 4
@@ -68,6 +72,11 @@ MonoBehaviour:
     isStopped: 0
     cooldownTime: 1
   damageRange: 0.79
+  GbDash1: {fileID: 8300000, guid: fb0343edadf013a4bb79c8bcf72c1228, type: 3}
+  GbDash2: {fileID: 8300000, guid: 37a4b2b9baaaaf543acc3b8a533fb6c1, type: 3}
+  GbDash3: {fileID: 8300000, guid: e7a674873ca88fe4ba4542d5bb344eb6, type: 3}
+  GbDash4: {fileID: 8300000, guid: 1b035c383fa973b4c8910b78822cc96a, type: 3}
+  GbDash5: {fileID: 8300000, guid: ba7906c0ffb01634bb7dd9ebe2b3b7e6, type: 3}
 --- !u!50 &4110711550277075492
 Rigidbody2D:
   serializedVersion: 4
@@ -168,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb0e57f387b47634f894aff286f1d7cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ennemyType: GingerBreadProto
+  ennemyType: Gingerbread
   health: 2
   maximumHealth: 2
   safeTime: 0
@@ -288,6 +297,9 @@ MonoBehaviour:
   NarratorVoice25: {fileID: 8300000, guid: 4365b071d94c4424c8131baa0c891aa3, type: 3}
   NarratorVoice51: {fileID: 8300000, guid: a7cc87500475d9547a7a7894877b86fc, type: 3}
   NarratorVoice52: {fileID: 8300000, guid: f94298b388864db4e858d1843e269b45, type: 3}
+  GbDamage1: {fileID: 8300000, guid: 2b139ea999de8ae49a1b6374ca8112d1, type: 3}
+  GbDamage2: {fileID: 8300000, guid: f4464a4ea1f3f8244a3b5e1f19ba499d, type: 3}
+  GbDamage3: {fileID: 8300000, guid: f1c39162d914376468cc0ab46fbdb67a, type: 3}
 --- !u!114 &1471709640274168412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,28 +347,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c36804011880dd4cb1d05e9569aefde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stunduration: 0
-  ispushed: 0
-  isStunned: 0
-  isFrozen: 0
-  Shakeduration: 0
-  ShakeAmount: 0
-  FreezeStunTime: 4
-  Speed: 2
-  detectionRange: 7
-  damage: 1
-  jumpSpeed: 10
-  attackCooldown: 2
-  attackRange: 4
-  attackDuration:
-    isStopped: 0
-    cooldownTime: 0
-  damageRange: 1
-  GbDash1: {fileID: 8300000, guid: fb0343edadf013a4bb79c8bcf72c1228, type: 3}
-  GbDash2: {fileID: 8300000, guid: 37a4b2b9baaaaf543acc3b8a533fb6c1, type: 3}
-  GbDash3: {fileID: 8300000, guid: e7a674873ca88fe4ba4542d5bb344eb6, type: 3}
-  GbDash4: {fileID: 8300000, guid: 1b035c383fa973b4c8910b78822cc96a, type: 3}
-  GbDash5: {fileID: 8300000, guid: ba7906c0ffb01634bb7dd9ebe2b3b7e6, type: 3}
+  offset: 0
+  HeightMap: []
 --- !u!1 &4110711550766156442
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +372,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7894949202399803158}
+  m_GameObject: {fileID: 4110711550766156442}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.06, z: -6.100352}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -394,7 +386,7 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7894949202399803158}
+  m_GameObject: {fileID: 4110711550766156442}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
