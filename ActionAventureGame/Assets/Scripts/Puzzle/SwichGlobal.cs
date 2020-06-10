@@ -91,7 +91,7 @@ public class SwichGlobal : ActivationDevice
         }
     }
 
-    public virtual void RefreshState(bool state, string tag = null)
+    public override void RefreshState(bool state, string tag = null)
     {
         if (useTimer)
         {

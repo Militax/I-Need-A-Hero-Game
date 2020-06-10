@@ -44,7 +44,7 @@ public class EnnemyPlate : ActivationDevice
         RefreshState(false, collision.tag);
     }
 
-    public virtual void RefreshState(bool state, string tag = null)
+    public override void RefreshState(bool state, string tag = null)
     {
         foreach (Combination item in combinations)
         {
