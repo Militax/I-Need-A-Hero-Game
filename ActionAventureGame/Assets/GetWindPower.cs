@@ -6,6 +6,8 @@ using UnityEngine.Playables;
 
 public class GetWindPower : MonoBehaviour
 {
+    public int stateWanted;
+
     public GameObject PlayableDirector;
     private PlayableDirector Timeline;
     // Start is called before the first frame update
@@ -21,6 +23,6 @@ public class GetWindPower : MonoBehaviour
     }
     void OnplayableDirectorStopped(PlayableDirector playable)
     {
-        GameManager.Instance.powerState = 1;
+        GameManager.Instance.powerState = stateWanted;
     }
 }

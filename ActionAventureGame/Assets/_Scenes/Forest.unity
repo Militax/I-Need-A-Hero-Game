@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -772,6 +772,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Game Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2200324368402668982, guid: 0080a4b80d96c9747a2efedd6161e8f7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -105.700195
       objectReference: {fileID: 0}
     - target: {fileID: 2305955593833735938, guid: 0080a4b80d96c9747a2efedd6161e8f7,
         type: 3}
@@ -1455,7 +1460,7 @@ PrefabInstance:
     - target: {fileID: 3392583097250523826, guid: 2951a1067da8f024bb4120680cec29f1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -37.8
+      value: -35.2
       objectReference: {fileID: 0}
     - target: {fileID: 3392583097250523826, guid: 2951a1067da8f024bb4120680cec29f1,
         type: 3}
@@ -3114,6 +3119,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1951668323}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1435562633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435562631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba8edb8f946b99d4b9297f76f26d81ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateWanted: 3
+  PlayableDirector: {fileID: 1435562631}
 --- !u!114 &1435562637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3822,7 +3841,7 @@ PrefabInstance:
     - target: {fileID: 8883492670370414284, guid: 84916fd00f6d983439a610aa9b4978e4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -37.8
+      value: -35.2
       objectReference: {fileID: 0}
     - target: {fileID: 8883492670370414284, guid: 84916fd00f6d983439a610aa9b4978e4,
         type: 3}
@@ -4194,6 +4213,10 @@ PrefabInstance:
       propertyPath: FallingAudio
       value: 
       objectReference: {fileID: 8300000, guid: 08c3c3d6666f6dc4f8abf0db15c74f6f, type: 3}
+    - target: {fileID: 1346136464, guid: 2849bcbb84a5295418c91f8ac6ba7382, type: 3}
+      propertyPath: stateWanted
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1378388930, guid: 2849bcbb84a5295418c91f8ac6ba7382, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value
       value: 
