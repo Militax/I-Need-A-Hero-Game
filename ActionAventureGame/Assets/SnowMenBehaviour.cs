@@ -41,6 +41,10 @@ public class SnowMenBehaviour : MonoBehaviour
     public CircleCollider2D PushZone;
 
 
+    [Header("Audio")]
+    public AudioClip smShootAudio;
+
+
     private void Start()
     {
         animator = gameObject.GetComponent<Animator>();
@@ -133,6 +137,8 @@ public class SnowMenBehaviour : MonoBehaviour
 
     void Shoot()
     {
+        SoundManager.instance.PlaySfx(smShootAudio, 1, 1);
+
         shootDirection = Player.transform.position - transform.position;
 
         float[] angles = { 0, -25, 25 };

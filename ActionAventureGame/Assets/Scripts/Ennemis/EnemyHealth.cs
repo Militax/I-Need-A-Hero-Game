@@ -55,6 +55,14 @@ namespace Ennemy
         public AudioClip NarratorVoice51;
         public AudioClip NarratorVoice52;
 
+        [Header("Audio")]
+        public AudioClip GbDamage1;
+        public AudioClip GbDamage2;
+        public AudioClip GbDamage3;
+        public AudioClip CatDamage;
+        public AudioClip SmDamage;
+
+
         void Start()
         {
             health = maximumHealth;
@@ -67,12 +75,7 @@ namespace Ennemy
             if (health <= 0 && Dead == false)
             {
                 Dead = true;
-                //Debug.Log("die");
-                if (ennemyType == "Gingerbread")
-                {
-                    this.GetComponent<GingerbreadMovement>().isAlive = false;
-                    GetComponent<GingerbreadAttack>().enabled = false;
-                }
+
                 //Debug.Log("death");
                 if (Dead == true)
                 {
@@ -85,33 +88,33 @@ namespace Ennemy
                     {
                         case (1):
                             if (!SoundManager.instance.voice8 && !SoundManager.instance.voiceSource.isPlaying)
-                            {
-                                SoundManager.instance.PlayVoices(NarratorVoice8, 1);
-                                SoundManager.instance.voice8 = true;
+                            {
+                                SoundManager.instance.PlayVoices(NarratorVoice8, 1);
+                                SoundManager.instance.voice8 = true;
                             }
                             break;
 
                         case (2):
                             if (!SoundManager.instance.voice25 && !SoundManager.instance.voiceSource.isPlaying)
-                            {
-                                SoundManager.instance.PlayVoices(NarratorVoice25, 1);
-                                SoundManager.instance.voice25 = true;
+                            {
+                                SoundManager.instance.PlayVoices(NarratorVoice25, 1);
+                                SoundManager.instance.voice25 = true;
                             }
                             break;
 
                         case (3):
                             if (!SoundManager.instance.voice51 && !SoundManager.instance.voiceSource.isPlaying)
-                            {
-                                SoundManager.instance.PlayVoices(NarratorVoice51, 1);
-                                SoundManager.instance.voice51 = true;
+                            {
+                                SoundManager.instance.PlayVoices(NarratorVoice51, 1);
+                                SoundManager.instance.voice51 = true;
                             }
                             break;
 
                         case (4):
                             if (!SoundManager.instance.voice52 && !SoundManager.instance.voiceSource.isPlaying)
-                            {
-                                SoundManager.instance.PlayVoices(NarratorVoice52, 1);
-                                SoundManager.instance.voice52 = true;
+                            {
+                                SoundManager.instance.PlayVoices(NarratorVoice52, 1);
+                                SoundManager.instance.voice52 = true;
                             }
                             break;
 
@@ -128,9 +131,9 @@ namespace Ennemy
         {
             if (other.CompareTag("Sword") && ennemyType != ("Snowman") && canTakeDamage)
             {
-                if (ennemyType == "Gingerbread" && !isStunned)
-                {
-                    StartCoroutine(Hitstun());
+                if (ennemyType == "Gingerbread" && !isStunned)
+                {
+                    PlayGbDamageSound();
                 }
                 //Debug.Log(other);
                 if (ennemyType == "Cat")
@@ -138,11 +141,14 @@ namespace Ennemy
                     if (MyCat.isPushed)
                     {
                         animator.SetBool("isPushed", false);
-                    }
+                    }                    else if (ennemyType == "Snowman")
+                    {
+                        SoundManager.instance.PlaySfx(SmDamage, 1, 1);
+                    }
                     else
                     {
                         animator.SetBool("isPushed", true);
-                    }
+                    }                    SoundManager.instance.PlaySfx(CatDamage, 1, 1);
                 }
                 health -= GameManager.Instance.swordDamage;
                 animator.SetTrigger("Degat");
@@ -153,8 +159,7 @@ namespace Ennemy
             if (other.CompareTag("Slam") && ennemyType != ("Snowman") && canTakeDamage)
             {
                 if (ennemyType == "Gingerbread" && !isStunned)
-                {
-                    StartCoroutine(Hitstun());
+                {                    PlayGbDamageSound();
                 }
                 health -= GameManager.Instance.SlamDamage;
                 animator.SetTrigger("Degat");
@@ -164,6 +169,11 @@ namespace Ennemy
             {
                 if (other.GetComponent<SnowBullet>().isOut)//La balle est partie du Snowman
                 {
+                    if (ennemyType == "Snowman")
+                    {
+                        SoundManager.instance.PlaySfx(SmDamage, 1, 1);
+                    }
+
                     health--;
                     Destroy(other.gameObject);
                     StartCoroutine(SafeCooldown());
@@ -212,6 +222,31 @@ namespace Ennemy
             GameManager.Instance.loot(dropNumber, lootRange, myLoot, this.gameObject);
 			GameManager.Instance.loot(1, lootRange, coeur, this.gameObject);
             Destroy(gameObject);
+        }
+
+
+
+
+
+
+        void PlayGbDamageSound()
+        {
+            int token = Random.Range(1, 4);
+
+            switch (token)
+            {
+                case (1):
+                    SoundManager.instance.PlaySfx(GbDamage1, 1, 1);
+                    break;
+
+                case (2):
+                    SoundManager.instance.PlaySfx(GbDamage2, 1, 1);
+                    break;
+
+                case (3):
+                    SoundManager.instance.PlaySfx(GbDamage3, 1, 1);
+                    break;
+            }
         }
     }
 }
