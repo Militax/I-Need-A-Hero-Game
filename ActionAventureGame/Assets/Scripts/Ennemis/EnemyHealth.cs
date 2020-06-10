@@ -60,6 +60,7 @@ namespace Ennemy
         public AudioClip GbDamage2;
         public AudioClip GbDamage3;
         public AudioClip CatDamage;
+        public AudioClip SmDamage;
 
 
         void Start()
@@ -140,7 +141,10 @@ namespace Ennemy
                     if (MyCat.isPushed)
                     {
                         animator.SetBool("isPushed", false);
-                    }
+                    }                    else if (ennemyType == "Snowman")
+                    {
+                        SoundManager.instance.PlaySfx(SmDamage, 1, 1);
+                    }
                     else
                     {
                         animator.SetBool("isPushed", true);
@@ -165,6 +169,11 @@ namespace Ennemy
             {
                 if (other.GetComponent<SnowBullet>().isOut)//La balle est partie du Snowman
                 {
+                    if (ennemyType == "Snowman")
+                    {
+                        SoundManager.instance.PlaySfx(SmDamage, 1, 1);
+                    }
+
                     health--;
                     Destroy(other.gameObject);
                     StartCoroutine(SafeCooldown());
