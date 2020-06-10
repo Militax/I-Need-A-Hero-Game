@@ -31,7 +31,7 @@ public class SwitchEnnemies : ActivationDevice
     }
 
 
-    public virtual void RefreshState(bool state, string tag = null)
+    public override void RefreshState(bool state, string tag = null)
     {
 
         foreach (Combination item in combinations)
