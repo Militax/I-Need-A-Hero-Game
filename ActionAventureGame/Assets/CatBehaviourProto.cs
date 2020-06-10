@@ -61,6 +61,7 @@ public class CatBehaviourProto : MonoBehaviour
         player = FindObjectOfType<PlayerMovement>();
         PlayeRb = player.GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
+        animator.SetBool("CanAttack", false);
     }
 
     // Update is called once per frame
@@ -78,6 +79,7 @@ public class CatBehaviourProto : MonoBehaviour
         if (distance <= AttackRange && isAttacking == false && !isPushed)
         {
             isAttacking = true;
+            animator.SetBool("CanAttack", true);
             animator.SetTrigger("Attack");
             rb.velocity = Vector2.zero;
             direction = player.transform.position - gameObject.transform.position;
@@ -141,6 +143,7 @@ public class CatBehaviourProto : MonoBehaviour
 
     void AttackCD()
     {
+        animator.SetBool("CanAttack", false);
         isAttacking = false;
     }
     void Cape()
