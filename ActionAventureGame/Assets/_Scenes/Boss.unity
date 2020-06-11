@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -760,6 +760,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1704995310}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &767910448 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 63345071286748072, guid: 0080a4b80d96c9747a2efedd6161e8f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1704995310}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &772531352
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,6 +873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 141ed6a2fd6f535428d91517f8907b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  voiceLine33: {fileID: 8300000, guid: dd6f10b0cea72244e90610c8da3f7341, type: 3}
   voiceLine34: {fileID: 8300000, guid: d6ab24b8b4948a64dbd6a81a5f92df79, type: 3}
   voiceLine35: {fileID: 8300000, guid: 7206de7123d80a3428c56036d9b0d424, type: 3}
   voiceLine36: {fileID: 8300000, guid: ba8141a22c605c246b5767e5ca50ac6e, type: 3}
@@ -892,6 +899,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 5c74b13c1095ffc4895d4141362237a8, type: 2}
     - {fileID: 11400000, guid: ee21aa8ce9de5d548a300cfb512b933c, type: 2}
     - {fileID: 11400000, guid: 1a1a857e6a7777f49a2bca3a3992e1c8, type: 2}
+    - {fileID: 11400000, guid: 45b248a4f07b7e64c8548cdc5e2835c2, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -966,6 +974,19 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 806149524}
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1900,6 +1921,10 @@ PrefabInstance:
       propertyPath: invulnerability
       value: m
       objectReference: {fileID: 0}
+    - target: {fileID: 1178794016, guid: 0080a4b80d96c9747a2efedd6161e8f7, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2077402419351812654, guid: 0080a4b80d96c9747a2efedd6161e8f7,
         type: 3}
       propertyPath: m_Name
@@ -1914,6 +1939,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -131.7002
+      objectReference: {fileID: 0}
+    - target: {fileID: 2305955593833735938, guid: 0080a4b80d96c9747a2efedd6161e8f7,
+        type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4686697161276044652, guid: 0080a4b80d96c9747a2efedd6161e8f7,
         type: 3}
@@ -2293,7 +2323,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 806149527, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
       propertyPath: m_SceneBindings.Array.size
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 806149527, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value
@@ -2344,6 +2374,20 @@ PrefabInstance:
       propertyPath: m_InitialState
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 806149527, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
+      propertyPath: m_SceneBindings.Array.data[17].key
+      value: 
+      objectReference: {fileID: -2508582156711184330, guid: e967b2bb5432a4e4e97edc7573df986f,
+        type: 2}
+    - target: {fileID: 806149527, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
+      propertyPath: m_SceneBindings.Array.data[18].key
+      value: 
+      objectReference: {fileID: 4961427816880824870, guid: e967b2bb5432a4e4e97edc7573df986f,
+        type: 2}
+    - target: {fileID: 806149527, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
+      propertyPath: m_SceneBindings.Array.data[18].value
+      value: 
+      objectReference: {fileID: 767910448}
     - target: {fileID: 806149528, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
       propertyPath: Boss
       value: 
