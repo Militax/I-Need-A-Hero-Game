@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using GameManagement;
+using UnityEngine.SceneManagement;
 
 public class cheatCodes : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class cheatCodes : MonoBehaviour
     public string die;
     public string money;
 	public string normalLife;
+    public string tpBoss;
 
     // Update is called once per frame
     void Update()
@@ -34,6 +36,12 @@ public class cheatCodes : MonoBehaviour
             {
                 GameManager.Instance.playerHealthMax = 5;
                 GameManager.Instance.playerHealth = GameManager.Instance.playerHealthMax;
+            }
+            else if (Input.GetKey(tpBoss))
+            {
+                GameManager.Instance.playerHealthMax = 1000;
+                GameManager.Instance.playerHealth = GameManager.Instance.playerHealthMax;
+                SceneManager.LoadScene("Boss");
             }
         }
         

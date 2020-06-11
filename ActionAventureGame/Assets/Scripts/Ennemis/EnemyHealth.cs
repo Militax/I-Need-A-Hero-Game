@@ -218,6 +218,14 @@ namespace Ennemy
             {
                 GetComponentInChildren<SownmanFire>().enabled = false;
             }
+            if (ennemyType == "GingerBread")
+            {
+                GetComponent<GingerBreadBehaviour>().enabled = false;
+            }
+            if (ennemyType == "Cat")
+            {
+                GetComponent<CatBehaviourProto>().enabled = false;
+            }
             yield return new WaitForSeconds(TimerDie);
             GameManager.Instance.loot(dropNumber, lootRange, myLoot, this.gameObject);
 			GameManager.Instance.loot(1, lootRange, coeur, this.gameObject);

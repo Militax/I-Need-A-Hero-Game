@@ -69,12 +69,15 @@ namespace Ennemy
 
                 case ("Gingerbread")://Sur le gingerbread
 
-                    GetComponent<GingerbreadMovement>().isAffectedByWind = true;                 
+                    GetComponent<GingerBreadBehaviour>().ispushed = true;
+                    GetComponent<GingerBreadBehaviour>().isStunned = true;
+                    rb.velocity = Vector2.zero;
                     rb.velocity = other.GetComponentInParent<Rigidbody2D>().velocity / windEffectSlowdown;//Fait reculer l'ennemi
                     yield return new WaitForSeconds(windEffectDuration);
+                    GetComponent<GingerBreadBehaviour>().ispushed = false;
                     rb.velocity = Vector2.zero;
-                    yield return new WaitForSeconds(windEffectDuration);
-                    GetComponent<GingerbreadMovement>().isAffectedByWind = false;
+                    yield return new WaitForSeconds(GetComponent<GingerBreadBehaviour>().stunduration);
+                    GetComponent<GingerBreadBehaviour>().isStunned = false;
 
                     break;
 
@@ -129,17 +132,18 @@ namespace Ennemy
                 case ("Gingerbread")://Sur le gingerbread
 
                     freezeOver = false;
-                    GetComponent<GingerbreadAttack>().enabled = false;
-                    GetComponent<GingerbreadMovement>().isAffectedByFreeze = true;
+                    GetComponent<GingerBreadBehaviour>().isFrozen = true;
+                    GetComponent<GingerBreadBehaviour>().FreezeTime.Reset();
+
+
                     //rb.velocity = other.GetComponentInParent<Rigidbody2D>().velocity / windEffectSlowdown;//Fait reculer l'ennemi
                     //yield return new WaitForSeconds(windEffectDuration);
                     rb.velocity = Vector2.zero;
                     //Debug.Log(animator);
                     animator.SetTrigger("Freeze");
 
-                    yield return new WaitForSeconds(freezEffectDuration);
-                    GetComponent<GingerbreadMovement>().isAffectedByFreeze = false;
-                    GetComponent<GingerbreadAttack>().enabled = true;
+                    yield return new WaitForSeconds(GetComponent<GingerBreadBehaviour>().FreezeStunTime);
+
                     freezeOver = true;
 
                     break;
