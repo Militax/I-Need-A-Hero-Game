@@ -14,6 +14,10 @@ public class SwitchEnnemies : ActivationDevice
     public GameObject FirePit;
     private PlayableDirector Timeline;
     public bool TimelineNeeded;
+    public PlayableDirector TimelineMortEnnemis;
+    public bool TimelineMortEnnemisNeeded;
+    private bool TimelinePlayed;
+
     Animator animator;
     public GameObject ParticleSystem;
 
@@ -92,6 +96,8 @@ public class SwitchEnnemies : ActivationDevice
             Timeline = FirePit.GetComponent<PlayableDirector>();
         }
 
+        TimelinePlayed = false;
+
     }
     private void Update()
     {
@@ -100,6 +106,12 @@ public class SwitchEnnemies : ActivationDevice
         {
             gameObject.GetComponent<SpriteRenderer>().enabled = true;
             gameObject.GetComponent<BoxCollider2D>().enabled = true;
+
+            if (TimelineMortEnnemisNeeded == true && TimelinePlayed == false)
+            {
+                TimelineMortEnnemis.Play();
+                TimelineMortEnnemis.stopped += OnPlayableDirectorStopped;
+            }
         }
         animator = gameObject.GetComponent<Animator>();
     }
@@ -114,5 +126,10 @@ public class SwitchEnnemies : ActivationDevice
             Gizmos.DrawLine(transform.position, transform.position + eventPosition);
         }
 
+    }
+
+    void OnPlayableDirectorStopped(PlayableDirector ZoneSud)
+    {
+        TimelinePlayed = true;
     }
 }
