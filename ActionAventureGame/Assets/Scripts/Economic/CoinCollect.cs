@@ -18,7 +18,7 @@ namespace Economic
 	
 	public class CoinCollect : MonoBehaviour
 	{
-		Transform player;
+		PlayerMovement player;
 		public int coinValue;
 		public float CollectingRange;
 		public float speed;
@@ -28,19 +28,24 @@ namespace Economic
 		public AudioClip CollectAudio;
 
 
-		private void Awake()
-		{
-			player = GameManager.Instance.player.transform;
-		}
+		
 
+		private void Start()
+		{
+			player = GameManager.Instance.player;
+		}
 		private void Update()
 		{
+			if (player == null)
+			{
+				player = GameManager.Instance.player;
+			}
 			float step = speed * Time.deltaTime;
-			distanceToPlayer = Vector3.Distance(gameObject.transform.position, player.position);
+			distanceToPlayer = Vector3.Distance(gameObject.transform.position, player.transform.position);
 
 			if (distanceToPlayer <= CollectingRange && GameManager.Instance.CoinOwned < GameManager.Instance.maxCoin)
 			{
-				transform.position = Vector3.MoveTowards(gameObject.transform.position, player.position,step);
+				transform.position = Vector3.MoveTowards(gameObject.transform.position, player.transform.position,step);
 			}
 		}
 		//récupération des pièces et incrémentation de ++ dans le compteur de pièces

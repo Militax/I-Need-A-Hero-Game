@@ -24,7 +24,32 @@ namespace Ennemy
             rb = GetComponent<Rigidbody2D>();
             animator.GetComponent<Animator>();
         }
-        
+
+        //private void Update()
+        //{
+        //    float xDiff = player.transform.position.x - transform.position.x;
+        //    float yDiff = player.transform.position.y - transform.position.y;
+        //    //en bas a gauche 
+        //    if (xDiff < 0 && yDiff < 0)
+        //    {
+        //        animator.SetFloat("Direction", 0);
+        //    }
+        //    //en bas a droite
+        //    if (xDiff > 0 && yDiff < 0)
+        //    {
+        //        animator.SetFloat("Direction", 0.33f);
+        //    }
+        //    //en haut a gauche
+        //    if (xDiff < 0 && yDiff > 0)
+        //    {
+        //        animator.SetFloat("Direction", 0.66f);
+        //    }
+        //    //en haut a droite
+        //    if (xDiff > 0 && yDiff > 0)
+        //    {
+        //        animator.SetFloat("Direction", 1);
+        //    }
+        //}
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("WindWave") || other.CompareTag("GeneratorWave"))
@@ -69,12 +94,17 @@ namespace Ennemy
 
                 case ("Gingerbread")://Sur le gingerbread
 
-                    GetComponent<GingerbreadMovement>().isAffectedByWind = true;                 
+                    GetComponent<GingerBreadBehaviour>().ispushed = true;
+                    animator.SetTrigger("Push");
+                    animator.SetBool("Gel", GetComponent<GingerBreadBehaviour>().isFrozen);
+                    GetComponent<GingerBreadBehaviour>().isStunned = true;
+                    rb.velocity = Vector2.zero;
                     rb.velocity = other.GetComponentInParent<Rigidbody2D>().velocity / windEffectSlowdown;//Fait reculer l'ennemi
                     yield return new WaitForSeconds(windEffectDuration);
+                    GetComponent<GingerBreadBehaviour>().ispushed = false;
                     rb.velocity = Vector2.zero;
-                    yield return new WaitForSeconds(windEffectDuration);
-                    GetComponent<GingerbreadMovement>().isAffectedByWind = false;
+                    yield return new WaitForSeconds(GetComponent<GingerBreadBehaviour>().stunduration);
+                    GetComponent<GingerBreadBehaviour>().isStunned = false;
 
                     break;
 
@@ -129,17 +159,18 @@ namespace Ennemy
                 case ("Gingerbread")://Sur le gingerbread
 
                     freezeOver = false;
-                    GetComponent<GingerbreadAttack>().enabled = false;
-                    GetComponent<GingerbreadMovement>().isAffectedByFreeze = true;
+                    GetComponent<GingerBreadBehaviour>().isFrozen = true;
+                    animator.SetBool("Gel", GetComponent<GingerBreadBehaviour>().isFrozen);
+                    GetComponent<GingerBreadBehaviour>().FreezeTime.Reset();
+
+
                     //rb.velocity = other.GetComponentInParent<Rigidbody2D>().velocity / windEffectSlowdown;//Fait reculer l'ennemi
                     //yield return new WaitForSeconds(windEffectDuration);
                     rb.velocity = Vector2.zero;
                     //Debug.Log(animator);
-                    animator.SetTrigger("Freeze");
 
-                    yield return new WaitForSeconds(freezEffectDuration);
-                    GetComponent<GingerbreadMovement>().isAffectedByFreeze = false;
-                    GetComponent<GingerbreadAttack>().enabled = true;
+                    yield return new WaitForSeconds(GetComponent<GingerBreadBehaviour>().FreezeStunTime);
+
                     freezeOver = true;
 
                     break;
@@ -154,7 +185,6 @@ namespace Ennemy
                     //yield return new WaitForSeconds(windEffectDuration);
                     rb.velocity = Vector2.zero;
                     //Debug.Log(animator);
-                    animator.SetTrigger("Freeze");
 
                     yield return new WaitForSeconds(GetComponent<GingerBreadBehaviour>().FreezeStunTime);
                     

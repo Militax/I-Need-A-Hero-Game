@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -193,12 +193,6 @@ PrefabInstance:
 --- !u!1 &156580618 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5592127655306546305, guid: 0080a4b80d96c9747a2efedd6161e8f7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1704995310}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &224441973 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3465721677276606206, guid: 0080a4b80d96c9747a2efedd6161e8f7,
     type: 3}
   m_PrefabInstance: {fileID: 1704995310}
   m_PrefabAsset: {fileID: 0}
@@ -699,7 +693,7 @@ RectTransform:
   - {fileID: 864961854}
   - {fileID: 642467040}
   m_Father: {fileID: 411470602}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -844,6 +838,23 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2112740660648078751}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &806149525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806149524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54dc45bee305c114b979c6df71cfb969, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onStart: 0
+  ifTrigger: 0
+  needToLoop: 0
+  volume: 0.2
+  music: {fileID: 8300000, guid: 29bd1dd70de48df49b6667c7b142ae0f, type: 3}
 --- !u!114 &806149526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -880,6 +891,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 0a7cdc8ee61cefd4f9c599dca141f656, type: 2}
     - {fileID: 11400000, guid: 5c74b13c1095ffc4895d4141362237a8, type: 2}
     - {fileID: 11400000, guid: ee21aa8ce9de5d548a300cfb512b933c, type: 2}
+    - {fileID: 11400000, guid: 1a1a857e6a7777f49a2bca3a3992e1c8, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -937,6 +949,19 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 806149526}
           m_MethodName: Play38
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 806149525}
+          m_MethodName: PlaySong
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2301,7 +2326,7 @@ PrefabInstance:
     - target: {fileID: 806149527, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
       propertyPath: m_SceneBindings.Array.data[14].value
       value: 
-      objectReference: {fileID: 224441973}
+      objectReference: {fileID: 0}
     - target: {fileID: 806149527, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
       propertyPath: m_SceneBindings.Array.data[15].value
       value: 

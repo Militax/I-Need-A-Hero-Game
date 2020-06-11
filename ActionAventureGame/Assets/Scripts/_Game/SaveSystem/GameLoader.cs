@@ -78,6 +78,8 @@ public class GameLoader : Singleton<GameLoader>
             Movables[i].transform.position = data[i].position;
             Movables[i].transform.rotation = data[i].rotation;
             Movables[i].SaveID = data[i].ID;
+            Movables[i].powerStateRequest = data[i].powerStateRequest;
+
         }
     }
 
@@ -93,7 +95,11 @@ public class GameLoader : Singleton<GameLoader>
             }
 
             MovablesData[i] = new MovableObjectData()
-            { ID = i, position = Movables[i].transform.position, rotation = Movables[i].transform.rotation };
+            { ID = i, 
+                position = Movables[i].transform.position,
+                rotation = Movables[i].transform.rotation,
+                powerStateRequest = Movables[i].powerStateRequest
+            };
 
         }
         data.MovableData = MovablesData;
@@ -107,7 +113,9 @@ public class GameLoader : Singleton<GameLoader>
             return;
         if (GameManager.Instance == null)
             Debug.LogError("Gamemanager is null");
+        
         GameManager.Instance.playerCanMove = data.CanMove;
+        Debug.Log(GameManager.Instance.playerCanMove);
         GameManager.Instance.RespawnPoint = data.RespawnPoint;
         GameManager.Instance.playerHealth = data.PlayerHP;
         GameManager.Instance.playerHealthMax = data.PlayerMaxHP;
@@ -177,13 +185,19 @@ public class GameLoader : Singleton<GameLoader>
         RawData.current = (RawData)SaveDictionary.Load(save, SaveDictionary.RawPreffix);
 
         if (RawData.current == null)
+        {
+            Debug.Log("data is null");
             return;
+        }
+            
         print("Loading raw data: " + save);
         LoadGameManager(RawData.current.ManagerData);
     }
 
     private void LoadScene(string save)
     {
+        if (!File.Exists(SaveDictionary.GetFullPath(save, SceneManager.GetActiveScene().name)))
+            return;
         SceneData.current = (SceneData)SaveDictionary.Load(save, SceneManager.GetActiveScene().name);
 
         if (SceneData.current == null)
@@ -196,9 +210,7 @@ public class GameLoader : Singleton<GameLoader>
 
     public void LoadGame(string save)
     {
-        if (!File.Exists(SaveDictionary.GetFullPath(save, SceneManager.GetActiveScene().name)))
-            return;
-        else if (GameManager.Instance == null || GameManager.Instance.currentSave == null || string.IsNullOrEmpty(GameManager.Instance.currentSave))
+        if (GameManager.Instance == null || GameManager.Instance.currentSave == null || string.IsNullOrEmpty(GameManager.Instance.currentSave))
         {
             Debug.Log("An error occured when loading save. Scene Event: " + SceneManager.GetActiveScene().name);
             return;
