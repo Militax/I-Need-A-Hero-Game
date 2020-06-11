@@ -131,7 +131,7 @@ namespace Player
                             }
                         }
                         break;
-                    case ("Cat"):
+                    case ("Ennemy"):
                         GameManager.Instance.playerHealth -= 1;
                         animator.SetTrigger("Hit");
                         SoundManager.instance.PlaySfx(Damage, 1, 1);
