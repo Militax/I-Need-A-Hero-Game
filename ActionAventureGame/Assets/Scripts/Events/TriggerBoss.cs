@@ -21,8 +21,8 @@ public class TriggerBoss : MonoBehaviour
         Timeline.Play();
         Boss.SetActive(false);
         TimelinePlayed = false;
-        Camera.main.GetComponent<BossCamera>().enabled = true;
-        Camera.main.GetComponent<CinemachineBrain>().enabled = false;
+        Camera.main.GetComponent<BossCamera>().enabled = false;
+        Camera.main.GetComponent<CinemachineBrain>().enabled = true;
     }
 
     // Update is called once per frame
@@ -46,5 +46,7 @@ public class TriggerBoss : MonoBehaviour
         TimelinePlayed = true;
         GameManager.Instance.playerCanMove = true;
         GameManager.Instance.powerState = powerlvl;
+        Camera.main.GetComponent<BossCamera>().enabled = true;
+        Camera.main.GetComponent<CinemachineBrain>().enabled = false;
     }
 }
