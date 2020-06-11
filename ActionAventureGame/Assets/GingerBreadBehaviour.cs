@@ -82,7 +82,7 @@ public class GingerBreadBehaviour : MonoBehaviour
         if (FreezeTime.IsOver())
         {
             FreezeTime.isStopped = true;
-            animator.SetTrigger("Gel");
+            animator.SetTrigger("Idle");
             isRunning = true;
             Invoke("Degel", FreezeStunTime-1);
             Invoke("ResetFreeze", FreezeStunTime);
@@ -186,8 +186,12 @@ public class GingerBreadBehaviour : MonoBehaviour
         {
             iTween.ShakePosition(gameObject, new Vector3(ShakeAmount, 0, 0), Shakeduration);
             Debug.Log("works");
-            
-            
+            GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
+
+             Destroy(fx, 1f);
+             animator.SetTrigger("Idle");
+
+
             isFrozen = false;
         }
         
