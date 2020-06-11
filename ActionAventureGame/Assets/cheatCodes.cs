@@ -12,6 +12,8 @@ public class cheatCodes : MonoBehaviour
 	public string normalLife;
     public string tpBoss;
 
+    int HPmaxBeforeCheat;
+
     // Update is called once per frame
     void Update()
     {
@@ -19,6 +21,7 @@ public class cheatCodes : MonoBehaviour
         {
             if (Input.GetKey(invulnerability))
             {
+                HPmaxBeforeCheat = GameManager.Instance.playerHealthMax;
                 GameManager.Instance.playerHealthMax = 1000;
                 GameManager.Instance.playerHealth = GameManager.Instance.playerHealthMax;
             }
@@ -34,13 +37,14 @@ public class cheatCodes : MonoBehaviour
             }
             else if (Input.GetKey(normalLife))
             {
-                GameManager.Instance.playerHealthMax = 5;
+                GameManager.Instance.playerHealthMax = HPmaxBeforeCheat;
                 GameManager.Instance.playerHealth = GameManager.Instance.playerHealthMax;
             }
             else if (Input.GetKey(tpBoss))
             {
                 GameManager.Instance.playerHealthMax = 1000;
                 GameManager.Instance.playerHealth = GameManager.Instance.playerHealthMax;
+                GameManager.Instance.powerState = 3;
                 SceneManager.LoadScene("Boss");
             }
         }
