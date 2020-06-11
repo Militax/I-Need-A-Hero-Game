@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class IntroBossVoice : MonoBehaviour
 {
+    public AudioClip voiceLine33;
     public AudioClip voiceLine34;
     public AudioClip voiceLine35;
     public AudioClip voiceLine36;
     public AudioClip voiceLine37;
     public AudioClip voiceLine38;
 
-
+    public void Play33()
+    {
+        SoundManager.instance.PlayVoices(voiceLine33, 1);
+    }
     public void Play34()
     {
         SoundManager.instance.PlayVoices(voiceLine34, 1);
