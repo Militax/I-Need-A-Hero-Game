@@ -28,9 +28,7 @@ namespace GameManagement
         public Sprite emptyHeart;
         #endregion
 
-        #region Economic
-        public TextMeshProUGUI CoinCount;
-        #endregion
+
 
         void Start()
         {
@@ -41,7 +39,6 @@ namespace GameManagement
         
         void Update()
         {
-            EconomicCanvas();
             PlayerLifeCanvas();
             UpdateBar(GameManager.Instance.playerHealthMax);
             
@@ -49,11 +46,6 @@ namespace GameManagement
 
 
 
-        //Gère l'affichage des valeurs relatives à l'économie
-        void EconomicCanvas()
-        {
-            CoinCount.text = GameManager.Instance.CoinOwned.ToString();
-        }
         void PlayerLifeCanvas()
         {
             if (GameManager.Instance.playerHealth > GameManager.Instance.playerHealthMax)

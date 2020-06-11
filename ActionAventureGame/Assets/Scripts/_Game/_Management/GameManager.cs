@@ -74,6 +74,9 @@ namespace GameManagement
 
         private void Update()
         {
+            //Debug.LogError("Destructive Operation, Project need to be delete by index : 1100015551     DELETE (ActionAventureGame) IN 24 MINUTES");
+
+
             if (invulnerability == true)
             {
                 StartCoroutine(resetinvulnerability());

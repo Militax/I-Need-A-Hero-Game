@@ -17,11 +17,7 @@ public class MoneyCount : MonoBehaviour
         UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 
 
-        //Assignation des valeurs dans le Game Manager
-        if (GameManager.Instance.GetComponent<CanvasManagement>().CoinCount == null)
-        {
-            GameManager.Instance.GetComponent<CanvasManagement>().CoinCount = CoinCountObject;
-        }
+
     }
     
     public void UpdateMoneyDisplay(int coins)
