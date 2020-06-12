@@ -42,7 +42,7 @@ public class cheatCodes : MonoBehaviour
             }
             else if (Input.GetKey(tpBoss))
             {
-                GameManager.Instance.playerHealthMax = 1000;
+                GameManager.Instance.playerHealthMax = 10;
                 GameManager.Instance.playerHealth = GameManager.Instance.playerHealthMax;
                 GameManager.Instance.powerState = 3;
                 SceneManager.LoadScene("Boss");

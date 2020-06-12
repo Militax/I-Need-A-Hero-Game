@@ -9,7 +9,7 @@ public class DynamicSorting : MonoBehaviour
     [HideInInspector]
     public List<float> HeightMap = new List<float>();
     SpriteRenderer spr;
-    private void Awake()
+    private void Start()
     {
         spr = GetComponent<SpriteRenderer>();
     }

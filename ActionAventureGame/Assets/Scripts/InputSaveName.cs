@@ -5,7 +5,7 @@ using UnityEngine;
 public class InputSaveName : MonoBehaviour
 {
     // Start is called before the first frame update
-    private void Awake()
+    private void Start()
     {
         Hide();
     }
