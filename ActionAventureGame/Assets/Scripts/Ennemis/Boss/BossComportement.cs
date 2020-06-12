@@ -78,6 +78,7 @@ namespace Boss
         void Start()
         {
             SelectNewPhase();
+            GameManager.Instance.GetComponent<CanvasManagement>().BossLifeUI.GetComponent<BossLifeUI>().boss = this.gameObject;
         }
         void Update()
         {

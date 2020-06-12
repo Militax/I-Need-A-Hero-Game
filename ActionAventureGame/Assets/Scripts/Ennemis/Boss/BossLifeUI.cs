@@ -24,6 +24,15 @@ public class BossLifeUI : MonoBehaviour
 
     public void Update()
     {
+        if (boss != null)
+        {
+            BossLifeManager();
+        }
+    }
+
+
+    void BossLifeManager()
+    {
         if (boss.GetComponent<BossHealth>().CurrentBossLife <= 0)
         {
             bossLife1.SetActive(false);
@@ -35,7 +44,7 @@ public class BossLifeUI : MonoBehaviour
                 SoundManager.instance.PlayVoices(NarratorVoicePhase3, 1);
                 SoundManager.instance.voicePhase3 = true;
             }
-            
+
             bossLife2.SetActive(false);
         }
         if (boss.GetComponent<BossHealth>().CurrentBossLife <= 5)

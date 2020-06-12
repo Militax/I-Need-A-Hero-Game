@@ -28,6 +28,7 @@ namespace GameManagement
         public Sprite emptyHeart;
         #endregion
 
+        public GameObject BossLifeUI;
 
 
         void Start()

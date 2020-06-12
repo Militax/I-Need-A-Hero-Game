@@ -26,17 +26,20 @@ public class ShopInteraction : MonoBehaviour
 	}
 	private void Update()
 	{
-		if (coinsCollected <= 900)
+		if (spr != null)
 		{
-			spr.sprite = MaisonPaille;
-		}
-		else if (coinsCollected > 900 && coinsCollected <1600)
-		{
-			spr.sprite = MaisonBois;
-		}
-		else if (coinsCollected >= 1600)
-		{
-			spr.sprite = MaisonBrique;
+			if (coinsCollected <= 900)
+			{
+				spr.sprite = MaisonPaille;
+			}
+			else if (coinsCollected > 900 && coinsCollected < 1600)
+			{
+				spr.sprite = MaisonBois;
+			}
+			else if (coinsCollected >= 1600)
+			{
+				spr.sprite = MaisonBrique;
+			}
 		}
 	}
 	// achat de 2 types de bottes

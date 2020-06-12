@@ -138,13 +138,17 @@ namespace GameManagement
             for (int i = 0; i < _numberOfDrops; i++)
             {
                 int rnd = Random.Range(0, _lootArray.Length);
-                float range = Random.Range(-_lootRange, _lootRange);
-                if (_lootArray[i] != null)
+                float rangeX = Random.Range(-_lootRange, _lootRange);
+                float rangeY = Random.Range(-_lootRange, _lootRange);
+
+                if (_lootArray != null)
                 {
-                    //Debug.Log("BIM CA LOUTTE");
-                    Instantiate(_lootArray[rnd], _instance.transform.position + new Vector3(range, range, 0), Quaternion.identity);
+                    if (_lootArray[rnd] != null)
+                    {
+                        //Debug.Log("BIM CA LOUTTE");
+                        Instantiate(_lootArray[rnd], _instance.transform.position + new Vector3(rangeX, rangeY, 0), Quaternion.identity);
+                    }
                 }
-                
             }
         }
     }

@@ -39,7 +39,6 @@ public class SwichGlobal : ActivationDevice
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("BIM " + other.tag);
         if (activationCooldown.IsOver())
         {
             if ((HasBeenActivated && SwitchOnce) || (useTimer && !timer.isStopped) )
