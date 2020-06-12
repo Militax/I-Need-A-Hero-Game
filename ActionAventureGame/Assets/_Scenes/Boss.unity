@@ -190,6 +190,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb16a99f95686bf48b8c1871907a6885, type: 3}
+--- !u!4 &150378870 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3031494193960557001, guid: 53b9868477dc6fb41a980a45a58c87a1,
+    type: 3}
+  m_PrefabInstance: {fileID: 2112740660648078751}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &156580618 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5592127655306546305, guid: 0080a4b80d96c9747a2efedd6161e8f7,
@@ -998,6 +1004,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ee21aa8ce9de5d548a300cfb512b933c, type: 2}
     - {fileID: 11400000, guid: 1a1a857e6a7777f49a2bca3a3992e1c8, type: 2}
     - {fileID: 11400000, guid: 45b248a4f07b7e64c8548cdc5e2835c2, type: 2}
+    - {fileID: 11400000, guid: c1d270d0481f10446b1238de930da1d4, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -1079,12 +1086,25 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 806149524}
-          m_MethodName: 
+        - m_Target: {fileID: 806149526}
+          m_MethodName: Play33
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 806149526}
+          m_MethodName: Play34
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1274,6 +1294,31 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 378580909}
+--- !u!1 &927596974 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 288686657, guid: 53b9868477dc6fb41a980a45a58c87a1,
+    type: 3}
+  m_PrefabInstance: {fileID: 2112740660648078751}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &927596975
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927596974}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 762c901b4cc4b8b4ba8631375841c1f1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &949341333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2159,6 +2204,10 @@ PrefabInstance:
       propertyPath: playerHealthMax
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 123700151, guid: 0080a4b80d96c9747a2efedd6161e8f7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 169520485, guid: 0080a4b80d96c9747a2efedd6161e8f7, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -102.1001
@@ -2303,6 +2352,76 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 1704995310}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1765228850
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1765228851}
+  - component: {fileID: 1765228853}
+  - component: {fileID: 1765228852}
+  m_Layer: 0
+  m_Name: Credits
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1765228851
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765228850}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 150378870}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1765228852
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765228850}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!320 &1765228853
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765228850}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 5ae70979d601abc409d681aff3542701, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -2674375843030082409, guid: 5ae70979d601abc409d681aff3542701, type: 2}
+    value: {fileID: 927596975}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1001 &1802591351
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2626,6 +2745,10 @@ PrefabInstance:
     - target: {fileID: 53426561, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
       propertyPath: m_LocalPosition.z
       value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 288686657, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 806149527, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
       propertyPath: m_SceneBindings.Array.size
