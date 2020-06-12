@@ -10,6 +10,7 @@ public class TriggerEvents : MonoBehaviour
     public PlayableDirector Timeline;
     private bool TimelinePlayed;
     private int powerlvl;
+    public bool dependsFromDungeon;
     
     // Start is called before the first frame update
     void Start()
@@ -23,8 +24,12 @@ public class TriggerEvents : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            
+            if (dependsFromDungeon && GameManager.Instance.isComingFromDonjon)
+            {
+                return;
+            }
             powerlvl = GameManager.Instance.powerState;
-
             if (TimelinePlayed == false)
             {
 

@@ -25,4 +25,5 @@ public class GameManagerData
 
     public int BottesState;
 
+    public bool isCommingFromDungeon;
 }

@@ -7,6 +7,7 @@ using Player;
 
 public class ChangeScene : MonoBehaviour
 {
+    
     public string NextScene;
     public Vector3 exit;
     
@@ -14,6 +15,7 @@ public class ChangeScene : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            GameManager.Instance.isComingFromDonjon = true;
             collision.transform.position = exit + transform.position;
             GameLoader.Instance.SaveGame(GameManager.Instance.currentSave);
             SceneManager.LoadScene(NextScene);

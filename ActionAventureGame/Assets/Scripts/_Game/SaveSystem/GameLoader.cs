@@ -125,6 +125,7 @@ public class GameLoader : Singleton<GameLoader>
         GameManager.Instance.DeathCounter = data.DeathCounter;
         GameManager.Instance.swordDamage = data.SwordDamage;
         GameManager.Instance.bottesState = data.BottesState;
+        GameManager.Instance.isComingFromDonjon = data.isCommingFromDungeon;
     }
 
     private void SaveGameManager(RawData data)
@@ -142,7 +143,8 @@ public class GameLoader : Singleton<GameLoader>
             PowerState = GameManager.Instance.powerState,
             DeathCounter = GameManager.Instance.DeathCounter,
             SwordDamage = GameManager.Instance.swordDamage,
-            BottesState = GameManager.Instance.bottesState
+            BottesState = GameManager.Instance.bottesState,
+            isCommingFromDungeon = GameManager.Instance.isComingFromDonjon
         };
         data.ManagerData = managerData;
     }
