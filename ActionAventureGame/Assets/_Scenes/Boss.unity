@@ -121,6 +121,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &184608 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 895740422, guid: 53b9868477dc6fb41a980a45a58c87a1,
+    type: 3}
+  m_PrefabInstance: {fileID: 2112740660648078751}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &103514654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -202,6 +214,84 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1704995310}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &253305050
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 253305051}
+  - component: {fileID: 253305053}
+  - component: {fileID: 253305052}
+  m_Layer: 5
+  m_Name: Text pplaytest droite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &253305051
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253305050}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 303483992}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 235, y: 20}
+  m_SizeDelta: {x: 420, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &253305052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253305050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 82c5ad49136ba478395b1e64f65bf4f5, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: "Guillaume Rog\xE9\r\nAntoine Leroux\r\nVictor Kara\r\nElie Sarfati\r\nPierre
+    Brassart\r\nJulien Djenidi\r\nAmir Suhre\r\nNewton\r\n"
+--- !u!222 &253305053
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253305050}
+  m_CullTransparentMesh: 0
 --- !u!1 &277864621 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 67973484, guid: 0080a4b80d96c9747a2efedd6161e8f7,
@@ -338,12 +428,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 303483992}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 300, y: 0}
-  m_SizeDelta: {x: 634.8, y: 30}
+  m_AnchoredPosition: {x: 235, y: 20}
+  m_SizeDelta: {x: 420, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &412448967
 MonoBehaviour:
@@ -365,7 +455,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 82c5ad49136ba478395b1e64f65bf4f5, type: 3}
-    m_FontSize: 22
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -419,8 +509,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: 0}
-  m_SizeDelta: {x: 634.8, y: 30}
+  m_AnchoredPosition: {x: 235, y: 20}
+  m_SizeDelta: {x: 420, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &549843683
 MonoBehaviour:
@@ -442,7 +532,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 82c5ad49136ba478395b1e64f65bf4f5, type: 3}
-    m_FontSize: 25
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -463,6 +553,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 549843681}
   m_CullTransparentMesh: 0
+--- !u!114 &569112457 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 991048652, guid: 53b9868477dc6fb41a980a45a58c87a1,
+    type: 3}
+  m_PrefabInstance: {fileID: 2112740660648078751}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &604911085 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 604911085, guid: 0080a4b80d96c9747a2efedd6161e8f7,
@@ -705,7 +807,7 @@ GameObject:
   - component: {fileID: 797680613}
   - component: {fileID: 797680612}
   m_Layer: 5
-  m_Name: Text Team
+  m_Name: Text Team gauche
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -727,8 +829,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 300, y: 0}
-  m_SizeDelta: {x: 634.8, y: 30}
+  m_AnchoredPosition: {x: -235, y: 20}
+  m_SizeDelta: {x: 420, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &797680612
 MonoBehaviour:
@@ -750,7 +852,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 82c5ad49136ba478395b1e64f65bf4f5, type: 3}
-    m_FontSize: 22
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -763,9 +865,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "Producer :  \t\tTh\xE9odore Labyt\r\n\r\n\r\nGame Design :\t\tLucas Deutschmann\r\n\t\t\t\t\t\t\t\t\tMatis
     Duperray\r\n\t\t\t\t\t\t\t\t\tTheodore Labyt\r\n\t\t\t\t\t\t\t\t\tLouis Lefebvre\r\n\t\t\t\t\t\t\t\t\tLuana
-    (Trans-Guyan)\r\n\r\n\r\nDirecteur Artistique : \tAubane Rittano\r\nGame Art
-    :\t\tTao Pecqueriaux\r\n\t\t\t\t\t\t\tViviane Sultan\r\n\t\t\t\t\t\t\tSimon Vernus\r\n\r\n\r\nProgrammation
-    :\t\tLucas Deutschmann\r\n\t\t\t\t\t\t\t\t\t\t\tMatis Duperray\r\n"
+    Tran Nguyen\n"
 --- !u!222 &797680613
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1359,6 +1459,84 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1119592296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1119592297}
+  - component: {fileID: 1119592299}
+  - component: {fileID: 1119592298}
+  m_Layer: 5
+  m_Name: Text merci droite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1119592297
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119592296}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 303483992}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 235, y: 20}
+  m_SizeDelta: {x: 420, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1119592298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119592296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 82c5ad49136ba478395b1e64f65bf4f5, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: "\n\nThomas Depland Depraz\r\nLouis Celeron\r\nTristan Ledieux\r\nTh\xE9ophile
+    Loaec\r\nSamuel Dubois\r\nVincent Reynaert \r\n"
+--- !u!222 &1119592299
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119592296}
+  m_CullTransparentMesh: 0
 --- !u!1001 &1239896526
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1498,6 +1676,85 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 351f65376e2e9b5498274dd46ab8a390, type: 3}
+--- !u!1 &1243936020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1243936021}
+  - component: {fileID: 1243936023}
+  - component: {fileID: 1243936022}
+  m_Layer: 5
+  m_Name: Text Team droite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1243936021
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243936020}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 303483992}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 235, y: 20}
+  m_SizeDelta: {x: 420, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1243936022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243936020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 82c5ad49136ba478395b1e64f65bf4f5, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: "Directeur Artistique : \t\n\t\tAubane Rittano\r\n\nGame Art :\t\tTao Pecqueriaux\r\n\t\t\t\t\t\t\tViviane
+    Sultan\r\n\t\t\t\t\t\t\tSimon Vernus\r\n\r\nProgrammation :\n\t\tLucas Deutschmann\r\n\t\tMatis
+    Duperray\r\n"
+--- !u!222 &1243936023
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243936020}
+  m_CullTransparentMesh: 0
 --- !u!114 &1255868851 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1178794016, guid: 0080a4b80d96c9747a2efedd6161e8f7,
@@ -1522,7 +1779,7 @@ GameObject:
   - component: {fileID: 1315310325}
   - component: {fileID: 1315310324}
   m_Layer: 5
-  m_Name: Text Team (1)
+  m_Name: Text Team 2 droite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1540,12 +1797,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 303483992}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 300, y: 0}
-  m_SizeDelta: {x: 634.8, y: 30}
+  m_AnchoredPosition: {x: 235, y: 20}
+  m_SizeDelta: {x: 420, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1315310324
 MonoBehaviour:
@@ -1567,7 +1824,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 82c5ad49136ba478395b1e64f65bf4f5, type: 3}
-    m_FontSize: 22
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1578,11 +1835,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Lead Sound Designer :\tMatis Duperray\r\n\nSound Designer :\t\t\t\tTheodore
-    Labyt\r\n\t\t\t\t\t\t\t\t\t\t\t\t\tLuana Trans-Guyan\r\n\r\n\r\nVersionning :\t\t\tMatis
-    Duperray\r\n\t\t\t\t\t\t\t\t\t\tTheodore Labyt\r\n\t\t\t\t\t\t\t\t\t\tLouis Lefebvre\r\n\r\n\r\n\r\nDocumentation
-    :\t\tLouis Lefebvre\r\n\r\n\r\nResponsables Playtest :\tTheodore Labyt\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tLouis
-    Lefebvre\r\n\r\n"
+  m_Text: "Versionning :\t\t\tMatis Duperray\r\n\t\t\t\t\t\t\t\t\t\tTheodore Labyt\r\n\t\t\t\t\t\t\t\t\t\tLouis
+    Lefebvre\r\n\r\n\r\nDocumentation :\t\tLouis Lefebvre\r\n\r\n\r\nResponsables
+    Playtest :\t\n\t\tTheodore Labyt\r\n\t\tLouis Lefebvre\r\n\r\n"
 --- !u!222 &1315310325
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1728,7 +1983,7 @@ GameObject:
   - component: {fileID: 1723315068}
   - component: {fileID: 1723315067}
   m_Layer: 5
-  m_Name: Text merci
+  m_Name: Text merci gauche
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1746,12 +2001,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 303483992}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 300, y: 0}
-  m_SizeDelta: {x: 634.8, y: 30}
+  m_AnchoredPosition: {x: -235, y: 20}
+  m_SizeDelta: {x: 420, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1723315067
 MonoBehaviour:
@@ -1773,7 +2028,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 82c5ad49136ba478395b1e64f65bf4f5, type: 3}
-    m_FontSize: 22
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1784,9 +2039,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\t\t\t\t\tREMERCIEMENTS\n\r\n\r\nYann Leclerc\r\nGuillaume Coudrioau\nEt
-    \xE0 l\u2019ensemble de l\u2019\xE9quipe p\xE9dagogique\r\n\r\nThomas Depland
-    Depraz\r\nLouis Celeron\r\nTristan Ledieux\r\nTh\xE9ophile Loaec\n"
+  m_Text: "\t\t\t\t\tREMERCIEMENTS\n\r\n\r\nYann Leclerc\r\nGuillaume Coudriau\r\nMickael
+    Mancini\r\nEt \xE0 l\u2019ensemble de l\u2019\xE9quipe p\xE9dagogique\r\n\n\r"
 --- !u!222 &1723315068
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1887,6 +2141,84 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1704995310}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1996134379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1996134380}
+  - component: {fileID: 1996134382}
+  - component: {fileID: 1996134381}
+  m_Layer: 5
+  m_Name: Text Team 2 gauche
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1996134380
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996134379}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 303483992}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -235, y: 20}
+  m_SizeDelta: {x: 420, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1996134381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996134379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 82c5ad49136ba478395b1e64f65bf4f5, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: "Lead Sound Designer :\t\n\t\tMatis Duperray\r\n\nSound Designers :\t\n\t\t\tTheodore
+    Labyt\r\n\t\t\tLuana Tran Nguyen\n\r\n\r"
+--- !u!222 &1996134382
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996134379}
+  m_CullTransparentMesh: 0
 --- !u!1 &2074771161
 GameObject:
   m_ObjectHideFlags: 0
@@ -1899,7 +2231,7 @@ GameObject:
   - component: {fileID: 2074771164}
   - component: {fileID: 2074771163}
   m_Layer: 5
-  m_Name: Text pplaytest
+  m_Name: Text pplaytest gauche
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1917,12 +2249,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 303483992}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 300, y: 0}
-  m_SizeDelta: {x: 634.8, y: 30}
+  m_AnchoredPosition: {x: -235, y: 20}
+  m_SizeDelta: {x: 420, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2074771163
 MonoBehaviour:
@@ -1944,19 +2276,19 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 82c5ad49136ba478395b1e64f65bf4f5, type: 3}
-    m_FontSize: 22
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\t\t\t\t\tPLAYTESTEUR\rS\n\r\n\r\nMaxime Durand\r\nVincent Kara\r\nR\xE9mi
-    Demoli\xE8re\r\nGuillaume Rog\xE9\r\nAntoine Leroux\r\nVictor Kara\r\nElie Sarfati\r\n"
+  m_Text: "PLAYTESTEUR\rS\n\r\nMaxime Durand\r\nVincent Kara\r\nR\xE9mi Demoli\xE8re\r\nQuentin
+    Roussel\r\nLuc Derain\r\nEwan Argouse\r\n"
 --- !u!222 &2074771164
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2175,13 +2507,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1817633563, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 235
+      objectReference: {fileID: 0}
+    - target: {fileID: 1817633563, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1817633563, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 420
+      objectReference: {fileID: 0}
     - target: {fileID: 1817633564, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
       propertyPath: m_Text
       value: 'I NEED A HERO
 
 
 
-        Un jeu par
+        Un jeu
 
         RUBIKA SupinfoGame'
       objectReference: {fileID: 0}
@@ -2189,17 +2533,21 @@ PrefabInstance:
       propertyPath: m_FontData.m_Alignment
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1817633564, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1882522331, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d1ca126b5757cb843a1118c07e41f9a9, type: 2}
     - target: {fileID: 1882522332, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
       propertyPath: m_ExposedReferences.m_References.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1882522332, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
       propertyPath: m_SceneBindings.Array.size
-      value: 32
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 1882522332, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
       propertyPath: m_SceneBindings.Array.data[3].value
@@ -2263,12 +2611,12 @@ PrefabInstance:
       objectReference: {fileID: 2112740660648078752}
     - target: {fileID: 1882522332, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
       propertyPath: m_ExposedReferences.m_References.Array.data[3].first
-      value: 1df439eb7cb3fb34ea8e3f691c738f70
+      value: d2f0d6a8fbf02d347949e47b9cc6e676
       objectReference: {fileID: 0}
     - target: {fileID: 1882522332, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
       propertyPath: m_ExposedReferences.m_References.Array.data[3].second
       value: 
-      objectReference: {fileID: 2112740660648078754}
+      objectReference: {fileID: 184608}
     - target: {fileID: 1882522332, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
       propertyPath: m_SceneBindings.Array.data[20].key
       value: 
@@ -2377,6 +2725,50 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[31].value
       value: 
       objectReference: {fileID: 746346583}
+    - target: {fileID: 1882522332, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
+      propertyPath: m_ExposedReferences.m_References.Array.data[4].first
+      value: 1df439eb7cb3fb34ea8e3f691c738f70
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882522332, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
+      propertyPath: m_ExposedReferences.m_References.Array.data[4].second
+      value: 
+      objectReference: {fileID: 569112457}
+    - target: {fileID: 1882522332, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
+      propertyPath: m_SceneBindings.Array.data[32].key
+      value: 
+      objectReference: {fileID: -6778117912779598774, guid: 2221a3d00e5a541439c9253611f3931a,
+        type: 2}
+    - target: {fileID: 1882522332, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
+      propertyPath: m_SceneBindings.Array.data[32].value
+      value: 
+      objectReference: {fileID: 1243936020}
+    - target: {fileID: 1882522332, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
+      propertyPath: m_SceneBindings.Array.data[33].key
+      value: 
+      objectReference: {fileID: -1340638187363093346, guid: 2221a3d00e5a541439c9253611f3931a,
+        type: 2}
+    - target: {fileID: 1882522332, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
+      propertyPath: m_SceneBindings.Array.data[33].value
+      value: 
+      objectReference: {fileID: 1996134379}
+    - target: {fileID: 1882522332, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
+      propertyPath: m_SceneBindings.Array.data[34].key
+      value: 
+      objectReference: {fileID: -6490411314269578512, guid: 2221a3d00e5a541439c9253611f3931a,
+        type: 2}
+    - target: {fileID: 1882522332, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
+      propertyPath: m_SceneBindings.Array.data[34].value
+      value: 
+      objectReference: {fileID: 253305050}
+    - target: {fileID: 1882522332, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
+      propertyPath: m_SceneBindings.Array.data[35].key
+      value: 
+      objectReference: {fileID: -8051243386492365342, guid: 2221a3d00e5a541439c9253611f3931a,
+        type: 2}
+    - target: {fileID: 1882522332, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
+      propertyPath: m_SceneBindings.Array.data[35].value
+      value: 
+      objectReference: {fileID: 1119592296}
     - target: {fileID: 1882522334, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
       propertyPath: Boss
       value: 
@@ -2465,15 +2857,3 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 2112740660648078751}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2112740660648078754 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1215238001, guid: 53b9868477dc6fb41a980a45a58c87a1,
-    type: 3}
-  m_PrefabInstance: {fileID: 2112740660648078751}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
