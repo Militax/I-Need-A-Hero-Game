@@ -36,12 +36,15 @@ namespace Player
         public AudioClip[] stoneStepAudio;
         public AudioClip[] iceStepAudio;
 
+        private void Awake()
+        {
+            GameManager.Instance.player = this;
+        }
         void Start()
         {
             PlayerAttack = GetComponent<PlayerAttack>();
             //Recuperation du rigidbody du player
             rb = GetComponent<Rigidbody2D>();
-            GameManager.Instance.player = this;
         }
 
         void Update()

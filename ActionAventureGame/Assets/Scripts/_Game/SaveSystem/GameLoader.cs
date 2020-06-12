@@ -163,6 +163,7 @@ public class GameLoader : Singleton<GameLoader>
             Debug.Log("Player not found");
             return;
         }
+        Debug.LogError(data.position);
         player.transform.position = data.position;
         player.transform.rotation = data.rotation;
     }
