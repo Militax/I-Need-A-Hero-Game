@@ -52,7 +52,7 @@ namespace Player
         
         #endregion
         public Animator animator;
-        
+
         Cooldown myCD;
         Cooldown myAtkSpeed;
         public float attackSpeed;
@@ -71,6 +71,7 @@ namespace Player
             myCD = new Cooldown(cooldown);
             movespeed = GetComponent<PlayerMovement>().moveSpeed;
             baseMoveSpeed = movespeed;
+
         }
         void Update()
         {
@@ -147,7 +148,7 @@ namespace Player
             else if (ComboCount == 3)
             {
                 SoundManager.instance.PlaySfx(attaqueSlam, 1, 1);
-                Invoke("Slam",.5f);
+                Invoke("Slam",.5f);              
                 StartCoroutine(Attaque_Movement());
             }           
             
@@ -160,6 +161,7 @@ namespace Player
             SlamHitbox.GetComponent<AttackColliders>().Invoke("deSpawn", attackDuration);
             myCD.Reset();
             myAtkSpeed.Reset();
+                        
         }
         IEnumerator Attaque_Movement()
         {
