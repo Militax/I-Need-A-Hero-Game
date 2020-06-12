@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8825266055329111044}
   - component: {fileID: 1894635400651744858}
-  - component: {fileID: 7336650565062209555}
+  - component: {fileID: 8619194925992595590}
   m_Layer: 0
   m_Name: Pillier_detruit
   m_TagString: Untagged
@@ -82,8 +82,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7336650565062209555
-BoxCollider2D:
+--- !u!60 &8619194925992595590
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,7 +95,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.1718032}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -105,6 +105,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.4583334, y: 1.4897265}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.41972923, y: -0.6245384}
+      - {x: -0.311275, y: -0.6192436}
+      - {x: -0.72916675, y: -0.91627216}
+      - {x: -0.72916675, y: -1.5793943}
+      - {x: -0.3958993, y: -1.9099493}
+      - {x: 0.33950424, y: -1.916666}
+      - {x: 0.7291665, y: -1.5747309}
+      - {x: 0.7398896, y: -0.960454}
