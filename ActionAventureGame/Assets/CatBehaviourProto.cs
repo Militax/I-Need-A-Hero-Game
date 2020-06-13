@@ -139,7 +139,7 @@ public class CatBehaviourProto : MonoBehaviour
 
     void Attack()
     {
-        if (isDead)
+        if (!isDead && !GameManager.Instance.invulnerability)
         {
             GameManager.Instance.playerHealth -= Damage;
             iTween.MoveAdd(player.gameObject, direction.normalized * attackForce, attackDuration);
