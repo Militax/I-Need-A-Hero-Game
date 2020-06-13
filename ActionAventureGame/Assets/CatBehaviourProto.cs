@@ -139,7 +139,7 @@ public class CatBehaviourProto : MonoBehaviour
 
     void Attack()
     {
-        if (!isDead && !GameManager.Instance.invulnerability)
+        if (!isDead && !GameManager.Instance.invulnerability && !isPushed)
         {
             GameManager.Instance.invulnerability = true;
             GameManager.Instance.playerHealth -= Damage;
