@@ -10,6 +10,7 @@ public class GingerBreadBehaviour : MonoBehaviour
     PlayerMovement player;
     Rigidbody2D rb;
     Animator animator;
+    Animator PlayerAnimator;
     #endregion
 
     #region Variables
@@ -70,7 +71,6 @@ public class GingerBreadBehaviour : MonoBehaviour
 
     private void Start()
     {
-        player = FindObjectOfType<PlayerMovement>(); //parceque le gamemanager est pas encore a jour au start
         rb = GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
         FreezeTime.isStopped = true;
@@ -78,8 +78,13 @@ public class GingerBreadBehaviour : MonoBehaviour
     }
     private void Update()
     {
+        if (player == null)
+        {
+            player = GameManager.Instance.player;
+            PlayerAnimator = player.GetComponent<Animator>();
 
-        
+        }
+
         if (FreezeTime.IsOver())
         {
             FreezeTime.isStopped = true;
@@ -241,6 +246,7 @@ public class GingerBreadBehaviour : MonoBehaviour
             if (!GameManager.Instance.invulnerability)
             {
                 GameManager.Instance.playerHealth -= damage;
+                PlayerAnimator.SetTrigger("Hit");
             }
             isDealingDamage = true;
             rb.velocity = Vector2.zero;

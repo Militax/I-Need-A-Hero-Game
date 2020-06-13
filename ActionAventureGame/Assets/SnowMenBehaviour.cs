@@ -80,7 +80,8 @@ public class SnowMenBehaviour : MonoBehaviour
             {
                 if (isalive)
                 {
-                    animator.SetTrigger("Repousse");
+                    animator.SetBool("Repousse", true);
+                    animator.SetTrigger("RepousseT");
                     ispushed = true;
                 }
 
@@ -93,6 +94,7 @@ public class SnowMenBehaviour : MonoBehaviour
                 {
                     PushZone.radius = 0;
                     ispushed = false;
+                    animator.SetBool("Repousse", false);
                 }
                 //rb.velocity = pushDirection.normalized * (PushSpeed*50) * Time.deltaTime; 
             }

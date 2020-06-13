@@ -67,7 +67,7 @@ namespace Ennemy
         {
             health = maximumHealth;
             animator = gameObject.GetComponent<Animator>();
-            MyCat = GetComponent<CatBehaviourProto>();
+            MyCat = GetComponent<CatBehaviourProto>();
         }
         void Update()
         {
@@ -78,7 +78,6 @@ namespace Ennemy
                 //Debug.Log("death");
                 if (Dead == true)
                 {
-                    animator.SetTrigger("Death");
                     animator.SetBool("Death", true);
                     StartCoroutine(cooldown());
 

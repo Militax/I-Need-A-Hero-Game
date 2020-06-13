@@ -13,6 +13,7 @@ public class CatBehaviourProto : MonoBehaviour
     Rigidbody2D PlayeRb;
     bool takedamage = false;
     Animator animator;
+    Animator PlayerAnimator;
     #endregion
 
 
@@ -59,8 +60,6 @@ public class CatBehaviourProto : MonoBehaviour
     {
         
         rb = GetComponent<Rigidbody2D>();
-        player = FindObjectOfType<PlayerMovement>();
-        PlayeRb = player.GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
         animator.SetBool("CanAttack", false);
     }
@@ -68,6 +67,13 @@ public class CatBehaviourProto : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player == null)
+        {
+            player = GameManager.Instance.player;
+            PlayerAnimator = player.GetComponent<Animator>();
+            PlayeRb = player.GetComponent<Rigidbody2D>();
+        }
+
         if (!isDead)
         {
             dir = player.transform.position - gameObject.transform.position;
@@ -144,6 +150,7 @@ public class CatBehaviourProto : MonoBehaviour
             if (!GameManager.Instance.invulnerability)
             {
                 GameManager.Instance.playerHealth -= Damage;
+                PlayerAnimator.SetTrigger("Hit");
             }
             
             GameManager.Instance.invulnerability = true;
