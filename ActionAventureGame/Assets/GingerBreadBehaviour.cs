@@ -236,7 +236,7 @@ public class GingerBreadBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag ==player.tag && isAttacking == true && !isDealingDamage && !missed && !isDead)
+        if (collision.tag ==player.tag && isAttacking == true && !isDealingDamage && !missed && !isDead && !isFrozen)
         {
             GameManager.Instance.playerHealth -= damage;
             isDealingDamage = true;
