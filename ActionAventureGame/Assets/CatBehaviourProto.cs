@@ -139,10 +139,14 @@ public class CatBehaviourProto : MonoBehaviour
 
     void Attack()
     {
-        if (!isDead && !GameManager.Instance.invulnerability && !isPushed)
+        if (!isDead  && !isPushed)
         {
+            if (!GameManager.Instance.invulnerability)
+            {
+                GameManager.Instance.playerHealth -= Damage;
+            }
+            
             GameManager.Instance.invulnerability = true;
-            GameManager.Instance.playerHealth -= Damage;
             iTween.MoveAdd(player.gameObject, direction.normalized * attackForce, attackDuration);
             PlayAttackSound();
             Invoke("AttackCD", attackCoolDown);
@@ -180,10 +184,7 @@ public class CatBehaviourProto : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, AttackRange);
         
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        iTween.Stop();
-    }
+    
 
 
 

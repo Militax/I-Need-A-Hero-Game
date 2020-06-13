@@ -132,5 +132,9 @@ namespace Player
             yield return new WaitForSeconds(timeBetweenSound);
             footStepCoroutine = false;
         }
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            iTween.Stop();
+        }
     }
 }

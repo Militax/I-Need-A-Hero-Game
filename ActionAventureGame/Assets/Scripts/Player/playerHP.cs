@@ -133,19 +133,19 @@ namespace Player
                             }
                         }
                         break;
-                    case ("Ennemy"):
-                        GameManager.Instance.playerHealth -= 1;
-                        animator.SetTrigger("Hit");
-                        SoundManager.instance.PlaySfx(Damage, 1, 1);
-                        if (!SoundManager.instance.voice49 && !SoundManager.instance.voiceSource.isPlaying)
-                        {
-                            SoundManager.instance.PlayVoices(NarratorVoice49, 1);
-                            SoundManager.instance.voice49 = true;
-                        }
-                        //Debug.Log("attack");
-                        GameManager.Instance.invulnerability = true;
+                    //case ("Ennemy"):
+                    //    GameManager.Instance.playerHealth -= 1;
+                    //    animator.SetTrigger("Hit");
+                    //    SoundManager.instance.PlaySfx(Damage, 1, 1);
+                    //    if (!SoundManager.instance.voice49 && !SoundManager.instance.voiceSource.isPlaying)
+                    //    {
+                    //        SoundManager.instance.PlayVoices(NarratorVoice49, 1);
+                    //        SoundManager.instance.voice49 = true;
+                    //    }
+                    //    //Debug.Log("attack");
+                    //    GameManager.Instance.invulnerability = true;
                         
-                        break;
+                    //    break;
 
 
 

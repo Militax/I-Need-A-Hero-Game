@@ -111,6 +111,7 @@ MonoBehaviour:
   PushSpeed: 6
   PushZone: {fileID: 7089603538257893532}
   smShootAudio: {fileID: 8300000, guid: 1e7d29f047773d34a81c4f147cf5d235, type: 3}
+  isDead: 0
 --- !u!212 &6716102325986113106
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -182,7 +183,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6716102325986113107
 BoxCollider2D:
   m_ObjectHideFlags: 0
