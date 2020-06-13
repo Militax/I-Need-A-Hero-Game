@@ -35,8 +35,6 @@ public class IntroBossVoice : MonoBehaviour
     public void Play38()
     {
         SoundManager.instance.PlayVoices(voiceLine38, 1);
-        Debug.Log("Power manxed");
-        GameManager.Instance.powerState = 3;
     }
 
 

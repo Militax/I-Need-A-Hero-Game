@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -9197,6 +9197,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Forest
       objectReference: {fileID: 0}
+    - target: {fileID: 2264670593430902984, guid: 2849bcbb84a5295418c91f8ac6ba7382,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2757001398092684498, guid: 2849bcbb84a5295418c91f8ac6ba7382,
         type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value
@@ -10455,7 +10460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70091db057229ae47980138e6ad8dc10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Timeline: {fileID: 1951668415}
+  Timeline: {fileID: 0}
   playableAsset: {fileID: 11400000, guid: fbc9c5dfeb54d7346aace96d07003bc8, type: 2}
 --- !u!114 &1951668373 stripped
 MonoBehaviour:

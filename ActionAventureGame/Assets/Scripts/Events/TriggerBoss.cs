@@ -28,12 +28,9 @@ public class TriggerBoss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        powerlvl = GameManager.Instance.powerState;
-
         if (TimelinePlayed == false)
         {
             GameManager.Instance.playerCanMove = false;
-            GameManager.Instance.powerState = 0;
             Timeline.stopped += OnPlayableDirectorStopped;
         }
         
@@ -42,10 +39,9 @@ public class TriggerBoss : MonoBehaviour
     void OnPlayableDirectorStopped(PlayableDirector IntroBoss)
     {
         Boss.SetActive(true);
-
+        GameManager.Instance.powerState = 3;
         TimelinePlayed = true;
         GameManager.Instance.playerCanMove = true;
-        GameManager.Instance.powerState = powerlvl;
         Camera.main.GetComponent<BossCamera>().enabled = true;
         Camera.main.GetComponent<CinemachineBrain>().enabled = false;
     }
