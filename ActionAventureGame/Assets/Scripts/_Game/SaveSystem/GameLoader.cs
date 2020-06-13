@@ -122,7 +122,6 @@ public class GameLoader : Singleton<GameLoader>
             Debug.LogError("Gamemanager is null");
         
         GameManager.Instance.playerCanMove = data.CanMove;
-        Debug.Log(GameManager.Instance.playerCanMove);
         GameManager.Instance.RespawnPoint = data.RespawnPoint;
         GameManager.Instance.playerHealth = data.PlayerHP;
         GameManager.Instance.playerHealthMax = data.PlayerMaxHP;
@@ -167,7 +166,7 @@ public class GameLoader : Singleton<GameLoader>
         
         if (player == null)
         {
-            Debug.Log("Player not found");
+            Debug.LogError("Player not found");
             return;
         }
         Debug.LogError(data.position);
