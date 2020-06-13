@@ -24,7 +24,7 @@ public class cheatCodes : MonoBehaviour
             {
                 
                 //GameManager.Instance.playerHealthMax = 1000;
-                GameManager.Instance.playerHealth = 1000;
+                GameManager.Instance.invulnerabilityduration = 10000;
             }
             else if (Input.GetKey(die))
             {
@@ -39,7 +39,7 @@ public class cheatCodes : MonoBehaviour
             else if (Input.GetKey(normalLife))
             {
                 //GameManager.Instance.playerHealthMax = HPmaxBeforeCheat;
-                GameManager.Instance.playerHealth = GameManager.Instance.playerHealthMax;
+                GameManager.Instance.invulnerabilityduration = 0.5f;
             }
             else if (Input.GetKey(tpBoss))
             {

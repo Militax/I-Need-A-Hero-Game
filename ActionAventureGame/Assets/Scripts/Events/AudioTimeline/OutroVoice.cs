@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using GameManagement;
 
 public class OutroVoice : MonoBehaviour
 {
@@ -15,5 +17,12 @@ public class OutroVoice : MonoBehaviour
     public void PlayAubane()
     {
         SoundManager.instance.PlayVoices(aubane, 1);
+    }
+
+    public void loadMenu()
+    {
+        Destroy(GameManager.Instance);
+        Destroy(SoundManager.instance);
+        SceneManager.LoadScene("Menus");
     }
 }
