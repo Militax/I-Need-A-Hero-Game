@@ -61,6 +61,8 @@ namespace GameManagement
 
         #region Special
         public bool isComingFromDonjon = false;
+        public bool isComingFromForest = false;
+        public bool IntroHasBeenPlayed;
         public int NarrativeStat = 1;
         #endregion
 

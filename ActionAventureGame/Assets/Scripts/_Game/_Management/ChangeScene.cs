@@ -15,7 +15,15 @@ public class ChangeScene : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            GameManager.Instance.isComingFromDonjon = true;
+            if (NextScene == "Donjon")
+            {
+                GameManager.Instance.isComingFromDonjon = true;
+            }
+            if (NextScene == "Forest")
+            {
+                GameManager.Instance.isComingFromForest = true;
+            }
+            
             collision.transform.position = exit + transform.position;
             GameLoader.Instance.SaveGame(GameManager.Instance.currentSave);
             SceneManager.LoadScene(NextScene);

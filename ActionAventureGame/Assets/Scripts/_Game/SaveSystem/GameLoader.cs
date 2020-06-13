@@ -126,6 +126,8 @@ public class GameLoader : Singleton<GameLoader>
         GameManager.Instance.swordDamage = data.SwordDamage;
         GameManager.Instance.bottesState = data.BottesState;
         GameManager.Instance.isComingFromDonjon = data.isCommingFromDungeon;
+        GameManager.Instance.isComingFromForest = data.isCommingFromForest;
+        GameManager.Instance.IntroHasBeenPlayed = data.hasBeenPlayed;
     }
 
     private void SaveGameManager(RawData data)
@@ -144,7 +146,9 @@ public class GameLoader : Singleton<GameLoader>
             DeathCounter = GameManager.Instance.DeathCounter,
             SwordDamage = GameManager.Instance.swordDamage,
             BottesState = GameManager.Instance.bottesState,
-            isCommingFromDungeon = GameManager.Instance.isComingFromDonjon
+            hasBeenPlayed = GameManager.Instance.IntroHasBeenPlayed,
+            isCommingFromDungeon = GameManager.Instance.isComingFromDonjon,
+            isCommingFromForest = GameManager.Instance.isComingFromForest
         };
         data.ManagerData = managerData;
     }
@@ -165,7 +169,7 @@ public class GameLoader : Singleton<GameLoader>
             Debug.Log("Player not found");
             return;
         }
-        Debug.LogError(data.position);
+        
         player.transform.position = data.position;
         player.transform.rotation = data.rotation;
     }

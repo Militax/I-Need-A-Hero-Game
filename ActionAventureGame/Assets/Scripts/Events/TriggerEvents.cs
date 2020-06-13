@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 using Player;
 using GameManagement;
+using Ennemy;
 
 public class TriggerEvents : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class TriggerEvents : MonoBehaviour
     private bool TimelinePlayed;
     private int powerlvl;
     public bool dependsFromDungeon;
+    public bool dependsFromForest;
     
     // Start is called before the first frame update
     void Start()
@@ -29,10 +31,14 @@ public class TriggerEvents : MonoBehaviour
             {
                 return;
             }
+            if (dependsFromForest && GameManager.Instance.isComingFromForest)
+            {
+                return;
+            }
             powerlvl = GameManager.Instance.powerState;
             if (TimelinePlayed == false)
             {
-
+                
                 Timeline.Play();
 
                 GameManager.Instance.playerCanMove = false;

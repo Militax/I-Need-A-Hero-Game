@@ -9,6 +9,7 @@ public class TriggerChaperon : MonoBehaviour
     private PlayableDirector Timeline;
     private PlayableDirector Gueulante;
 
+    public TriggerChaperon previousChaperon;
     private bool TimelinePlayed;
 
     public GameObject TimelineDirector;
@@ -23,11 +24,20 @@ public class TriggerChaperon : MonoBehaviour
         
     }
 
-   
+    //private void OnDisable()
+    //{
+    //    previousChaperon.enabled = false;
+    //}
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
+            if (previousChaperon !=null)
+            {
+                previousChaperon.enabled = false;
+            }
+            
             Gueulante.Stop();
             TimelinePlayed = false;
             Timeline.Play();

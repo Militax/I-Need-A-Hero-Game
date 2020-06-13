@@ -26,4 +26,8 @@ public class GameManagerData
     public int BottesState;
 
     public bool isCommingFromDungeon;
+
+    public bool isCommingFromForest;
+
+    public bool hasBeenPlayed;
 }

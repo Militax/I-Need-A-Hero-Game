@@ -10,11 +10,11 @@ public class RepawnManager : MonoBehaviour
 
     void Start()
     {
-        if (GameManager.Instance.isComingFromDonjon == true)
-        {
-            GameManager.Instance.player.gameObject.transform.position = this.transform.position;
-            acces.SetActive(true);
-            GameLoader.Instance.SaveGame(GameManager.Instance.currentSave);
-        }
+        //if (GameManager.Instance.isComingFromDonjon == true)
+        //{
+        //    GameManager.Instance.player.gameObject.transform.position = this.transform.position;
+        //    acces.SetActive(true);
+        //    GameLoader.Instance.SaveGame(GameManager.Instance.currentSave);
+        //}
     }
 }
