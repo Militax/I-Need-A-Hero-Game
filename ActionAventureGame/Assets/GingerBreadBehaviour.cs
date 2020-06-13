@@ -238,10 +238,15 @@ public class GingerBreadBehaviour : MonoBehaviour
     {
         if (collision.tag ==player.tag && isAttacking == true && !isDealingDamage && !missed && !isDead && !isFrozen && !isStunned)
         {
-            GameManager.Instance.playerHealth -= damage;
-            isDealingDamage = true;
-            rb.velocity = Vector2.zero;
-            Invoke("ResetAttack", attackCooldown);
+            if (!GameManager.Instance.invulnerability)
+            {
+                GameManager.Instance.invulnerability = true;
+                GameManager.Instance.playerHealth -= damage;
+                isDealingDamage = true;
+                rb.velocity = Vector2.zero;
+                Invoke("ResetAttack", attackCooldown);
+            }
+            
         }
     }
 
