@@ -34,6 +34,7 @@ public class SwichGlobal : ActivationDevice
     [Header ("Audio")]
     public AudioClip switchOn;
     public AudioClip switchOff;
+    public float volume = 1;
 
 
 
@@ -127,7 +128,7 @@ public class SwichGlobal : ActivationDevice
                 if (IsActive)
                 {
                     animator.SetTrigger("ToActive");
-                    SoundManager.instance.PlaySfx(switchOn, 3, 1);
+                    SoundManager.instance.PlaySfx(switchOn, volume, 1);
 
                     if (ParticleSystem != null)
                     {
@@ -146,7 +147,7 @@ public class SwichGlobal : ActivationDevice
                 else if (!IsActive)
                 {
                     animator.SetTrigger("ToInactive");
-                    SoundManager.instance.PlaySfx(switchOff, 3, 1);
+                    SoundManager.instance.PlaySfx(switchOff, volume, 1);
 
                     if (ParticleSystem != null)
                     {
