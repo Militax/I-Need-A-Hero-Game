@@ -339,12 +339,12 @@ PrefabInstance:
     - target: {fileID: 3392583097250523826, guid: 2951a1067da8f024bb4120680cec29f1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.791667
+      value: -11.5
       objectReference: {fileID: 0}
     - target: {fileID: 3392583097250523826, guid: 2951a1067da8f024bb4120680cec29f1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5833334
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3392583097250523826, guid: 2951a1067da8f024bb4120680cec29f1,
         type: 3}
@@ -1308,11 +1308,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerTransform: {fileID: 746346593}
   _bossTransform: {fileID: 1517272782}
-  START_SIZE: 9.5
-  MAX_SIZE: 9.5
+  START_SIZE: 9.8
+  MAX_SIZE: 9.8
   MIN_SIZE: 6
   _multiplierSize: 1
   _cameraTranslationMultiplier: 1
+  START_POSITION: {x: -11.5, y: 0.5, z: -10}
 --- !u!1 &909325523
 GameObject:
   m_ObjectHideFlags: 0
@@ -1672,6 +1673,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: respawn point
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846345640819962734, guid: 692799b9b9a838e4ca6179d9aa951d53,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846345640819962734, guid: 692799b9b9a838e4ca6179d9aa951d53,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7846345640819962735, guid: 692799b9b9a838e4ca6179d9aa951d53,
         type: 3}

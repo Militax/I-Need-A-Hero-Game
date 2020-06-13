@@ -22,12 +22,13 @@ public class BossCamera : MonoBehaviour
     private float _cameraTranslationMultiplier = 10f;
 
     private Camera _camera;
+    [SerializeField]
     private Vector3 START_POSITION;
     #endregion
 
     private void Start()
     {
-        START_POSITION = transform.position;
+        //START_POSITION = transform.position;
         _camera = GetComponent<Camera>();
         _camera.orthographicSize = START_SIZE;
     }
