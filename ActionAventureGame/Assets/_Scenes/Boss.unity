@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3686,9 +3686,10 @@ MonoBehaviour:
   bossLife2: {fileID: 0}
   bossLife1: {fileID: 0}
   NarratorVoicePhase1: {fileID: 8300000, guid: 763a4bbe26de0f64c99349b201cec75d, type: 3}
-  NarratorVoicePhase1bis: {fileID: 0}
+  NarratorVoicePhase1bis: {fileID: 8300000, guid: fb8809196c320d245a7f5a4afdd90e24,
+    type: 3}
   NarratorVoicePhase2: {fileID: 8300000, guid: bf2ce5a3909f9ce43a8cadda79039554, type: 3}
-  NarratorVoicePhase3: {fileID: 8300000, guid: 168a204e5758df348bd769187a6cbd89, type: 3}
+  NarratorVoicePhase3: {fileID: 8300000, guid: 137e9e3b1836b1c47b350bf97ff5449c, type: 3}
 --- !u!1001 &2112740660648078751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3773,6 +3774,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: e967b2bb5432a4e4e97edc7573df986f,
         type: 2}
+    - target: {fileID: 806149529, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1473158677, guid: 53b9868477dc6fb41a980a45a58c87a1, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
@@ -4177,6 +4182,16 @@ PrefabInstance:
       propertyPath: aubane
       value: 
       objectReference: {fileID: 8300000, guid: 301475ab34f25a646ad37c511815cd17, type: 3}
+    - target: {fileID: 1171574015828961556, guid: 53b9868477dc6fb41a980a45a58c87a1,
+        type: 3}
+      propertyPath: volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171574015828961556, guid: 53b9868477dc6fb41a980a45a58c87a1,
+        type: 3}
+      propertyPath: needToLoop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3031494193960557001, guid: 53b9868477dc6fb41a980a45a58c87a1,
         type: 3}
       propertyPath: m_LocalPosition.x
