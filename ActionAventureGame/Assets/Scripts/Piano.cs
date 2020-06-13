@@ -10,6 +10,11 @@ public class Piano : MonoBehaviour
     public bool canPlay = false;
     public bool isPlaying = false;
 
+    private void Start()
+    {
+        
+    }
+
 
     private void Update()
     {
