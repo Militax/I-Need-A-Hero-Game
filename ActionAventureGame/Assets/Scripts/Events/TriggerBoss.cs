@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 using GameManagement;
 using Cinemachine;
-using UnityEngine.Playables;
+
 
 public class TriggerBoss : MonoBehaviour
 {
