@@ -53,6 +53,12 @@ public class TriggerFin : MonoBehaviour
             Camera.main.GetComponent<CinemachineBrain>().enabled = true;
             Timeline.Play();
 
+            if (SoundManager.instance.musicSource.isPlaying)
+            {
+                SoundManager.instance.musicSource.Stop();
+            }
+            SoundManager.instance.sfxSource.Stop();
+
             GameManager.Instance.playerCanMove = false;
             //GameManager.Instance.player.enabled = false;
             //GameManager.Instance.player.rb.velocity = Vector2.zero;
