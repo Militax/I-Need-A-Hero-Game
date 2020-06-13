@@ -44,6 +44,7 @@ public class SnowMenBehaviour : MonoBehaviour
     [Header("Audio")]
     public AudioClip smShootAudio;
 
+    public bool isDead;
 
     private void Start()
     {
@@ -51,72 +52,76 @@ public class SnowMenBehaviour : MonoBehaviour
     }
     private void Update()
     {
-        isalive = gameObject.GetComponent<EnemyHealth>().isAlive;
-        if (Player == null)
+        if (!isDead)
         {
-            Player = GameManager.Instance.player;
-        }
-        if (rb == null)
-        {
-            rb = Player.GetComponent<Rigidbody2D>();
-        }
-
-        distance = Vector2.Distance(Player.transform.position, transform.position);
-
-        if (distance < DetectionRange && FireRate.IsOver())
-        {
-            if (isalive)
+            isalive = gameObject.GetComponent<EnemyHealth>().isAlive;
+            if (Player == null)
             {
-                animator.SetTrigger("Attack");
-                Shoot();
-                //LookAt();
+                Player = GameManager.Instance.player;
             }
-            
-        }
-        if (distance<PushRange && ispushed == false)
-        {
-            if (isalive)
+            if (rb == null)
             {
-                animator.SetTrigger("Repousse");
-                ispushed = true;
+                rb = Player.GetComponent<Rigidbody2D>();
             }
-            
-        }
 
-        if (ispushed && isalive)
-        {
-            PushZone.radius += PushSpeed*Time.deltaTime;
-            if (PushZone.radius >= pushDistance)
+            distance = Vector2.Distance(Player.transform.position, transform.position);
+
+            if (distance < DetectionRange && FireRate.IsOver())
             {
-                PushZone.radius = 0;
-                ispushed = false;
+                if (isalive)
+                {
+                    animator.SetTrigger("Attack");
+                    Shoot();
+                    //LookAt();
+                }
+
             }
-            //rb.velocity = pushDirection.normalized * (PushSpeed*50) * Time.deltaTime; 
-        }
+            if (distance < PushRange && ispushed == false)
+            {
+                if (isalive)
+                {
+                    animator.SetTrigger("Repousse");
+                    ispushed = true;
+                }
+
+            }
+
+            if (ispushed && isalive)
+            {
+                PushZone.radius += PushSpeed * Time.deltaTime;
+                if (PushZone.radius >= pushDistance)
+                {
+                    PushZone.radius = 0;
+                    ispushed = false;
+                }
+                //rb.velocity = pushDirection.normalized * (PushSpeed*50) * Time.deltaTime; 
+            }
 
 
-        float xDiff = Player.transform.position.x - transform.position.x;
-        float yDiff = Player.transform.position.y - transform.position.y;
-        //en bas a gauche 
-        if (xDiff < 0 && yDiff < 0)
-        {
-            animator.SetFloat("Direction", 0);
+            float xDiff = Player.transform.position.x - transform.position.x;
+            float yDiff = Player.transform.position.y - transform.position.y;
+            //en bas a gauche 
+            if (xDiff < 0 && yDiff < 0)
+            {
+                animator.SetFloat("Direction", 0);
+            }
+            //en bas a droite
+            if (xDiff > 0 && yDiff < 0)
+            {
+                animator.SetFloat("Direction", 0.33f);
+            }
+            //en haut a gauche
+            if (xDiff < 0 && yDiff > 0)
+            {
+                animator.SetFloat("Direction", 0.66f);
+            }
+            //en haut a droite
+            if (xDiff > 0 && yDiff > 0)
+            {
+                animator.SetFloat("Direction", 1);
+            }
         }
-        //en bas a droite
-        if (xDiff > 0 && yDiff < 0)
-        {
-            animator.SetFloat("Direction", 0.33f);
-        }
-        //en haut a gauche
-        if (xDiff < 0 && yDiff > 0)
-        {
-            animator.SetFloat("Direction", 0.66f);
-        }
-        //en haut a droite
-        if (xDiff > 0 && yDiff > 0)
-        {
-            animator.SetFloat("Direction", 1);
-        }
+        
     }
 
     

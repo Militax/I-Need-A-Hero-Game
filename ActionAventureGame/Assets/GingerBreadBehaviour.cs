@@ -65,6 +65,7 @@ public class GingerBreadBehaviour : MonoBehaviour
 
     #endregion
 
+    public bool isDead;
 
 
     private void Start()
@@ -90,65 +91,69 @@ public class GingerBreadBehaviour : MonoBehaviour
             
             StartCoroutine(ResetFreeze());
         }
-        if (!isFrozen)
+        if (!isDead)
         {
-            distance = Vector2.Distance(player.transform.position, gameObject.transform.position);
-            Vector2 dir = player.transform.position - gameObject.transform.position;
-
-            if (distance < detectionRange && distance > attackRange && missed == false && !ispushed && !isStunned)
+            if (!isFrozen)
             {
-                animator.SetTrigger("Walk");
-                rb.velocity = dir.normalized * Speed;
+                distance = Vector2.Distance(player.transform.position, gameObject.transform.position);
+                Vector2 dir = player.transform.position - gameObject.transform.position;
+
+                if (distance < detectionRange && distance > attackRange && missed == false && !ispushed && !isStunned)
+                {
+                    animator.SetTrigger("Walk");
+                    rb.velocity = dir.normalized * Speed;
+                }
+
+                if (distance < attackRange && isAttacking == false && missed == false)
+                {
+                    PlayGBSound();
+                    animator.SetTrigger("Attack");
+                    direction = player.transform.position - gameObject.transform.position;
+                    isAttacking = true;
+                    attackDuration.Reset();
+                }
+
+                if (isAttacking && !isDealingDamage && !ispushed && !isStunned && !attackDuration.IsOver())
+                {
+
+                    rb.velocity = direction.normalized * jumpSpeed;
+
+
+                }
+
+                //if (distance < damageRange && isAttacking == true && !isDealingDamage && !missed)
+                //{
+                //    GameManager.Instance.playerHealth -= damage;
+                //    isDealingDamage = true;
+                //    rb.velocity = Vector2.zero;
+                //    Invoke("ResetAttack", attackCooldown);
+                //}
+
+                if (isAttacking && attackDuration.IsOver())
+                {
+
+                    isAttacking = false;
+                    missed = true;
+                    Invoke("Missed", attackCooldown);
+                }
+
+                if ((distance > detectionRange && !ispushed))
+                {
+                    rb.velocity = Vector2.zero;
+                }
+
+                //if (distance > attackRange && isAttacking)
+                //{
+                //    isAttacking = false;
+                //    missed = true;
+                //    Invoke("Missed", attackCooldown);
+                //}
+                if (missed && !ispushed)
+                {
+                    rb.velocity = Vector2.zero;
+                }
             }
-
-            if (distance < attackRange && isAttacking == false && missed == false)
-            {
-                PlayGBSound();
-                animator.SetTrigger("Attack");
-                direction = player.transform.position - gameObject.transform.position;
-                isAttacking = true;
-                attackDuration.Reset();
-            }
-
-            if (isAttacking && !isDealingDamage && !ispushed && !isStunned && !attackDuration.IsOver()) 
-            {
-                
-                rb.velocity = direction.normalized * jumpSpeed;
-
-
-            }
-
-            //if (distance < damageRange && isAttacking == true && !isDealingDamage && !missed)
-            //{
-            //    GameManager.Instance.playerHealth -= damage;
-            //    isDealingDamage = true;
-            //    rb.velocity = Vector2.zero;
-            //    Invoke("ResetAttack", attackCooldown);
-            //}
-
-            if (isAttacking && attackDuration.IsOver())
-            {
-                
-                isAttacking = false;
-                missed = true;
-                Invoke("Missed", attackCooldown);
-            }
-            
-            if ((distance > detectionRange && !ispushed))
-            {
-                rb.velocity = Vector2.zero;
-            }
-
-            //if (distance > attackRange && isAttacking)
-            //{
-            //    isAttacking = false;
-            //    missed = true;
-            //    Invoke("Missed", attackCooldown);
-            //}
-            if (missed && !ispushed)
-            {
-                rb.velocity = Vector2.zero;
-            }
+        
         }
 
         float xDiff = player.transform.position.x - transform.position.x;
