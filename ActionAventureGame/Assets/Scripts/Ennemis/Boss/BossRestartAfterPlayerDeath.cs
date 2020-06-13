@@ -8,6 +8,10 @@ public class BossRestartAfterPlayerDeath : MonoBehaviour
 {
     private void Update()
     {
-        if(GameManager.Instance.playerHealth <= 0) { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
+        if(GameManager.Instance.playerHealth <= 0)
+        {
+            GameManager.Instance.playerHealth = GameManager.Instance.playerHealthMax;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }

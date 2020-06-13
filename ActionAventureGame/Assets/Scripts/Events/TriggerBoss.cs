@@ -25,6 +25,7 @@ public class TriggerBoss : MonoBehaviour
             TimelinePlayed = false;
             Camera.main.GetComponent<BossCamera>().enabled = false;
             Camera.main.GetComponent<CinemachineBrain>().enabled = true;
+            GameManager.Instance.BossIntroHaveBeenPlay = true;
         }
         else
         {
@@ -34,7 +35,6 @@ public class TriggerBoss : MonoBehaviour
             GameManager.Instance.playerCanMove = true;
             Camera.main.GetComponent<BossCamera>().enabled = true;
             Camera.main.GetComponent<CinemachineBrain>().enabled = false;
-            GameManager.Instance.BossIntroHaveBeenPlay = true;
         }
         
 
