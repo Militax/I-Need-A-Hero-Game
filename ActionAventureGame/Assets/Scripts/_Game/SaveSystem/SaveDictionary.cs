@@ -19,6 +19,7 @@ namespace SaveSystem
 
         public static string GetFullPath(string prefix, string scene)
         {
+            Debug.Log(Application.persistentDataPath);
             return Path.Combine(Application.persistentDataPath, saveDirectory, prefix, scene) + ".save";
         }
 
