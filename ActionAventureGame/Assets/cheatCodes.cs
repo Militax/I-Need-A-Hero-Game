@@ -11,6 +11,7 @@ public class cheatCodes : MonoBehaviour
     public string money;
 	public string normalLife;
     public string tpBoss;
+	public string donjon;
 
     int HPmaxBeforeCheat;
 
@@ -21,9 +22,9 @@ public class cheatCodes : MonoBehaviour
         {
             if (Input.GetKey(invulnerability))
             {
-                HPmaxBeforeCheat = GameManager.Instance.playerHealthMax;
-                GameManager.Instance.playerHealthMax = 1000;
-                GameManager.Instance.playerHealth = GameManager.Instance.playerHealthMax;
+                
+                //GameManager.Instance.playerHealthMax = 1000;
+                GameManager.Instance.playerHealth = 1000;
             }
             else if (Input.GetKey(die))
             {
@@ -37,7 +38,7 @@ public class cheatCodes : MonoBehaviour
             }
             else if (Input.GetKey(normalLife))
             {
-                GameManager.Instance.playerHealthMax = HPmaxBeforeCheat;
+                //GameManager.Instance.playerHealthMax = HPmaxBeforeCheat;
                 GameManager.Instance.playerHealth = GameManager.Instance.playerHealthMax;
             }
             else if (Input.GetKey(tpBoss))
@@ -47,6 +48,13 @@ public class cheatCodes : MonoBehaviour
                 GameManager.Instance.powerState = 3;
                 SceneManager.LoadScene("Boss");
             }
+			else if (Input.GetKey(donjon))
+			{
+				
+                //GameManager.Instance.playerHealth = GameManager.Instance.playerHealthMax;
+            
+                SceneManager.LoadScene("Donjon");
+			}
         }
         
 

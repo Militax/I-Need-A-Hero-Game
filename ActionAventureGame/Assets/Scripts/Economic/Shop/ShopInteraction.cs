@@ -85,7 +85,7 @@ public class ShopInteraction : MonoBehaviour
 
 		if(GameManager.Instance.maxCoin == 1000)
 		{
-			if(GameManager.Instance.CoinOwned >= 1000)
+			if(GameManager.Instance.CoinOwned >= 300)
 
 			{
 				Debug.Log("achat de la bourse type 1");
