@@ -156,7 +156,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6716102325986113107
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -201,6 +201,7 @@ MonoBehaviour:
   safeTime: 0.1
   isAlive: 1
   hitstun: 0.5
+  canTakeDamage: 1
   dropNumber: 1
   lootRange: 1
   myLoot:
@@ -313,6 +314,11 @@ MonoBehaviour:
   NarratorVoice25: {fileID: 0}
   NarratorVoice51: {fileID: 0}
   NarratorVoice52: {fileID: 0}
+  GbDamage1: {fileID: 0}
+  GbDamage2: {fileID: 0}
+  GbDamage3: {fileID: 0}
+  CatDamage: {fileID: 0}
+  SmDamage: {fileID: 0}
 --- !u!114 &1038720884
 MonoBehaviour:
   m_ObjectHideFlags: 0

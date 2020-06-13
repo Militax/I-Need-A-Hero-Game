@@ -236,17 +236,18 @@ public class GingerBreadBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag ==player.tag && isAttacking == true && !isDealingDamage && !missed && !isDead && !isFrozen && !isStunned)
+        if (collision.tag == player.tag && isAttacking == true && !isDealingDamage && !missed && !isDead && !isFrozen && !isStunned)
         {
             if (!GameManager.Instance.invulnerability)
             {
-                GameManager.Instance.invulnerability = true;
                 GameManager.Instance.playerHealth -= damage;
-                isDealingDamage = true;
-                rb.velocity = Vector2.zero;
-                Invoke("ResetAttack", attackCooldown);
             }
-            
+            isDealingDamage = true;
+            rb.velocity = Vector2.zero;
+            GameManager.Instance.invulnerability = true;
+            Invoke("ResetAttack", attackCooldown);
+
+
         }
     }
 
