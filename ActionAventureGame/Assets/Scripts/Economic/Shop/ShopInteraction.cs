@@ -62,7 +62,11 @@ public class ShopInteraction : MonoBehaviour
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
 			}
-	
+			else
+			{
+				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
+			}
+
 
 		}
 		else if (GameManager.Instance.bottesState == 1)
@@ -78,6 +82,10 @@ public class ShopInteraction : MonoBehaviour
 
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
+			}
+			else
+			{
+				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
 			}
 		}
 	}

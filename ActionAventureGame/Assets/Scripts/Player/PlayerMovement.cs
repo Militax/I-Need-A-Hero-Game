@@ -73,15 +73,15 @@ namespace Player
                 animator.SetFloat("Vertical Idle", -1);
             }
 
-            if (GameManager.Instance.bottesState == 1)
+            if (GameManager.Instance.bottesState == 0)
             {
                 moveSpeed = bottes1;                PlayerAttack.baseMoveSpeed = moveSpeed;
             }
-            if (GameManager.Instance.bottesState == 2)
+            if (GameManager.Instance.bottesState == 1)
             {                
                 moveSpeed = bottes2;                PlayerAttack.baseMoveSpeed = moveSpeed;
             }
-            if (GameManager.Instance.bottesState == 3)
+            if (GameManager.Instance.bottesState == 2)
             {
                 moveSpeed = bottes3;                PlayerAttack.baseMoveSpeed = moveSpeed;
             }
