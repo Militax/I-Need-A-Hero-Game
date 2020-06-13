@@ -36,6 +36,7 @@ namespace GameManagement
         public GameObject Input;
         public GameObject bourse;
         public GameObject score;
+        public GameObject timer;
 
 
 
