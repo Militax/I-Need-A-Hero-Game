@@ -12,7 +12,7 @@ public class IntroForest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Timeline = Timeline = GetComponent<PlayableDirector>();
+        Timeline = GetComponent<PlayableDirector>();
 
         if (!GameManager.Instance.IntroHasBeenPlayed)
         {
@@ -29,8 +29,7 @@ public class IntroForest : MonoBehaviour
     }
     void OnPlayableDirectorStopped(PlayableDirector MontéeEau)
     {
-        GameManager.Instance.IntroHasBeenPlayed = true;
-        GameManager.Instance.playerCanMove = true;
+        
 
     }
     // Update is called once per frame

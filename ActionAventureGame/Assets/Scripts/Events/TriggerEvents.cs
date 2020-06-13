@@ -47,6 +47,7 @@ public class TriggerEvents : MonoBehaviour
                 GameManager.Instance.player.rb.velocity = Vector2.zero;
 
                 Timeline.stopped += OnPlayableDirectorStopped;
+
             }
         }
     }

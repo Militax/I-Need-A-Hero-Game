@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameManagement;
 
 public class IntroForestVoice : MonoBehaviour
 {
@@ -40,5 +41,8 @@ public class IntroForestVoice : MonoBehaviour
     public void Play7()
     {
         SoundManager.instance.PlayVoices(voiceLine7, 1);
+        
+        GameManager.Instance.IntroHasBeenPlayed = true;
+        GameManager.Instance.playerCanMove = true;
     }
 }
