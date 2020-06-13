@@ -24,24 +24,6 @@ public class ShopInteraction : MonoBehaviour
 	{
 		threshold = GameManager.Instance.GetComponentInChildren<ThresholdBourse>();
 	}
-	private void Update()
-	{
-		if (spr != null)
-		{
-			if (coinsCollected <= 900)
-			{
-				spr.sprite = MaisonPaille;
-			}
-			else if (coinsCollected > 900 && coinsCollected < 1600)
-			{
-				spr.sprite = MaisonBois;
-			}
-			else if (coinsCollected >= 1600)
-			{
-				spr.sprite = MaisonBrique;
-			}
-		}
-	}
 	// achat de 2 types de bottes
 	// type 1 = 400 coins
 	// type 2 = 1000 coins
@@ -61,6 +43,8 @@ public class ShopInteraction : MonoBehaviour
 
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
+
+				UpgradeSprite();
 			}
 			else
 			{
@@ -82,6 +66,8 @@ public class ShopInteraction : MonoBehaviour
 
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
+
+				UpgradeSprite();
 			}
 			else
 			{
@@ -112,6 +98,8 @@ public class ShopInteraction : MonoBehaviour
 
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
+
+				UpgradeSprite();
 			}
 			else
 			{
@@ -134,6 +122,8 @@ public class ShopInteraction : MonoBehaviour
 
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
+
+				UpgradeSprite();
 			}
 			else
 			{
@@ -172,6 +162,8 @@ public class ShopInteraction : MonoBehaviour
 
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
+
+				UpgradeSprite();
 			}
 			else
 			{
@@ -197,6 +189,8 @@ public class ShopInteraction : MonoBehaviour
 
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
+
+				UpgradeSprite();
 			}
 			else
 			{
@@ -221,6 +215,8 @@ public class ShopInteraction : MonoBehaviour
 
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
+
+				UpgradeSprite();
 			}
 			else
 			{
@@ -245,6 +241,8 @@ public class ShopInteraction : MonoBehaviour
 
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
+
+				UpgradeSprite();
 			}
 			else
 			{
@@ -268,11 +266,34 @@ public class ShopInteraction : MonoBehaviour
 
 				GameManager.Instance.GetComponentInChildren<ThresholdBourse>().UpdateCoinsDisplay(GameManager.Instance.CoinOwned);
 				GameManager.Instance.GetComponentInChildren<MoneyCount>().UpdateMoneyDisplay(GameManager.Instance.CoinOwned);
+
+				UpgradeSprite();
 			}
 			else
 			{
 				SoundManager.instance.PlaySfx(BuyDeniedAudio, 1, 1);
 			}
+		}
+	}
+
+
+
+	void UpgradeSprite()
+	{
+		if (coinsCollected <= 900)
+		{
+			Debug.Log("Paille");
+			spr.sprite = MaisonPaille;
+		}
+		else if (coinsCollected > 900 && coinsCollected < 1600)
+		{
+			Debug.Log("Bois");
+			spr.sprite = MaisonBois;
+		}
+		else if (coinsCollected >= 1600)
+		{
+			Debug.Log("Brique");
+			spr.sprite = MaisonBrique;
 		}
 	}
 }
