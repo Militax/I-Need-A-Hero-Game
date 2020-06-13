@@ -54,6 +54,7 @@ public class CatBehaviourProto : MonoBehaviour
 
     #endregion
 
+    public bool isDead;
     void Start()
     {
         
@@ -67,59 +68,63 @@ public class CatBehaviourProto : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dir = player.transform.position - gameObject.transform.position;
-        distance = Vector2.Distance(gameObject.transform.position, player.transform.position);
+        if (!isDead)
+        {
+            dir = player.transform.position - gameObject.transform.position;
+            distance = Vector2.Distance(gameObject.transform.position, player.transform.position);
 
-        if (distance < detectionRange && distance > AttackRange && !isPushed)
-        {
-            animator.SetTrigger("Walk");
-            rb.velocity = dir.normalized * speed;
-        }
+            if (distance < detectionRange && distance > AttackRange && !isPushed)
+            {
+                animator.SetTrigger("Walk");
+                rb.velocity = dir.normalized * speed;
+            }
 
-        if (distance <= AttackRange && isAttacking == false && !isPushed)
-        {
-            isAttacking = true;
-            animator.SetBool("CanAttack", true);
-            animator.SetTrigger("Attack");
-            rb.velocity = Vector2.zero;
-            direction = player.transform.position - gameObject.transform.position;
-            print("attack");
-            Invoke("Attack", timeBeforeAttack);
-        }
+            if (distance <= AttackRange && isAttacking == false && !isPushed)
+            {
+                isAttacking = true;
+                animator.SetBool("CanAttack", true);
+                animator.SetTrigger("Attack");
+                rb.velocity = Vector2.zero;
+                direction = player.transform.position - gameObject.transform.position;
+                print("attack");
+                Invoke("Attack", timeBeforeAttack);
+            }
 
-        if (distance >= detectionRange)
-        {
-            rb.velocity = Vector2.zero;
-        }
+            if (distance >= detectionRange)
+            {
+                rb.velocity = Vector2.zero;
+            }
 
-        if (isPushed)
-        {
-            rb.velocity = Vector2.zero;
-        }
+            if (isPushed)
+            {
+                rb.velocity = Vector2.zero;
+            }
 
 
-        float xDiff = player.transform.position.x - transform.position.x;
-        float yDiff = player.transform.position.y - transform.position.y;
-        //en bas a gauche 
-        if (xDiff < 0 && yDiff < 0)
-        {
-            animator.SetFloat("Direction", 0);
+            float xDiff = player.transform.position.x - transform.position.x;
+            float yDiff = player.transform.position.y - transform.position.y;
+            //en bas a gauche 
+            if (xDiff < 0 && yDiff < 0)
+            {
+                animator.SetFloat("Direction", 0);
+            }
+            //en bas a droite
+            if (xDiff > 0 && yDiff < 0)
+            {
+                animator.SetFloat("Direction", 0.33f);
+            }
+            //en haut a gauche
+            if (xDiff < 0 && yDiff > 0)
+            {
+                animator.SetFloat("Direction", 0.66f);
+            }
+            //en haut a droite
+            if (xDiff > 0 && yDiff > 0)
+            {
+                animator.SetFloat("Direction", 1);
+            }
         }
-        //en bas a droite
-        if (xDiff > 0 && yDiff < 0)
-        {
-            animator.SetFloat("Direction", 0.33f);
-        }
-        //en haut a gauche
-        if (xDiff < 0 && yDiff > 0)
-        {
-            animator.SetFloat("Direction", 0.66f);
-        }
-        //en haut a droite
-        if (xDiff > 0 && yDiff > 0)
-        {
-            animator.SetFloat("Direction", 1);
-        }
+        
 
     }
 

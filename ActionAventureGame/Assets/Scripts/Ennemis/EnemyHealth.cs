@@ -216,15 +216,15 @@ namespace Ennemy
             isAlive = false;
             if (ennemyType == "Snowman")
             {
-                GetComponentInChildren<SownmanFire>().enabled = false;
+                GetComponent<SnowMenBehaviour>().isDead = true;
             }
-            if (ennemyType == "GingerBread")
+            if (ennemyType == "Gingerbread")
             {
-                GetComponent<GingerBreadBehaviour>().enabled = false;
+                GetComponent<GingerBreadBehaviour>().isDead = true;
             }
             if (ennemyType == "Cat")
             {
-                GetComponent<CatBehaviourProto>().enabled = false;
+                GetComponent<CatBehaviourProto>().isDead = true;
             }
             yield return new WaitForSeconds(TimerDie);
             GameManager.Instance.loot(dropNumber, lootRange, myLoot, this.gameObject);
