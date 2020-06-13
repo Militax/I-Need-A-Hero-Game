@@ -23,6 +23,10 @@ public class GetWindPower : MonoBehaviour
     }
     void OnplayableDirectorStopped(PlayableDirector playable)
     {
+        if (GameManager.Instance.powerState < 2 )
+        {
+
+        }
         GameManager.Instance.powerState = stateWanted;
     }
 }
