@@ -15,7 +15,7 @@ public class GameLoader : Singleton<GameLoader>
     #region ForestArray
 
     public MovableObject[] boxArray;
-    public GameObject[] switchArray;
+    public ActivationDevice[] switchArray;
 
     #endregion
 
@@ -36,7 +36,7 @@ public class GameLoader : Singleton<GameLoader>
     #region "Activation Device"
     private void LoadActivationDevice(ActivationDevicesData[] data)
     {
-        ActivationDevice[] Devices = GameObject.FindObjectsOfType<ActivationDevice>();
+        ActivationDevice[] Devices = switchArray;
 
         if (data == null)
             return;
@@ -53,7 +53,7 @@ public class GameLoader : Singleton<GameLoader>
 
     private void SaveActivationDevice(SceneData data)
     {
-        ActivationDevice[] Devices = GameObject.FindObjectsOfType<ActivationDevice>();
+        ActivationDevice[] Devices = switchArray;
         ActivationDevicesData[] devicesDatas = new ActivationDevicesData[Devices.Length];
 
         for (int i = 0; i < Devices.Length; i++)
