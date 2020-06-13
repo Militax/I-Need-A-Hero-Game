@@ -9,6 +9,7 @@ using Ennemy;
 public class TriggerEvents : MonoBehaviour
 {
     public PlayableDirector Timeline;
+    public PlayableAsset playableAsset;
     private bool TimelinePlayed;
     private int powerlvl;
     public bool dependsFromDungeon;
@@ -20,6 +21,26 @@ public class TriggerEvents : MonoBehaviour
         Timeline = GetComponent<PlayableDirector>();
         TimelinePlayed = false;
 
+        var outputs = playableAsset.outputs;
+        foreach (var itm in outputs)
+        {
+            if (itm.streamName == "PlayerLife")
+            {
+                Timeline.SetGenericBinding(itm.sourceObject, GameManager.Instance.GetComponent<CanvasManagement>().playerHealth);
+            }
+            if (itm.streamName == "Bourse")
+            {
+                Timeline.SetGenericBinding(itm.sourceObject, GameManager.Instance.GetComponent<CanvasManagement>().bourse);
+            }
+            if (itm.streamName == "Score")
+            {
+                Timeline.SetGenericBinding(itm.sourceObject, GameManager.Instance.GetComponent<CanvasManagement>().score);
+            }
+            if (itm.streamName == "Input")
+            {
+                Timeline.SetGenericBinding(itm.sourceObject, GameManager.Instance.GetComponent<CanvasManagement>().Input);
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)

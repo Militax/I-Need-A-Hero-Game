@@ -28,7 +28,15 @@ namespace GameManagement
         public Sprite emptyHeart;
         #endregion
 
+
+
+        [Header ("Canvas Elements")]
         public GameObject BossLifeUI;
+        public GameObject playerHealth;
+        public GameObject Input;
+        public GameObject bourse;
+        public GameObject score;
+
 
 
         void Start()
