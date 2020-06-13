@@ -240,6 +240,7 @@ public class GingerBreadBehaviour : MonoBehaviour
         {
             if (!GameManager.Instance.invulnerability)
             {
+                GameManager.Instance.invulnerability = true;
                 GameManager.Instance.playerHealth -= damage;
                 isDealingDamage = true;
                 rb.velocity = Vector2.zero;
