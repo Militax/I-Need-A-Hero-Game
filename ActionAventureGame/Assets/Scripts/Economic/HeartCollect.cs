@@ -13,7 +13,7 @@ public class HeartCollect : MonoBehaviour
 	float distanceToPlayer;
 	private void Start()
 	{
-		player = FindObjectOfType<PlayerMovement>().transform;
+		player = GameManager.Instance.player.transform;
 	}
 
 	private void Update()
@@ -21,7 +21,7 @@ public class HeartCollect : MonoBehaviour
 		float step = speed * Time.deltaTime;
 		distanceToPlayer = Vector3.Distance(gameObject.transform.position, player.position);
 
-		if (distanceToPlayer <= CollectingRange)
+		if (distanceToPlayer <= CollectingRange && GameManager.Instance.playerHealth < GameManager.Instance.playerHealthMax)
 		{
 			transform.position = Vector3.MoveTowards(gameObject.transform.position, player.position, step);
 		}
@@ -29,7 +29,7 @@ public class HeartCollect : MonoBehaviour
 	//récupération des pièces et incrémentation de ++ dans le compteur de pièces
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.transform.tag == "Player")
+		if (other.transform.tag == "Player" && GameManager.Instance.playerHealth < GameManager.Instance.playerHealthMax)
 		{
 			GameManager.Instance.playerHealth += HeartValue;
 			
