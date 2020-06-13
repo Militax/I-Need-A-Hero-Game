@@ -12,12 +12,35 @@ public class TriggerCaptureFée : MonoBehaviour
     public GameObject TimelineDirector;
     private int powerlvl;
 
+    public PlayableAsset playableAsset;
+
     // Start is called before the first frame update
     void Start()
     {
         Timeline = TimelineDirector.GetComponent<PlayableDirector>();
         TimelinePlayed = false;
-        
+
+        var outputs = playableAsset.outputs;
+        foreach (var itm in outputs)
+        {
+            if (itm.streamName == "PlayerLife")
+            {
+                Timeline.SetGenericBinding(itm.sourceObject, GameManager.Instance.GetComponent<CanvasManagement>().playerHealth);
+            }
+            if (itm.streamName == "Bourse")
+            {
+                Timeline.SetGenericBinding(itm.sourceObject, GameManager.Instance.GetComponent<CanvasManagement>().bourse);
+            }
+            if (itm.streamName == "Score")
+            {
+                Timeline.SetGenericBinding(itm.sourceObject, GameManager.Instance.GetComponent<CanvasManagement>().score);
+            }
+            if (itm.streamName == "Input")
+            {
+                Timeline.SetGenericBinding(itm.sourceObject, GameManager.Instance.GetComponent<CanvasManagement>().Input);
+            }
+        }
+
     }
 
     private void OnDestroy()
