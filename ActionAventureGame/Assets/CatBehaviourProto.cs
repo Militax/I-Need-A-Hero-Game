@@ -139,11 +139,14 @@ public class CatBehaviourProto : MonoBehaviour
 
     void Attack()
     {
-
-        GameManager.Instance.playerHealth -= Damage;
-        iTween.MoveAdd(player.gameObject, direction.normalized * attackForce, attackDuration);
-        PlayAttackSound();
-        Invoke("AttackCD", attackCoolDown);
+        if (isDead)
+        {
+            GameManager.Instance.playerHealth -= Damage;
+            iTween.MoveAdd(player.gameObject, direction.normalized * attackForce, attackDuration);
+            PlayAttackSound();
+            Invoke("AttackCD", attackCoolDown);
+        }
+        
     }
 
     void AttackCD()

@@ -50,10 +50,12 @@ public class TriggerEvents : MonoBehaviour
 
             if (dependsFromDungeon && GameManager.Instance.isComingFromDonjon)
             {
+                gameObject.SetActive(false);
                 return;
             }
             if (dependsFromForest && GameManager.Instance.isComingFromForest)
             {
+                gameObject.SetActive(false);
                 return;
             }
             powerlvl = GameManager.Instance.powerState;
