@@ -116,12 +116,13 @@ public class GameLoader : Singleton<GameLoader>
     #region GameManager
     private void LoadGameManager(GameManagerData data)
     {
-        if (data == null )
+        if (data == null)
             return;
         if (GameManager.Instance == null)
             Debug.LogError("Gamemanager is null");
-        
+
         GameManager.Instance.playerCanMove = data.CanMove;
+        Debug.Log(GameManager.Instance.playerCanMove);
         GameManager.Instance.RespawnPoint = data.RespawnPoint;
         GameManager.Instance.playerHealth = data.PlayerHP;
         GameManager.Instance.playerHealthMax = data.PlayerMaxHP;
@@ -131,6 +132,9 @@ public class GameLoader : Singleton<GameLoader>
         GameManager.Instance.DeathCounter = data.DeathCounter;
         GameManager.Instance.swordDamage = data.SwordDamage;
         GameManager.Instance.bottesState = data.BottesState;
+        GameManager.Instance.isComingFromDonjon = data.isCommingFromDungeon;
+        GameManager.Instance.isComingFromForest = data.isCommingFromForest;
+        GameManager.Instance.IntroHasBeenPlayed = data.hasBeenPlayed;
     }
 
     private void SaveGameManager(RawData data)
@@ -148,7 +152,10 @@ public class GameLoader : Singleton<GameLoader>
             PowerState = GameManager.Instance.powerState,
             DeathCounter = GameManager.Instance.DeathCounter,
             SwordDamage = GameManager.Instance.swordDamage,
-            BottesState = GameManager.Instance.bottesState
+            BottesState = GameManager.Instance.bottesState,
+            hasBeenPlayed = GameManager.Instance.IntroHasBeenPlayed,
+            isCommingFromDungeon = GameManager.Instance.isComingFromDonjon,
+            isCommingFromForest = GameManager.Instance.isComingFromForest
         };
         data.ManagerData = managerData;
     }

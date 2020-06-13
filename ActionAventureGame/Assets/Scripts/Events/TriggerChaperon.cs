@@ -9,6 +9,7 @@ public class TriggerChaperon : MonoBehaviour
     private PlayableDirector Timeline;
     private PlayableDirector Gueulante;
 
+    public TriggerChaperon previousChaperon;
     private bool TimelinePlayed;
 
     public GameObject TimelineDirector;
@@ -19,28 +20,37 @@ public class TriggerChaperon : MonoBehaviour
     {
         Timeline = TimelineDirector.GetComponent<PlayableDirector>();
         Gueulante = GueulanteDirector.GetComponent<PlayableDirector>();
-     
-        
+
+
     }
 
-   
+    //private void OnDisable()
+    //{
+    //    previousChaperon.enabled = false;
+    //}
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
+            if (previousChaperon != null)
+            {
+                previousChaperon.enabled = false;
+            }
+
             Gueulante.Stop();
             TimelinePlayed = false;
             Timeline.Play();
             Timeline.stopped += OnPlayableDirectorStopped;
         }
-       
+
     }
 
     void OnTriggerExit2D(Collider2D Player)
     {
         if (Player.tag == "Player")
         {
-            
+
             if (TimelinePlayed == false)
             {
                 Gueulante.Play();
@@ -49,7 +59,7 @@ public class TriggerChaperon : MonoBehaviour
 
             Timeline.Stop();
         }
-        
+
     }
 
     void OnPlayableDirectorStopped(PlayableDirector MontéeEau)
@@ -57,7 +67,7 @@ public class TriggerChaperon : MonoBehaviour
         TimelinePlayed = true;
     }
 
-    void OnGueulanteStopped (PlayableDirector Gueulante)
+    void OnGueulanteStopped(PlayableDirector Gueulante)
     {
         Timeline.Stop();
     }

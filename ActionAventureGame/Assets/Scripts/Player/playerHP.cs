@@ -33,6 +33,8 @@ namespace Player
             if (GameManager.Instance.playerHealth <= 0 && !isDying)
             {
                 gameObject.GetComponent<PlayerMovement>().enabled = false;
+                gameObject.GetComponent<PlayerAttack>().enabled = false;
+                gameObject.GetComponent<PlayerPowers>().enabled = false;
                 GetComponent<Rigidbody2D>().velocity = Vector3.zero;
                 animator.SetTrigger("Dead");
                 SoundManager.instance.PlaySfx(Death, 1, 1);

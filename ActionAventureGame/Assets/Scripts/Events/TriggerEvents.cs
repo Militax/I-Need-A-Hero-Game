@@ -4,27 +4,38 @@ using UnityEngine;
 using UnityEngine.Playables;
 using Player;
 using GameManagement;
+using Ennemy;
 
 public class TriggerEvents : MonoBehaviour
 {
     public PlayableDirector Timeline;
     private bool TimelinePlayed;
     private int powerlvl;
-    
+    public bool dependsFromDungeon;
+    public bool dependsFromForest;
+
     // Start is called before the first frame update
     void Start()
     {
         Timeline = GetComponent<PlayableDirector>();
         TimelinePlayed = false;
-        
+
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            powerlvl = GameManager.Instance.powerState;
 
+            if (dependsFromDungeon && GameManager.Instance.isComingFromDonjon)
+            {
+                return;
+            }
+            if (dependsFromForest && GameManager.Instance.isComingFromForest)
+            {
+                return;
+            }
+            powerlvl = GameManager.Instance.powerState;
             if (TimelinePlayed == false)
             {
 
