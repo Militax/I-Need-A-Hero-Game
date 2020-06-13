@@ -12,6 +12,13 @@ using System.IO;
 
 public class GameLoader : Singleton<GameLoader>
 {
+    #region ForestArray
+
+    public MovableObject[] boxArray;
+    public GameObject[] switchArray;
+
+    #endregion
+
 
     private void Start()
     {
@@ -68,7 +75,7 @@ public class GameLoader : Singleton<GameLoader>
     #region "Movable Objects"
     private void LoadMovableObjects(MovableObjectData[] data)
     {
-        MovableObject[] Movables = GameObject.FindObjectsOfType<MovableObject>();
+        MovableObject[] Movables = boxArray;
 
         if (data == null)
             return;
@@ -85,7 +92,7 @@ public class GameLoader : Singleton<GameLoader>
 
     private void SaveMovableObjects(SceneData data)
     {
-        MovableObject[] Movables = GameObject.FindObjectsOfType<MovableObject>();
+        MovableObject[] Movables = boxArray;
         MovableObjectData[] MovablesData = new MovableObjectData[Movables.Length];
         for (int i = 0; i < Movables.Length; i++)
         {
