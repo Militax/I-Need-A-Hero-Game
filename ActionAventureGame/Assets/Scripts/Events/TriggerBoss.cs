@@ -18,12 +18,24 @@ public class TriggerBoss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Timeline.Play();
-        Boss.SetActive(false);
-        TimelinePlayed = false;
-        Camera.main.GetComponent<BossCamera>().enabled = false;
-        Camera.main.GetComponent<CinemachineBrain>().enabled = true;
-
+        if (!GameManager.Instance.BossIntroHaveBeenPlay)
+        {
+            Timeline.Play();
+            Boss.SetActive(false);
+            TimelinePlayed = false;
+            Camera.main.GetComponent<BossCamera>().enabled = false;
+            Camera.main.GetComponent<CinemachineBrain>().enabled = true;
+        }
+        else
+        {
+            Boss.SetActive(true);
+            GameManager.Instance.powerState = 3;
+            TimelinePlayed = true;
+            GameManager.Instance.playerCanMove = true;
+            Camera.main.GetComponent<BossCamera>().enabled = true;
+            Camera.main.GetComponent<CinemachineBrain>().enabled = false;
+            GameManager.Instance.BossIntroHaveBeenPlay = true;
+        }
         
 
     var outputs = playableAsset.outputs;

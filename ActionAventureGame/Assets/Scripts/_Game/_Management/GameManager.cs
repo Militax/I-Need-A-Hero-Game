@@ -64,6 +64,7 @@ namespace GameManagement
         public bool isComingFromForest = false;
         public bool IntroHasBeenPlayed;
         public int NarrativeStat = 1;
+        public bool BossIntroHaveBeenPlay = false;
         #endregion
 
         [HideInInspector]
