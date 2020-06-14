@@ -27,10 +27,16 @@ public class ShopInteraction : MonoBehaviour
 	// achat de 2 types de bottes
 	// type 1 = 400 coins
 	// type 2 = 1000 coins
-	public void bottesState()
+	public void bottesState(Button nextButton)
 	{
+		if (nextButton != null)
+		{
+			nextButton.Select();
+		}
 
-		if(GameManager.Instance.bottesState == 0)
+
+
+		if (GameManager.Instance.bottesState == 0)
 		{
 			if(GameManager.Instance.CoinOwned >= 400)
 			{
@@ -80,10 +86,14 @@ public class ShopInteraction : MonoBehaviour
 	// bourse de 2000 = 300 coins
 	// bourse de 5000 = 1000 coins
 
-	public void maxCoin()
+	public void maxCoin(Button nextButton)
 	{
+		if (nextButton != null)
+		{
+			nextButton.Select();
+		}
 
-		if(GameManager.Instance.maxCoin == 1000)
+		if (GameManager.Instance.maxCoin == 1000)
 		{
 			if(GameManager.Instance.CoinOwned >= 300)
 
@@ -143,10 +153,16 @@ public class ShopInteraction : MonoBehaviour
 	// coeur 8 = 600 coins
 	// coeur 9 = 800 coins
 	// coeur 10 = 1000 coins
-	 public void playerHealthMax()
+	 public void playerHealthMax(Button nextButton)
 	{
+		if (nextButton != null)
+		{
+			nextButton.Select();
+		}
+
+
 		// coeur 6
-		if(GameManager.Instance.playerHealthMax == 5)
+		if (GameManager.Instance.playerHealthMax == 5)
 		{
 			if(GameManager.Instance.CoinOwned >= 200)
 
