@@ -23,7 +23,7 @@ public class MenuPause : MonoBehaviour
         }
         
 
-        if (Input.GetKeyDown(KeyCode.Escape) && !menu.activeSelf || Input.GetButton("pause") && !menu.activeSelf)
+        if (Input.GetKeyDown(KeyCode.Escape) && !menu.activeSelf || Input.GetButtonDown("pause") && !menu.activeSelf)
         {
             menu.SetActive(true);
             FirtsButton.Select();
@@ -32,7 +32,7 @@ public class MenuPause : MonoBehaviour
             player.GetComponent<PlayerPowers>().enabled = false;
             player.GetComponent<PlayerAttack>().enabled = false;
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) && menu.activeSelf || Input.GetButton("pause") && menu.activeSelf)
+        else if (Input.GetKeyDown(KeyCode.Escape) && menu.activeSelf || Input.GetButtonDown("pause") && menu.activeSelf)
         {
             menu.SetActive(false);
             Time.timeScale = 1;
