@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.Playables;
+using GameManagement;
 
 public class pressureplatePlayer : ActivationDevice
 {
@@ -53,7 +54,7 @@ public class pressureplatePlayer : ActivationDevice
 
             if (item.colliderTag == tag)
             {
-                if (timelineNeeded == true && timelinePlayed == false)
+                if (timelineNeeded == true && timelinePlayed == false && !GameManager.Instance.isComingFromDonjon)
                 {
                     Timeline.Play();
                     timelinePlayed = true;
@@ -85,7 +86,6 @@ public class pressureplatePlayer : ActivationDevice
                     if (IsActive && !WasActivated)
                     {
                         WasActivated = true;
-                        Debug.Log("Play the fucking sound");
                         SoundManager.instance.PlaySfx(pressurePlateAudio, 1, 1);
                         GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
 
@@ -96,7 +96,6 @@ public class pressureplatePlayer : ActivationDevice
                 {
                     if (IsActive)
                     {
-                        Debug.Log("Play the fucking sound");
                         SoundManager.instance.PlaySfx(pressurePlateAudio, 1, 1);
                         GameObject fx = Instantiate(ParticleSystem, this.transform.position, Quaternion.identity);
                         Destroy(fx, 2f);
