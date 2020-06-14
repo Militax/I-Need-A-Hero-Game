@@ -39,6 +39,7 @@ public class SnowMenBehaviour : MonoBehaviour
     Vector3 pushDirection;
     bool ispushed = false;
     public CircleCollider2D PushZone;
+    public GameObject ParticleSystem;
 
 
     [Header("Audio")]
@@ -83,6 +84,11 @@ public class SnowMenBehaviour : MonoBehaviour
                     animator.SetBool("Repousse", true);
                     animator.SetTrigger("RepousseT");
                     ispushed = true;
+                    if (ParticleSystem != null)
+                    {
+                        GameObject fx = Instantiate(ParticleSystem, this.transform.position + new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0));
+                        Destroy(fx, 2f);
+                    }
                 }
 
             }
