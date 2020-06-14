@@ -10,6 +10,10 @@ public class rotationAiguille : MonoBehaviour
     float currentTimer;
     public SwichGlobal timerSwitch;
 
+    [Header("Audio")]
+    public AudioClip timerAudio;
+    public bool canPlay = true;
+
     // Update is called once per frame
     void Update()
     {
@@ -17,6 +21,11 @@ public class rotationAiguille : MonoBehaviour
         {
             if (timerSwitch.IsActive)
             {
+                if (canPlay)
+                {
+                    StartCoroutine(SoundDuration());
+                }
+
                 foreach (Image item in GetComponentsInChildren<Image>())
                 {
                     item.enabled = true;
@@ -44,5 +53,15 @@ public class rotationAiguille : MonoBehaviour
              
         }
         
+    }
+
+
+
+    IEnumerator SoundDuration()
+    {
+        SoundManager.instance.PlaySfx(timerAudio, 3, 1);
+        canPlay = false;
+        yield return new WaitForSeconds(20);
+        canPlay = true;
     }
 }

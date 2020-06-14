@@ -21,6 +21,7 @@ public class OutroVoice : MonoBehaviour
 
     public void loadMenu()
     {
+        SoundManager.instance.musicSource.Stop();
         Destroy(GameManager.Instance);
         Destroy(SoundManager.instance);
         SceneManager.LoadScene("Menus");
