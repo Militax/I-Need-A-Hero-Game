@@ -91,6 +91,7 @@ public class SwitchEnnemies : ActivationDevice
     {
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        animator = gameObject.GetComponent<Animator>();
 
         if (TimelineNeeded == true)
         {

@@ -9,11 +9,9 @@ public class Piano : MonoBehaviour
     public GameObject startInputShop;
     public bool canPlay = false;
     public bool isPlaying = false;
+    float cooldownMusic = 45;
 
-    private void Start()
-    {
-        
-    }
+   
 
 
     private void Update()
@@ -24,6 +22,7 @@ public class Piano : MonoBehaviour
             {
                 SoundManager.instance.PlayMusic(INeedAHeroPiano, 0.5f);
                 isPlaying = true;
+                StartCoroutine(cooldown());
             }
         }
     }
@@ -47,5 +46,11 @@ public class Piano : MonoBehaviour
             startInputShop.SetActive(false);
 
         }
+    }
+
+    IEnumerator cooldown()
+    {
+        yield return new WaitForSeconds(cooldownMusic);
+        isPlaying = false;
     }
 }
