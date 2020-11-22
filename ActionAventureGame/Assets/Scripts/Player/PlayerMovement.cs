@@ -74,26 +74,40 @@ namespace Player
             }
 
             if (GameManager.Instance.bottesState == 0)
-            {
-                moveSpeed = bottes1;                PlayerAttack.baseMoveSpeed = moveSpeed;
+            {
+
+                moveSpeed = bottes1;
+                PlayerAttack.baseMoveSpeed = moveSpeed;
+
             }
             if (GameManager.Instance.bottesState == 1)
-            {                
-                moveSpeed = bottes2;                PlayerAttack.baseMoveSpeed = moveSpeed;
+            {
+                
+                moveSpeed = bottes2;
+                PlayerAttack.baseMoveSpeed = moveSpeed;
             }
             if (GameManager.Instance.bottesState == 2)
-            {
-                moveSpeed = bottes3;                PlayerAttack.baseMoveSpeed = moveSpeed;
+            {
+
+                moveSpeed = bottes3;
+                PlayerAttack.baseMoveSpeed = moveSpeed;
+
             }
 
 
 
-            if(rb.velocity != Vector2.zero)
-            {
-                if (footStepCoroutine == false && !GetComponent<PlayerAttack>().isAttacking)
-                {
-                    StartCoroutine(FootStep());
-                }
+            if(rb.velocity != Vector2.zero)
+
+            {
+
+                if (footStepCoroutine == false && !GetComponent<PlayerAttack>().isAttacking)
+
+                {
+
+                    StartCoroutine(FootStep());
+
+                }
+
             }
 
 
@@ -109,9 +123,11 @@ namespace Player
                 
         }
 
-        IEnumerator FootStep()
+        IEnumerator FootStep()
+
         {
-            footStepCoroutine = true;            AudioClip[] AudioArray;
+            footStepCoroutine = true;
+            AudioClip[] AudioArray;
 
 
             if (walkOnStone && !walkOnIce)
@@ -129,8 +145,10 @@ namespace Player
 
             SoundManager.instance.PlaySfx(AudioArray[Random.Range(0, AudioArray.Length)], 0.5f, 1);
 
-            yield return new WaitForSeconds(timeBetweenSound);
-            footStepCoroutine = false;
+            yield return new WaitForSeconds(timeBetweenSound);
+
+            footStepCoroutine = false;
+
         }
         private void OnCollisionEnter2D(Collision2D collision)
         {

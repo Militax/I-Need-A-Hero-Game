@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4138,6 +4138,7 @@ GameObject:
   - component: {fileID: 4796420953634513524}
   - component: {fileID: 1620210749814622448}
   - component: {fileID: 3352725828684597153}
+  - component: {fileID: 880492163272067940}
   m_Layer: 5
   m_Name: InputField
   m_TagString: Untagged
@@ -4145,6 +4146,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &880492163272067940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880492163272067939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb3a047bea36a20409d9dea4e8952994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  child: {fileID: 1025623896}
 --- !u!224 &1128339001280244489
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4161,8 +4175,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -2.4986782}
-  m_SizeDelta: {x: -20, y: -13}
+  m_AnchoredPosition: {x: 10.309998, y: 2.33}
+  m_SizeDelta: {x: -40.62, y: -22.67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1191644393296559842
 GameObject:
@@ -4826,7 +4840,18 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 880492163272067940}
+        m_MethodName: OnValueChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
