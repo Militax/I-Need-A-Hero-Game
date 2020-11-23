@@ -32,7 +32,7 @@ public class PlayGame : MonoBehaviour
     private void Update()
     {
         if (slider.gameObject.activeSelf)
-            while (slider.value <= scene.progress)
+            while (slider.value <= scene.progress && !cantLoad)
                 StartCoroutine(Fade());
     }
     private IEnumerator Fade()
