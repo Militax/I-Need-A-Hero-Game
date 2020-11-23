@@ -12,6 +12,10 @@ public class PlayGame : MonoBehaviour
     public Text MyText;
     public Transform saveGrid;
     public GameObject buttonPrefab;
+    public Slider slider;
+    public GameObject laodingScreen;
+    private AsyncOperation scene;
+   
 
     private void Start()
     {
@@ -25,6 +29,11 @@ public class PlayGame : MonoBehaviour
             AddSaveButton(item);
     }
 
+    private void Update()
+    {
+        if(slider.gameObject.activeSelf)
+        slider.value = Mathf.Clamp01(scene.progress / 0.9f);
+    }
     private void AddSaveButton(string name)
     {
         GameObject instance = Instantiate(buttonPrefab, saveGrid);
@@ -39,8 +48,6 @@ public class PlayGame : MonoBehaviour
 
     public void LoadSave(string name)
     {
-
-
         string save = SaveDictionary.GetPrefix(name);
         string last = SaveDictionary.GetLastScene(name);
 
@@ -68,7 +75,8 @@ public class PlayGame : MonoBehaviour
         SoundManager.instance.musicSource.Stop();
         SoundManager.instance.musicSource.loop = false;
 
-        SceneManager.LoadScene(index);
+
+        StartCoroutine(NextLevelCoroutine(index));
     }
 
     public void NextLevelButton(string levelName)
@@ -76,7 +84,40 @@ public class PlayGame : MonoBehaviour
         SoundManager.instance.musicSource.Stop();
         SoundManager.instance.musicSource.loop = false;
 
-        SceneManager.LoadScene(levelName);
+        StartCoroutine(NextLevelCoroutine(levelName));
+    }
+
+    IEnumerator NextLevelCoroutine(int index)
+    {
+
+        laodingScreen.SetActive(true);
+        for (int i = 0; i < 100; i++)
+        {
+            laodingScreen.GetComponent<Image>().color = new Color(0, 0, 0, i/100);
+            
+            yield return new WaitForSeconds(0.01f);
+        }
+        slider.gameObject.SetActive( true);
+        scene = SceneManager.LoadSceneAsync(index);
+        scene.allowSceneActivation = false;
+        yield return new WaitUntil(() => scene.progress >= 0.89f);
+        scene.allowSceneActivation =true;
+    }
+    IEnumerator NextLevelCoroutine(string levelName)
+    {
+        laodingScreen.SetActive(true); 
+        for (int i = 0; i < 100; i++)
+        {
+            laodingScreen.GetComponent<Image>().color = new Color(0, 0, 0, i/100);
+            yield return new WaitForSeconds(0.01f);
+        }
+        slider.gameObject.SetActive(true);
+
+
+        scene = SceneManager.LoadSceneAsync(levelName);
+        scene.allowSceneActivation = false;
+        yield return new WaitUntil(() =>scene.progress >= 0.89f);
+        scene.allowSceneActivation = true;
     }
     public void ExitGame()
     {
