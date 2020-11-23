@@ -28,11 +28,19 @@ public class PlayGame : MonoBehaviour
         foreach (string item in saves)
             AddSaveButton(item);
     }
-
+    private bool cantLoad;
     private void Update()
     {
-        if(slider.gameObject.activeSelf)
-        slider.value = Mathf.Clamp01(scene.progress / 0.9f);
+        if (slider.gameObject.activeSelf)
+            while (slider.value <= scene.progress)
+                StartCoroutine(Fade());
+    }
+    private IEnumerator Fade()
+    {
+        cantLoad = true;
+        slider.value += 0.01f;
+        yield return new WaitForSeconds(0.01f);
+        cantLoad = false; 
     }
     private void AddSaveButton(string name)
     {
@@ -91,22 +99,21 @@ public class PlayGame : MonoBehaviour
     {
 
         laodingScreen.SetActive(true);
-        for (int i = 0; i < 100; i++)
+        for (float i = 0; i < 100; i++)
         {
             laodingScreen.GetComponent<Image>().color = new Color(0, 0, 0, i/100);
-            
             yield return new WaitForSeconds(0.01f);
         }
         slider.gameObject.SetActive( true);
         scene = SceneManager.LoadSceneAsync(index);
         scene.allowSceneActivation = false;
-        yield return new WaitUntil(() => scene.progress >= 0.89f);
+        yield return new WaitUntil(() => slider.value >= 0.89f);
         scene.allowSceneActivation =true;
     }
     IEnumerator NextLevelCoroutine(string levelName)
     {
         laodingScreen.SetActive(true); 
-        for (int i = 0; i < 100; i++)
+        for (float i = 0; i < 100; i++)
         {
             laodingScreen.GetComponent<Image>().color = new Color(0, 0, 0, i/100);
             yield return new WaitForSeconds(0.01f);
@@ -116,7 +123,7 @@ public class PlayGame : MonoBehaviour
 
         scene = SceneManager.LoadSceneAsync(levelName);
         scene.allowSceneActivation = false;
-        yield return new WaitUntil(() =>scene.progress >= 0.89f);
+        yield return new WaitUntil(() =>slider.value >= 0.89f);
         scene.allowSceneActivation = true;
     }
     public void ExitGame()
