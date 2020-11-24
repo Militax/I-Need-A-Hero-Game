@@ -14,7 +14,7 @@ public class TriggerEvents : MonoBehaviour
     private int powerlvl;
     public bool dependsFromDungeon;
     public bool dependsFromForest;
-
+    private GameObject player;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,7 +63,9 @@ public class TriggerEvents : MonoBehaviour
             {
 
                 Timeline.Play();
-
+                if (player == null)
+                    player = collision.gameObject;
+                player.GetComponent<PlayerAttack>().cantAttackCinematique = true;
                 GameManager.Instance.playerCanMove = false;
                 GameManager.Instance.powerState = 0;
                 //(FindObjectOfType<PlayerMovement>()).enabled = false;
@@ -80,6 +82,8 @@ public class TriggerEvents : MonoBehaviour
         TimelinePlayed = true;
         GameManager.Instance.playerCanMove = true;
         GameManager.Instance.powerState = powerlvl;
+        if(player!=null)
+            player.GetComponent<PlayerAttack>().cantAttackCinematique = false;
         //(FindObjectOfType<PlayerMovement>()).enabled = true;
         GameManager.Instance.player.rb.velocity = GameManager.Instance.player.movement.normalized * (GameManager.Instance.player.moveSpeed * 50) * Time.deltaTime;
     }

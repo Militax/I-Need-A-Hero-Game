@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using GameManagement;
+using Player;
 
 public class IntroForestVoice : MonoBehaviour
 {
@@ -43,6 +44,8 @@ public class IntroForestVoice : MonoBehaviour
         SoundManager.instance.PlayVoices(voiceLine7, 1);
         
         GameManager.Instance.IntroHasBeenPlayed = true;
+        
         GameManager.Instance.playerCanMove = true;
+        GameManager.Instance.player.GetComponent<PlayerAttack>().cantAttackCinematique = false;
     }
 }

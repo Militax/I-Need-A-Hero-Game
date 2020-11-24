@@ -43,6 +43,7 @@ namespace Player
         #region Bool
         public bool isAttacking = false; //état du joueur (attaque/attaque pas)
         public bool canAttack = true;
+        public bool cantAttackCinematique = true;
         #endregion
         #region Vectors
         Vector3 attackPos; //destination de l'attaque du joueur
@@ -71,6 +72,7 @@ namespace Player
             myCD = new Cooldown(cooldown);
             movespeed = GetComponent<PlayerMovement>().moveSpeed;
             baseMoveSpeed = movespeed;
+            cantAttackCinematique = true;
 
         }
         void Update()
@@ -82,7 +84,7 @@ namespace Player
 
             canAttack = myAtkSpeed.IsOver();
             isAttacking = !myCD.IsOver();
-            if (Input.GetButtonDown("Attack") && isAttacking == false && canAttack == true)
+            if (Input.GetButtonDown("Attack") && isAttacking == false && canAttack == true && !cantAttackCinematique)
             {
                 
                 ComboCount = 1;
@@ -90,7 +92,7 @@ namespace Player
                 Attaque();
 				
             }
-            else if (Input.GetButtonDown("Attack") && isAttacking == true && canAttack == true)
+            else if (Input.GetButtonDown("Attack") && isAttacking == true && canAttack == true && !cantAttackCinematique)
             {
                 
                 ComboCount += 1;
